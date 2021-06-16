@@ -1,7 +1,8 @@
 module.exports = {
     type: 'app',
-
+    title: 'Data Approval App',
+    coreApp: true,
     entryPoints: {
-        app: './src/App.js',
+        app: './src/app/index.js',
     },
 }
