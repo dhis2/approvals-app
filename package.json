@@ -6,15 +6,24 @@
     "private": true,
     "scripts": {
         "build": "d2-app-scripts build",
+        "deploy": "d2-app-scripts deploy",
+        "format": "d2-style apply",
+        "lint": "d2-style check",
         "start": "d2-app-scripts start",
-        "test": "d2-app-scripts test",
-        "deploy": "d2-app-scripts deploy"
+        "test": "d2-app-scripts test"
     },
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^6.2.0",
-        "@dhis2/cli-style": "^8.3.0"
+        "@dhis2/cli-style": "^8.4.1",
+        "@testing-library/react-hooks": "^7.0.0",
+        "enzyme": "^3.11.0",
+        "enzyme-adapter-react-16": "^1.15.6",
+        "identity-obj-proxy": "^3.0.0"
     },
     "dependencies": {
-        "@dhis2/app-runtime": "^2.8.0"
+        "@dhis2/app-runtime": "^2.8.0",
+        "prop-types": "^15.7.2",
+        "query-string": "^7.0.0",
+        "use-query-params": "^1.2.2"
     }
 }
