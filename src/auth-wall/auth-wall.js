@@ -2,8 +2,8 @@ import i18n from '@dhis2/d2-i18n'
 import { NoticeBox } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { useIsAuthorized } from '../cached-resources'
 import classes from './auth-wall.module.css'
+import { useIsAuthorized } from './use-is-authorized.js'
 
 const AuthWall = ({ children }) => {
     const isAuthorized = useIsAuthorized()

@@ -1,9 +1,9 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { useIsAuthorized } from '../cached-resources'
-import { AuthWall } from './auth-wall'
+import { AuthWall } from './auth-wall.js'
+import { useIsAuthorized } from './use-is-authorized'
 
-jest.mock('../cached-resources', () => ({
+jest.mock('./use-is-authorized', () => ({
     useIsAuthorized: jest.fn(),
 }))
 

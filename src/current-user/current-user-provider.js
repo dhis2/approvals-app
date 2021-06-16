@@ -2,7 +2,7 @@ import { useDataQuery } from '@dhis2/app-runtime'
 import { PropTypes } from '@dhis2/prop-types'
 import { CircularLoader, Layer, CenteredContent } from '@dhis2/ui'
 import React from 'react'
-import { CachedResourcesContext } from './cached-resources-context'
+import { CurrentUserContext } from './current-user-context'
 
 const query = {
     me: {
@@ -19,15 +19,9 @@ const query = {
             ],
         },
     },
-    systemInfo: {
-        resource: 'system/info',
-        params: {
-            fields: ['version'],
-        },
-    },
 }
 
-const CachedResourcesProvider = ({ children }) => {
+const CurrentUserProvider = ({ children }) => {
     const { data, loading, error } = useDataQuery(query)
 
     if (loading) {
@@ -49,21 +43,15 @@ const CachedResourcesProvider = ({ children }) => {
         throw error
     }
 
-    // TODO: replace with some getters
-    const providerValue = {
-        me: data.me,
-        systemVersion: data.systemInfo.version,
-    }
-
     return (
-        <CachedResourcesContext.Provider value={providerValue}>
+        <CurrentUserContext.Provider value={data.me}>
             {children}
-        </CachedResourcesContext.Provider>
+        </CurrentUserContext.Provider>
     )
 }
 
-CachedResourcesProvider.propTypes = {
+CurrentUserProvider.propTypes = {
     children: PropTypes.node.isRequired,
 }
 
-export { CachedResourcesProvider }
+export { CurrentUserProvider }
