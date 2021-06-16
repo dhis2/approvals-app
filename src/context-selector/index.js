@@ -1,3 +1,1 @@
-import { ContextSelector } from './context-selector'
-
-export { ContextSelector }
+export { ContextSelector } from './context-selector'
