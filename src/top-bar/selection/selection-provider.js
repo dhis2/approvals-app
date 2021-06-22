@@ -63,9 +63,7 @@ const SelectionProvider = ({ children }) => {
         pe: StringParam,
         ou: StringParam,
     })
-
     const { dataApprovalWorkflows } = useCurrentUser()
-
     const [{ openedSelect, workflow, period, orgUnit }, dispatch] = useReducer(
         reducer,
         {
@@ -76,6 +74,21 @@ const SelectionProvider = ({ children }) => {
             orgUnit: query.ou ? { id: query.ou } : {},
         }
     )
+    const providerValue = {
+        workflow,
+        period,
+        orgUnit,
+        openedSelect,
+        clearAll: () => dispatch({ type: ACTIONS.CLEAR_ALL }),
+        setOpenedSelect: fieldName =>
+            dispatch({ type: ACTIONS.SET_OPENED_SELECT, payload: fieldName }),
+        selectWorkflow: workflow =>
+            dispatch({ type: ACTIONS.SELECT_WORKFLOW, payload: workflow }),
+        selectPeriod: period =>
+            dispatch({ type: ACTIONS.SELECT_PERIOD, payload: period }),
+        selectOrgUnit: orgUnit =>
+            dispatch({ type: ACTIONS.SELECT_ORG_UNIT, payload: orgUnit }),
+    }
 
     useEffect(() => {
         setQuery({
@@ -84,22 +97,6 @@ const SelectionProvider = ({ children }) => {
             ou: orgUnit.id,
         })
     }, [workflow, period, orgUnit])
-
-    const providerValue = {
-        workflow,
-        period,
-        orgUnit,
-        openedSelect,
-        setOpenedSelect: fieldName =>
-            dispatch({ type: ACTIONS.SET_OPENED_SELECT, payload: fieldName }),
-        clearAll: () => dispatch({ type: ACTIONS.CLEAR_ALL }),
-        selectWorkflow: workflow =>
-            dispatch({ type: ACTIONS.SELECT_WORKFLOW, payload: workflow }),
-        selectPeriod: period =>
-            dispatch({ type: ACTIONS.SELECT_PERIOD, payload: period }),
-        selectOrgUnit: orgUnit =>
-            dispatch({ type: ACTIONS.SELECT_ORG_UNIT, payload: orgUnit }),
-    }
 
     return (
         <SelectionContext.Provider value={providerValue}>
