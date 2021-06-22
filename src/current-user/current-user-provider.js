@@ -2,14 +2,14 @@ import { useDataQuery } from '@dhis2/app-runtime'
 import { PropTypes } from '@dhis2/prop-types'
 import { CircularLoader, Layer, CenteredContent } from '@dhis2/ui'
 import React from 'react'
-import { CurrentUserContext } from './current-user-context'
+import { CurrentUserContext } from './current-user-context.js'
 
-const query = {
+const meQuery = {
     me: {
         resource: 'me',
         params: {
             fields: [
-                // TODO: adjust fields according to actual requirements
+                'id',
                 'authorities',
                 'programs',
                 'dataSets',
@@ -21,8 +21,32 @@ const query = {
     },
 }
 
+const dataApprovalWorkflowsQuery = {
+    dataApprovalWorkflows: {
+        resource: 'users',
+        id: ({ id }) => `${id}/dataApprovalWorkflows`,
+    },
+}
+
 const CurrentUserProvider = ({ children }) => {
-    const { data, loading, error } = useDataQuery(query)
+    const {
+        data: workflowsData,
+        loading: workflowsLoading,
+        error: workflowsError,
+        refetch: refetchWorkflows,
+        called: workflowsCalled,
+    } = useDataQuery(dataApprovalWorkflowsQuery, {
+        lazy: true,
+    })
+    const {
+        data: meData,
+        loading: meLoading,
+        error: meError,
+    } = useDataQuery(meQuery, {
+        onComplete: ({ me: { id } }) => refetchWorkflows({ id }),
+    })
+    const loading = !workflowsCalled || workflowsLoading || meLoading
+    const error = !loading && (workflowsError || meError)
 
     if (loading) {
         return (
@@ -44,7 +68,12 @@ const CurrentUserProvider = ({ children }) => {
     }
 
     return (
-        <CurrentUserContext.Provider value={data.me}>
+        <CurrentUserContext.Provider
+            value={{
+                ...meData.me,
+                ...workflowsData.dataApprovalWorkflows,
+            }}
+        >
             {children}
         </CurrentUserContext.Provider>
     )

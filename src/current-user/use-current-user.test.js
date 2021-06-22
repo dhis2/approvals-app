@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react-hooks'
 import React from 'react'
-import { CurrentUserContext } from './current-user-context'
-import { useCurrentUser } from './use-current-user'
+import { CurrentUserContext } from './current-user-context.js'
+import { useCurrentUser } from './use-current-user.js'
 
 describe('useCurrentUser', () => {
     const value = {

@@ -9,7 +9,7 @@
 }
 .top {
     padding: 0 8px 0 0;
-    border-bottom: 2px solid var(--colors-grey300);
+    box-shadow: inset 0 -1px 0 0 var(--colors-grey400);
     background-color: var(--colors-white);
 }
 .content {

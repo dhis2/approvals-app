@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-06-15T13:56:19.937Z\n"
-"PO-Revision-Date: 2021-06-15T13:56:19.937Z\n"
+"POT-Creation-Date: 2021-06-22T09:21:45.190Z\n"
+"PO-Revision-Date: 2021-06-22T09:21:45.190Z\n"
 
 msgid "Not authorized"
 msgstr "Not authorized"
@@ -17,3 +17,27 @@ msgid ""
 msgstr ""
 "You don't have access to the Data Approval App. Contact a system "
 "administrator to request access."
+
+msgid "Clear selections"
+msgstr "Clear selections"
+
+msgid "Choose an organisation unit"
+msgstr "Choose an organisation unit"
+
+msgid "Organisation Unit"
+msgstr "Organisation Unit"
+
+msgid "Choose a period"
+msgstr "Choose a period"
+
+msgid "Period"
+msgstr "Period"
+
+msgid "Choose a workflow"
+msgstr "Choose a workflow"
+
+msgid "Workflow"
+msgstr "Workflow"
+
+msgid "No workflows found. None may exist or you may not have access to any."
+msgstr "No workflows found. None may exist or you may not have access to any."

@@ -1,4 +1,4 @@
-import { useCurrentUser } from '../current-user'
+import { useCurrentUser } from '../current-user/index.js'
 
 export const useIsAuthorized = () => {
     const { authorities } = useCurrentUser()
