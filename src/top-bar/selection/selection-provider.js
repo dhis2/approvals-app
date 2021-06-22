@@ -1,5 +1,5 @@
 import { PropTypes } from '@dhis2/prop-types'
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useReducer } from 'react'
 import { useQueryParams, StringParam } from 'use-query-params'
 import { useCurrentUser } from '../../current-user/index.js'
 import { SelectionContext } from './selection-context.js'
@@ -10,6 +10,53 @@ const parsePeriodCode = code => ({
     name: code,
 })
 
+const ACTIONS = {
+    SET_OPENED_SELECT: 'SET_OPENED_SELECT',
+    CLEAR_ALL: 'CLEAR_ALL',
+    SELECT_WORKFLOW: 'SELECT_WORKFLOW',
+    SELECT_PERIOD: 'SELECT_PERIOD',
+    SELECT_ORG_UNIT: 'SELECT_ORG_UNIT',
+}
+
+const reducer = (state, { type, payload }) => {
+    switch (type) {
+        case ACTIONS.SET_OPENED_SELECT:
+            return {
+                ...state,
+                openedSelect: payload,
+            }
+        case ACTIONS.CLEAR_ALL:
+            return {
+                openedSelect: '',
+                workflow: {},
+                period: {},
+                orgUnit: {},
+            }
+        case ACTIONS.SELECT_WORKFLOW:
+            return {
+                openedSelect: '',
+                workflow: payload,
+                period: {},
+                orgUnit: {},
+            }
+        case ACTIONS.SELECT_PERIOD:
+            return {
+                ...state,
+                openedSelect: '',
+                period: payload,
+                orgUnit: {},
+            }
+        case ACTIONS.SELECT_ORG_UNIT:
+            return {
+                ...state,
+                openedSelect: '',
+                orgUnit: payload,
+            }
+        default:
+            return state
+    }
+}
+
 const SelectionProvider = ({ children }) => {
     const [query, setQuery] = useQueryParams({
         wf: StringParam,
@@ -18,16 +65,16 @@ const SelectionProvider = ({ children }) => {
     })
 
     const { dataApprovalWorkflows } = useCurrentUser()
-    const [openedSelect, setOpenedSelect] = useState('')
-    const [workflow, setWorkflow] = useState(
-        () => dataApprovalWorkflows.find(({ id }) => id === query.wf) || {}
-    )
-    const [period, setPeriod] = useState(() =>
-        query.pe ? parsePeriodCode(query.pe) : {}
-    )
-    const [orgUnit, setOrgUnit] = useState(
-        // TODO: implement proper org unit state once we know what we need
-        query.ou ? { id: query.ou } : {}
+
+    const [{ openedSelect, workflow, period, orgUnit }, dispatch] = useReducer(
+        reducer,
+        {
+            openedSelect: '',
+            workflow:
+                dataApprovalWorkflows.find(({ id }) => id === query.wf) || {},
+            period: query.pe ? parsePeriodCode(query.pe) : {},
+            orgUnit: query.ou ? { id: query.ou } : {},
+        }
     )
 
     useEffect(() => {
@@ -43,32 +90,15 @@ const SelectionProvider = ({ children }) => {
         period,
         orgUnit,
         openedSelect,
-        setOpenedSelect,
-        clearAll: () => {
-            setOpenedSelect('')
-            // clear all by resetting to default value `{}`
-            setWorkflow({})
-            setPeriod({})
-            setOrgUnit({})
-        },
-        selectWorkflow: workflow => {
-            setOpenedSelect('')
-            // first field, clear both subsequent fields
-            setWorkflow(workflow)
-            setPeriod({})
-            setOrgUnit({})
-        },
-        selectPeriod: period => {
-            setOpenedSelect('')
-            // second field, clear subsequent field
-            setPeriod(period)
-            setOrgUnit({})
-        },
-        selectOrgUnit: orgUnit => {
-            setOpenedSelect('')
-            // last field, no need to clear other fields
-            setOrgUnit(orgUnit)
-        },
+        setOpenedSelect: fieldName =>
+            dispatch({ type: ACTIONS.SET_OPENED_SELECT, payload: fieldName }),
+        clearAll: () => dispatch({ type: ACTIONS.CLEAR_ALL }),
+        selectWorkflow: workflow =>
+            dispatch({ type: ACTIONS.SELECT_WORKFLOW, payload: workflow }),
+        selectPeriod: period =>
+            dispatch({ type: ACTIONS.SELECT_PERIOD, payload: period }),
+        selectOrgUnit: orgUnit =>
+            dispatch({ type: ACTIONS.SELECT_ORG_UNIT, payload: orgUnit }),
     }
 
     return (
