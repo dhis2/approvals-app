@@ -7,7 +7,7 @@ import classes from './clear-all-button.module.css'
 const ClearAllButton = () => {
     const { clearAll, period, orgUnit } = useSelectionContext()
 
-    return period.code || orgUnit.id ? (
+    return period.id || orgUnit.id ? (
         <Button className={classes.button} secondary onClick={clearAll}>
             {i18n.t('Clear selections')}
         </Button>

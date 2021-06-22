@@ -18,7 +18,7 @@ describe('<ClearAllButton>', () => {
                 id: '123',
             },
             period: {
-                code: '20110203',
+                id: '20110203',
             },
             orgUnit: {
                 id: 'abc',
@@ -37,7 +37,7 @@ describe('<ClearAllButton>', () => {
                 id: '123',
             },
             period: {
-                code: '20110203',
+                id: '20110203',
             },
             orgUnit: {},
         }))
@@ -78,7 +78,7 @@ describe('<ClearAllButton>', () => {
                 id: '123',
             },
             period: {
-                code: '20110203',
+                id: '20110203',
             },
             orgUnit: {},
         }))

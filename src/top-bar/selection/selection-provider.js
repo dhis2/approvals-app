@@ -1,30 +1,9 @@
 import { PropTypes } from '@dhis2/prop-types'
 import React, { useEffect, useReducer } from 'react'
-import { useQueryParams, StringParam } from 'use-query-params'
 import { useCurrentUser } from '../../current-user/index.js'
+import { pushStateToHistory } from '../../navigation/index.js'
+import { initialValues, initialWorkflowValue } from './initial-values.js'
 import { SelectionContext } from './selection-context.js'
-
-// TODO: should take a periodCode and return a period object
-const parsePeriodCode = code => ({
-    code: code,
-    displayName: code,
-})
-
-const initialWorkflowValue = (workflows, id) => {
-    if (id) {
-        /*
-         * Auto select workflow with query param id
-         * default to empty object if `find` returns undefined in case the
-         * workflow with the id from the url is not available to the user
-         */
-        return workflows.find(workflow => workflow.id === id) || {}
-    }
-    if (workflows.length === 1) {
-        // auto-select if user only has one workflow
-        return workflows[0]
-    }
-    return {}
-}
 
 const ACTIONS = {
     SET_OPENED_SELECT: 'SET_OPENED_SELECT',
@@ -32,6 +11,7 @@ const ACTIONS = {
     SELECT_WORKFLOW: 'SELECT_WORKFLOW',
     SELECT_PERIOD: 'SELECT_PERIOD',
     SELECT_ORG_UNIT: 'SELECT_ORG_UNIT',
+    SET_STATE_FROM_QUERY_PARAMS: 'SET_STATE_FROM_QUERY_PARAMS',
 }
 
 const reducer = (state, { type, payload }) => {
@@ -58,7 +38,11 @@ const reducer = (state, { type, payload }) => {
         case ACTIONS.SELECT_PERIOD:
             return {
                 ...state,
-                openedSelect: '',
+                /*
+                 * Close dropdown only if selecting a period,
+                 * not when unsetting it when the year changes
+                 */
+                openedSelect: payload.period.id ? '' : state.openedSelect,
                 period: payload.period,
                 orgUnit: {},
             }
@@ -68,29 +52,23 @@ const reducer = (state, { type, payload }) => {
                 openedSelect: '',
                 orgUnit: payload.orgUnit,
             }
+        case ACTIONS.SET_STATE_FROM_QUERY_PARAMS:
+            return {
+                openedSelect: '',
+                ...initialValues(payload.dataApprovalWorkflows),
+            }
         default:
             return state
     }
 }
 
 const SelectionProvider = ({ children }) => {
-    const [query, setQuery] = useQueryParams({
-        wf: StringParam,
-        pe: StringParam,
-        ou: StringParam,
-    })
     const { dataApprovalWorkflows } = useCurrentUser()
     const [{ openedSelect, workflow, period, orgUnit }, dispatch] = useReducer(
         reducer,
         {
             openedSelect: '',
-            workflow: initialWorkflowValue(dataApprovalWorkflows, query.wf),
-            // TODO: the initial value for period should take into account the inital
-            // workflow value, it should be cleared if no valid workflow is found
-            period: query.pe ? parsePeriodCode(query.pe) : {},
-            // TODO: same as period, but orgUnit should also be cleared if period is
-            // unset/invalid
-            orgUnit: query.ou ? { id: query.ou } : {},
+            ...initialValues(dataApprovalWorkflows),
         }
     )
     const providerValue = {
@@ -121,12 +99,24 @@ const SelectionProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        setQuery({
-            wf: workflow.id,
-            pe: period.code,
-            ou: orgUnit.id,
-        })
+        pushStateToHistory({ workflow, period, orgUnit })
     }, [workflow, period, orgUnit])
+
+    useEffect(() => {
+        const setStateFromQueryParams = () => {
+            dispatch({
+                type: ACTIONS.SET_STATE_FROM_QUERY_PARAMS,
+                payload: {
+                    dataApprovalWorkflows,
+                },
+            })
+        }
+        window.addEventListener('popstate', setStateFromQueryParams)
+
+        return () => {
+            window.removeEventListener('popstate', setStateFromQueryParams)
+        }
+    }, [])
 
     return (
         <SelectionContext.Provider value={providerValue}>
