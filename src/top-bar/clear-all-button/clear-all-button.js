@@ -5,13 +5,13 @@ import { useSelection } from '../selection/index.js'
 import classes from './clear-all-button.module.css'
 
 const ClearAllButton = () => {
-    const { clearAll } = useSelection()
+    const { clearAll, period, orgUnit } = useSelection()
 
-    return (
+    return period.code || orgUnit.id ? (
         <Button className={classes.button} secondary onClick={clearAll}>
             {i18n.t('Clear selections')}
         </Button>
-    )
+    ) : null
 }
 
 export { ClearAllButton }
