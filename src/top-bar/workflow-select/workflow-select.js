@@ -31,7 +31,7 @@ const WorkflowSelect = () => {
             {dataApprovalWorkflows.length === 0 ? (
                 <div className={classes.message}>
                     {i18n.t(
-                        'No workflows found. None may exist or you may not have access to any.'
+                        'No workflows found. None may exist, or you may not have access to any.'
                     )}
                 </div>
             ) : (

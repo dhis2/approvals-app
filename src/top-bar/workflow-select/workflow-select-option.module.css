@@ -4,7 +4,6 @@
 .option {
     display: flex;
     flex-direction: column;
-    min-width: 216px;
 }
 .title {
     display: inline-flex;

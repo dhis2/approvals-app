@@ -8,7 +8,6 @@
     min-height: 40px;
     border-right: 1px solid var(--colors-grey400);
     cursor: pointer;
-    min-width: 240px;
 }
 .prefix {
     color: var(--colors-grey600);
@@ -17,9 +16,6 @@
 .value {
     flex-grow: 1;
     padding-right: var(--spacers-dp4);
-}
-.button:disabled > .value {
-    visibility: hidden;
 }
 .tooltipwrap {
     display: inline-flex;

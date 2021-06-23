@@ -29,7 +29,7 @@ const ContextSelect = ({
             disabled={disabled}
         >
             <span className={classes.prefix}>{label}</span>
-            <span className={classes.value}>{value}</span>
+            {!disabled && <span className={classes.value}>{value}</span>}
             <Icon color={disabled ? colors.grey600 : undefined} />
         </button>
     )
