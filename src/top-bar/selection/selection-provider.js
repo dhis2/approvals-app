@@ -10,6 +10,22 @@ const parsePeriodCode = code => ({
     name: code,
 })
 
+const initialWorkflowValue = (workflows, id) => {
+    if (id) {
+        /*
+         * Auto select workflow with query param id
+         * default to empty object if `find` returns undefined in case the
+         * workflow with the id from the url is not available to the user
+         */
+        return workflows.find(workflow => workflow.id === id) || {}
+    }
+    if (workflows.length === 1) {
+        // auto-select if user only has one workflow
+        return workflows[0]
+    }
+    return {}
+}
+
 const ACTIONS = {
     SET_OPENED_SELECT: 'SET_OPENED_SELECT',
     CLEAR_ALL: 'CLEAR_ALL',
@@ -68,8 +84,7 @@ const SelectionProvider = ({ children }) => {
         reducer,
         {
             openedSelect: '',
-            workflow:
-                dataApprovalWorkflows.find(({ id }) => id === query.wf) || {},
+            workflow: initialWorkflowValue(dataApprovalWorkflows, query.wf),
             period: query.pe ? parsePeriodCode(query.pe) : {},
             orgUnit: query.ou ? { id: query.ou } : {},
         }
@@ -79,7 +94,11 @@ const SelectionProvider = ({ children }) => {
         period,
         orgUnit,
         openedSelect,
-        clearAll: () => dispatch({ type: ACTIONS.CLEAR_ALL }),
+        clearAll: () =>
+            dispatch({
+                type: ACTIONS.CLEAR_ALL,
+                payload: initialWorkflowValue(dataApprovalWorkflows),
+            }),
         setOpenedSelect: fieldName =>
             dispatch({ type: ACTIONS.SET_OPENED_SELECT, payload: fieldName }),
         selectWorkflow: workflow =>
