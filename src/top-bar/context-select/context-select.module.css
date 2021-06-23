@@ -18,9 +18,14 @@
     flex-grow: 1;
     padding-right: var(--spacers-dp4);
 }
-.button:disabled {
-    cursor: not-allowed;
-}
 .button:disabled > .value {
     visibility: hidden;
+}
+.tooltipwrap {
+    display: inline-flex;
+    pointer-events: all;
+    cursor: not-allowed;
+}
+.tooltipwrap > .button:disabled {
+    pointer-events: none;
 }

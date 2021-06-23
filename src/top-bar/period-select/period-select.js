@@ -19,6 +19,7 @@ const PeriodSelect = () => {
             disabled={!workflow.id}
             onOpen={() => setOpenedSelect(PERIOD)}
             onClose={() => setOpenedSelect('')}
+            tooltipContent={i18n.t('Choose a workflow first')}
         >
             <pre>
                 Period picker placeholder <br />

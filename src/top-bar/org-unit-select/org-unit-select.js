@@ -15,6 +15,9 @@ const OrgUnitSelect = () => {
     } = useSelection()
     const open = openedSelect === ORG_UNIT
     const value = orgUnit.name || i18n.t('Choose an organisation unit')
+    const tooltipContent = workflow.id
+        ? i18n.t('Choose a period first')
+        : i18n.t('Choose a workflow and period first')
 
     return (
         <ContextSelect
@@ -24,6 +27,7 @@ const OrgUnitSelect = () => {
             disabled={!(workflow.id && period.code)}
             onOpen={() => setOpenedSelect(ORG_UNIT)}
             onClose={() => setOpenedSelect('')}
+            tooltipContent={tooltipContent}
         >
             <pre>Org Unit picker placeholder</pre>
         </ContextSelect>

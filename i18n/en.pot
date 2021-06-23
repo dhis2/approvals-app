@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-06-22T09:21:45.190Z\n"
-"PO-Revision-Date: 2021-06-22T09:21:45.190Z\n"
+"POT-Creation-Date: 2021-06-23T09:51:37.422Z\n"
+"PO-Revision-Date: 2021-06-23T09:51:37.422Z\n"
 
 msgid "Not authorized"
 msgstr "Not authorized"
@@ -24,6 +24,12 @@ msgstr "Clear selections"
 msgid "Choose an organisation unit"
 msgstr "Choose an organisation unit"
 
+msgid "Choose a period first"
+msgstr "Choose a period first"
+
+msgid "Choose a workflow and period first"
+msgstr "Choose a workflow and period first"
+
 msgid "Organisation Unit"
 msgstr "Organisation Unit"
 
@@ -32,6 +38,9 @@ msgstr "Choose a period"
 
 msgid "Period"
 msgstr "Period"
+
+msgid "Choose a workflow first"
+msgstr "Choose a workflow first"
 
 msgid "Choose a workflow"
 msgstr "Choose a workflow"
