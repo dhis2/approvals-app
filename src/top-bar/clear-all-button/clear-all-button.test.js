@@ -14,7 +14,6 @@ afterEach(() => {
 describe('<ClearAllButton>', () => {
     it('renders a button when workflow, period and org-unit are set', () => {
         useSelection.mockImplementation(() => ({
-            clearAll: jest.fn(),
             workflow: {
                 id: '123',
             },
@@ -34,7 +33,6 @@ describe('<ClearAllButton>', () => {
 
     it('renders a button when workflow and period are set', () => {
         useSelection.mockImplementation(() => ({
-            clearAll: jest.fn(),
             workflow: {
                 id: '123',
             },
@@ -52,7 +50,6 @@ describe('<ClearAllButton>', () => {
 
     it('renders nothing when only workflow is set', () => {
         useSelection.mockImplementation(() => ({
-            clearAll: jest.fn(),
             workflow: {
                 id: '123',
             },
@@ -65,12 +62,34 @@ describe('<ClearAllButton>', () => {
 
     it('renders nothing when all properties are unset', () => {
         useSelection.mockImplementation(() => ({
-            clearAll: jest.fn(),
             workflow: {},
             period: {},
             orgUnit: {},
         }))
         const wrapper = shallow(<ClearAllButton />)
         expect(wrapper.type()).toEqual(null)
+    })
+
+    it('calls clearAll when clicked', () => {
+        const clearAll = jest.fn()
+        useSelection.mockImplementation(() => ({
+            clearAll,
+            workflow: {
+                id: '123',
+            },
+            period: {
+                code: '20110203',
+            },
+            orgUnit: {},
+        }))
+
+        shallow(<ClearAllButton />)
+            .dive()
+            .find({
+                'data-test': 'dhis2-uicore-button',
+            })
+            .simulate('click')
+
+        expect(clearAll).toHaveBeenCalledTimes(1)
     })
 })
