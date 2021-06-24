@@ -51,4 +51,4 @@ const WorkflowSelect = () => {
     )
 }
 
-export { WorkflowSelect }
+export { WorkflowSelect, WORKFLOW }
