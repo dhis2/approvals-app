@@ -85,7 +85,11 @@ const SelectionProvider = ({ children }) => {
         {
             openedSelect: '',
             workflow: initialWorkflowValue(dataApprovalWorkflows, query.wf),
+            // TODO: the initial value for period should take into account the inital
+            // workflow value, it should be cleared if no valid workflow is found
             period: query.pe ? parsePeriodCode(query.pe) : {},
+            // TODO: same as period, but orgUnit should also be cleared if period is
+            // unset/invalid
             orgUnit: query.ou ? { id: query.ou } : {},
         }
     )
