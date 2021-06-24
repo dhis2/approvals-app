@@ -9,7 +9,7 @@ const PeriodSelect = () => {
     const { period, workflow, selectPeriod, openedSelect, setOpenedSelect } =
         useSelection()
     const open = openedSelect === PERIOD
-    const value = period.name || i18n.t('Choose a period')
+    const value = period.displayName || i18n.t('Choose a period')
 
     return (
         <ContextSelect
@@ -27,7 +27,7 @@ const PeriodSelect = () => {
                     onClick={() =>
                         selectPeriod({
                             code: '20210404',
-                            name: '04-04-2020',
+                            displayName: '04-04-2020',
                         })
                     }
                 >

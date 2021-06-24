@@ -14,7 +14,7 @@ const OrgUnitSelect = () => {
         setOpenedSelect,
     } = useSelection()
     const open = openedSelect === ORG_UNIT
-    const value = orgUnit.name || i18n.t('Choose an organisation unit')
+    const value = orgUnit.displayName || i18n.t('Choose an organisation unit')
     const tooltipContent = workflow.id
         ? i18n.t('Choose a period first')
         : i18n.t('Choose a workflow and period first')

@@ -27,11 +27,11 @@ afterEach(() => {
 describe('<WorkflowSelect>', () => {
     const mockWorkflows = [
         {
-            name: 'Workflow a',
+            displayName: 'Workflow a',
             id: 'i5m0JPw4DQi',
         },
         {
-            name: 'Workflow B',
+            displayName: 'Workflow B',
             id: 'rIUL3hYOjJc',
         },
     ]
@@ -79,7 +79,7 @@ describe('<WorkflowSelect>', () => {
         useSelection.mockImplementation(() => ({
             workflow: {
                 id: '123',
-                name: 'test',
+                displayName: 'test',
             },
             openedSelect: '',
             selectWorkflow: () => {},

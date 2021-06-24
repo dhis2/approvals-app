@@ -18,7 +18,7 @@ const WorkflowSelect = () => {
         setOpenedSelect,
     } = useSelection()
     const open = openedSelect === WORKFLOW
-    const value = selectedWorkflow.name || i18n.t('Choose a workflow')
+    const value = selectedWorkflow.displayName || i18n.t('Choose a workflow')
 
     return (
         <ContextSelect
@@ -39,7 +39,7 @@ const WorkflowSelect = () => {
                     {dataApprovalWorkflows.map(workflow => (
                         <WorkflowSelectOption
                             key={workflow.id}
-                            name={workflow.name}
+                            name={workflow.displayName}
                             periodType={workflow.periodType}
                             active={workflow.id === selectedWorkflow.id}
                             onClick={() => selectWorkflow(workflow)}

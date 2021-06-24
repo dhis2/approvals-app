@@ -7,7 +7,7 @@ import { SelectionContext } from './selection-context.js'
 // TODO: should take a periodCode and return a period object
 const parsePeriodCode = code => ({
     code: code,
-    name: code,
+    displayName: code,
 })
 
 const initialWorkflowValue = (workflows, id) => {

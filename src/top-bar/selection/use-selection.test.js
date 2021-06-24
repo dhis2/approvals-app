@@ -19,11 +19,11 @@ afterEach(() => {
 describe('useSelection', () => {
     const mockWorkflows = [
         {
-            name: 'Workflow a',
+            displayName: 'Workflow a',
             id: 'i5m0JPw4DQi',
         },
         {
-            name: 'Workflow B',
+            displayName: 'Workflow B',
             id: 'rIUL3hYOjJc',
         },
     ]
@@ -72,7 +72,7 @@ describe('useSelection', () => {
         expect(result.current.workflow).toEqual(mockWorkflows[1])
         expect(result.current.period).toEqual({
             code: '20110203',
-            name: '20110203',
+            displayName: '20110203',
         })
         expect(result.current.orgUnit).toEqual({ id: 'abc' })
         // TODO: add tests for dealing with invalid query params
