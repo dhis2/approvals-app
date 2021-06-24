@@ -4,7 +4,7 @@ import { CircularLoader, Layer, CenteredContent } from '@dhis2/ui'
 import React from 'react'
 import { CurrentUserContext } from './current-user-context.js'
 
-const meQuery = {
+const query = {
     me: {
         resource: 'me',
         params: {
@@ -19,34 +19,19 @@ const meQuery = {
             ],
         },
     },
-}
-
-const dataApprovalWorkflowsQuery = {
     dataApprovalWorkflows: {
-        resource: 'users',
-        id: ({ id }) => `${id}/dataApprovalWorkflows`,
+        // This is generic enpoint but will only return
+        // workflows a user is allowed to see
+        resource: 'dataApprovalWorkflows',
+        params: {
+            paging: false,
+            fields: ['id', 'displayName', 'dataApprovalLevels', 'periodType'],
+        },
     },
 }
 
 const CurrentUserProvider = ({ children }) => {
-    const {
-        data: workflowsData,
-        loading: workflowsLoading,
-        error: workflowsError,
-        refetch: refetchWorkflows,
-        called: workflowsCalled,
-    } = useDataQuery(dataApprovalWorkflowsQuery, {
-        lazy: true,
-    })
-    const {
-        data: meData,
-        loading: meLoading,
-        error: meError,
-    } = useDataQuery(meQuery, {
-        onComplete: ({ me: { id } }) => refetchWorkflows({ id }),
-    })
-    const loading = !workflowsCalled || workflowsLoading || meLoading
-    const error = !loading && (workflowsError || meError)
+    const { data, loading, error } = useDataQuery(query)
 
     if (loading) {
         return (
@@ -67,13 +52,13 @@ const CurrentUserProvider = ({ children }) => {
         throw error
     }
 
+    const providerValue = {
+        ...data.me,
+        ...data.dataApprovalWorkflows,
+    }
+
     return (
-        <CurrentUserContext.Provider
-            value={{
-                ...meData.me,
-                ...workflowsData.dataApprovalWorkflows,
-            }}
-        >
+        <CurrentUserContext.Provider value={providerValue}>
             {children}
         </CurrentUserContext.Provider>
     )
