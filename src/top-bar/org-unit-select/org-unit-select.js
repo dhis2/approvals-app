@@ -24,7 +24,7 @@ const OrgUnitSelect = () => {
             prefix={i18n.t('Organisation Unit')}
             value={value}
             open={open}
-            disabled={!(workflow.id && period.code)}
+            disabled={!(workflow.id && period.id)}
             onOpen={() => setOpenedSelect(ORG_UNIT)}
             onClose={() => setOpenedSelect('')}
             requiredValuesMessage={requiredValuesMessage}

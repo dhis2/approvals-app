@@ -4,10 +4,10 @@ import { useQueryParams, StringParam } from 'use-query-params'
 import { useCurrentUser } from '../../current-user/index.js'
 import { SelectionContext } from './selection-context.js'
 
-// TODO: should take a periodCode and return a period object
-const parsePeriodCode = code => ({
-    code: code,
-    displayName: code,
+// TODO: should take a periodId and return a period object
+const parsePeriodId = id => ({
+    id: id,
+    displayName: id,
 })
 
 const initialWorkflowValue = (workflows, id) => {
@@ -87,7 +87,7 @@ const SelectionProvider = ({ children }) => {
             workflow: initialWorkflowValue(dataApprovalWorkflows, query.wf),
             // TODO: the initial value for period should take into account the inital
             // workflow value, it should be cleared if no valid workflow is found
-            period: query.pe ? parsePeriodCode(query.pe) : {},
+            period: query.pe ? parsePeriodId(query.pe) : {},
             // TODO: same as period, but orgUnit should also be cleared if period is
             // unset/invalid
             orgUnit: query.ou ? { id: query.ou } : {},
@@ -123,7 +123,7 @@ const SelectionProvider = ({ children }) => {
     useEffect(() => {
         setQuery({
             wf: workflow.id,
-            pe: period.code,
+            pe: period.id,
             ou: orgUnit.id,
         })
     }, [workflow, period, orgUnit])

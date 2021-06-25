@@ -71,7 +71,7 @@ describe('useSelectionContext', () => {
         const { result } = renderHook(() => useSelectionContext(), { wrapper })
         expect(result.current.workflow).toEqual(mockWorkflows[1])
         expect(result.current.period).toEqual({
-            code: '20110203',
+            id: '20110203',
             displayName: '20110203',
         })
         expect(result.current.orgUnit).toEqual({ id: 'abc' })
@@ -106,7 +106,7 @@ describe('useSelectionContext', () => {
         expect(setQuery).toHaveBeenCalledTimes(1)
         setQuery.mockClear()
 
-        const expectedPeriod = { code: '20210202' }
+        const expectedPeriod = { id: '20210202' }
         act(() => {
             result.current.selectPeriod(expectedPeriod)
         })

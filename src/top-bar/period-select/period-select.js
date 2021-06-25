@@ -26,7 +26,7 @@ const PeriodSelect = () => {
                 <button
                     onClick={() =>
                         selectPeriod({
-                            code: '20210404',
+                            id: '20210404',
                             displayName: '04-04-2020',
                         })
                     }
