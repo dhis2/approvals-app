@@ -2,7 +2,6 @@
 
 exports[`fixedPeriods utils Period id parser should parse bi-weekly periods correctly 1`] = `
 Object {
-  "id": "BiWeekly",
   "name": "Bi-weekly",
   "options": Array [
     Object {
@@ -188,13 +187,13 @@ Object {
       "startDate": "2014-12-15",
     },
   ],
+  "type": "BiWeekly",
   "year": "2014",
 }
 `;
 
 exports[`fixedPeriods utils Period id parser should parse bimonthly periods correctly 1`] = `
 Object {
-  "id": "BiMonthly",
   "name": "Bi-monthly",
   "options": Array [
     Object {
@@ -240,13 +239,13 @@ Object {
       "startDate": "2014-11-01",
     },
   ],
+  "type": "BiMonthly",
   "year": "2014",
 }
 `;
 
 exports[`fixedPeriods utils Period id parser should parse daily periods correctly 1`] = `
 Object {
-  "id": "Daily",
   "name": "Daily",
   "options": Array [
     Object {
@@ -2805,13 +2804,13 @@ Object {
       "startDate": "2014-12-31",
     },
   ],
+  "type": "Daily",
   "year": "2014",
 }
 `;
 
 exports[`fixedPeriods utils Period id parser should parse financial-year-april periods correctly 1`] = `
 Object {
-  "id": "FinancialApril",
   "name": "Financial year (Start April)",
   "options": Array [
     Object {
@@ -2875,13 +2874,13 @@ Object {
       "startDate": "2014-04-01",
     },
   ],
+  "type": "FinancialApril",
   "year": "2014",
 }
 `;
 
 exports[`fixedPeriods utils Period id parser should parse financial-year-july periods correctly 1`] = `
 Object {
-  "id": "FinancialJuly",
   "name": "Financial year (Start July)",
   "options": Array [
     Object {
@@ -2945,13 +2944,13 @@ Object {
       "startDate": "2014-07-01",
     },
   ],
+  "type": "FinancialJuly",
   "year": "2014",
 }
 `;
 
 exports[`fixedPeriods utils Period id parser should parse financial-year-november periods correctly 1`] = `
 Object {
-  "id": "FinancialNov",
   "name": "Financial year (Start November)",
   "options": Array [
     Object {
@@ -3015,13 +3014,13 @@ Object {
       "startDate": "2014-11-01",
     },
   ],
+  "type": "FinancialNov",
   "year": "2014",
 }
 `;
 
 exports[`fixedPeriods utils Period id parser should parse financial-year-october periods correctly 1`] = `
 Object {
-  "id": "FinancialOct",
   "name": "Financial year (Start October)",
   "options": Array [
     Object {
@@ -3085,13 +3084,13 @@ Object {
       "startDate": "2014-10-01",
     },
   ],
+  "type": "FinancialOct",
   "year": "2014",
 }
 `;
 
 exports[`fixedPeriods utils Period id parser should parse monthly periods correctly 1`] = `
 Object {
-  "id": "Monthly",
   "name": "Monthly",
   "options": Array [
     Object {
@@ -3179,13 +3178,13 @@ Object {
       "startDate": "2014-12-01",
     },
   ],
+  "type": "Monthly",
   "year": "2014",
 }
 `;
 
 exports[`fixedPeriods utils Period id parser should parse quarterly periods correctly 1`] = `
 Object {
-  "id": "Quarterly",
   "name": "Quarterly",
   "options": Array [
     Object {
@@ -3217,13 +3216,13 @@ Object {
       "startDate": "2014-10-01",
     },
   ],
+  "type": "Quarterly",
   "year": "2014",
 }
 `;
 
 exports[`fixedPeriods utils Period id parser should parse six-monthly periods correctly 1`] = `
 Object {
-  "id": "SixMonthly",
   "name": "Six-monthly",
   "options": Array [
     Object {
@@ -3241,13 +3240,13 @@ Object {
       "startDate": "2014-07-01",
     },
   ],
+  "type": "SixMonthly",
   "year": "2014",
 }
 `;
 
 exports[`fixedPeriods utils Period id parser should parse six-monthly-april periods correctly 1`] = `
 Object {
-  "id": "SixMonthlyApril",
   "name": "Six-monthly April",
   "options": Array [
     Object {
@@ -3265,13 +3264,13 @@ Object {
       "startDate": "2014-10-01",
     },
   ],
+  "type": "SixMonthlyApril",
   "year": "2014",
 }
 `;
 
 exports[`fixedPeriods utils Period id parser should parse weekly periods correctly 1`] = `
 Object {
-  "id": "Weekly",
   "name": "Weekly",
   "options": Array [
     Object {
@@ -3639,13 +3638,13 @@ Object {
       "startDate": "2014-12-22",
     },
   ],
+  "type": "Weekly",
   "year": "2014",
 }
 `;
 
 exports[`fixedPeriods utils Period id parser should parse weekly-saturday periods correctly 1`] = `
 Object {
-  "id": "WeeklySaturday",
   "name": "Weekly (Start Saturday)",
   "options": Array [
     Object {
@@ -4013,13 +4012,13 @@ Object {
       "startDate": "2014-12-27",
     },
   ],
+  "type": "WeeklySaturday",
   "year": "2014",
 }
 `;
 
 exports[`fixedPeriods utils Period id parser should parse weekly-sunday periods correctly 1`] = `
 Object {
-  "id": "WeeklySunday",
   "name": "Weekly (Start Sunday)",
   "options": Array [
     Object {
@@ -4394,13 +4393,13 @@ Object {
       "startDate": "2014-12-28",
     },
   ],
+  "type": "WeeklySunday",
   "year": "2014",
 }
 `;
 
 exports[`fixedPeriods utils Period id parser should parse weekly-sunday periods correctly 2`] = `
 Object {
-  "id": "WeeklySunday",
   "name": "Weekly (Start Sunday)",
   "options": Array [
     Object {
@@ -4775,13 +4774,13 @@ Object {
       "startDate": "2014-12-28",
     },
   ],
+  "type": "WeeklySunday",
   "year": "2014",
 }
 `;
 
 exports[`fixedPeriods utils Period id parser should parse weekly-thursday periods correctly 1`] = `
 Object {
-  "id": "WeeklyThursday",
   "name": "Weekly (Start Thursday)",
   "options": Array [
     Object {
@@ -5149,13 +5148,13 @@ Object {
       "startDate": "2014-12-25",
     },
   ],
+  "type": "WeeklyThursday",
   "year": "2014",
 }
 `;
 
 exports[`fixedPeriods utils Period id parser should parse weekly-wednessday periods correctly 1`] = `
 Object {
-  "id": "WeeklyWednesday",
   "name": "Weekly (Start Wednesday)",
   "options": Array [
     Object {
@@ -5523,13 +5522,13 @@ Object {
       "startDate": "2014-12-24",
     },
   ],
+  "type": "WeeklyWednesday",
   "year": "2014",
 }
 `;
 
 exports[`fixedPeriods utils Period id parser should parse yearly periods correctly 1`] = `
 Object {
-  "id": "Yearly",
   "name": "Yearly",
   "options": Array [
     Object {
@@ -5603,6 +5602,7 @@ Object {
       "startDate": "2014-01-01",
     },
   ],
+  "type": "Yearly",
   "year": "2014",
 }
 `;

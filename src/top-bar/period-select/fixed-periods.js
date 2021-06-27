@@ -12,6 +12,7 @@ import i18n from '@dhis2/d2-i18n'
  * IMO these changes should be implemented in the period package too
  */
 
+// Period types
 const DAILY = 'Daily'
 const WEEKLY = 'Weekly'
 const WEEKLY_WEDNESDAY = 'WeeklyWednesday'
@@ -30,11 +31,6 @@ const FINANCIAL_APRIL = 'FinancialApril'
 const FINANCIAL_JULY = 'FinancialJuly'
 const FINANCIAL_OCT = 'FinancialOct'
 const FINANCIAL_NOV = 'FinancialNov'
-
-export const filterPeriodTypesById = (
-    allPeriodTypes = [],
-    excludedPeriodTypes = []
-) => allPeriodTypes.filter(period => !excludedPeriodTypes.includes(period.id))
 
 const PERIOD_TYPE_REGEX = {
     [DAILY]: /^([0-9]{4})([0-9]{2})([0-9]{2})$/, // YYYYMMDD
@@ -576,14 +572,14 @@ const filterFuturePeriods = periods => {
     return array
 }
 
-const getOptions = () => [
+export const getFixedPeriodTypes = () => [
     {
-        id: DAILY,
+        type: DAILY,
         getPeriods: getDailyPeriodType(formatYyyyMmDd, filterFuturePeriods),
         name: i18n.t('Daily'),
     },
     {
-        id: WEEKLY,
+        type: WEEKLY,
         getPeriods: getWeeklyPeriodType(
             formatYyyyMmDd,
             { shortName: '', startDay: 1 },
@@ -592,7 +588,7 @@ const getOptions = () => [
         name: i18n.t('Weekly'),
     },
     {
-        id: WEEKLY_WEDNESDAY,
+        type: WEEKLY_WEDNESDAY,
         getPeriods: getWeeklyPeriodType(
             formatYyyyMmDd,
             { shortName: 'Wed', startDay: 3 },
@@ -601,7 +597,7 @@ const getOptions = () => [
         name: i18n.t('Weekly (Start Wednesday)'),
     },
     {
-        id: WEEKLY_THURSDAY,
+        type: WEEKLY_THURSDAY,
         getPeriods: getWeeklyPeriodType(
             formatYyyyMmDd,
             { shortName: 'Thu', startDay: 4 },
@@ -610,7 +606,7 @@ const getOptions = () => [
         name: i18n.t('Weekly (Start Thursday)'),
     },
     {
-        id: WEEKLY_SATURDAY,
+        type: WEEKLY_SATURDAY,
         getPeriods: getWeeklyPeriodType(
             formatYyyyMmDd,
             { shortName: 'Sat', startDay: 6 },
@@ -619,7 +615,7 @@ const getOptions = () => [
         name: i18n.t('Weekly (Start Saturday)'),
     },
     {
-        id: WEEKLY_SUNDAY,
+        type: WEEKLY_SUNDAY,
         getPeriods: getWeeklyPeriodType(
             formatYyyyMmDd,
             { shortName: 'Sun', startDay: 7 },
@@ -628,42 +624,42 @@ const getOptions = () => [
         name: i18n.t('Weekly (Start Sunday)'),
     },
     {
-        id: BI_WEEKLY,
+        type: BI_WEEKLY,
         getPeriods: getBiWeeklyPeriodType(formatYyyyMmDd, filterFuturePeriods),
         name: i18n.t('Bi-weekly'),
     },
     {
-        id: MONTHLY,
+        type: MONTHLY,
         getPeriods: getMonthlyPeriodType(formatYyyyMmDd, filterFuturePeriods),
         name: i18n.t('Monthly'),
     },
     {
-        id: BI_MONTHLY,
+        type: BI_MONTHLY,
         getPeriods: getBiMonthlyPeriodType(formatYyyyMmDd, filterFuturePeriods),
         name: i18n.t('Bi-monthly'),
     },
     {
-        id: QUARTERLY,
+        type: QUARTERLY,
         getPeriods: getQuarterlyPeriodType(formatYyyyMmDd, filterFuturePeriods),
         name: i18n.t('Quarterly'),
     },
     {
-        id: SIX_MONTHLY,
+        type: SIX_MONTHLY,
         getPeriods: getSixMonthlyPeriodType(filterFuturePeriods),
         name: i18n.t('Six-monthly'),
     },
     {
-        id: SIX_MONTHLY_APRIL,
+        type: SIX_MONTHLY_APRIL,
         getPeriods: getSixMonthlyAprilPeriodType(filterFuturePeriods),
         name: i18n.t('Six-monthly April'),
     },
     {
-        id: YEARLY,
+        type: YEARLY,
         getPeriods: getYearlyPeriodType(formatYyyyMmDd, filterFuturePeriods),
         name: i18n.t('Yearly'),
     },
     {
-        id: FINANCIAL_NOV,
+        type: FINANCIAL_NOV,
         getPeriods: getFinancialNovemberPeriodType(
             formatYyyyMmDd,
             filterFuturePeriods
@@ -671,7 +667,7 @@ const getOptions = () => [
         name: i18n.t('Financial year (Start November)'),
     },
     {
-        id: FINANCIAL_OCT,
+        type: FINANCIAL_OCT,
         getPeriods: getFinancialOctoberPeriodType(
             formatYyyyMmDd,
             filterFuturePeriods
@@ -679,7 +675,7 @@ const getOptions = () => [
         name: i18n.t('Financial year (Start October)'),
     },
     {
-        id: FINANCIAL_JULY,
+        type: FINANCIAL_JULY,
         getPeriods: getFinancialJulyPeriodType(
             formatYyyyMmDd,
             filterFuturePeriods
@@ -687,7 +683,7 @@ const getOptions = () => [
         name: i18n.t('Financial year (Start July)'),
     },
     {
-        id: FINANCIAL_APRIL,
+        type: FINANCIAL_APRIL,
         getPeriods: getFinancialAprilPeriodType(
             formatYyyyMmDd,
             filterFuturePeriods
@@ -696,10 +692,8 @@ const getOptions = () => [
     },
 ]
 
-export const getFixedPeriodsOptionsById = id =>
-    getOptions().find(option => option.id === id)
-
-export const getFixedPeriodsOptions = () => getOptions()
+export const getFixedPeriodType = type =>
+    getFixedPeriodTypes().find(option => option.type === type)
 
 export const getYearOffsetFromNow = yearStr =>
     parseInt(yearStr) - new Date(Date.now()).getFullYear()
@@ -723,12 +717,12 @@ export const parsePeriodId = (id, allowedTypes) => {
         return undefined
     }
 
-    const period = getFixedPeriodsOptionsById(type)
+    const period = getFixedPeriodType(type)
     const offset = getYearOffsetFromNow(match[1])
     const options = period.getPeriods({ offset })
 
     return {
-        id: period.id,
+        type: period.type,
         name: period.name,
         year: match[1],
         options,

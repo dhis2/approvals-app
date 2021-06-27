@@ -1,6 +1,6 @@
 import {
-    getFixedPeriodsOptionsById,
-    getFixedPeriodsOptions,
+    getFixedPeriodType,
+    getFixedPeriodTypes,
     parsePeriodId,
     getYearOffsetFromNow,
 } from './fixed-periods.js'
@@ -11,9 +11,9 @@ describe('fixedPeriods utils', () => {
         jest.spyOn(Date, 'now').mockImplementation(() => 1560765600000)
     )
 
-    describe('getOptions', () => {
+    describe('getFixedPeriodTypes', () => {
         it('should return a list of available period ranges', () => {
-            const periodIds = getFixedPeriodsOptions().map(option => option.id)
+            const periodIds = getFixedPeriodTypes().map(option => option.type)
 
             expect(periodIds).toEqual([
                 'Daily',
@@ -41,7 +41,7 @@ describe('fixedPeriods utils', () => {
         let periods
 
         beforeAll(() => {
-            const option = getFixedPeriodsOptionsById('Daily')
+            const option = getFixedPeriodType('Daily')
 
             periods = option.getPeriods({
                 offset: 2019 - new Date(Date.now()).getFullYear(),
@@ -80,7 +80,7 @@ describe('fixedPeriods utils', () => {
         let periods
 
         beforeAll(() => {
-            const option = getFixedPeriodsOptionsById('Weekly')
+            const option = getFixedPeriodType('Weekly')
 
             periods = option.getPeriods({
                 offset: 2009 - new Date(Date.now()).getFullYear(),
@@ -117,7 +117,7 @@ describe('fixedPeriods utils', () => {
 
         describe('-> Weekly Wednesday', () => {
             beforeAll(() => {
-                const option = getFixedPeriodsOptionsById('WeeklyWednesday')
+                const option = getFixedPeriodType('WeeklyWednesday')
 
                 periods = option.getPeriods({
                     offset: 2019 - new Date(Date.now()).getFullYear(),
@@ -145,7 +145,7 @@ describe('fixedPeriods utils', () => {
 
         describe('-> Weekly Thursday', () => {
             beforeAll(() => {
-                const option = getFixedPeriodsOptionsById('WeeklyThursday')
+                const option = getFixedPeriodType('WeeklyThursday')
 
                 periods = option.getPeriods({
                     offset: 2019 - new Date(Date.now()).getFullYear(),
@@ -173,7 +173,7 @@ describe('fixedPeriods utils', () => {
 
         describe('-> Weekly Saturday', () => {
             beforeAll(() => {
-                const option = getFixedPeriodsOptionsById('WeeklySaturday')
+                const option = getFixedPeriodType('WeeklySaturday')
 
                 periods = option.getPeriods({
                     offset: 2019 - new Date(Date.now()).getFullYear(),
@@ -202,7 +202,7 @@ describe('fixedPeriods utils', () => {
 
         describe('-> Weekly Sunday', () => {
             beforeAll(() => {
-                const option = getFixedPeriodsOptionsById('WeeklySunday')
+                const option = getFixedPeriodType('WeeklySunday')
 
                 periods = option.getPeriods({
                     offset: 2019 - new Date(Date.now()).getFullYear(),
@@ -233,7 +233,7 @@ describe('fixedPeriods utils', () => {
         let periods
 
         beforeAll(() => {
-            const option = getFixedPeriodsOptionsById('BiWeekly')
+            const option = getFixedPeriodType('BiWeekly')
 
             periods = option.getPeriods({
                 offset: 2019 - new Date(Date.now()).getFullYear(),
@@ -275,7 +275,7 @@ describe('fixedPeriods utils', () => {
         let periods
 
         beforeAll(() => {
-            const option = getFixedPeriodsOptionsById('Monthly')
+            const option = getFixedPeriodType('Monthly')
 
             periods = option.getPeriods({
                 offset: 2019 - new Date(Date.now()).getFullYear(),
@@ -313,7 +313,7 @@ describe('fixedPeriods utils', () => {
         let periods
 
         beforeAll(() => {
-            const option = getFixedPeriodsOptionsById('BiMonthly')
+            const option = getFixedPeriodType('BiMonthly')
 
             periods = option.getPeriods({
                 offset: 2019 - new Date(Date.now()).getFullYear(),
@@ -361,7 +361,7 @@ describe('fixedPeriods utils', () => {
         let periods
 
         beforeAll(() => {
-            const option = getFixedPeriodsOptionsById('Quarterly')
+            const option = getFixedPeriodType('Quarterly')
 
             periods = option.getPeriods({
                 offset: 2019 - new Date(Date.now()).getFullYear(),
@@ -399,7 +399,7 @@ describe('fixedPeriods utils', () => {
         let periods
 
         beforeAll(() => {
-            const option = getFixedPeriodsOptionsById('SixMonthly')
+            const option = getFixedPeriodType('SixMonthly')
 
             periods = option.getPeriods({
                 offset: 2019 - new Date(Date.now()).getFullYear(),
@@ -437,7 +437,7 @@ describe('fixedPeriods utils', () => {
         let periods
 
         beforeAll(() => {
-            const option = getFixedPeriodsOptionsById('SixMonthlyApril')
+            const option = getFixedPeriodType('SixMonthlyApril')
 
             periods = option.getPeriods({
                 offset: 2019 - new Date(Date.now()).getFullYear(),
@@ -475,7 +475,7 @@ describe('fixedPeriods utils', () => {
         let periods
 
         beforeAll(() => {
-            const option = getFixedPeriodsOptionsById('Yearly')
+            const option = getFixedPeriodType('Yearly')
 
             periods = option.getPeriods({
                 offset: 10, // 2020 - 2029
@@ -513,7 +513,7 @@ describe('fixedPeriods utils', () => {
         let periods
 
         beforeAll(() => {
-            const option = getFixedPeriodsOptionsById('FinancialNov')
+            const option = getFixedPeriodType('FinancialNov')
 
             periods = option.getPeriods({
                 offset: 9,
@@ -549,7 +549,7 @@ describe('fixedPeriods utils', () => {
         let periods
 
         beforeAll(() => {
-            const option = getFixedPeriodsOptionsById('FinancialOct')
+            const option = getFixedPeriodType('FinancialOct')
 
             periods = option.getPeriods({
                 offset: 9,
@@ -585,7 +585,7 @@ describe('fixedPeriods utils', () => {
         let periods
 
         beforeAll(() => {
-            const option = getFixedPeriodsOptionsById('FinancialJuly')
+            const option = getFixedPeriodType('FinancialJuly')
 
             periods = option.getPeriods({
                 offset: 9,
@@ -621,7 +621,7 @@ describe('fixedPeriods utils', () => {
         let periods
 
         beforeAll(() => {
-            const option = getFixedPeriodsOptionsById('FinancialApril')
+            const option = getFixedPeriodType('FinancialApril')
 
             periods = option.getPeriods({
                 offset: 9,
@@ -665,109 +665,109 @@ describe('fixedPeriods utils', () => {
     describe('Period id parser', () => {
         it('should parse daily periods correctly', () => {
             const period = parsePeriodId('20140101')
-            expect(period.id).toEqual('Daily')
+            expect(period.type).toEqual('Daily')
             expect(period).toMatchSnapshot()
         })
 
         it('should parse weekly periods correctly', () => {
             const period = parsePeriodId('2014W9')
-            expect(period.id).toEqual('Weekly')
+            expect(period.type).toEqual('Weekly')
             expect(period).toMatchSnapshot()
         })
 
         it('should parse bi-weekly periods correctly', () => {
             const period = parsePeriodId('2014BiW9')
-            expect(period.id).toEqual('BiWeekly')
+            expect(period.type).toEqual('BiWeekly')
             expect(period).toMatchSnapshot()
         })
 
         it('should parse weekly-wednessday periods correctly', () => {
             const period = parsePeriodId('2014WedW9')
-            expect(period.id).toEqual('WeeklyWednesday')
+            expect(period.type).toEqual('WeeklyWednesday')
             expect(period).toMatchSnapshot()
         })
 
         it('should parse weekly-thursday periods correctly', () => {
             const period = parsePeriodId('2014ThuW9')
-            expect(period.id).toEqual('WeeklyThursday')
+            expect(period.type).toEqual('WeeklyThursday')
             expect(period).toMatchSnapshot()
         })
 
         it('should parse weekly-saturday periods correctly', () => {
             const period = parsePeriodId('2014SatW9')
-            expect(period.id).toEqual('WeeklySaturday')
+            expect(period.type).toEqual('WeeklySaturday')
             expect(period).toMatchSnapshot()
         })
 
         it('should parse weekly-sunday periods correctly', () => {
             const period = parsePeriodId('2014SunW9')
-            expect(period.id).toEqual('WeeklySunday')
+            expect(period.type).toEqual('WeeklySunday')
             expect(period).toMatchSnapshot()
         })
 
         it('should parse weekly-sunday periods correctly', () => {
             const period = parsePeriodId('2014SunW9')
-            expect(period.id).toEqual('WeeklySunday')
+            expect(period.type).toEqual('WeeklySunday')
             expect(period).toMatchSnapshot()
         })
 
         it('should parse monthly periods correctly', () => {
             const period = parsePeriodId('201406')
-            expect(period.id).toEqual('Monthly')
+            expect(period.type).toEqual('Monthly')
             expect(period).toMatchSnapshot()
         })
 
         it('should parse bimonthly periods correctly', () => {
             const period = parsePeriodId('201406B')
-            expect(period.id).toEqual('BiMonthly')
+            expect(period.type).toEqual('BiMonthly')
             expect(period).toMatchSnapshot()
         })
 
         it('should parse quarterly periods correctly', () => {
             const period = parsePeriodId('2014Q1')
-            expect(period.id).toEqual('Quarterly')
+            expect(period.type).toEqual('Quarterly')
             expect(period).toMatchSnapshot()
         })
 
         it('should parse six-monthly periods correctly', () => {
             const period = parsePeriodId('2014S1')
-            expect(period.id).toEqual('SixMonthly')
+            expect(period.type).toEqual('SixMonthly')
             expect(period).toMatchSnapshot()
         })
 
         it('should parse six-monthly-april periods correctly', () => {
             const period = parsePeriodId('2014AprilS1')
-            expect(period.id).toEqual('SixMonthlyApril')
+            expect(period.type).toEqual('SixMonthlyApril')
             expect(period).toMatchSnapshot()
         })
 
         it('should parse yearly periods correctly', () => {
             const period = parsePeriodId('2014')
-            expect(period.id).toEqual('Yearly')
+            expect(period.type).toEqual('Yearly')
             expect(period).toMatchSnapshot()
         })
 
         it('should parse financial-year-november periods correctly', () => {
             const period = parsePeriodId('2014Nov')
-            expect(period.id).toEqual('FinancialNov')
+            expect(period.type).toEqual('FinancialNov')
             expect(period).toMatchSnapshot()
         })
 
         it('should parse financial-year-october periods correctly', () => {
             const period = parsePeriodId('2014Oct')
-            expect(period.id).toEqual('FinancialOct')
+            expect(period.type).toEqual('FinancialOct')
             expect(period).toMatchSnapshot()
         })
 
         it('should parse financial-year-july periods correctly', () => {
             const period = parsePeriodId('2014July')
-            expect(period.id).toEqual('FinancialJuly')
+            expect(period.type).toEqual('FinancialJuly')
             expect(period).toMatchSnapshot()
         })
 
         it('should parse financial-year-april periods correctly', () => {
             const period = parsePeriodId('2014April')
-            expect(period.id).toEqual('FinancialApril')
+            expect(period.type).toEqual('FinancialApril')
             expect(period).toMatchSnapshot()
         })
     })
