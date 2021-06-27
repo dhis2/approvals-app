@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-06-23T11:38:46.534Z\n"
-"PO-Revision-Date: 2021-06-23T11:38:46.534Z\n"
+"POT-Creation-Date: 2021-06-27T19:54:18.211Z\n"
+"PO-Revision-Date: 2021-06-27T19:54:18.211Z\n"
 
 msgid "Not authorized"
 msgstr "Not authorized"
@@ -32,6 +32,99 @@ msgstr "Choose a workflow and period first"
 
 msgid "Organisation Unit"
 msgstr "Organisation Unit"
+
+msgid "January"
+msgstr "January"
+
+msgid "February"
+msgstr "February"
+
+msgid "March"
+msgstr "March"
+
+msgid "April"
+msgstr "April"
+
+msgid "May"
+msgstr "May"
+
+msgid "June"
+msgstr "June"
+
+msgid "July"
+msgstr "July"
+
+msgid "August"
+msgstr "August"
+
+msgid "September"
+msgstr "September"
+
+msgid "October"
+msgstr "October"
+
+msgid "November"
+msgstr "November"
+
+msgid "December"
+msgstr "December"
+
+msgid "Week {{weekNumber}}"
+msgstr "Week {{weekNumber}}"
+
+msgid "Bi-Week {{biWeekNumber}}"
+msgstr "Bi-Week {{biWeekNumber}}"
+
+msgid "Daily"
+msgstr "Daily"
+
+msgid "Weekly"
+msgstr "Weekly"
+
+msgid "Weekly (Start Wednesday)"
+msgstr "Weekly (Start Wednesday)"
+
+msgid "Weekly (Start Thursday)"
+msgstr "Weekly (Start Thursday)"
+
+msgid "Weekly (Start Saturday)"
+msgstr "Weekly (Start Saturday)"
+
+msgid "Weekly (Start Sunday)"
+msgstr "Weekly (Start Sunday)"
+
+msgid "Bi-weekly"
+msgstr "Bi-weekly"
+
+msgid "Monthly"
+msgstr "Monthly"
+
+msgid "Bi-monthly"
+msgstr "Bi-monthly"
+
+msgid "Quarterly"
+msgstr "Quarterly"
+
+msgid "Six-monthly"
+msgstr "Six-monthly"
+
+msgid "Six-monthly April"
+msgstr "Six-monthly April"
+
+msgid "Yearly"
+msgstr "Yearly"
+
+msgid "Financial year (Start November)"
+msgstr "Financial year (Start November)"
+
+msgid "Financial year (Start October)"
+msgstr "Financial year (Start October)"
+
+msgid "Financial year (Start July)"
+msgstr "Financial year (Start July)"
+
+msgid "Financial year (Start April)"
+msgstr "Financial year (Start April)"
 
 msgid "Choose a period"
 msgstr "Choose a period"
