@@ -699,7 +699,11 @@ export const getYearOffsetFromNow = yearStr =>
     parseInt(yearStr) - new Date(Date.now()).getFullYear()
 
 export const parsePeriodId = (id, allowedTypes) => {
-    const periodTypes = Object.keys(PERIOD_TYPE_REGEX)
+    const periodTypes = Object.keys(PERIOD_TYPE_REGEX).filter(
+        type =>
+            !allowedTypes ||
+            allowedTypes.some(allowedType => allowedType === type)
+    )
     let i = 0
     let type = undefined
     let match = undefined
@@ -710,10 +714,7 @@ export const parsePeriodId = (id, allowedTypes) => {
         i++
     }
 
-    if (
-        !match ||
-        (Array.isArray(allowedTypes) && !allowedTypes.some(t => t === type))
-    ) {
+    if (!match) {
         return undefined
     }
 
