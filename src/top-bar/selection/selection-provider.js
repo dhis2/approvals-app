@@ -129,7 +129,7 @@ const SelectionProvider = ({ children }) => {
 }
 
 SelectionProvider.propTypes = {
-    children: PropTypes.node,
+    children: PropTypes.node.isRequired,
 }
 
 export { SelectionProvider }
