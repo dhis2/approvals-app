@@ -11,7 +11,7 @@ import classes from './context-select.module.css'
 
 const ContextSelect = ({
     children,
-    label,
+    prefix,
     value,
     onClose,
     onOpen,
@@ -28,7 +28,7 @@ const ContextSelect = ({
             onClick={onOpen}
             disabled={disabled}
         >
-            <span className={classes.prefix}>{label}</span>
+            <span className={classes.prefix}>{prefix}</span>
             {!disabled && <span className={classes.value}>{value}</span>}
             <Icon color={disabled ? colors.grey600 : undefined} />
         </button>
@@ -68,7 +68,7 @@ const ContextSelect = ({
 
 ContextSelect.propTypes = {
     children: PropTypes.node.isRequired,
-    label: PropTypes.string.isRequired,
+    prefix: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     onClose: PropTypes.func.isRequired,
     onOpen: PropTypes.func.isRequired,

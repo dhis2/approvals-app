@@ -11,7 +11,7 @@ import { ContextSelect } from './context-select.js'
 
 describe('<ContextSelect>', () => {
     const baseProps = {
-        label: 'label',
+        prefix: 'prefix',
         value: 'value',
         onClose: () => {},
         onOpen: () => {},
@@ -25,9 +25,9 @@ describe('<ContextSelect>', () => {
             </ContextSelect>
         )
 
-        it('renders the label in a span', () => {
+        it('renders the prefix in a span', () => {
             expect(
-                wrapper.find('span.prefix').containsMatchingElement('label')
+                wrapper.find('span.prefix').containsMatchingElement('prefix')
             ).toBe(true)
         })
 

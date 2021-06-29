@@ -22,7 +22,7 @@ const WorkflowSelect = () => {
 
     return (
         <ContextSelect
-            label={i18n.t('Workflow')}
+            prefix={i18n.t('Workflow')}
             value={value}
             open={open}
             onOpen={() => setOpenedSelect(WORKFLOW)}

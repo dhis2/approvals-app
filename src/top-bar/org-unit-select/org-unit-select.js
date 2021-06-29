@@ -21,7 +21,7 @@ const OrgUnitSelect = () => {
 
     return (
         <ContextSelect
-            label={i18n.t('Organisation Unit')}
+            prefix={i18n.t('Organisation Unit')}
             value={value}
             open={open}
             disabled={!(workflow.id && period.code)}

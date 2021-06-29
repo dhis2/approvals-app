@@ -13,7 +13,7 @@ const PeriodSelect = () => {
 
     return (
         <ContextSelect
-            label={i18n.t('Period')}
+            prefix={i18n.t('Period')}
             value={value}
             open={open}
             disabled={!workflow.id}
