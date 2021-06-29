@@ -1,12 +1,12 @@
 import { Menu, MenuItem } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { useSelection } from '../selection/index.js'
+import { useSelectionContext } from '../selection/index.js'
 import { getFixedPeriodsByTypeAndYear } from './fixed-periods.js'
 import classes from './period-menu.module.css'
 
 const PeriodMenu = ({ periodType, year }) => {
-    const { selectPeriod } = useSelection()
+    const { selectPeriod } = useSelectionContext()
     const periods = getFixedPeriodsByTypeAndYear(periodType, year)
 
     if (!periods) {
