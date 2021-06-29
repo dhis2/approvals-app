@@ -44,7 +44,7 @@ const reducer = (state, { type, payload }) => {
         case ACTIONS.CLEAR_ALL:
             return {
                 openedSelect: '',
-                workflow: {},
+                workflow: payload,
                 period: {},
                 orgUnit: {},
             }
