@@ -2,14 +2,14 @@ import { useDataQuery } from '@dhis2/app-runtime'
 import { PropTypes } from '@dhis2/prop-types'
 import { CircularLoader, Layer, CenteredContent } from '@dhis2/ui'
 import React from 'react'
-import { CurrentUserContext } from './current-user-context'
+import { CurrentUserContext } from './current-user-context.js'
 
 const query = {
     me: {
         resource: 'me',
         params: {
             fields: [
-                // TODO: adjust fields according to actual requirements
+                'id',
                 'authorities',
                 'programs',
                 'dataSets',
@@ -17,6 +17,15 @@ const query = {
                 'organisationUnits',
                 'dataViewOrganisationUnits',
             ],
+        },
+    },
+    dataApprovalWorkflows: {
+        // This is generic enpoint but will only return
+        // workflows a user is allowed to see
+        resource: 'dataApprovalWorkflows',
+        params: {
+            paging: false,
+            fields: ['id', 'displayName', 'dataApprovalLevels', 'periodType'],
         },
     },
 }
@@ -43,8 +52,13 @@ const CurrentUserProvider = ({ children }) => {
         throw error
     }
 
+    const providerValue = {
+        ...data.me,
+        ...data.dataApprovalWorkflows,
+    }
+
     return (
-        <CurrentUserContext.Provider value={data.me}>
+        <CurrentUserContext.Provider value={providerValue}>
             {children}
         </CurrentUserContext.Provider>
     )

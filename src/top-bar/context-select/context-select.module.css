@@ -1,0 +1,27 @@
+.button {
+    all: unset;
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 16px;
+    min-height: 40px;
+    border-right: 1px solid var(--colors-grey400);
+    cursor: pointer;
+}
+.prefix {
+    color: var(--colors-grey600);
+    padding-right: var(--spacers-dp4);
+}
+.value {
+    flex-grow: 1;
+    padding-right: var(--spacers-dp4);
+}
+.tooltipwrap {
+    display: inline-flex;
+    pointer-events: all;
+    cursor: not-allowed;
+}
+.tooltipwrap > .button:disabled {
+    pointer-events: none;
+}

@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks'
 import React from 'react'
-import { CurrentUserContext } from '../current-user'
+import { CurrentUserContext } from '../current-user/index.js'
 import { useIsAuthorized } from './use-is-authorized.js'
 
 describe('useIsAuthorized', () => {
