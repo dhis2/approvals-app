@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/dhis2/approval-app/compare/v1.0.0...v1.1.0) (2021-06-29)
+
+
+### Features
+
+* add context selector and workflow select ([#5](https://github.com/dhis2/approval-app/issues/5)) ([37593ff](https://github.com/dhis2/approval-app/commit/37593ffb609cb9b20ed345d97b2b46c853df5e7f))
+
 # 1.0.0 (2021-06-16)
 
 
