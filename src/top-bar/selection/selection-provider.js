@@ -2,29 +2,8 @@ import { PropTypes } from '@dhis2/prop-types'
 import React, { useEffect, useReducer } from 'react'
 import { useQueryParams, StringParam } from 'use-query-params'
 import { useCurrentUser } from '../../current-user/index.js'
+import { initialValues, initialWorkflowValue } from './initial-values.js'
 import { SelectionContext } from './selection-context.js'
-
-// TODO: should take a periodId and return a period object
-const parsePeriodId = id => ({
-    id: id,
-    displayName: id,
-})
-
-const initialWorkflowValue = (workflows, id) => {
-    if (id) {
-        /*
-         * Auto select workflow with query param id
-         * default to empty object if `find` returns undefined in case the
-         * workflow with the id from the url is not available to the user
-         */
-        return workflows.find(workflow => workflow.id === id) || {}
-    }
-    if (workflows.length === 1) {
-        // auto-select if user only has one workflow
-        return workflows[0]
-    }
-    return {}
-}
 
 const ACTIONS = {
     SET_OPENED_SELECT: 'SET_OPENED_SELECT',
@@ -58,7 +37,11 @@ const reducer = (state, { type, payload }) => {
         case ACTIONS.SELECT_PERIOD:
             return {
                 ...state,
-                openedSelect: '',
+                /*
+                 * Close dropdown only if selecting a period,
+                 * not when unsetting it when the year changes
+                 */
+                openedSelect: payload.period.id ? '' : state.openedSelect,
                 period: payload.period,
                 orgUnit: {},
             }
@@ -84,13 +67,7 @@ const SelectionProvider = ({ children }) => {
         reducer,
         {
             openedSelect: '',
-            workflow: initialWorkflowValue(dataApprovalWorkflows, query.wf),
-            // TODO: the initial value for period should take into account the inital
-            // workflow value, it should be cleared if no valid workflow is found
-            period: query.pe ? parsePeriodId(query.pe) : {},
-            // TODO: same as period, but orgUnit should also be cleared if period is
-            // unset/invalid
-            orgUnit: query.ou ? { id: query.ou } : {},
+            ...initialValues(query, dataApprovalWorkflows),
         }
     )
     const providerValue = {
@@ -121,11 +98,21 @@ const SelectionProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        setQuery({
-            wf: workflow.id,
-            pe: period.id,
-            ou: orgUnit.id,
-        })
+        setQuery(
+            {
+                wf: workflow.id,
+                pe: period.id,
+                ou: orgUnit.id,
+            },
+            /*
+             * Browser navigation is broken in the current implementation of
+             * this provider, but deep linking does work. Until a fix is found
+             * for browser navigation we stick to `UrlUpdateType` `replace`,
+             * which effectively disables navigating to the previous query
+             * param string.
+             */
+            'replace'
+        )
     }, [workflow, period, orgUnit])
 
     return (

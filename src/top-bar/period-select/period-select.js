@@ -1,15 +1,24 @@
 import i18n from '@dhis2/d2-i18n'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { ContextSelect } from '../context-select/index.js'
 import { useSelectionContext } from '../selection/index.js'
+import { PeriodMenu } from './period-menu.js'
+import { YearNavigator } from './year-navigator.js'
 
 const PERIOD = 'PERIOD'
 
 const PeriodSelect = () => {
     const { period, workflow, selectPeriod, openedSelect, setOpenedSelect } =
         useSelectionContext()
+    const [year, setYear] = useState(period.year || new Date().getFullYear())
     const open = openedSelect === PERIOD
     const value = period.displayName || i18n.t('Choose a period')
+
+    useEffect(() => {
+        if (period.year) {
+            setYear(period.year)
+        }
+    }, [period])
 
     return (
         <ContextSelect
@@ -21,19 +30,14 @@ const PeriodSelect = () => {
             onClose={() => setOpenedSelect('')}
             requiredValuesMessage={i18n.t('Choose a workflow first')}
         >
-            <pre>
-                Period picker placeholder <br />
-                <button
-                    onClick={() =>
-                        selectPeriod({
-                            id: '20210404',
-                            displayName: '04-04-2020',
-                        })
-                    }
-                >
-                    Set period to sth
-                </button>
-            </pre>
+            <YearNavigator
+                year={year}
+                onYearChange={year => {
+                    selectPeriod({})
+                    setYear(year)
+                }}
+            />
+            <PeriodMenu periodType={workflow.periodType} year={year} />
         </ContextSelect>
     )
 }

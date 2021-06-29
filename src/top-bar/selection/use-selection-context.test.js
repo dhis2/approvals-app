@@ -21,10 +21,12 @@ describe('useSelectionContext', () => {
         {
             displayName: 'Workflow a',
             id: 'i5m0JPw4DQi',
+            periodType: 'Daily',
         },
         {
             displayName: 'Workflow B',
             id: 'rIUL3hYOjJc',
+            periodType: 'Daily',
         },
     ]
 
@@ -70,10 +72,12 @@ describe('useSelectionContext', () => {
 
         const { result } = renderHook(() => useSelectionContext(), { wrapper })
         expect(result.current.workflow).toEqual(mockWorkflows[1])
-        expect(result.current.period).toEqual({
-            id: '20110203',
-            displayName: '20110203',
-        })
+        expect(result.current.period).toEqual(
+            expect.objectContaining({
+                id: '20110203',
+                displayName: '2011-02-03',
+            })
+        )
         expect(result.current.orgUnit).toEqual({ id: 'abc' })
         // TODO: add tests for dealing with invalid query params
         // once that has been implemented
