@@ -3,7 +3,7 @@ import React from 'react'
 import { useQueryParams } from 'use-query-params'
 import { useCurrentUser } from '../../current-user/index.js'
 import { SelectionProvider } from './selection-provider.js'
-import { useSelection } from './use-selection.js'
+import { useSelectionContext } from './use-selection-context.js'
 
 jest.mock('use-query-params', () => ({
     useQueryParams: jest.fn(),
@@ -16,7 +16,7 @@ afterEach(() => {
     jest.resetAllMocks()
 })
 
-describe('useSelection', () => {
+describe('useSelectionContext', () => {
     const mockWorkflows = [
         {
             displayName: 'Workflow a',
@@ -38,7 +38,7 @@ describe('useSelection', () => {
         }))
         useQueryParams.mockImplementation(() => [{}, () => {}])
 
-        const { result } = renderHook(() => useSelection(), { wrapper })
+        const { result } = renderHook(() => useSelectionContext(), { wrapper })
 
         expect(result.current).toEqual(
             expect.objectContaining({
@@ -68,7 +68,7 @@ describe('useSelection', () => {
             () => {},
         ])
 
-        const { result } = renderHook(() => useSelection(), { wrapper })
+        const { result } = renderHook(() => useSelectionContext(), { wrapper })
         expect(result.current.workflow).toEqual(mockWorkflows[1])
         expect(result.current.period).toEqual({
             code: '20110203',
@@ -86,7 +86,7 @@ describe('useSelection', () => {
         }))
         useQueryParams.mockImplementation(() => [{}, setQuery])
 
-        const { result } = renderHook(() => useSelection(), { wrapper })
+        const { result } = renderHook(() => useSelectionContext(), { wrapper })
         // Reset count to 0 because the function is also called on initial render
         setQuery.mockClear()
 

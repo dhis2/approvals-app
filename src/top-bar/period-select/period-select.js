@@ -1,13 +1,13 @@
 import i18n from '@dhis2/d2-i18n'
 import React from 'react'
 import { ContextSelect } from '../context-select/index.js'
-import { useSelection } from '../selection/index.js'
+import { useSelectionContext } from '../selection/index.js'
 
 const PERIOD = 'PERIOD'
 
 const PeriodSelect = () => {
     const { period, workflow, selectPeriod, openedSelect, setOpenedSelect } =
-        useSelection()
+        useSelectionContext()
     const open = openedSelect === PERIOD
     const value = period.displayName || i18n.t('Choose a period')
 

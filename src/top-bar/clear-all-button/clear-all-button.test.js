@@ -1,10 +1,10 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { useSelection } from '../selection/use-selection.js'
+import { useSelectionContext } from '../selection/use-selection-context.js'
 import { ClearAllButton } from './clear-all-button.js'
 
-jest.mock('../selection/use-selection.js', () => ({
-    useSelection: jest.fn(),
+jest.mock('../selection/use-selection-context.js', () => ({
+    useSelectionContext: jest.fn(),
 }))
 
 afterEach(() => {
@@ -13,7 +13,7 @@ afterEach(() => {
 
 describe('<ClearAllButton>', () => {
     it('renders a button when workflow, period and org-unit are set', () => {
-        useSelection.mockImplementation(() => ({
+        useSelectionContext.mockImplementation(() => ({
             workflow: {
                 id: '123',
             },
@@ -32,7 +32,7 @@ describe('<ClearAllButton>', () => {
     })
 
     it('renders a button when workflow and period are set', () => {
-        useSelection.mockImplementation(() => ({
+        useSelectionContext.mockImplementation(() => ({
             workflow: {
                 id: '123',
             },
@@ -49,7 +49,7 @@ describe('<ClearAllButton>', () => {
     })
 
     it('renders nothing when only workflow is set', () => {
-        useSelection.mockImplementation(() => ({
+        useSelectionContext.mockImplementation(() => ({
             workflow: {
                 id: '123',
             },
@@ -61,7 +61,7 @@ describe('<ClearAllButton>', () => {
     })
 
     it('renders nothing when all properties are unset', () => {
-        useSelection.mockImplementation(() => ({
+        useSelectionContext.mockImplementation(() => ({
             workflow: {},
             period: {},
             orgUnit: {},
@@ -72,7 +72,7 @@ describe('<ClearAllButton>', () => {
 
     it('calls clearAll when clicked', () => {
         const clearAll = jest.fn()
-        useSelection.mockImplementation(() => ({
+        useSelectionContext.mockImplementation(() => ({
             clearAll,
             workflow: {
                 id: '123',

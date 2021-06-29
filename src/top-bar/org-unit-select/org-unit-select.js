@@ -1,7 +1,7 @@
 import i18n from '@dhis2/d2-i18n'
 import React from 'react'
 import { ContextSelect } from '../context-select/index.js'
-import { useSelection } from '../selection/index.js'
+import { useSelectionContext } from '../selection/index.js'
 
 const ORG_UNIT = 'ORG_UNIT'
 
@@ -12,7 +12,7 @@ const OrgUnitSelect = () => {
         period,
         openedSelect,
         setOpenedSelect,
-    } = useSelection()
+    } = useSelectionContext()
     const open = openedSelect === ORG_UNIT
     const value = orgUnit.displayName || i18n.t('Choose an organisation unit')
     const tooltipContent = workflow.id
