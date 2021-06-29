@@ -89,7 +89,7 @@ describe('<ContextSelect>', () => {
             <ContextSelect
                 {...baseProps}
                 disabled
-                tooltipContent="tooltipcontent"
+                requiredValuesMessage="tooltipcontent"
             >
                 children
             </ContextSelect>

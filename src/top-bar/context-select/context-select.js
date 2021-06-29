@@ -17,7 +17,7 @@ const ContextSelect = ({
     onOpen,
     disabled,
     open,
-    tooltipContent,
+    requiredValuesMessage,
 }) => {
     const buttonRef = useRef()
     const Icon = open ? IconChevronUp24 : IconChevronDown24
@@ -37,7 +37,7 @@ const ContextSelect = ({
     return (
         <>
             {disabled ? (
-                <Tooltip content={tooltipContent} placement="bottom">
+                <Tooltip content={requiredValuesMessage} placement="bottom">
                     {({ ref, onMouseOver, onMouseOut }) => (
                         <div
                             ref={ref}
@@ -74,7 +74,7 @@ ContextSelect.propTypes = {
     onOpen: PropTypes.func.isRequired,
     disabled: PropTypes.bool,
     open: PropTypes.bool,
-    tooltipContent: PropTypes.string,
+    requiredValuesMessage: PropTypes.string,
 }
 
 export { ContextSelect }
