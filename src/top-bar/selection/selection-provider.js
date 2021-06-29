@@ -39,19 +39,19 @@ const reducer = (state, { type, payload }) => {
         case ACTIONS.SET_OPENED_SELECT:
             return {
                 ...state,
-                openedSelect: payload,
+                openedSelect: payload.openedSelect,
             }
         case ACTIONS.CLEAR_ALL:
             return {
                 openedSelect: '',
-                workflow: payload,
+                workflow: payload.workflow,
                 period: {},
                 orgUnit: {},
             }
         case ACTIONS.SELECT_WORKFLOW:
             return {
                 openedSelect: '',
-                workflow: payload,
+                workflow: payload.workflow,
                 period: {},
                 orgUnit: {},
             }
@@ -59,14 +59,14 @@ const reducer = (state, { type, payload }) => {
             return {
                 ...state,
                 openedSelect: '',
-                period: payload,
+                period: payload.period,
                 orgUnit: {},
             }
         case ACTIONS.SELECT_ORG_UNIT:
             return {
                 ...state,
                 openedSelect: '',
-                orgUnit: payload,
+                orgUnit: payload.orgUnit,
             }
         default:
             return state
@@ -101,16 +101,23 @@ const SelectionProvider = ({ children }) => {
         clearAll: () =>
             dispatch({
                 type: ACTIONS.CLEAR_ALL,
-                payload: initialWorkflowValue(dataApprovalWorkflows),
+                payload: {
+                    workflow: initialWorkflowValue(dataApprovalWorkflows),
+                },
             }),
         setOpenedSelect: fieldName =>
-            dispatch({ type: ACTIONS.SET_OPENED_SELECT, payload: fieldName }),
+            dispatch({
+                type: ACTIONS.SET_OPENED_SELECT,
+                payload: {
+                    openedSelect: fieldName,
+                },
+            }),
         selectWorkflow: workflow =>
-            dispatch({ type: ACTIONS.SELECT_WORKFLOW, payload: workflow }),
+            dispatch({ type: ACTIONS.SELECT_WORKFLOW, payload: { workflow } }),
         selectPeriod: period =>
-            dispatch({ type: ACTIONS.SELECT_PERIOD, payload: period }),
+            dispatch({ type: ACTIONS.SELECT_PERIOD, payload: { period } }),
         selectOrgUnit: orgUnit =>
-            dispatch({ type: ACTIONS.SELECT_ORG_UNIT, payload: orgUnit }),
+            dispatch({ type: ACTIONS.SELECT_ORG_UNIT, payload: { orgUnit } }),
     }
 
     useEffect(() => {
