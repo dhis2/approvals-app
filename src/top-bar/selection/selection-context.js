@@ -1,14 +1,16 @@
 import { createContext } from 'react'
 
-const noop = () => {}
+const defaultFn = () => {
+    throw new Error('Selection Context has not been initialized')
+}
 
 const SelectionContext = createContext({
     workflow: {},
-    setWorkflow: noop,
+    setWorkflow: defaultFn,
     period: {},
-    setPeriod: noop,
+    setPeriod: defaultFn,
     orgUnit: {},
-    setOrgUnit: noop,
+    setOrgUnit: defaultFn,
 })
 
 export { SelectionContext }
