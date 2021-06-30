@@ -1,13 +1,27 @@
 import { act, renderHook } from '@testing-library/react-hooks'
 import React from 'react'
-import { useQueryParams } from 'use-query-params'
 import { useCurrentUser } from '../../current-user/index.js'
+import { history } from '../../navigation/history.js'
+import { readQueryParams } from '../../navigation/read-query-params.js'
 import { SelectionProvider } from './selection-provider.js'
 import { useSelectionContext } from './use-selection-context.js'
 
-jest.mock('use-query-params', () => ({
-    useQueryParams: jest.fn(),
+jest.mock('../../navigation/history.js', () => {
+    const actualHistoryModule = jest.requireActual(
+        '../../navigation/history.js'
+    )
+    return {
+        history: {
+            ...actualHistoryModule.history,
+            push: jest.fn(),
+        },
+    }
+})
+
+jest.mock('../../navigation/read-query-params.js', () => ({
+    readQueryParams: jest.fn(),
 }))
+
 jest.mock('../../current-user/index.js', () => ({
     useCurrentUser: jest.fn(),
 }))
@@ -38,7 +52,7 @@ describe('useSelectionContext', () => {
         useCurrentUser.mockImplementation(() => ({
             dataApprovalWorkflows: mockWorkflows,
         }))
-        useQueryParams.mockImplementation(() => [{}, () => {}])
+        readQueryParams.mockImplementation(() => ({}))
 
         const { result } = renderHook(() => useSelectionContext(), { wrapper })
 
@@ -61,14 +75,11 @@ describe('useSelectionContext', () => {
         useCurrentUser.mockImplementation(() => ({
             dataApprovalWorkflows: mockWorkflows,
         }))
-        useQueryParams.mockImplementation(() => [
-            {
-                wf: 'rIUL3hYOjJc',
-                pe: '20110203',
-                ou: 'abc',
-            },
-            () => {},
-        ])
+        readQueryParams.mockImplementation(() => ({
+            wf: 'rIUL3hYOjJc',
+            pe: '20110203',
+            ou: 'abc',
+        }))
 
         const { result } = renderHook(() => useSelectionContext(), { wrapper })
         expect(result.current.workflow).toEqual(mockWorkflows[1])
@@ -84,15 +95,16 @@ describe('useSelectionContext', () => {
     })
 
     it('functions returned from the hook update the state and url', () => {
-        const setQuery = jest.fn()
+        const push = jest.fn()
         useCurrentUser.mockImplementation(() => ({
             dataApprovalWorkflows: mockWorkflows,
         }))
-        useQueryParams.mockImplementation(() => [{}, setQuery])
+        readQueryParams.mockImplementation(() => ({}))
+        history.push.mockImplementation(push)
 
         const { result } = renderHook(() => useSelectionContext(), { wrapper })
         // Reset count to 0 because the function is also called on initial render
-        setQuery.mockClear()
+        push.mockClear()
 
         const expectedOpenedSelect = 'test'
         act(() => {
@@ -100,31 +112,31 @@ describe('useSelectionContext', () => {
         })
         expect(result.current.openedSelect).toEqual(expectedOpenedSelect)
         // Not captured in URL
-        expect(setQuery).toHaveBeenCalledTimes(0)
+        expect(push).toHaveBeenCalledTimes(0)
 
         const expectedWorkflow = { id: '123' }
         act(() => {
             result.current.selectWorkflow(expectedWorkflow)
         })
         expect(result.current.workflow).toEqual(expectedWorkflow)
-        expect(setQuery).toHaveBeenCalledTimes(1)
-        setQuery.mockClear()
+        expect(push).toHaveBeenCalledTimes(1)
+        push.mockClear()
 
         const expectedPeriod = { id: '20210202' }
         act(() => {
             result.current.selectPeriod(expectedPeriod)
         })
         expect(result.current.period).toEqual(expectedPeriod)
-        expect(setQuery).toHaveBeenCalledTimes(1)
-        setQuery.mockClear()
+        expect(push).toHaveBeenCalledTimes(1)
+        push.mockClear()
 
         const expectedOrgUnit = { id: '123' }
         act(() => {
             result.current.selectOrgUnit(expectedOrgUnit)
         })
         expect(result.current.orgUnit).toEqual(expectedOrgUnit)
-        expect(setQuery).toHaveBeenCalledTimes(1)
-        setQuery.mockClear()
+        expect(push).toHaveBeenCalledTimes(1)
+        push.mockClear()
 
         act(() => {
             result.current.clearAll()
@@ -133,7 +145,7 @@ describe('useSelectionContext', () => {
         expect(result.current.workflow).toEqual({})
         expect(result.current.period).toEqual({})
         expect(result.current.orgUnit).toEqual({})
-        expect(setQuery).toHaveBeenCalledTimes(1)
-        setQuery.mockClear()
+        expect(push).toHaveBeenCalledTimes(1)
+        push.mockClear()
     })
 })

@@ -39,6 +39,7 @@ const WorkflowSelect = () => {
                     {dataApprovalWorkflows.map(workflow => (
                         <WorkflowSelectOption
                             key={workflow.id}
+                            id={workflow.id}
                             name={workflow.displayName}
                             periodType={workflow.periodType}
                             active={workflow.id === selectedWorkflow.id}

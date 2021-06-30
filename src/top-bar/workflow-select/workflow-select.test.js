@@ -1,15 +1,15 @@
 import { Popover, Layer } from '@dhis2/ui'
 import { shallow } from 'enzyme'
 import React from 'react'
-import { useQueryParams } from 'use-query-params'
 import { useCurrentUser } from '../../current-user/index.js'
+import { readQueryParams } from '../../navigation/read-query-params.js'
 import { ContextSelect } from '../context-select/context-select.js'
 import { useSelectionContext } from '../selection/index.js'
 import { WorkflowSelectOption } from './workflow-select-option.js'
 import { WORKFLOW, WorkflowSelect } from './workflow-select.js'
 
-jest.mock('use-query-params', () => ({
-    useQueryParams: jest.fn(),
+jest.mock('../../navigation/read-query-params.js', () => ({
+    readQueryParams: jest.fn(),
 }))
 
 jest.mock('../../current-user/index.js', () => ({
@@ -40,7 +40,7 @@ describe('<WorkflowSelect>', () => {
         useCurrentUser.mockImplementation(() => ({
             dataApprovalWorkflows: mockWorkflows,
         }))
-        useQueryParams.mockImplementation(() => [{}, () => {}])
+        readQueryParams.mockImplementation(() => ({}))
         useSelectionContext.mockImplementation(() => ({
             workflow: {},
             openedSelect: '',
@@ -57,7 +57,7 @@ describe('<WorkflowSelect>', () => {
         useCurrentUser.mockImplementation(() => ({
             dataApprovalWorkflows: mockWorkflows,
         }))
-        useQueryParams.mockImplementation(() => [{}, () => {}])
+        readQueryParams.mockImplementation(() => ({}))
         useSelectionContext.mockImplementation(() => ({
             workflow: {},
             openedSelect: '',
@@ -75,7 +75,7 @@ describe('<WorkflowSelect>', () => {
         useCurrentUser.mockImplementation(() => ({
             dataApprovalWorkflows: mockWorkflows,
         }))
-        useQueryParams.mockImplementation(() => [{}, () => {}])
+        readQueryParams.mockImplementation(() => ({}))
         useSelectionContext.mockImplementation(() => ({
             workflow: {
                 id: '123',
@@ -94,7 +94,7 @@ describe('<WorkflowSelect>', () => {
         useCurrentUser.mockImplementation(() => ({
             dataApprovalWorkflows: mockWorkflows,
         }))
-        useQueryParams.mockImplementation(() => [{}, () => {}])
+        readQueryParams.mockImplementation(() => ({}))
         useSelectionContext.mockImplementation(() => ({
             workflow: {},
             openedSelect: WORKFLOW,
@@ -110,7 +110,7 @@ describe('<WorkflowSelect>', () => {
         useCurrentUser.mockImplementation(() => ({
             dataApprovalWorkflows: [],
         }))
-        useQueryParams.mockImplementation(() => [{}, () => {}])
+        readQueryParams.mockImplementation(() => ({}))
         useSelectionContext.mockImplementation(() => ({
             workflow: {},
             openedSelect: WORKFLOW,
@@ -133,7 +133,7 @@ describe('<WorkflowSelect>', () => {
         useCurrentUser.mockImplementation(() => ({
             dataApprovalWorkflows: mockWorkflows,
         }))
-        useQueryParams.mockImplementation(() => [{}, () => {}])
+        readQueryParams.mockImplementation(() => ({}))
         useSelectionContext.mockImplementation(() => ({
             workflow: {},
             openedSelect: '',
@@ -155,7 +155,7 @@ describe('<WorkflowSelect>', () => {
         useCurrentUser.mockImplementation(() => ({
             dataApprovalWorkflows: mockWorkflows,
         }))
-        useQueryParams.mockImplementation(() => [{}, () => {}])
+        readQueryParams.mockImplementation(() => ({}))
         useSelectionContext.mockImplementation(() => ({
             workflow: {},
             openedSelect: '',
@@ -177,7 +177,7 @@ describe('<WorkflowSelect>', () => {
         useCurrentUser.mockImplementation(() => ({
             dataApprovalWorkflows: mockWorkflows,
         }))
-        useQueryParams.mockImplementation(() => [{}, () => {}])
+        readQueryParams.mockImplementation(() => ({}))
         useSelectionContext.mockImplementation(() => ({
             workflow: {},
             openedSelect: WORKFLOW,

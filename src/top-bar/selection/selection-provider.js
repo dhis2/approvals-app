@@ -1,7 +1,7 @@
 import { PropTypes } from '@dhis2/prop-types'
 import React, { useEffect, useReducer } from 'react'
-import { useQueryParams, StringParam } from 'use-query-params'
 import { useCurrentUser } from '../../current-user/index.js'
+import { pushStateToHistory } from '../../navigation/index.js'
 import { initialValues, initialWorkflowValue } from './initial-values.js'
 import { SelectionContext } from './selection-context.js'
 
@@ -11,6 +11,7 @@ const ACTIONS = {
     SELECT_WORKFLOW: 'SELECT_WORKFLOW',
     SELECT_PERIOD: 'SELECT_PERIOD',
     SELECT_ORG_UNIT: 'SELECT_ORG_UNIT',
+    SET_STATE_FROM_QUERY_PARAMS: 'SET_STATE_FROM_QUERY_PARAMS',
 }
 
 const reducer = (state, { type, payload }) => {
@@ -51,23 +52,23 @@ const reducer = (state, { type, payload }) => {
                 openedSelect: '',
                 orgUnit: payload.orgUnit,
             }
+        case ACTIONS.SET_STATE_FROM_QUERY_PARAMS:
+            return {
+                openedSelect: '',
+                ...initialValues(payload.dataApprovalWorkflows),
+            }
         default:
             return state
     }
 }
 
 const SelectionProvider = ({ children }) => {
-    const [query, setQuery] = useQueryParams({
-        wf: StringParam,
-        pe: StringParam,
-        ou: StringParam,
-    })
     const { dataApprovalWorkflows } = useCurrentUser()
     const [{ openedSelect, workflow, period, orgUnit }, dispatch] = useReducer(
         reducer,
         {
             openedSelect: '',
-            ...initialValues(query, dataApprovalWorkflows),
+            ...initialValues(dataApprovalWorkflows),
         }
     )
     const providerValue = {
@@ -98,22 +99,24 @@ const SelectionProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        setQuery(
-            {
-                wf: workflow.id,
-                pe: period.id,
-                ou: orgUnit.id,
-            },
-            /*
-             * Browser navigation is broken in the current implementation of
-             * this provider, but deep linking does work. Until a fix is found
-             * for browser navigation we stick to `UrlUpdateType` `replace`,
-             * which effectively disables navigating to the previous query
-             * param string.
-             */
-            'replace'
-        )
+        pushStateToHistory({ workflow, period, orgUnit })
     }, [workflow, period, orgUnit])
+
+    useEffect(() => {
+        const setStateFromQueryParams = () => {
+            dispatch({
+                type: ACTIONS.SET_STATE_FROM_QUERY_PARAMS,
+                payload: {
+                    dataApprovalWorkflows,
+                },
+            })
+        }
+        window.addEventListener('popstate', setStateFromQueryParams)
+
+        return () => {
+            window.removeEventListener('popstate', setStateFromQueryParams)
+        }
+    }, [])
 
     return (
         <SelectionContext.Provider value={providerValue}>

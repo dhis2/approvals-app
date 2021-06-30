@@ -1,9 +1,11 @@
+import { readQueryParams } from '../../navigation/index.js'
 import { parsePeriodId } from '../period-select/index.js'
 
-export const initialValues = (query, workflows) => {
-    const workflow = initialWorkflowValue(workflows, query.wf)
-    const period = initialPeriodValue(query.pe, workflow)
-    const orgUnit = initialOrgUnitValue(query.ou)
+export const initialValues = workflows => {
+    const { wf, pe, ou } = readQueryParams()
+    const workflow = initialWorkflowValue(workflows, wf)
+    const period = initialPeriodValue(pe, workflow)
+    const orgUnit = initialOrgUnitValue(ou)
 
     return { workflow, period, orgUnit }
 }

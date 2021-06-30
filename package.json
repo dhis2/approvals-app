@@ -22,8 +22,8 @@
     },
     "dependencies": {
         "@dhis2/app-runtime": "^2.8.0",
+        "history": "^5.0.0",
         "prop-types": "^15.7.2",
-        "query-string": "^7.0.0",
-        "use-query-params": "^1.2.2"
+        "query-string": "^7.0.0"
     }
 }

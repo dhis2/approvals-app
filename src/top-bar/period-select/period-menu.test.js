@@ -12,7 +12,9 @@ describe('<PeriodMenu>', () => {
     it('renders MenuItems with the expected periods', () => {
         useSelectionContext.mockImplementation(() => ({
             selectPeriod: () => {},
+            workflow: {},
             period: {},
+            orgUnit: {},
         }))
         const wrapper = shallow(<PeriodMenu periodType="Monthly" year={2018} />)
 
@@ -24,9 +26,13 @@ describe('<PeriodMenu>', () => {
     it('sets MenuItem active state when active', () => {
         useSelectionContext.mockImplementation(() => ({
             selectPeriod: () => {},
+            workflow: {
+                id: '123',
+            },
             period: {
                 id: '201804',
             },
+            orgUnit: {},
         }))
         const wrapper = shallow(<PeriodMenu periodType="Monthly" year={2018} />)
         const activeMenuItem = wrapper.findWhere(
@@ -42,7 +48,9 @@ describe('<PeriodMenu>', () => {
         const selectPeriod = jest.fn()
         useSelectionContext.mockImplementation(() => ({
             selectPeriod,
+            workflow: {},
             period: {},
+            orgUnit: {},
         }))
         const wrapper = shallow(<PeriodMenu periodType="Monthly" year={2018} />)
 
