@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import classes from './year-navigator.module.css'
 
-const currentYear = new Date().getFullYear()
+export const currentYear = new Date().getFullYear()
 const startYear = new Date(0).getFullYear()
 
 const YearNavigator = ({ year, onYearChange }) => (

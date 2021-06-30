@@ -3,14 +3,14 @@ import React, { useEffect, useState } from 'react'
 import { ContextSelect } from '../context-select/index.js'
 import { useSelectionContext } from '../selection/index.js'
 import { PeriodMenu } from './period-menu.js'
-import { YearNavigator } from './year-navigator.js'
+import { YearNavigator, currentYear } from './year-navigator.js'
 
 const PERIOD = 'PERIOD'
 
 const PeriodSelect = () => {
     const { period, workflow, selectPeriod, openedSelect, setOpenedSelect } =
         useSelectionContext()
-    const [year, setYear] = useState(period.year || new Date().getFullYear())
+    const [year, setYear] = useState(period.year || currentYear)
     const open = openedSelect === PERIOD
     const value = period.displayName || i18n.t('Choose a period')
 

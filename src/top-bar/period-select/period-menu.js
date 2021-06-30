@@ -6,7 +6,7 @@ import { getFixedPeriodsByTypeAndYear } from './fixed-periods.js'
 import classes from './period-menu.module.css'
 
 const PeriodMenu = ({ periodType, year }) => {
-    const { selectPeriod } = useSelectionContext()
+    const { period: selectedPeriod, selectPeriod } = useSelectionContext()
     const periods = getFixedPeriodsByTypeAndYear(periodType, year)
 
     if (!periods) {
@@ -17,6 +17,7 @@ const PeriodMenu = ({ periodType, year }) => {
         <Menu dense className={classes.menu}>
             {periods.map(period => (
                 <MenuItem
+                    active={period.id === selectedPeriod.id}
                     key={period.id}
                     label={period.displayName}
                     onClick={() => selectPeriod(period)}
