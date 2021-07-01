@@ -1,9 +1,10 @@
 import { MenuItem } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { createHref } from '../../navigation/index.js'
 import classes from './workflow-select-option.module.css'
 
-const WorkflowSelectOption = ({ name, periodType, active, onClick }) => {
+const WorkflowSelectOption = ({ id, name, periodType, active, onClick }) => {
     const label = (
         <div className={classes.option}>
             <span className={classes.title}>{name}</span>
@@ -15,6 +16,7 @@ const WorkflowSelectOption = ({ name, periodType, active, onClick }) => {
 
     return (
         <MenuItem
+            href={createHref({ wf: id })}
             className={classes.bordered}
             active={active}
             onClick={onClick}
@@ -24,6 +26,7 @@ const WorkflowSelectOption = ({ name, periodType, active, onClick }) => {
 }
 
 WorkflowSelectOption.propTypes = {
+    id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     active: PropTypes.bool,
     periodType: PropTypes.string,

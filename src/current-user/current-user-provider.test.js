@@ -31,7 +31,6 @@ describe('<CurrentUserProvider>', () => {
 
         useDataQuery.mockImplementation(() => ({
             loading: false,
-            called: true,
             error,
         }))
 
@@ -42,7 +41,6 @@ describe('<CurrentUserProvider>', () => {
         useDataQuery.mockImplementation(() => ({
             loading: false,
             error: undefined,
-            called: true,
             data: {
                 me: {},
             },

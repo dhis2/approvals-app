@@ -1,6 +1,5 @@
 import { CssVariables } from '@dhis2/ui'
 import React from 'react'
-import { QueryParamProvider } from 'use-query-params'
 import { AuthWall } from '../auth/index.js'
 import { BottomBar } from '../bottom-bar/index.js'
 import { CurrentUserProvider } from '../current-user/index.js'
@@ -9,7 +8,7 @@ import { TopBar } from '../top-bar/index.js'
 import { Layout } from './layout.js'
 
 const App = () => (
-    <QueryParamProvider>
+    <>
         <CssVariables spacers colors theme />
         <CurrentUserProvider>
             <AuthWall>
@@ -26,7 +25,7 @@ const App = () => (
                 </Layout.Container>
             </AuthWall>
         </CurrentUserProvider>
-    </QueryParamProvider>
+    </>
 )
 
 export { App }
