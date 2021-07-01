@@ -1,13 +1,19 @@
 import i18n from '@dhis2/d2-i18n'
+import { OrganisationUnitTree } from '@dhis2/ui'
 import React from 'react'
+import { useCurrentUser } from '../../current-user/index.js'
 import { ContextSelect } from '../context-select/index.js'
 import { useSelectionContext } from '../selection/index.js'
+import classes from './org-unit-select.module.css'
 
+useCurrentUser
 const ORG_UNIT = 'ORG_UNIT'
 
 const OrgUnitSelect = () => {
+    const { organisationUnits } = useCurrentUser()
     const {
-        orgUnit /*, setOrgUnit */,
+        orgUnit,
+        selectOrgUnit,
         workflow,
         period,
         openedSelect,
@@ -18,6 +24,11 @@ const OrgUnitSelect = () => {
     const requiredValuesMessage = workflow.id
         ? i18n.t('Choose a period first')
         : i18n.t('Choose a workflow and period first')
+    const roots = organisationUnits.map(({ id }) => id)
+    const onChange = ({ displayName, id, path }) => {
+        selectOrgUnit({ displayName, id, path })
+    }
+    const selectedOrgUnitPath = orgUnit.path ? [orgUnit.path] : undefined
 
     return (
         <ContextSelect
@@ -29,7 +40,15 @@ const OrgUnitSelect = () => {
             onClose={() => setOpenedSelect('')}
             requiredValuesMessage={requiredValuesMessage}
         >
-            <pre>Org Unit picker placeholder</pre>
+            <div className={classes.scrollbox}>
+                <OrganisationUnitTree
+                    roots={roots}
+                    onChange={onChange}
+                    initiallyExpanded={selectedOrgUnitPath}
+                    selected={selectedOrgUnitPath}
+                    singleSelection
+                />
+            </div>
         </ContextSelect>
     )
 }

@@ -6,6 +6,7 @@ export const pushStateToHistory = state => {
         wf: state.workflow.id,
         pe: state.period.id,
         ou: state.orgUnit.path,
+        ouDisplayName: state.orgUnit.displayName,
     })
 
     const search = paramString ? `?${paramString}` : ''

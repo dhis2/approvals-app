@@ -9,5 +9,6 @@ export const readQueryParams = () => {
         wf: params.wf,
         pe: params.pe,
         ou: params.ou,
+        ouDisplayName: params.ouDisplayName,
     }
 }

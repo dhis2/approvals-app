@@ -56,7 +56,7 @@ const ContextSelect = ({
                 <Popover
                     reference={buttonRef}
                     arrow={false}
-                    placement="bottom-start"
+                    placement="bottom-end"
                     onClickOutside={onClose}
                 >
                     {children}
