@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/dhis2/approval-app/compare/v1.1.0...v1.2.0) (2021-07-01)
+
+
+### Features
+
+* **context-selector:** add period select ([#6](https://github.com/dhis2/approval-app/issues/6)) ([3047b67](https://github.com/dhis2/approval-app/commit/3047b67bd87e0796091e3836fb8157bbd4766997))
+
 # [1.1.0](https://github.com/dhis2/approval-app/compare/v1.0.0...v1.1.0) (2021-06-29)
 
 
