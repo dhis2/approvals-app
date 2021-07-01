@@ -4,7 +4,8 @@ import React from 'react'
 import classes from './year-navigator.module.css'
 
 export const currentYear = new Date().getFullYear()
-const startYear = new Date(0).getFullYear()
+// To avoid users from navigating too far back
+const startYear = 1970
 
 const YearNavigator = ({ year, onYearChange }) => (
     <div className={classes.container}>

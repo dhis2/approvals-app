@@ -15,10 +15,6 @@ const PeriodMenu = ({ periodType, year }) => {
     } = useSelectionContext()
     const periods = getFixedPeriodsByTypeAndYear(periodType, year)
 
-    if (!periods) {
-        return null
-    }
-
     return (
         <Menu dense className={classes.menu}>
             {periods.map(period => (
