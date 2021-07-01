@@ -21,7 +21,7 @@ describe('<ClearAllButton>', () => {
                 id: '20110203',
             },
             orgUnit: {
-                id: 'abc',
+                path: 'abc',
             },
         }))
         const wrapper = shallow(<ClearAllButton />)

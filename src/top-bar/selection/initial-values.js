@@ -34,10 +34,10 @@ const initialPeriodValue = (periodId, initialWorkflow) => {
     return parsePeriodId(periodId, [initialWorkflow.periodType]) || {}
 }
 
-const initialOrgUnitValue = orgUnitId => {
-    return orgUnitId
+const initialOrgUnitValue = orgUnitPath => {
+    return orgUnitPath
         ? {
-              id: orgUnitId,
+              path: orgUnitPath,
           }
         : {}
 }
