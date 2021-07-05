@@ -1,0 +1,90 @@
+import {
+    initialWorkflowValue,
+    initialPeriodValue,
+    initialOrgUnitValue,
+} from './initial-values.js'
+
+describe('initialWorkflowValue', () => {
+    const mockWorkflows = [
+        {
+            displayName: 'Workflow a',
+            id: 'i5m0JPw4DQi',
+            periodType: 'Daily',
+        },
+        {
+            displayName: 'Workflow B',
+            id: 'rIUL3hYOjJc',
+            periodType: 'Daily',
+        },
+    ]
+
+    it('returns an empty object by default', () => {
+        expect(initialWorkflowValue([])).toEqual({})
+    })
+
+    it('returns the workflow with the provided ID if it exists', () => {
+        expect(initialWorkflowValue(mockWorkflows, 'i5m0JPw4DQi')).toEqual(
+            mockWorkflows[0]
+        )
+    })
+
+    it('returns an empty object if the specified ID is not present on a workflow', () => {
+        expect(initialWorkflowValue(mockWorkflows, 'invalid_value')).toEqual({})
+    })
+
+    it('returns the only workflow if only one workflow exist and no ID is specified', () => {
+        expect(initialWorkflowValue([mockWorkflows[0]])).toEqual(
+            mockWorkflows[0]
+        )
+    })
+})
+
+describe('initialPeriodValue', () => {
+    const initialWorkflow = {
+        displayName: 'Workflow a',
+        id: 'i5m0JPw4DQi',
+        periodType: 'Daily',
+    }
+    it('returns an empty object by default', () => {
+        expect(initialPeriodValue()).toEqual({})
+    })
+    it('returns an empty object when provided with an invalid period ID', () => {
+        const invalidPeriodID = 'invalidPeriodID'
+        expect(initialPeriodValue(invalidPeriodID, initialWorkflow)).toEqual({})
+    })
+    it('returns an empty object if the periodId does not match the workflow periodType', () => {
+        const monthlyPeriodId = '201204'
+        expect(initialPeriodValue(monthlyPeriodId, initialWorkflow)).toEqual({})
+    })
+    it('returns a parsed period object if the periodId matches the workflow periodType', () => {
+        const dailyPeriodId = '20120404'
+        expect(initialPeriodValue(dailyPeriodId, initialWorkflow)).toEqual(
+            expect.objectContaining({
+                displayName: '2012-04-04',
+                endDate: '2012-04-04',
+                id: '20120404',
+                iso: '20120404',
+                startDate: '2012-04-04',
+                year: 2012,
+            })
+        )
+    })
+})
+
+describe('initialOrgUnitValue', () => {
+    it('returns an empty object by default', () => {
+        expect(initialOrgUnitValue()).toEqual({})
+    })
+    it('returns an empty object when not supplying a path', () => {
+        expect(initialOrgUnitValue(undefined, 'test')).toEqual({})
+    })
+    it('returns an empty object when not supplying a displayName', () => {
+        expect(initialOrgUnitValue('test', undefined)).toEqual({})
+    })
+    it('returns an object when supplying both params', () => {
+        expect(initialOrgUnitValue('/path', 'Display name')).toEqual({
+            path: '/path',
+            displayName: 'Display name',
+        })
+    })
+})

@@ -26,7 +26,7 @@ export const initialWorkflowValue = (workflows, workflowId) => {
     return {}
 }
 
-const initialPeriodValue = (periodId, initialWorkflow) => {
+export const initialPeriodValue = (periodId, initialWorkflow = {}) => {
     if (!periodId || !initialWorkflow.id) {
         return {}
     }
@@ -34,6 +34,6 @@ const initialPeriodValue = (periodId, initialWorkflow) => {
     return parsePeriodId(periodId, [initialWorkflow.periodType]) || {}
 }
 
-const initialOrgUnitValue = (path, displayName) => {
-    return path && displayName ? { path /*, displayName */ } : {}
+export const initialOrgUnitValue = (path, displayName) => {
+    return path && displayName ? { path, displayName } : {}
 }
