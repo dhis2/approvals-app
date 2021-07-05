@@ -6,8 +6,7 @@ import { ContextSelect } from '../context-select/index.js'
 import { useSelectionContext } from '../selection/index.js'
 import classes from './org-unit-select.module.css'
 
-useCurrentUser
-const ORG_UNIT = 'ORG_UNIT'
+export const ORG_UNIT = 'ORG_UNIT'
 
 const OrgUnitSelect = () => {
     const { organisationUnits } = useCurrentUser()
