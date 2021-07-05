@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/dhis2/approval-app/compare/v1.2.0...v1.3.0) (2021-07-05)
+
+
+### Features
+
+* **context-selector:** add OrgUnitSelect ([#8](https://github.com/dhis2/approval-app/issues/8)) ([0fd36d7](https://github.com/dhis2/approval-app/commit/0fd36d7d329ef9dd800cd014076691acbbc71a44))
+
 # [1.2.0](https://github.com/dhis2/approval-app/compare/v1.1.0...v1.2.0) (2021-07-01)
 
 
