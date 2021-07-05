@@ -70,7 +70,8 @@ describe('useSelectionContext', () => {
         readQueryParams.mockImplementation(() => ({
             wf: 'rIUL3hYOjJc',
             pe: '20110203',
-            ou: 'abc',
+            ou: '/abc',
+            ouDisplayName: 'test',
         }))
 
         const { result } = renderHook(() => useSelectionContext(), { wrapper })
@@ -85,10 +86,12 @@ describe('useSelectionContext', () => {
                 year: 2011,
             })
         )
-        expect(result.current.orgUnit).toEqual({ path: 'abc' })
-        // TODO: add tests for dealing with invalid query params
-        // once that has been implemented for org-units too.
+        expect(result.current.orgUnit).toEqual({
+            path: '/abc',
+            displayName: 'test',
+        })
     })
+
     describe('functions returned from the hook update the state and url', () => {
         it('setOpenedSelect', () => {
             const mock = jest.fn()
