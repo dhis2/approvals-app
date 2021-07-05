@@ -1,4 +1,4 @@
-import { Popover, Layer, MenuItem } from '@dhis2/ui'
+import { Popover, Layer, MenuItem, Tooltip } from '@dhis2/ui'
 import { shallow } from 'enzyme'
 import React from 'react'
 import { useCurrentUser } from '../../current-user/index.js'
@@ -21,29 +21,32 @@ jest.mock('../selection/index.js', () => ({
     useSelectionContext: jest.fn(),
 }))
 
+const mockWorkflows = [
+    {
+        displayName: 'Workflow a',
+        id: 'i5m0JPw4DQi',
+        periodType: 'Monthly',
+    },
+    {
+        displayName: 'Workflow B',
+        id: 'rIUL3hYOjJc',
+        periodType: 'Yearly',
+    },
+]
+
+beforeEach(() => {
+    useCurrentUser.mockImplementation(() => ({
+        dataApprovalWorkflows: mockWorkflows,
+    }))
+    readQueryParams.mockImplementation(() => ({}))
+})
+
 afterEach(() => {
     jest.resetAllMocks()
 })
 
 describe('<PeriodSelect>', () => {
-    const mockWorkflows = [
-        {
-            displayName: 'Workflow a',
-            id: 'i5m0JPw4DQi',
-            periodType: 'Monthly',
-        },
-        {
-            displayName: 'Workflow B',
-            id: 'rIUL3hYOjJc',
-            periodType: 'Yearly',
-        },
-    ]
-
     it('renders a ContextSelect with YearNavigator and PeriodMenu', () => {
-        useCurrentUser.mockImplementation(() => ({
-            dataApprovalWorkflows: mockWorkflows,
-        }))
-        readQueryParams.mockImplementation(() => ({}))
         useSelectionContext.mockImplementation(() => ({
             workflow: mockWorkflows[0],
             period: {},
@@ -59,10 +62,6 @@ describe('<PeriodSelect>', () => {
     })
 
     it('renders a placeholder text when no period is selected', () => {
-        useCurrentUser.mockImplementation(() => ({
-            dataApprovalWorkflows: mockWorkflows,
-        }))
-        readQueryParams.mockImplementation(() => ({}))
         useSelectionContext.mockImplementation(() => ({
             workflow: mockWorkflows[0],
             period: {},
@@ -80,10 +79,6 @@ describe('<PeriodSelect>', () => {
     it('renders a the value when a period is selected', () => {
         const displayName = 'April 2012'
 
-        useCurrentUser.mockImplementation(() => ({
-            dataApprovalWorkflows: mockWorkflows,
-        }))
-        readQueryParams.mockImplementation(() => ({}))
         useSelectionContext.mockImplementation(() => ({
             workflow: mockWorkflows[0],
             period: {
@@ -100,10 +95,6 @@ describe('<PeriodSelect>', () => {
     })
 
     it('opens the ContextSelect when the opened select matches "PERIOD"', () => {
-        useCurrentUser.mockImplementation(() => ({
-            dataApprovalWorkflows: mockWorkflows,
-        }))
-        readQueryParams.mockImplementation(() => ({}))
         useSelectionContext.mockImplementation(() => ({
             workflow: mockWorkflows[0],
             period: {},
@@ -118,10 +109,6 @@ describe('<PeriodSelect>', () => {
 
     it('calls the setOpenedSelect to open when clicking the ContextSelect button', () => {
         const setOpenedSelect = jest.fn()
-        useCurrentUser.mockImplementation(() => ({
-            dataApprovalWorkflows: mockWorkflows,
-        }))
-        readQueryParams.mockImplementation(() => ({}))
         useSelectionContext.mockImplementation(() => ({
             workflow: mockWorkflows[0],
             period: {},
@@ -141,10 +128,6 @@ describe('<PeriodSelect>', () => {
 
     it('calls selectPeriod when clicking a MenuItem', () => {
         const selectPeriod = jest.fn()
-        useCurrentUser.mockImplementation(() => ({
-            dataApprovalWorkflows: mockWorkflows,
-        }))
-        readQueryParams.mockImplementation(() => ({}))
         useSelectionContext.mockImplementation(() => ({
             workflow: mockWorkflows[0],
             period: {
@@ -177,10 +160,6 @@ describe('<PeriodSelect>', () => {
 
     it('calls the setOpenedSelect to close when clicking the backdrop', () => {
         const setOpenedSelect = jest.fn()
-        useCurrentUser.mockImplementation(() => ({
-            dataApprovalWorkflows: mockWorkflows,
-        }))
-        readQueryParams.mockImplementation(() => ({}))
         useSelectionContext.mockImplementation(() => ({
             workflow: mockWorkflows[0],
             period: {},
@@ -199,5 +178,21 @@ describe('<PeriodSelect>', () => {
 
         expect(setOpenedSelect).toHaveBeenCalledTimes(1)
         expect(setOpenedSelect).toHaveBeenCalledWith('')
+    })
+
+    it('displays the correct tooltip text when period has not been set yet', () => {
+        useSelectionContext.mockImplementation(() => ({
+            workflow: {},
+            period: {},
+            orgUnit: {},
+            openedSelect: '',
+            selectWorkflow: () => {},
+            setOpenedSelect: () => {},
+        }))
+
+        const wrapper = shallow(<PeriodSelect />)
+        const tooltip = wrapper.find(ContextSelect).dive().find(Tooltip)
+
+        expect(tooltip.prop('content')).toBe('Choose a workflow first')
     })
 })
