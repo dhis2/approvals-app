@@ -8,15 +8,7 @@ const query = {
     me: {
         resource: 'me',
         params: {
-            fields: [
-                'id',
-                'authorities',
-                'programs',
-                'dataSets',
-                'userGroups',
-                'organisationUnits',
-                'dataViewOrganisationUnits',
-            ],
+            fields: ['id', 'authorities', 'organisationUnits'],
         },
     },
     dataApprovalWorkflows: {
@@ -25,7 +17,13 @@ const query = {
         resource: 'dataApprovalWorkflows',
         params: {
             paging: false,
-            fields: ['id', 'displayName', 'dataApprovalLevels', 'periodType'],
+            fields: [
+                'id',
+                'displayName',
+                'dataApprovalLevels',
+                'periodType',
+                'dataSets[id,displayName]',
+            ],
         },
     },
 }

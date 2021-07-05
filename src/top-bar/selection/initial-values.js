@@ -2,10 +2,10 @@ import { readQueryParams } from '../../navigation/index.js'
 import { parsePeriodId } from '../period-select/index.js'
 
 export const initialValues = workflows => {
-    const { wf, pe, ou } = readQueryParams()
+    const { wf, pe, ou, ouDisplayName } = readQueryParams()
     const workflow = initialWorkflowValue(workflows, wf)
     const period = initialPeriodValue(pe, workflow)
-    const orgUnit = initialOrgUnitValue(ou)
+    const orgUnit = initialOrgUnitValue(ou, ouDisplayName)
 
     return { workflow, period, orgUnit }
 }
@@ -26,7 +26,7 @@ export const initialWorkflowValue = (workflows, workflowId) => {
     return {}
 }
 
-const initialPeriodValue = (periodId, initialWorkflow) => {
+export const initialPeriodValue = (periodId, initialWorkflow = {}) => {
     if (!periodId || !initialWorkflow.id) {
         return {}
     }
@@ -34,10 +34,6 @@ const initialPeriodValue = (periodId, initialWorkflow) => {
     return parsePeriodId(periodId, [initialWorkflow.periodType]) || {}
 }
 
-const initialOrgUnitValue = orgUnitPath => {
-    return orgUnitPath
-        ? {
-              path: orgUnitPath,
-          }
-        : {}
+export const initialOrgUnitValue = (path, displayName) => {
+    return path && displayName ? { path, displayName } : {}
 }
