@@ -1,5 +1,6 @@
 import { shallow } from 'enzyme'
 import React from 'react'
+import { ErrorMessage } from '../shared/index.js'
 import { AuthWall } from './auth-wall.js'
 import { useIsAuthorized } from './use-is-authorized.js'
 
@@ -17,7 +18,7 @@ describe('<AuthWall>', () => {
 
         const wrapper = shallow(<AuthWall>Child</AuthWall>)
 
-        expect(wrapper.find('NoticeBox')).toHaveLength(1)
+        expect(wrapper.find(ErrorMessage)).toHaveLength(1)
     })
 
     it('renders the children for authorised users', () => {

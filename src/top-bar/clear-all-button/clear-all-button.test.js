@@ -1,9 +1,9 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { useSelectionContext } from '../selection/use-selection-context.js'
+import { useSelectionContext } from '../selection-context/use-selection-context.js'
 import { ClearAllButton } from './clear-all-button.js'
 
-jest.mock('../selection/use-selection-context.js', () => ({
+jest.mock('../selection-context/use-selection-context.js', () => ({
     useSelectionContext: jest.fn(),
 }))
 

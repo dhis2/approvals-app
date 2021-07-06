@@ -1,21 +1,21 @@
 import { renderHook } from '@testing-library/react-hooks'
 import React from 'react'
-import { CurrentUserContext } from './current-user-context.js'
-import { useCurrentUser } from './use-current-user.js'
+import { AppDataContext } from './app-data-context.js'
+import { useAppData } from './use-app-data.js'
 
-describe('useCurrentUser', () => {
+describe('useAppData', () => {
     const value = {
         authorities: ['dummy'],
     }
 
     const wrapper = ({ children }) => (
-        <CurrentUserContext.Provider value={value}>
+        <AppDataContext.Provider value={value}>
             {children}
-        </CurrentUserContext.Provider>
+        </AppDataContext.Provider>
     )
 
     it('returns an object with current user properties', () => {
-        const { result } = renderHook(() => useCurrentUser(), { wrapper })
+        const { result } = renderHook(() => useAppData(), { wrapper })
 
         expect(result.current).toEqual(value)
     })

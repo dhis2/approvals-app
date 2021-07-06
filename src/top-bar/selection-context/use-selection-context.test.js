@@ -1,6 +1,6 @@
 import { act, renderHook } from '@testing-library/react-hooks'
 import React from 'react'
-import { useCurrentUser } from '../../current-user/index.js'
+import { useAppData } from '../../app-data/index.js'
 import { pushStateToHistory } from '../../navigation/push-state-to-history.js'
 import { readQueryParams } from '../../navigation/read-query-params.js'
 import { SelectionProvider } from './selection-provider.js'
@@ -14,8 +14,8 @@ jest.mock('../../navigation/read-query-params.js', () => ({
     readQueryParams: jest.fn(),
 }))
 
-jest.mock('../../current-user/index.js', () => ({
-    useCurrentUser: jest.fn(),
+jest.mock('../../app-data/index.js', () => ({
+    useAppData: jest.fn(),
 }))
 
 afterEach(() => {
@@ -36,7 +36,7 @@ const mockWorkflows = [
 ]
 
 beforeEach(() => {
-    useCurrentUser.mockImplementation(() => ({
+    useAppData.mockImplementation(() => ({
         dataApprovalWorkflows: mockWorkflows,
     }))
 })

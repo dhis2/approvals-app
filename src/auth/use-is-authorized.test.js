@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks'
 import React from 'react'
-import { CurrentUserContext } from '../current-user/index.js'
+import { AppDataContext } from '../app-data/index.js'
 import { useIsAuthorized } from './use-is-authorized.js'
 
 describe('useIsAuthorized', () => {
@@ -10,9 +10,9 @@ describe('useIsAuthorized', () => {
         }
 
         const wrapper = ({ children }) => (
-            <CurrentUserContext.Provider value={value}>
+            <AppDataContext.Provider value={value}>
                 {children}
-            </CurrentUserContext.Provider>
+            </AppDataContext.Provider>
         )
 
         const { result } = renderHook(() => useIsAuthorized(), { wrapper })
@@ -26,9 +26,9 @@ describe('useIsAuthorized', () => {
         }
 
         const wrapper = ({ children }) => (
-            <CurrentUserContext.Provider value={value}>
+            <AppDataContext.Provider value={value}>
                 {children}
-            </CurrentUserContext.Provider>
+            </AppDataContext.Provider>
         )
 
         const { result } = renderHook(() => useIsAuthorized(), { wrapper })
@@ -42,9 +42,9 @@ describe('useIsAuthorized', () => {
         }
 
         const wrapper = ({ children }) => (
-            <CurrentUserContext.Provider value={value}>
+            <AppDataContext.Provider value={value}>
                 {children}
-            </CurrentUserContext.Provider>
+            </AppDataContext.Provider>
         )
 
         const { result } = renderHook(() => useIsAuthorized(), { wrapper })

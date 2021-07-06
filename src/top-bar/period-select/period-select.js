@@ -1,7 +1,7 @@
 import i18n from '@dhis2/d2-i18n'
 import React, { useEffect, useState } from 'react'
 import { ContextSelect } from '../context-select/index.js'
-import { useSelectionContext } from '../selection/index.js'
+import { useSelectionContext } from '../selection-context/index.js'
 import { PeriodMenu } from './period-menu.js'
 import { YearNavigator, currentYear } from './year-navigator.js'
 
