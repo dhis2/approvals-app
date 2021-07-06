@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/dhis2/approval-app/compare/v1.3.0...v1.4.0) (2021-07-06)
+
+
+### Features
+
+* add status tag and workflow-context ([#13](https://github.com/dhis2/approval-app/issues/13)) ([500628d](https://github.com/dhis2/approval-app/commit/500628d70d1ceceede4209334ad71ad9e92d31d9))
+
 # [1.3.0](https://github.com/dhis2/approval-app/compare/v1.2.0...v1.3.0) (2021-07-05)
 
 
