@@ -18,6 +18,10 @@ jest.mock('../../app-data/index.js', () => ({
     useAppData: jest.fn(),
 }))
 
+beforeEach(() => {
+    readQueryParams.mockImplementation(() => ({}))
+})
+
 afterEach(() => {
     jest.resetAllMocks()
 })
@@ -47,8 +51,6 @@ describe('useSelectionContext', () => {
     )
 
     it('returns the expected properties', () => {
-        readQueryParams.mockImplementation(() => ({}))
-
         const { result } = renderHook(() => useSelectionContext(), { wrapper })
 
         expect(result.current).toEqual(
@@ -95,7 +97,6 @@ describe('useSelectionContext', () => {
     describe('functions returned from the hook update the state and url', () => {
         it('setOpenedSelect', () => {
             const mock = jest.fn()
-            readQueryParams.mockImplementation(() => ({}))
             pushStateToHistory.mockImplementation(mock)
 
             const { result } = renderHook(() => useSelectionContext(), {
@@ -115,7 +116,6 @@ describe('useSelectionContext', () => {
 
         it('selectWorkflow', () => {
             const mock = jest.fn()
-            readQueryParams.mockImplementation(() => ({}))
             pushStateToHistory.mockImplementation(mock)
 
             const { result } = renderHook(() => useSelectionContext(), {
@@ -134,7 +134,6 @@ describe('useSelectionContext', () => {
 
         it('selectPeriod', () => {
             const mock = jest.fn()
-            readQueryParams.mockImplementation(() => ({}))
             pushStateToHistory.mockImplementation(mock)
 
             const { result } = renderHook(() => useSelectionContext(), {
@@ -153,7 +152,6 @@ describe('useSelectionContext', () => {
 
         it('selectOrgUnit', () => {
             const mock = jest.fn()
-            readQueryParams.mockImplementation(() => ({}))
             pushStateToHistory.mockImplementation(mock)
 
             const { result } = renderHook(() => useSelectionContext(), {
