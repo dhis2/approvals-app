@@ -1,6 +1,6 @@
 import { CssVariables } from '@dhis2/ui'
 import React from 'react'
-import { AppDataProvider } from '../app-data/index.js'
+import { AppProvider } from '../app-context/index.js'
 import { AuthWall } from '../auth/index.js'
 import { BottomBar } from '../bottom-bar/index.js'
 import { DataWorkspace } from '../data-workspace/index.js'
@@ -10,7 +10,7 @@ import { Layout } from './layout.js'
 const App = () => (
     <>
         <CssVariables spacers colors theme />
-        <AppDataProvider>
+        <AppProvider>
             <AuthWall>
                 <Layout.Container>
                     <Layout.Top>
@@ -26,7 +26,7 @@ const App = () => (
                     </WorkflowProvider>
                 </Layout.Container>
             </AuthWall>
-        </AppDataProvider>
+        </AppProvider>
     </>
 )
 

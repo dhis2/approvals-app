@@ -2,7 +2,7 @@ import { useDataQuery } from '@dhis2/app-runtime'
 import { shallow, mount } from 'enzyme'
 import React from 'react'
 import { expectRenderError } from '../test-utils/expect-render-error.js'
-import { AppDataProvider } from './app-data-provider.js'
+import { AppProvider } from './app-provider.js'
 
 jest.mock('@dhis2/app-runtime', () => ({
     useDataQuery: jest.fn(),
@@ -12,11 +12,11 @@ afterEach(() => {
     jest.resetAllMocks()
 })
 
-describe('<AppDataProvider>', () => {
+describe('<AppProvider>', () => {
     it('shows a spinner when loading', () => {
         useDataQuery.mockImplementation(() => ({ loading: true }))
 
-        const wrapper = mount(<AppDataProvider>Child</AppDataProvider>)
+        const wrapper = mount(<AppProvider>Child</AppProvider>)
         const loadingIndicator = wrapper.find({
             'data-test': 'dhis2-uicore-circularloader',
         })
@@ -34,7 +34,7 @@ describe('<AppDataProvider>', () => {
             error,
         }))
 
-        expectRenderError(<AppDataProvider {...props} />, message)
+        expectRenderError(<AppProvider {...props} />, message)
     })
 
     it('renders the children once data has been received', () => {
@@ -46,7 +46,7 @@ describe('<AppDataProvider>', () => {
             },
         }))
 
-        const wrapper = shallow(<AppDataProvider>Child</AppDataProvider>)
+        const wrapper = shallow(<AppProvider>Child</AppProvider>)
 
         expect(wrapper.text()).toEqual(expect.stringContaining('Child'))
     })
