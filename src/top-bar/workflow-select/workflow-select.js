@@ -1,16 +1,16 @@
 import i18n from '@dhis2/d2-i18n'
 import { Menu } from '@dhis2/ui'
 import React from 'react'
-import { useCurrentUser } from '../../current-user/index.js'
+import { useAppData } from '../../app-data/index.js'
 import { ContextSelect } from '../context-select/index.js'
-import { useSelectionContext } from '../selection/index.js'
+import { useSelectionContext } from '../selection-context/index.js'
 import { WorkflowSelectOption } from './workflow-select-option.js'
 import classes from './workflow-select.module.css'
 
 const WORKFLOW = 'WORKFLOW'
 
 const WorkflowSelect = () => {
-    const { dataApprovalWorkflows } = useCurrentUser()
+    const { dataApprovalWorkflows } = useAppData()
     const {
         workflow: selectedWorkflow,
         selectWorkflow,

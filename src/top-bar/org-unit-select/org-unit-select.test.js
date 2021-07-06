@@ -2,10 +2,10 @@ import { useDataQuery } from '@dhis2/app-runtime'
 import { Popover, Layer, OrganisationUnitTree, Tooltip } from '@dhis2/ui'
 import { shallow } from 'enzyme'
 import React from 'react'
-import { useCurrentUser } from '../../current-user/index.js'
+import { useAppData } from '../../app-data/index.js'
 import { readQueryParams } from '../../navigation/read-query-params.js'
 import { ContextSelect } from '../context-select/context-select.js'
-import { useSelectionContext } from '../selection/index.js'
+import { useSelectionContext } from '../selection-context/index.js'
 import { ORG_UNIT, OrgUnitSelect } from './org-unit-select.js'
 
 jest.mock('@dhis2/app-runtime', () => ({
@@ -15,11 +15,11 @@ jest.mock('../../navigation/read-query-params.js', () => ({
     readQueryParams: jest.fn(),
 }))
 
-jest.mock('../../current-user/index.js', () => ({
-    useCurrentUser: jest.fn(),
+jest.mock('../../app-data/index.js', () => ({
+    useAppData: jest.fn(),
 }))
 
-jest.mock('../selection/index.js', () => ({
+jest.mock('../selection-context/index.js', () => ({
     useSelectionContext: jest.fn(),
 }))
 
@@ -47,7 +47,7 @@ afterEach(() => {
 })
 
 beforeEach(() => {
-    useCurrentUser.mockImplementation(() => ({
+    useAppData.mockImplementation(() => ({
         dataApprovalWorkflows: mockWorkflows,
         organisationUnits: mockOrgUnitRoots,
     }))

@@ -1,6 +1,6 @@
 import { PropTypes } from '@dhis2/prop-types'
 import React, { useEffect, useReducer } from 'react'
-import { useCurrentUser } from '../../current-user/index.js'
+import { useAppData } from '../../app-data/index.js'
 import { pushStateToHistory } from '../../navigation/index.js'
 import { initialValues, initialWorkflowValue } from './initial-values.js'
 import { SelectionContext } from './selection-context.js'
@@ -63,7 +63,7 @@ const reducer = (state, { type, payload }) => {
 }
 
 const SelectionProvider = ({ children }) => {
-    const { dataApprovalWorkflows } = useCurrentUser()
+    const { dataApprovalWorkflows } = useAppData()
     const [{ openedSelect, workflow, period, orgUnit }, dispatch] = useReducer(
         reducer,
         {

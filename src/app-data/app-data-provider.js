@@ -1,8 +1,9 @@
 import { useDataQuery } from '@dhis2/app-runtime'
 import { PropTypes } from '@dhis2/prop-types'
-import { CircularLoader, Layer, CenteredContent } from '@dhis2/ui'
+import { Layer } from '@dhis2/ui'
 import React from 'react'
-import { CurrentUserContext } from './current-user-context.js'
+import { Loader } from '../shared/index.js'
+import { AppDataContext } from './app-data-context.js'
 
 const query = {
     me: {
@@ -28,15 +29,13 @@ const query = {
     },
 }
 
-const CurrentUserProvider = ({ children }) => {
+const AppDataProvider = ({ children }) => {
     const { data, loading, error } = useDataQuery(query)
 
     if (loading) {
         return (
             <Layer>
-                <CenteredContent>
-                    <CircularLoader />
-                </CenteredContent>
+                <Loader />
             </Layer>
         )
     }
@@ -56,14 +55,14 @@ const CurrentUserProvider = ({ children }) => {
     }
 
     return (
-        <CurrentUserContext.Provider value={providerValue}>
+        <AppDataContext.Provider value={providerValue}>
             {children}
-        </CurrentUserContext.Provider>
+        </AppDataContext.Provider>
     )
 }
 
-CurrentUserProvider.propTypes = {
+AppDataProvider.propTypes = {
     children: PropTypes.node.isRequired,
 }
 
-export { CurrentUserProvider }
+export { AppDataProvider }
