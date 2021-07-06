@@ -7,7 +7,11 @@ const DataWorkspace = () => {
 
     return (
         <>
-            <TitleBar workflow={workflow} />
+            <TitleBar
+                name={workflow.displayName}
+                dataSetsCount={workflow.dataSets.length}
+                approvalState={workflow.approvalStatus.state}
+            />
         </>
     )
 }

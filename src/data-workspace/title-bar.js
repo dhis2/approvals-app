@@ -5,21 +5,23 @@ import React from 'react'
 import { StatusTag } from '../shared/status-tag/index.js'
 import styles from './title-bar.module.css'
 
-const TitleBar = ({ workflow }) => (
+const TitleBar = ({ name, dataSetsCount, approvalState }) => (
     <div className={styles.titleBar}>
-        <span className={styles.workflowName}>{workflow.displayName}</span>
+        <span className={styles.workflowName}>{name}</span>
         <span className={styles.workflowDataSetsCount}>
             <IconDimensionDataSet16 />
             {i18n.t('{{dataSetsCount}} data sets', {
-                dataSetsCount: workflow.dataSets.length,
+                dataSetsCount,
             })}
         </span>
-        <StatusTag approvalState={workflow.approvalStatus.state} />
+        <StatusTag approvalState={approvalState} />
     </div>
 )
 
 TitleBar.propTypes = {
-    workflow: PropTypes.object.isRequired,
+    approvalState: PropTypes.string.isRequired,
+    dataSetsCount: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
 }
 
 export { TitleBar }
