@@ -3,7 +3,7 @@ import { PropTypes } from '@dhis2/prop-types'
 import { Layer } from '@dhis2/ui'
 import React from 'react'
 import { Loader } from '../shared/index.js'
-import { AppDataContext } from './app-data-context.js'
+import { AppContext } from './app-context.js'
 
 const query = {
     me: {
@@ -29,7 +29,7 @@ const query = {
     },
 }
 
-const AppDataProvider = ({ children }) => {
+const AppProvider = ({ children }) => {
     const { data, loading, error } = useDataQuery(query)
 
     if (loading) {
@@ -55,14 +55,14 @@ const AppDataProvider = ({ children }) => {
     }
 
     return (
-        <AppDataContext.Provider value={providerValue}>
+        <AppContext.Provider value={providerValue}>
             {children}
-        </AppDataContext.Provider>
+        </AppContext.Provider>
     )
 }
 
-AppDataProvider.propTypes = {
+AppProvider.propTypes = {
     children: PropTypes.node.isRequired,
 }
 
-export { AppDataProvider }
+export { AppProvider }

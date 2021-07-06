@@ -1,7 +1,7 @@
 import { Popover, Layer, MenuItem, Tooltip } from '@dhis2/ui'
 import { shallow } from 'enzyme'
 import React from 'react'
-import { useAppData } from '../../app-data/index.js'
+import { useAppContext } from '../../app-context/index.js'
 import { readQueryParams } from '../../navigation/read-query-params.js'
 import { ContextSelect } from '../context-select/context-select.js'
 import { useSelectionContext } from '../selection-context/index.js'
@@ -13,8 +13,8 @@ jest.mock('../../navigation/read-query-params.js', () => ({
     readQueryParams: jest.fn(),
 }))
 
-jest.mock('../../app-data/index.js', () => ({
-    useAppData: jest.fn(),
+jest.mock('../../app-context/index.js', () => ({
+    useAppContext: jest.fn(),
 }))
 
 jest.mock('../selection-context/index.js', () => ({
@@ -35,7 +35,7 @@ const mockWorkflows = [
 ]
 
 beforeEach(() => {
-    useAppData.mockImplementation(() => ({
+    useAppContext.mockImplementation(() => ({
         dataApprovalWorkflows: mockWorkflows,
     }))
     readQueryParams.mockImplementation(() => ({}))

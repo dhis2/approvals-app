@@ -1,7 +1,7 @@
-import { useAppData } from '../app-data/index.js'
+import { useAppContext } from '../app-context/index.js'
 
 export const useIsAuthorized = () => {
-    const { authorities } = useAppData()
+    const { authorities } = useAppContext()
     return authorities.some(
         authority => authority === 'ALL' || authority === 'M_dhis-web-approval'
     )

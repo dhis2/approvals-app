@@ -1,7 +1,7 @@
-import { useAppData } from '../app-data/index.js'
+import { useAppContext } from '../app-context/index.js'
 
 const useSelectedWorkflow = params => {
-    const { dataApprovalWorkflows } = useAppData()
+    const { dataApprovalWorkflows } = useAppContext()
 
     if (!(params && params.wf && dataApprovalWorkflows)) {
         return {}
