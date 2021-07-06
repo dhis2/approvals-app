@@ -20,27 +20,30 @@ jest.mock('../selection-context/index.js', () => ({
     useSelectionContext: jest.fn(),
 }))
 
+const mockWorkflows = [
+    {
+        displayName: 'Workflow a',
+        id: 'i5m0JPw4DQi',
+    },
+    {
+        displayName: 'Workflow B',
+        id: 'rIUL3hYOjJc',
+    },
+]
+
+beforeEach(() => {
+    useAppData.mockImplementation(() => ({
+        dataApprovalWorkflows: mockWorkflows,
+    }))
+    readQueryParams.mockImplementation(() => ({}))
+})
+
 afterEach(() => {
     jest.resetAllMocks()
 })
 
 describe('<WorkflowSelect>', () => {
-    const mockWorkflows = [
-        {
-            displayName: 'Workflow a',
-            id: 'i5m0JPw4DQi',
-        },
-        {
-            displayName: 'Workflow B',
-            id: 'rIUL3hYOjJc',
-        },
-    ]
-
     it('renders a ContextSelect with WorkflowSelectOptions', () => {
-        useAppData.mockImplementation(() => ({
-            dataApprovalWorkflows: mockWorkflows,
-        }))
-        readQueryParams.mockImplementation(() => ({}))
         useSelectionContext.mockImplementation(() => ({
             workflow: {},
             openedSelect: '',
@@ -54,10 +57,6 @@ describe('<WorkflowSelect>', () => {
     })
 
     it('renders a placeholder text when no workflow is selected', () => {
-        useAppData.mockImplementation(() => ({
-            dataApprovalWorkflows: mockWorkflows,
-        }))
-        readQueryParams.mockImplementation(() => ({}))
         useSelectionContext.mockImplementation(() => ({
             workflow: {},
             openedSelect: '',
@@ -72,10 +71,6 @@ describe('<WorkflowSelect>', () => {
     })
 
     it('renders a the value when a workflow is selected', () => {
-        useAppData.mockImplementation(() => ({
-            dataApprovalWorkflows: mockWorkflows,
-        }))
-        readQueryParams.mockImplementation(() => ({}))
         useSelectionContext.mockImplementation(() => ({
             workflow: {
                 id: '123',
@@ -91,10 +86,6 @@ describe('<WorkflowSelect>', () => {
     })
 
     it('opens the ContextSelect when the opened select matches "WORKFLOW"', () => {
-        useAppData.mockImplementation(() => ({
-            dataApprovalWorkflows: mockWorkflows,
-        }))
-        readQueryParams.mockImplementation(() => ({}))
         useSelectionContext.mockImplementation(() => ({
             workflow: {},
             openedSelect: WORKFLOW,
@@ -110,7 +101,6 @@ describe('<WorkflowSelect>', () => {
         useAppData.mockImplementation(() => ({
             dataApprovalWorkflows: [],
         }))
-        readQueryParams.mockImplementation(() => ({}))
         useSelectionContext.mockImplementation(() => ({
             workflow: {},
             openedSelect: WORKFLOW,
@@ -130,10 +120,6 @@ describe('<WorkflowSelect>', () => {
 
     it('calls the setOpenedSelect to open when clicking the ContextSelect button', () => {
         const setOpenedSelect = jest.fn()
-        useAppData.mockImplementation(() => ({
-            dataApprovalWorkflows: mockWorkflows,
-        }))
-        readQueryParams.mockImplementation(() => ({}))
         useSelectionContext.mockImplementation(() => ({
             workflow: {},
             openedSelect: '',
@@ -152,10 +138,6 @@ describe('<WorkflowSelect>', () => {
 
     it('calls the selectWorkflow when clicking a WorkflowSelectOptions', () => {
         const selectWorkflow = jest.fn()
-        useAppData.mockImplementation(() => ({
-            dataApprovalWorkflows: mockWorkflows,
-        }))
-        readQueryParams.mockImplementation(() => ({}))
         useSelectionContext.mockImplementation(() => ({
             workflow: {},
             openedSelect: '',
@@ -174,10 +156,6 @@ describe('<WorkflowSelect>', () => {
 
     it('calls the setOpenedSelect to close when clicking the backdrop', () => {
         const setOpenedSelect = jest.fn()
-        useAppData.mockImplementation(() => ({
-            dataApprovalWorkflows: mockWorkflows,
-        }))
-        readQueryParams.mockImplementation(() => ({}))
         useSelectionContext.mockImplementation(() => ({
             workflow: {},
             openedSelect: WORKFLOW,
