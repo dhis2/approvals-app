@@ -2,7 +2,7 @@ import { useDataQuery } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { PropTypes } from '@dhis2/prop-types'
 import React, { useEffect } from 'react'
-import { Error, Loader } from '../shared/index.js'
+import { ErrorMessage, Loader } from '../shared/index.js'
 import { useSelectedWorkflow } from './use-selected-workflow.js'
 import { useSelectionParams } from './use-selection-params.js'
 import { WorkflowContext } from './workflow-context.js'
@@ -37,9 +37,9 @@ const WorkflowProvider = ({ children }) => {
 
     if (error) {
         return (
-            <Error title={i18n.t('Could not load approval data')}>
+            <ErrorMessage title={i18n.t('Could not load approval data')}>
                 {error.message}
-            </Error>
+            </ErrorMessage>
         )
     }
 
