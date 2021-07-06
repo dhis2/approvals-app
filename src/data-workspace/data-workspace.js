@@ -1,12 +1,13 @@
 import React from 'react'
+import { useWorkflowContext } from '../workflow-context/index.js'
+import { TitleBar } from './title-bar.js'
 
 const DataWorkspace = () => {
-    // const query = useQueryParams()
+    const workflow = useWorkflowContext()
 
     return (
         <>
-            <h1>Data workspace placeholder</h1>
-            {/* <pre>{JSON.stringify(query, null, 4)}</pre> */}
+            <TitleBar workflow={workflow} />
         </>
     )
 }
