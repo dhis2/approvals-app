@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useWorkflowContext } from '../workflow-context/index.js'
+import { Navigation } from './navigation.js'
 import { TitleBar } from './title-bar.js'
 
 const DataWorkspace = () => {
     const workflow = useWorkflowContext()
+    const [selectedDataSet, setSelectedDataSet] = useState(
+        workflow.dataSets.length === 1 ? workflow.dataSets[0].id : null
+    )
 
     return (
         <>
@@ -11,6 +15,11 @@ const DataWorkspace = () => {
                 name={workflow.displayName}
                 dataSetsCount={workflow.dataSets.length}
                 approvalState={workflow.approvalStatus.state}
+            />
+            <Navigation
+                dataSets={workflow.dataSets}
+                selected={selectedDataSet}
+                onChange={setSelectedDataSet}
             />
         </>
     )
