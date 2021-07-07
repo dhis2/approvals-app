@@ -43,12 +43,15 @@ const WorkflowProvider = ({ children }) => {
         )
     }
 
+    const { state: approvalState, ...allowedActions } = data.approvalStatus
+
     return (
         <WorkflowContext.Provider
             value={{
                 displayName,
                 dataSets,
-                approvalStatus: data.approvalStatus,
+                approvalState,
+                allowedActions,
             }}
         >
             {children}
