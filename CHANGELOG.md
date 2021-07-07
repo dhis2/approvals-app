@@ -1,3 +1,20 @@
+# [1.6.0](https://github.com/dhis2/approval-app/compare/v1.5.0...v1.6.0) (2021-07-07)
+
+
+### Bug Fixes
+
+* code review changes ([376438e](https://github.com/dhis2/approval-app/commit/376438e826cca7868ef4b468feeebbf735442de7))
+* tweak lack of data message ([afafe41](https://github.com/dhis2/approval-app/commit/afafe41d24674315ea9e0eebe1e21e8559930af7))
+* use theme var for display box shadow ([741b17e](https://github.com/dhis2/approval-app/commit/741b17ef8c13da320b60cf79938d9310988c2b8e))
+
+
+### Features
+
+* implement non-data states for data workspace display ([27c3940](https://github.com/dhis2/approval-app/commit/27c3940e4dc0b7e501effe8a274770e4d7100f99))
+* render data set reports tables ([40cf81e](https://github.com/dhis2/approval-app/commit/40cf81e136094abc4b62cac4b5c37f1277c85082))
+* show message if no data set selected ([949eab8](https://github.com/dhis2/approval-app/commit/949eab8bbf7e7181e14e65b1e5eac1860413e9a3))
+* start work on display ([466daa5](https://github.com/dhis2/approval-app/commit/466daa56ac25ce8464f633fc22b6ae9cf20ae8bb))
+
 # [1.5.0](https://github.com/dhis2/approval-app/compare/v1.4.1...v1.5.0) (2021-07-07)
 
 
