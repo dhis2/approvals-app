@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 const Navigation = ({ dataSets, selected, onChange }) => (
-    <TabBar>
+    <TabBar scrollable>
         {dataSets.map(dataSet => (
             <Tab
                 key={dataSet.id}
