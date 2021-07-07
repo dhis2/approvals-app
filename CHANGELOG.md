@@ -1,3 +1,15 @@
+# [1.5.0](https://github.com/dhis2/approval-app/compare/v1.4.1...v1.5.0) (2021-07-07)
+
+
+### Bug Fixes
+
+* add scrollable prop to TabBar ([d6d290e](https://github.com/dhis2/approval-app/commit/d6d290e6da51a83991bc297c8f540d8c83b59e71))
+
+
+### Features
+
+* add datasets navigation ([264cb7c](https://github.com/dhis2/approval-app/commit/264cb7c82e9f4c52048b8e97fe2b7c76d2d78b58))
+
 ## [1.4.1](https://github.com/dhis2/approval-app/compare/v1.4.0...v1.4.1) (2021-07-07)
 
 
