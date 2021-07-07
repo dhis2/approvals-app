@@ -1,4 +1,5 @@
 .display {
+    min-height: 360px;
     padding: var(--spacers-dp12) var(--spacers-dp8);
     background: white;
     box-shadow: rgb(213, 221, 229) 0px -1px 0px 0px inset;
@@ -6,7 +7,6 @@
 
 .chooseDataSet {
     composes: display;
-    min-height: 360px;
     padding: 40px var(--spacers-dp16) 0;
 }
 
@@ -21,4 +21,31 @@
     margin: 0;
     color: var(--colors-grey700);
     font-size: 14px;
+}
+
+.loadingWrapper {
+    margin-top: var(--spacers-dp24);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--colors-grey700);
+}
+
+.noData {
+    composes: display;
+    padding-top: var(--spacers-dp24);
+}
+
+.noData p {
+    margin: 0;
+    text-align: center;
+    color: var(--colors-grey700);
+}
+
+.retryButton {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    text-decoration: underline;
 }
