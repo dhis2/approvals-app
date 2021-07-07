@@ -4,6 +4,7 @@ import { NoticeBox, CircularLoader } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 import styles from './display.module.css'
+import { Table } from './table.js'
 
 const query = {
     dataSetReport: {
@@ -20,7 +21,7 @@ const Display = ({ workflowName, periodId, organisationUnitId, dataSetId }) => {
     const { called, loading, data, error, refetch } = useDataQuery(query, {
         lazy: true,
     })
-    const dataSetReport = data?.dataSetReport[0]
+    const tables = data?.dataSetReport
     const fetchDataSet = () => {
         refetch({
             ds: dataSetId,
@@ -86,7 +87,7 @@ const Display = ({ workflowName, periodId, organisationUnitId, dataSetId }) => {
         )
     }
 
-    if (dataSetReport.rows.length === 0) {
+    if (tables.length === 0) {
         return (
             <div className={styles.noData}>
                 <p>
@@ -100,7 +101,14 @@ const Display = ({ workflowName, periodId, organisationUnitId, dataSetId }) => {
 
     return (
         <div className={styles.display}>
-            <pre>{JSON.stringify(dataSetReport, null, 4)}</pre>
+            {tables.map(table => (
+                <Table
+                    key={table.title}
+                    title={table.title}
+                    columns={table.headers.map(h => h.name)}
+                    rows={table.rows}
+                />
+            ))}
         </div>
     )
 }
