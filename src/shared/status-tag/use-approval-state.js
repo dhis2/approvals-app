@@ -50,6 +50,9 @@ const useApprovalState = approvalState => {
                 displayName: i18n.t('Cannot approve'),
                 type: 'negative',
             }
+
+        default:
+            throw new Error(`Unknown approval state: '${approvalState}'`)
     }
 }
 
