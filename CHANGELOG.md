@@ -1,3 +1,14 @@
+## [1.4.1](https://github.com/dhis2/approval-app/compare/v1.4.0...v1.4.1) (2021-07-07)
+
+
+### Bug Fixes
+
+* generate translations before linting ([cbf4feb](https://github.com/dhis2/approval-app/commit/cbf4feb9deb1beb2fab3dbc8c322b48f83ff621c))
+* handle UNAPPROVED_ABOVE status ([114e1f5](https://github.com/dhis2/approval-app/commit/114e1f5f6469efcc29dd3eaba8e95f0a95aac2b4))
+* import src/locales/index.js ([b87eb7d](https://github.com/dhis2/approval-app/commit/b87eb7d6dd51dcbcfa1ddbcb9e156e0b78b72ed3))
+* throw on unknown approval state ([ac2f2c7](https://github.com/dhis2/approval-app/commit/ac2f2c712ceb951332ccd323580770937c38446f))
+* update @dhis2/ui in order to render status tag icon correctly ([fbf6396](https://github.com/dhis2/approval-app/commit/fbf63966d29033379e9728e6d630c7549af17cbe))
+
 # [1.4.0](https://github.com/dhis2/approval-app/compare/v1.3.0...v1.4.0) (2021-07-06)
 
 
