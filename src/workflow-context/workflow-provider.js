@@ -52,6 +52,7 @@ const WorkflowProvider = ({ children }) => {
                 dataSets,
                 approvalState,
                 allowedActions,
+                params,
             }}
         >
             {children}
