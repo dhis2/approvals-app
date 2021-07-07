@@ -1,3 +1,3 @@
-export { ErrorMessage } from './error-message.js'
-export { Loader } from './loader.js'
+export { ErrorMessage } from './error-message/index.js'
+export { Loader } from './loader/index.js'
 export { StatusTag } from './status-tag/index.js'
