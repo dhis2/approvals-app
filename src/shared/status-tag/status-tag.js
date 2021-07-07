@@ -1,10 +1,10 @@
 import { Tag } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { useApprovalState } from './use-approval-state.js'
+import { getTagDisplayData } from './get-tag-display-data.js'
 
 const StatusTag = ({ approvalState }) => {
-    const { icon: Icon, displayName, type } = useApprovalState(approvalState)
+    const { icon: Icon, displayName, type } = getTagDisplayData(approvalState)
     const props = {
         [type]: true,
         icon: <Icon />,

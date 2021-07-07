@@ -10,7 +10,7 @@ import { Approved, Ready, Waiting } from './icons.js'
  * B. Should we show a red tag for UNAPPROVABLE and show a negative tag?
  *    This was not included in the design specs.
  */
-const useApprovalState = approvalState => {
+const getTagDisplayData = approvalState => {
     switch (approvalState) {
         case 'APPROVED_HERE':
         case 'APPROVED_ELSEWHERE':
@@ -56,4 +56,4 @@ const useApprovalState = approvalState => {
     }
 }
 
-export { useApprovalState }
+export { getTagDisplayData }
