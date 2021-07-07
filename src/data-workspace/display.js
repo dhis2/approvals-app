@@ -91,7 +91,7 @@ const Display = ({ workflowName, periodId, organisationUnitId, dataSetId }) => {
             <div className={styles.noData}>
                 <p>
                     {i18n.t(
-                        `This data set doesn't have any data for the currently selected period and organisation unit.`
+                        `This data set doesn't have any data for the selected period and organisation unit.`
                     )}
                 </p>
             </div>
