@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import { history, readQueryParams } from '../navigation/index.js'
 
-const getParamsIfAllAvailable = () => {
+export const getParamsIfAllAvailable = () => {
     const { wf, pe, ou: orgUnitPath } = readQueryParams()
+
     if (wf && pe && orgUnitPath) {
         const orgUnitPathSegments = orgUnitPath.split('/')
         const orgUnitId = orgUnitPathSegments[orgUnitPathSegments.length - 1]
