@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useWorkflowContext } from '../workflow-context/index.js'
 import { Display } from './display.js'
-import { Navigation } from './navigation.js'
+import { DataSetNavigation } from './data-set-navigation.js'
 import { TitleBar } from './title-bar.js'
 
 const DataWorkspace = () => {
@@ -17,7 +17,7 @@ const DataWorkspace = () => {
                 dataSetsCount={workflow.dataSets.length}
                 approvalState={workflow.approvalStatus.state}
             />
-            <Navigation
+            <DataSetNavigation
                 dataSets={workflow.dataSets}
                 selected={selectedDataSet}
                 onChange={setSelectedDataSet}

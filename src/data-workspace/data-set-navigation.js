@@ -2,7 +2,7 @@ import { TabBar, Tab } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const Navigation = ({ dataSets, selected, onChange }) => (
+const DataSetNavigation = ({ dataSets, selected, onChange }) => (
     <TabBar scrollable>
         {dataSets.map(dataSet => (
             <Tab
@@ -16,10 +16,10 @@ const Navigation = ({ dataSets, selected, onChange }) => (
     </TabBar>
 )
 
-Navigation.propTypes = {
+DataSetNavigation.propTypes = {
     dataSets: PropTypes.array.isRequired,
     onChange: PropTypes.func.isRequired,
     selected: PropTypes.string,
 }
 
-export { Navigation }
+export { DataSetNavigation }
