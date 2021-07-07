@@ -37,6 +37,7 @@ const useApprovalState = approvalState => {
 
         case 'UNAPPROVED_WAITING':
         case 'UNAPPROVED_ELSEWHERE':
+        case 'UNAPPROVED_ABOVE':
             return {
                 icon: Waiting,
                 displayName: i18n.t('Waiting'),
@@ -49,6 +50,9 @@ const useApprovalState = approvalState => {
                 displayName: i18n.t('Cannot approve'),
                 type: 'negative',
             }
+
+        default:
+            throw new Error(`Unknown approval state: '${approvalState}'`)
     }
 }
 

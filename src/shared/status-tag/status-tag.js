@@ -22,6 +22,7 @@ StatusTag.propTypes = {
         'UNAPPROVED_READY',
         'UNAPPROVED_WAITING',
         'UNAPPROVED_ELSEWHERE',
+        'UNAPPROVED_ABOVE',
         'UNAPPROVABLE',
     ]),
 }
