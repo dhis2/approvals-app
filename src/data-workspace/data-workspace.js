@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useWorkflowContext } from '../workflow-context/index.js'
+import { Display } from './display.js'
 import { Navigation } from './navigation.js'
 import { TitleBar } from './title-bar.js'
-import { Display } from './display.js'
 
 const DataWorkspace = () => {
     const workflow = useWorkflowContext()
