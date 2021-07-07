@@ -31,10 +31,9 @@ const Display = ({ workflowName, periodId, organisationUnitId, dataSetId }) => {
     }
 
     useEffect(() => {
-        if (!dataSetId) {
-            return
+        if (dataSetId) {
+            fetchDataSet()
         }
-        fetchDataSet()
     }, [dataSetId])
 
     if (!dataSetId) {
@@ -69,7 +68,7 @@ const Display = ({ workflowName, periodId, organisationUnitId, dataSetId }) => {
                         className={styles.retryButton}
                         onClick={fetchDataSet}
                     >
-                        Retry loading data set
+                        {i18n.t('Retry loading data set')}
                     </button>
                 </NoticeBox>
             </div>
