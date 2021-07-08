@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/dhis2/approval-app/compare/v1.6.0...v1.6.1) (2021-07-08)
+
+
+### Bug Fixes
+
+* **workflow-context:** attach additional properties and tests ([#22](https://github.com/dhis2/approval-app/issues/22)) ([407ebf8](https://github.com/dhis2/approval-app/commit/407ebf88b7db732682936aad48d5d79a1fb4eaf8))
+
 # [1.6.0](https://github.com/dhis2/approval-app/compare/v1.5.0...v1.6.0) (2021-07-07)
 
 
