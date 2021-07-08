@@ -738,3 +738,39 @@ export const parsePeriodId = (id, allowedTypes) => {
         periodType,
     }
 }
+
+export const getFixedPeriodsForTypeAndDateRange = (
+    type,
+    startDate,
+    endDate
+) => {
+    // Allow dates and date-strings
+    startDate = startDate instanceof Date ? startDate : new Date(startDate)
+    endDate = endDate instanceof Date ? endDate : new Date(endDate)
+
+    let year = endDate.getFullYear()
+    let startDateReached = false
+    const convertedPeriods = []
+
+    while (!startDateReached) {
+        getFixedPeriodsByTypeAndYear(type, year)
+            .reverse()
+            .forEach(period => {
+                const isAfterPeriodStart =
+                    new Date(period.startDate) >= startDate
+                const isBeforePeriodEnd = new Date(period.endDate) <= endDate
+
+                if (!isAfterPeriodStart) {
+                    startDateReached = true
+                }
+
+                if (isAfterPeriodStart && isBeforePeriodEnd) {
+                    convertedPeriods.push(period)
+                }
+            })
+
+        --year
+    }
+
+    return convertedPeriods.reverse()
+}

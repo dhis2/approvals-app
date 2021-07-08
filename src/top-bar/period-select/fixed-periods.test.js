@@ -1,4 +1,5 @@
 import {
+    getFixedPeriodsForTypeAndDateRange,
     getFixedPeriodType,
     getFixedPeriodTypes,
     parsePeriodId,
@@ -779,6 +780,91 @@ describe('fixedPeriods utils', () => {
             const period = parsePeriodId('2014April')
             expect(period.periodType.type).toEqual('FinancialApril')
             expect(period).toMatchSnapshot()
+        })
+    })
+
+    describe('getFixedPeriodsForTypeAndDateRange', () => {
+        it('should return an empty array if the period exceeds the date range', () => {
+            expect(
+                getFixedPeriodsForTypeAndDateRange(
+                    'Yearly',
+                    '2021-04-08',
+                    '2021-06-06'
+                )
+            ).toEqual([])
+        })
+        it('should return the expected result even when the date range spans multiple years', () => {
+            expect(
+                getFixedPeriodsForTypeAndDateRange(
+                    'Monthly',
+                    '2020-08-08',
+                    '2021-06-06'
+                )
+            ).toEqual([
+                {
+                    displayName: 'September 2020',
+                    endDate: '2020-09-30',
+                    id: '202009',
+                    iso: '202009',
+                    startDate: '2020-09-01',
+                },
+                {
+                    displayName: 'October 2020',
+                    endDate: '2020-10-31',
+                    id: '202010',
+                    iso: '202010',
+                    startDate: '2020-10-01',
+                },
+                {
+                    displayName: 'November 2020',
+                    endDate: '2020-11-30',
+                    id: '202011',
+                    iso: '202011',
+                    startDate: '2020-11-01',
+                },
+                {
+                    displayName: 'December 2020',
+                    endDate: '2020-12-31',
+                    id: '202012',
+                    iso: '202012',
+                    startDate: '2020-12-01',
+                },
+                {
+                    displayName: 'January 2021',
+                    endDate: '2021-01-31',
+                    id: '202101',
+                    iso: '202101',
+                    startDate: '2021-01-01',
+                },
+                {
+                    displayName: 'February 2021',
+                    endDate: '2021-02-28',
+                    id: '202102',
+                    iso: '202102',
+                    startDate: '2021-02-01',
+                },
+                {
+                    displayName: 'March 2021',
+                    endDate: '2021-03-31',
+                    id: '202103',
+                    iso: '202103',
+                    startDate: '2021-03-01',
+                },
+                {
+                    displayName: 'April 2021',
+                    endDate: '2021-04-30',
+                    id: '202104',
+                    iso: '202104',
+                    startDate: '2021-04-01',
+                },
+                {
+                    displayName: 'May 2021',
+                    endDate: '2021-05-31',
+                    id: '202105',
+                    iso: '202105',
+                    startDate: '2021-05-01',
+                },
+            ])
         })
     })
 })
