@@ -756,15 +756,17 @@ export const getFixedPeriodsForTypeAndDateRange = (
         getFixedPeriodsByTypeAndYear(type, year)
             .reverse()
             .forEach(period => {
-                const isAfterPeriodStart =
-                    new Date(period.startDate) >= startDate
-                const isBeforePeriodEnd = new Date(period.endDate) <= endDate
+                const periodEnd = new Date(period.endDate)
+                // exclude periods that end before start date
+                const endsAfterPeriodStart = periodEnd >= startDate
+                // exclude periods that end after end date
+                const endsBeforePeriodEnd = periodEnd <= endDate
 
-                if (!isAfterPeriodStart) {
+                if (!endsAfterPeriodStart) {
                     startDateReached = true
                 }
 
-                if (isAfterPeriodStart && isBeforePeriodEnd) {
+                if (endsAfterPeriodStart && endsBeforePeriodEnd) {
                     convertedPeriods.push(period)
                 }
             })

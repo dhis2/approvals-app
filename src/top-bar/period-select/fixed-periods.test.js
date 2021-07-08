@@ -796,11 +796,56 @@ describe('fixedPeriods utils', () => {
         it('should return the expected result even when the date range spans multiple years', () => {
             expect(
                 getFixedPeriodsForTypeAndDateRange(
+                    'Weekly',
+                    '2021-04-01',
+                    '2021-04-30'
+                )
+            ).toEqual([
+                {
+                    displayName: 'Week 13 - 2021-03-29 - 2021-04-04',
+                    endDate: '2021-04-04',
+                    id: '2021W13',
+                    iso: '2021W13',
+                    startDate: '2021-03-29',
+                },
+                {
+                    displayName: 'Week 14 - 2021-04-05 - 2021-04-11',
+                    endDate: '2021-04-11',
+                    id: '2021W14',
+                    iso: '2021W14',
+                    startDate: '2021-04-05',
+                },
+                {
+                    displayName: 'Week 15 - 2021-04-12 - 2021-04-18',
+                    endDate: '2021-04-18',
+                    id: '2021W15',
+                    iso: '2021W15',
+                    startDate: '2021-04-12',
+                },
+                {
+                    displayName: 'Week 16 - 2021-04-19 - 2021-04-25',
+                    endDate: '2021-04-25',
+                    id: '2021W16',
+                    iso: '2021W16',
+                    startDate: '2021-04-19',
+                },
+            ])
+        })
+        it('should return the expected result even when the date range spans multiple years', () => {
+            expect(
+                getFixedPeriodsForTypeAndDateRange(
                     'Monthly',
                     '2020-08-08',
                     '2021-06-06'
                 )
             ).toEqual([
+                {
+                    displayName: 'August 2020',
+                    endDate: '2020-08-31',
+                    id: '202008',
+                    iso: '202008',
+                    startDate: '2020-08-01',
+                },
                 {
                     displayName: 'September 2020',
                     endDate: '2020-09-30',
