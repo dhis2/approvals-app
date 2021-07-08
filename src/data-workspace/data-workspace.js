@@ -17,7 +17,7 @@ const DataWorkspace = () => {
             <TitleBar
                 name={workflow.displayName}
                 dataSetsCount={workflow.dataSets.length}
-                approvalState={workflow.approvalStatus.state}
+                approvalState={workflow.approvalState}
             />
             <DataSetNavigation
                 dataSets={workflow.dataSets}
