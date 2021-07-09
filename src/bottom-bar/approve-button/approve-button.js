@@ -14,7 +14,7 @@ const ApproveButton = ({ disabled }) => {
     // state
     const [unexpectedError, setUnexpectedError] = useState(null)
     const [showApproveModal, setShowApproveModal] = useState(false)
-    const { params } = useWorkflowContext()
+    const { params, refresh } = useWorkflowContext()
 
     // derived state
     const error = approveError || unexpectedError
@@ -40,6 +40,7 @@ const ApproveButton = ({ disabled }) => {
                         try {
                             const { wf, pe, ou } = params
                             await approveData({ wf, pe, ou })
+                            refresh()
                         } catch (e) {
                             setUnexpectedError(e)
                         } finally {

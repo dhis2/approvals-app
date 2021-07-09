@@ -7,7 +7,7 @@ import { useUnapproveData } from './use-unapprove-data.js'
 
 const UnapproveButton = () => {
     const [unapproveData, { loading, error }] = useUnapproveData()
-    const { params } = useWorkflowContext()
+    const { params, refresh } = useWorkflowContext()
     const { show } = useAlert(
         i18n.t('Unapproval failed: {{error}}', {
             error: error?.toString(),
@@ -25,6 +25,7 @@ const UnapproveButton = () => {
             onClick={async () => {
                 const { wf, pe, ou } = params
                 await unapproveData({ wf, pe, ou })
+                refresh()
             }}
         >
             {i18n.t('Unapprove')}

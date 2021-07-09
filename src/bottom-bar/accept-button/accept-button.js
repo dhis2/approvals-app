@@ -7,8 +7,7 @@ import { useAcceptData } from './use-accept-data.js'
 
 const AcceptButton = () => {
     const [acceptData, { loading, error }] = useAcceptData()
-    console.log('error', error);
-    const { params } = useWorkflowContext()
+    const { params, refresh } = useWorkflowContext()
     const { show } = useAlert(
         i18n.t('Acceptance failed: {{error}}', {
             error: error?.toString(),
@@ -26,6 +25,7 @@ const AcceptButton = () => {
             onClick={async () => {
                 const { wf, pe, ou } = params
                 await acceptData({ wf, pe, ou })
+                refresh()
             }}
         >
             {i18n.t('Accept')}

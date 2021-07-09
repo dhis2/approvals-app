@@ -7,7 +7,7 @@ import { useUnacceptData } from './use-unaccept-data.js'
 
 const UnacceptButton = () => {
     const [unacceptData, { loading, error }] = useUnacceptData()
-    const { params } = useWorkflowContext()
+    const { params, refresh } = useWorkflowContext()
     const { show } = useAlert(
         i18n.t('Unacceptance failed: {{error}}', {
             error: error?.toString(),
@@ -25,6 +25,7 @@ const UnacceptButton = () => {
             onClick={async () => {
                 const { wf, pe, ou } = params
                 await unacceptData({ wf, pe, ou })
+                refresh()
             }}
         >
             {i18n.t('Unaccept')}
