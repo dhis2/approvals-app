@@ -2,7 +2,7 @@ import i18n from '@dhis2/d2-i18n'
 import { Button, ButtonStrip, Modal, ModalTitle, ModalContent, ModalActions } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { useWorkflowContext } from '../../workflow-context/index.js'
+import { useWorkflowContext } from '../../../workflow-context/index.js'
 import styles from './approve-modal.module.css'
 
 // Hendrik is working on some changes that will allow to get the current
