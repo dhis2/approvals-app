@@ -30,10 +30,10 @@ const reducer = (state, { type, payload }) => {
             }
         case ACTIONS.SELECT_WORKFLOW:
             return {
+                ...state,
                 openedSelect: '',
                 workflow: payload.workflow,
                 period: {},
-                orgUnit: {},
             }
         case ACTIONS.SELECT_PERIOD:
             return {
@@ -44,7 +44,6 @@ const reducer = (state, { type, payload }) => {
                  */
                 openedSelect: payload.period.id ? '' : state.openedSelect,
                 period: payload.period,
-                orgUnit: {},
             }
         case ACTIONS.SELECT_ORG_UNIT:
             return {
