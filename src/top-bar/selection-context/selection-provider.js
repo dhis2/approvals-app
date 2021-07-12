@@ -33,7 +33,8 @@ const reducer = (state, { type, payload }) => {
                 ...state,
                 openedSelect: '',
                 workflow: payload.workflow,
-                period: {},
+                period: (state.workflow && state.workflow.periodType === payload.workflow.periodType)
+                    ? state.period : {},
             }
         case ACTIONS.SELECT_PERIOD:
             return {
