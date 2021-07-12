@@ -12,7 +12,7 @@ const PeriodSelect = () => {
         useSelectionContext()
     const [year, setYear] = useState(period.year || currentYear)
     const open = openedSelect === PERIOD
-    const value = period.displayName || i18n.t('Choose a period')
+    const value = period.displayName
 
     useEffect(() => {
         if (period.year) {
@@ -23,6 +23,7 @@ const PeriodSelect = () => {
     return (
         <ContextSelect
             prefix={i18n.t('Period')}
+            placeholder={i18n.t('Choose a period')}
             value={value}
             open={open}
             disabled={!workflow.id}

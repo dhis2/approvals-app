@@ -11,7 +11,7 @@
 }
 .prefix {
     color: var(--colors-grey600);
-    padding-right: var(--spacers-dp4);
+    margin-right: var(--spacers-dp8);
 }
 .value {
     flex-grow: 1;

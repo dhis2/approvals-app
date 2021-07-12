@@ -12,6 +12,7 @@ import classes from './context-select.module.css'
 const ContextSelect = ({
     children,
     prefix,
+    placeholder,
     value,
     onClose,
     onOpen,
@@ -29,7 +30,9 @@ const ContextSelect = ({
             disabled={disabled}
         >
             <span className={classes.prefix}>{prefix}</span>
-            {!disabled && <span className={classes.value}>{value}</span>}
+            <span className={classes.value}>
+                {value || (!disabled && placeholder)}
+            </span>
             <Icon color={disabled ? colors.grey600 : undefined} />
         </button>
     )
@@ -69,12 +72,13 @@ const ContextSelect = ({
 ContextSelect.propTypes = {
     children: PropTypes.node.isRequired,
     prefix: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
+    placeholder: PropTypes.string.isRequired,
     onClose: PropTypes.func.isRequired,
     onOpen: PropTypes.func.isRequired,
     disabled: PropTypes.bool,
     open: PropTypes.bool,
     requiredValuesMessage: PropTypes.string,
+    value: PropTypes.string,
 }
 
 export { ContextSelect }
