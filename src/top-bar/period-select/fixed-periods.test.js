@@ -1,7 +1,30 @@
 import {
+    PERIOD_GREATER,
+    PERIOD_EQUAL,
+    PERIOD_SHORTER,
+    DAILY,
+    WEEKLY,
+    WEEKLY_WEDNESDAY,
+    WEEKLY_THURSDAY,
+    WEEKLY_SATURDAY,
+    WEEKLY_SUNDAY,
+    BI_WEEKLY,
+    MONTHLY,
+    BI_MONTHLY,
+    QUARTERLY,
+    SIX_MONTHLY,
+    SIX_MONTHLY_APRIL,
+    YEARLY,
+    FINANCIAL_APRIL,
+    FINANCIAL_JULY,
+    FINANCIAL_OCT,
+    FINANCIAL_NOV,
+    compareFixedPeriodLength,
     getFixedPeriodsForTypeAndDateRange,
+    getFixedPeriodsByTypeAndYear,
     getFixedPeriodType,
     getFixedPeriodTypes,
+    getLastSubPeriodForTypeAndPeriod,
     parsePeriodId,
     getYearOffsetFromNow,
 } from './fixed-periods.js'
@@ -910,6 +933,214 @@ describe('fixedPeriods utils', () => {
                     startDate: '2021-05-01',
                 },
             ])
+        })
+    })
+
+    describe('compareFixedPeriodLength', () => {
+        const notEqual = [
+            [DAILY, WEEKLY],
+            [DAILY, WEEKLY_WEDNESDAY],
+            [DAILY, WEEKLY_THURSDAY],
+            [DAILY, WEEKLY_SATURDAY],
+            [DAILY, WEEKLY_SUNDAY],
+            [DAILY, BI_WEEKLY],
+            [DAILY, MONTHLY],
+            [DAILY, BI_MONTHLY],
+            [DAILY, QUARTERLY],
+            [DAILY, SIX_MONTHLY],
+            [DAILY, SIX_MONTHLY_APRIL],
+            [DAILY, YEARLY],
+            [DAILY, FINANCIAL_APRIL],
+            [DAILY, FINANCIAL_JULY],
+            [DAILY, FINANCIAL_OCT],
+            [DAILY, FINANCIAL_NOV],
+            [WEEKLY, BI_WEEKLY],
+            [WEEKLY, MONTHLY],
+            [WEEKLY, BI_MONTHLY],
+            [WEEKLY, QUARTERLY],
+            [WEEKLY, SIX_MONTHLY],
+            [WEEKLY, SIX_MONTHLY_APRIL],
+            [WEEKLY, YEARLY],
+            [WEEKLY, FINANCIAL_APRIL],
+            [WEEKLY, FINANCIAL_JULY],
+            [WEEKLY, FINANCIAL_OCT],
+            [WEEKLY, FINANCIAL_NOV],
+            [WEEKLY_WEDNESDAY, BI_WEEKLY],
+            [WEEKLY_WEDNESDAY, MONTHLY],
+            [WEEKLY_WEDNESDAY, BI_MONTHLY],
+            [WEEKLY_WEDNESDAY, QUARTERLY],
+            [WEEKLY_WEDNESDAY, SIX_MONTHLY],
+            [WEEKLY_WEDNESDAY, SIX_MONTHLY_APRIL],
+            [WEEKLY_WEDNESDAY, YEARLY],
+            [WEEKLY_WEDNESDAY, FINANCIAL_APRIL],
+            [WEEKLY_WEDNESDAY, FINANCIAL_JULY],
+            [WEEKLY_WEDNESDAY, FINANCIAL_OCT],
+            [WEEKLY_WEDNESDAY, FINANCIAL_NOV],
+            [WEEKLY_THURSDAY, BI_WEEKLY],
+            [WEEKLY_THURSDAY, MONTHLY],
+            [WEEKLY_THURSDAY, BI_MONTHLY],
+            [WEEKLY_THURSDAY, QUARTERLY],
+            [WEEKLY_THURSDAY, SIX_MONTHLY],
+            [WEEKLY_THURSDAY, SIX_MONTHLY_APRIL],
+            [WEEKLY_THURSDAY, YEARLY],
+            [WEEKLY_THURSDAY, FINANCIAL_APRIL],
+            [WEEKLY_THURSDAY, FINANCIAL_JULY],
+            [WEEKLY_THURSDAY, FINANCIAL_OCT],
+            [WEEKLY_THURSDAY, FINANCIAL_NOV],
+            [WEEKLY_SATURDAY, BI_WEEKLY],
+            [WEEKLY_SATURDAY, MONTHLY],
+            [WEEKLY_SATURDAY, BI_MONTHLY],
+            [WEEKLY_SATURDAY, QUARTERLY],
+            [WEEKLY_SATURDAY, SIX_MONTHLY],
+            [WEEKLY_SATURDAY, SIX_MONTHLY_APRIL],
+            [WEEKLY_SATURDAY, YEARLY],
+            [WEEKLY_SATURDAY, FINANCIAL_APRIL],
+            [WEEKLY_SATURDAY, FINANCIAL_JULY],
+            [WEEKLY_SATURDAY, FINANCIAL_OCT],
+            [WEEKLY_SATURDAY, FINANCIAL_NOV],
+            [WEEKLY_SUNDAY, BI_WEEKLY],
+            [WEEKLY_SUNDAY, MONTHLY],
+            [WEEKLY_SUNDAY, BI_MONTHLY],
+            [WEEKLY_SUNDAY, QUARTERLY],
+            [WEEKLY_SUNDAY, SIX_MONTHLY],
+            [WEEKLY_SUNDAY, SIX_MONTHLY_APRIL],
+            [WEEKLY_SUNDAY, YEARLY],
+            [WEEKLY_SUNDAY, FINANCIAL_APRIL],
+            [WEEKLY_SUNDAY, FINANCIAL_JULY],
+            [WEEKLY_SUNDAY, FINANCIAL_OCT],
+            [WEEKLY_SUNDAY, FINANCIAL_NOV],
+            [BI_WEEKLY, MONTHLY],
+            [BI_WEEKLY, BI_MONTHLY],
+            [BI_WEEKLY, QUARTERLY],
+            [BI_WEEKLY, SIX_MONTHLY],
+            [BI_WEEKLY, SIX_MONTHLY_APRIL],
+            [BI_WEEKLY, YEARLY],
+            [BI_WEEKLY, FINANCIAL_APRIL],
+            [BI_WEEKLY, FINANCIAL_JULY],
+            [BI_WEEKLY, FINANCIAL_OCT],
+            [BI_WEEKLY, FINANCIAL_NOV],
+            [MONTHLY, BI_MONTHLY],
+            [MONTHLY, QUARTERLY],
+            [MONTHLY, SIX_MONTHLY],
+            [MONTHLY, SIX_MONTHLY_APRIL],
+            [MONTHLY, YEARLY],
+            [MONTHLY, FINANCIAL_APRIL],
+            [MONTHLY, FINANCIAL_JULY],
+            [MONTHLY, FINANCIAL_OCT],
+            [MONTHLY, FINANCIAL_NOV],
+            [BI_MONTHLY, QUARTERLY],
+            [BI_MONTHLY, SIX_MONTHLY],
+            [BI_MONTHLY, SIX_MONTHLY_APRIL],
+            [BI_MONTHLY, YEARLY],
+            [BI_MONTHLY, FINANCIAL_APRIL],
+            [BI_MONTHLY, FINANCIAL_JULY],
+            [BI_MONTHLY, FINANCIAL_OCT],
+            [BI_MONTHLY, FINANCIAL_NOV],
+            [SIX_MONTHLY, YEARLY],
+            [SIX_MONTHLY, FINANCIAL_APRIL],
+            [SIX_MONTHLY, FINANCIAL_JULY],
+            [SIX_MONTHLY, FINANCIAL_OCT],
+            [SIX_MONTHLY, FINANCIAL_NOV],
+            [SIX_MONTHLY_APRIL, YEARLY],
+            [SIX_MONTHLY_APRIL, FINANCIAL_APRIL],
+            [SIX_MONTHLY_APRIL, FINANCIAL_JULY],
+            [SIX_MONTHLY_APRIL, FINANCIAL_OCT],
+            [SIX_MONTHLY_APRIL, FINANCIAL_NOV],
+        ]
+
+        it('should be shorter', () => {
+            notEqual.forEach(([shorter, greater]) => {
+                const result = compareFixedPeriodLength(greater, shorter)
+                expect(result).toBe(PERIOD_SHORTER)
+            })
+        })
+
+        it('should be greater', () => {
+            notEqual.forEach(([shorter, greater]) => {
+                const result = compareFixedPeriodLength(shorter, greater)
+                expect(result).toBe(PERIOD_GREATER)
+            })
+        })
+
+        const equal = [
+            [DAILY, DAILY],
+            [WEEKLY, WEEKLY],
+            [WEEKLY, WEEKLY_WEDNESDAY],
+            [WEEKLY, WEEKLY_THURSDAY],
+            [WEEKLY, WEEKLY_SATURDAY],
+            [WEEKLY, WEEKLY_SUNDAY],
+            [WEEKLY_WEDNESDAY, WEEKLY_WEDNESDAY],
+            [WEEKLY_WEDNESDAY, WEEKLY_THURSDAY],
+            [WEEKLY_WEDNESDAY, WEEKLY_SATURDAY],
+            [WEEKLY_WEDNESDAY, WEEKLY_SUNDAY],
+            [WEEKLY_THURSDAY, WEEKLY_THURSDAY],
+            [WEEKLY_THURSDAY, WEEKLY_SATURDAY],
+            [WEEKLY_THURSDAY, WEEKLY_SUNDAY],
+            [WEEKLY_SATURDAY, WEEKLY_SATURDAY],
+            [WEEKLY_SATURDAY, WEEKLY_SUNDAY],
+            [WEEKLY_SUNDAY, WEEKLY_SUNDAY],
+            [BI_WEEKLY, BI_WEEKLY],
+            [MONTHLY, MONTHLY],
+            [BI_MONTHLY, BI_MONTHLY],
+            [QUARTERLY, QUARTERLY],
+            [SIX_MONTHLY, SIX_MONTHLY],
+            [SIX_MONTHLY, SIX_MONTHLY_APRIL],
+            [SIX_MONTHLY_APRIL, SIX_MONTHLY_APRIL],
+            [YEARLY, YEARLY],
+            [YEARLY, FINANCIAL_APRIL],
+            [YEARLY, FINANCIAL_JULY],
+            [YEARLY, FINANCIAL_OCT],
+            [YEARLY, FINANCIAL_NOV],
+            [FINANCIAL_APRIL, FINANCIAL_APRIL],
+            [FINANCIAL_APRIL, FINANCIAL_JULY],
+            [FINANCIAL_APRIL, FINANCIAL_OCT],
+            [FINANCIAL_APRIL, FINANCIAL_NOV],
+            [FINANCIAL_JULY, FINANCIAL_JULY],
+            [FINANCIAL_JULY, FINANCIAL_OCT],
+            [FINANCIAL_JULY, FINANCIAL_NOV],
+            [FINANCIAL_OCT, FINANCIAL_OCT],
+            [FINANCIAL_OCT, FINANCIAL_NOV],
+            [FINANCIAL_NOV, FINANCIAL_NOV],
+        ]
+
+        it('should equal', () => {
+            equal.forEach(([left, right]) => {
+                const result = compareFixedPeriodLength(left, right)
+                expect(result).toBe(PERIOD_EQUAL)
+            })
+        })
+    })
+
+    describe('getLastSubPeriodForTypeAndPeriod', () => {
+        it("should throw an error if the period's type is equal to the type", () => {
+            expect(() => getLastSubPeriodForTypeAndPeriod(DAILY, DAILY)).toThrow()
+        })
+
+        it("should throw an error if the period's type is shorter than the type", () => {
+            expect(() => getLastSubPeriodForTypeAndPeriod(WEEKLY, DAILY)).toThrow()
+        })
+
+        it('should return the last weekly period of the year 2021', () => {
+            const yearPeriod = {
+                endDate: '2021-12-31',
+                startDate: '2021-01-01',
+                displayName: '2021',
+                iso: '2021',
+                id: '2021'
+            }
+
+            const lastWeeklyPeriod = getLastSubPeriodForTypeAndPeriod(
+                WEEKLY,
+                yearPeriod
+            )
+
+            expect(lastWeeklyPeriod).toEqual({
+              startDate: '2021-12-20',
+              iso: '2021W51',
+              id: '2021W51',
+              endDate: '2021-12-26',
+              displayName: 'Week 51 - 2021-12-20 - 2021-12-26'
+            })
         })
     })
 })
