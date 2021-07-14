@@ -1,6 +1,6 @@
 {
     "name": "approval-app",
-    "version": "1.6.1",
+    "version": "1.7.0",
     "description": "",
     "license": "BSD-3-Clause",
     "private": true,
@@ -18,7 +18,8 @@
         "@testing-library/react-hooks": "^7.0.1",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.6",
-        "identity-obj-proxy": "^3.0.0"
+        "identity-obj-proxy": "^3.0.0",
+        "mockdate": "^3.0.5"
     },
     "dependencies": {
         "@dhis2/app-runtime": "^2.8.0",

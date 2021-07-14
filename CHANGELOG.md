@@ -1,3 +1,18 @@
+# [1.7.0](https://github.com/dhis2/approval-app/compare/v1.6.1...v1.7.0) (2021-07-14)
+
+
+### Bug Fixes
+
+* add helper for period conversion ([a45ce5d](https://github.com/dhis2/approval-app/commit/a45ce5d0cbee08b3f9edf1cd13d96f1b16bb6c26))
+* add period type to datasets ([f44a661](https://github.com/dhis2/approval-app/commit/f44a66190d6323d5dda2471e446745fc9527996c))
+* improve period conversion logic ([7fb6cac](https://github.com/dhis2/approval-app/commit/7fb6cac05fca0980682e1ec285c1d9ef51cd62ff))
+
+
+### Features
+
+* add utils to compare greater period end dates with shoter periods ([d9421ab](https://github.com/dhis2/approval-app/commit/d9421abe996224bd877ca3f87d2694887c6f9742))
+* **fixed periods:** add getLastSubPeriodForTypeAndPeriod & helpers ([b7a351c](https://github.com/dhis2/approval-app/commit/b7a351cd7f618f8ae3b35011a0dcf3a00f689474))
+
 ## [1.6.1](https://github.com/dhis2/approval-app/compare/v1.6.0...v1.6.1) (2021-07-08)
 
 
