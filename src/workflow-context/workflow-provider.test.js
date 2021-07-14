@@ -1,8 +1,10 @@
 import { useDataQuery } from '@dhis2/app-runtime'
+import { renderHook } from '@testing-library/react-hooks'
 import { shallow } from 'enzyme'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { ErrorMessage, Loader } from '../shared/index.js'
 import { useSelectionParams } from './use-selection-params.js'
+import { useWorkflowContext } from './use-workflow-context.js'
 import { WorkflowProvider } from './workflow-provider.js'
 
 jest.mock('./use-selection-params.js', () => ({
@@ -86,7 +88,7 @@ describe('<AppProvider>', () => {
     })
 
     it('renders null if params is null', () => {
-        useSelectionParams.mockImplementation(() => null)
+        useSelectionParams.mockImplementationOnce(() => null)
         useDataQuery.mockImplementation(() => ({
             loading: true,
             refetch: () => {},
@@ -96,5 +98,29 @@ describe('<AppProvider>', () => {
         const wrapper = shallow(<WorkflowProvider>Child</WorkflowProvider>)
 
         expect(wrapper.type()).toBe(null)
+    })
+
+    it('refetches when the "refresh" callback is called', async () => {
+        const refetch = jest.fn()
+
+        useDataQuery.mockImplementation(() => ({
+            refetch,
+            error: null,
+            loading: false,
+            called: true,
+            data: {
+                approvalStatus: {
+                    state: 'APPROVABLE',
+                    mayApprove: true,
+                }
+            }
+        }))
+
+        const wrapper = WorkflowProvider
+        const { result } = renderHook(useWorkflowContext, { wrapper })
+
+        expect(refetch).toHaveBeenCalledTimes(1) // initially called once
+        result.current.refresh()
+        expect(refetch).toHaveBeenCalledTimes(2)
     })
 })
