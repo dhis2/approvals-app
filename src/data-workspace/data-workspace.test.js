@@ -1,11 +1,11 @@
-import { shallow } from 'enzyme'
 import React from 'react'
+import { shallow } from 'enzyme'
+import { DataWorkspace } from './data-workspace.js'
+import { TitleBar } from './title-bar/index.js'
+import { DataSetNavigation } from './data-set-navigation/index.js'
+import { Display } from './display/index.js'
 import { useWorkflowContext } from '../workflow-context/index.js'
 import { useSelectionParams } from '../workflow-context/use-selection-params.js'
-import { DataSetNavigation } from './data-set-navigation/index.js'
-import { DataWorkspace } from './data-workspace.js'
-import { Display } from './display/index.js'
-import { TitleBar } from './title-bar/index.js'
 
 jest.mock('../workflow-context/index.js', () => ({
     useWorkflowContext: jest.fn(),
@@ -15,18 +15,15 @@ jest.mock('../workflow-context/use-selection-params.js', () => ({
     useSelectionParams: jest.fn(),
 }))
 
-const mockDataSets = [
-    {
-        id: 'data-set-1',
-        displayName: 'Data set 1',
-        periodType: 'Monthly',
-    },
-    {
-        id: 'data-set-2',
-        displayName: 'Data set 2',
-        periodType: 'Monthly',
-    },
-]
+const mockDataSets = [{
+    id: 'data-set-1',
+    displayName: 'Data set 1',
+    periodType: 'Monthly'
+}, {
+    id: 'data-set-2',
+    displayName: 'Data set 2',
+    periodType: 'Monthly'
+}]
 
 const mockUseWorkflowContext = (workflow = {}) => {
     useWorkflowContext.mockImplementation(() => ({
@@ -35,21 +32,16 @@ const mockUseWorkflowContext = (workflow = {}) => {
         periodType: 'Monthly',
         dataSets: [],
         approvalState: 'APPROVED_HERE',
-        ...workflow,
-    }))
-}
-
-const mockUseSelectionParams = (params = {}) => {
-    useSelectionParams.mockImplementation(() => ({
-        pe: '201204',
-        ou: 'ImspTQPwCqd',
-        ...params,
+        ...workflow
     }))
 }
 
 beforeEach(() => {
     mockUseWorkflowContext()
-    mockUseSelectionParams()
+    useSelectionParams.mockImplementation(() => ({
+        pe: '201204',
+        ou: 'ImspTQPwCqd',
+    }))
 })
 
 afterEach(() => {
@@ -68,19 +60,17 @@ describe('<DataWorkspace>', () => {
     it('if there is only one data set, select it automatically', () => {
         const dataSet = mockDataSets[0]
         mockUseWorkflowContext({
-            dataSets: [dataSet],
+            dataSets: [dataSet]
         })
         const wrapper = shallow(<DataWorkspace />)
 
-        expect(wrapper.find(DataSetNavigation).prop('selected')).toBe(
-            dataSet.id
-        )
+        expect(wrapper.find(DataSetNavigation).prop('selected')).toBe(dataSet.id)
         expect(wrapper.find(Display).prop('dataSetId')).toBe(dataSet.id)
     })
 
     it('if there is more than one data set, do not select one automatically', () => {
         mockUseWorkflowContext({
-            dataSets: mockDataSets,
+            dataSets: mockDataSets
         })
         const wrapper = shallow(<DataWorkspace />)
 
