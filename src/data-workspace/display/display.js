@@ -17,7 +17,7 @@ const query = {
     },
 }
 
-const Display = ({ workflowName, periodId, organisationUnitId, dataSetId }) => {
+const Display = ({ workflowName, dataSetId, periodId, organisationUnitId }) => {
     const { called, loading, data, error, refetch } = useDataQuery(query, {
         lazy: true,
     })

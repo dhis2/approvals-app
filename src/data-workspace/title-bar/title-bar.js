@@ -2,7 +2,7 @@ import i18n from '@dhis2/d2-i18n'
 import { IconDimensionDataSet16 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { StatusTag } from '../shared/status-tag/index.js'
+import { StatusTag } from '../../shared/status-tag/index.js'
 import styles from './title-bar.module.css'
 
 const TitleBar = ({ name, dataSetsCount, approvalState }) => (

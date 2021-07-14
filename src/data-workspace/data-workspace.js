@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { useWorkflowContext } from '../workflow-context/index.js'
 import { useSelectionParams } from '../workflow-context/use-selection-params.js'
-import { DataSetNavigation } from './data-set-navigation.js'
-import { Display } from './display.js'
-import { TitleBar } from './title-bar.js'
+import { DataSetNavigation } from './data-set-navigation/index.js'
+import { Display } from './display/index.js'
+import { TitleBar } from './title-bar/index.js'
 
 const DataWorkspace = () => {
     const { pe: periodId, ou: organisationUnitId } = useSelectionParams()
@@ -26,9 +26,9 @@ const DataWorkspace = () => {
             />
             <Display
                 workflowName={workflow.displayName}
+                dataSetId={selectedDataSet}
                 periodId={periodId}
                 organisationUnitId={organisationUnitId}
-                dataSetId={selectedDataSet}
             />
         </>
     )
