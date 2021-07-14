@@ -19,7 +19,7 @@ const OrgUnitSelect = () => {
         setOpenedSelect,
     } = useSelectionContext()
     const open = openedSelect === ORG_UNIT
-    const value = orgUnit.displayName || i18n.t('Choose an organisation unit')
+    const value = orgUnit.displayName
     const requiredValuesMessage = workflow.id
         ? i18n.t('Choose a period first')
         : i18n.t('Choose a workflow and period first')
@@ -32,6 +32,7 @@ const OrgUnitSelect = () => {
     return (
         <ContextSelect
             prefix={i18n.t('Organisation Unit')}
+            placeholder={i18n.t('Choose an organisation unit')}
             value={value}
             open={open}
             disabled={!(workflow.id && period.id)}

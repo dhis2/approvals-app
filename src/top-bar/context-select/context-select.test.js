@@ -12,6 +12,7 @@ import { ContextSelect } from './context-select.js'
 describe('<ContextSelect>', () => {
     const baseProps = {
         prefix: 'prefix',
+        placeholder: 'placeholder',
         value: 'value',
         onClose: () => {},
         onOpen: () => {},

@@ -61,7 +61,7 @@ describe('<PeriodSelect>', () => {
         expect(wrapper.find(PeriodMenu)).toHaveLength(1)
     })
 
-    it('renders a placeholder text when no period is selected', () => {
+    it('is enabled if a workflow has been set', () => {
         useSelectionContext.mockImplementation(() => ({
             workflow: mockWorkflows[0],
             period: {},
@@ -71,9 +71,62 @@ describe('<PeriodSelect>', () => {
         }))
         const wrapper = shallow(<PeriodSelect />)
 
-        expect(wrapper.find(ContextSelect).prop('value')).toBe(
-            'Choose a period'
+        expect(wrapper.find(ContextSelect).prop('disabled')).toBe(false)
+    })
+
+    it('is disabled if a workflow has not been set', () => {
+        useSelectionContext.mockImplementation(() => ({
+            workflow: {},
+            period: {},
+            openedSelect: '',
+            selectPeriod: () => {},
+            setOpenedSelect: () => {},
+        }))
+        const wrapper = shallow(<PeriodSelect />)
+
+        expect(wrapper.find(ContextSelect).prop('disabled')).toBe(true)
+    })
+
+    it('renders a placeholder text when enabled and no period is selected', () => {
+        useSelectionContext.mockImplementation(() => ({
+            workflow: mockWorkflows[0],
+            period: {},
+            openedSelect: '',
+            selectPeriod: () => {},
+            setOpenedSelect: () => {},
+        }))
+        const wrapper = shallow(<PeriodSelect />)
+        const placeholder = 'Choose a period'
+
+        expect(wrapper.find(ContextSelect).prop('disabled')).toBe(false)
+        expect(wrapper.find(ContextSelect).prop('value')).toBe(undefined)
+        expect(wrapper.find(ContextSelect).prop('placeholder')).toBe(
+            placeholder
         )
+        expect(
+            wrapper.find(ContextSelect).shallow().text().includes(placeholder)
+        ).toBe(true)
+    })
+
+    it('does not render a placeholder text when disabled and no period is selected', () => {
+        useSelectionContext.mockImplementation(() => ({
+            workflow: {},
+            period: {},
+            openedSelect: '',
+            selectPeriod: () => {},
+            setOpenedSelect: () => {},
+        }))
+        const wrapper = shallow(<PeriodSelect />)
+        const placeholder = 'Choose a period'
+
+        expect(wrapper.find(ContextSelect).prop('disabled')).toBe(true)
+        expect(wrapper.find(ContextSelect).prop('value')).toBe(undefined)
+        expect(wrapper.find(ContextSelect).prop('placeholder')).toBe(
+            placeholder
+        )
+        expect(
+            wrapper.find(ContextSelect).shallow().text().includes(placeholder)
+        ).toBe(false)
     })
 
     it('renders a the value when a period is selected', () => {

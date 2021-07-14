@@ -69,7 +69,23 @@ describe('<OrgUnitSelect>', () => {
         expect(wrapper.find(OrganisationUnitTree)).toHaveLength(1)
     })
 
-    it('renders a placeholder text when no organisation unit is selected', () => {
+    it('is enabled if workflow and period have been set', () => {
+        useSelectionContext.mockImplementation(() => ({
+            workflow: mockWorkflows[0],
+            period: {
+                id: '20120402',
+            },
+            orgUnit: {},
+            openedSelect: '',
+            selectWorkflow: () => {},
+            setOpenedSelect: () => {},
+        }))
+        const wrapper = shallow(<OrgUnitSelect />)
+
+        expect(wrapper.find(ContextSelect).prop('disabled')).toBe(false)
+    })
+
+    it('is disabled if workflow and period have not been set yet', () => {
         useSelectionContext.mockImplementation(() => ({
             workflow: {},
             period: {},
@@ -80,9 +96,53 @@ describe('<OrgUnitSelect>', () => {
         }))
         const wrapper = shallow(<OrgUnitSelect />)
 
-        expect(wrapper.find(ContextSelect).prop('value')).toBe(
-            'Choose an organisation unit'
+        expect(wrapper.find(ContextSelect).prop('disabled')).toBe(true)
+    })
+
+    it('renders a placeholder text when enabled but no organisation unit is selected', () => {
+        useSelectionContext.mockImplementation(() => ({
+            workflow: mockWorkflows[0],
+            period: {
+                id: '20120402',
+            },
+            orgUnit: {},
+            openedSelect: '',
+            selectWorkflow: () => {},
+            setOpenedSelect: () => {},
+        }))
+        const wrapper = shallow(<OrgUnitSelect />)
+        const placeholder = 'Choose an organisation unit'
+
+        expect(wrapper.find(ContextSelect).prop('disabled')).toBe(false)
+        expect(wrapper.find(ContextSelect).prop('value')).toBe(undefined)
+        expect(wrapper.find(ContextSelect).prop('placeholder')).toBe(
+            placeholder
         )
+        expect(
+            wrapper.find(ContextSelect).shallow().text().includes(placeholder)
+        ).toBe(true)
+    })
+
+    it('does not render placeholder text when disabled and no organisation unit is selected', () => {
+        useSelectionContext.mockImplementation(() => ({
+            workflow: {},
+            period: {},
+            orgUnit: {},
+            openedSelect: '',
+            selectWorkflow: () => {},
+            setOpenedSelect: () => {},
+        }))
+        const wrapper = shallow(<OrgUnitSelect />)
+        const placeholder = 'Choose an organisation unit'
+
+        expect(wrapper.find(ContextSelect).prop('disabled')).toBe(true)
+        expect(wrapper.find(ContextSelect).prop('value')).toBe(undefined)
+        expect(wrapper.find(ContextSelect).prop('placeholder')).toBe(
+            placeholder
+        )
+        expect(
+            wrapper.find(ContextSelect).shallow().text().includes(placeholder)
+        ).toBe(false)
     })
 
     it('renders the value when a organisation unit is selected', () => {

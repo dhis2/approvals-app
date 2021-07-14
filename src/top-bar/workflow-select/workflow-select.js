@@ -18,11 +18,12 @@ const WorkflowSelect = () => {
         setOpenedSelect,
     } = useSelectionContext()
     const open = openedSelect === WORKFLOW
-    const value = selectedWorkflow.displayName || i18n.t('Choose a workflow')
+    const value = selectedWorkflow.displayName
 
     return (
         <ContextSelect
             prefix={i18n.t('Workflow')}
+            placeholder={i18n.t('Choose a workflow')}
             value={value}
             open={open}
             onOpen={() => setOpenedSelect(WORKFLOW)}
