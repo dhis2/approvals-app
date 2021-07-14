@@ -8,6 +8,7 @@
         "build": "d2-app-scripts build",
         "deploy": "d2-app-scripts deploy",
         "format": "d2-style apply",
+        "format:staged": "d2-style apply --staged",
         "lint": "d2-style check",
         "start": "d2-app-scripts start",
         "test": "d2-app-scripts test"
