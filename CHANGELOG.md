@@ -1,3 +1,12 @@
+## [1.7.1](https://github.com/dhis2/approval-app/compare/v1.7.0...v1.7.1) (2021-07-14)
+
+
+### Bug Fixes
+
+* deselect the period only if the new workflow has a different period type ([6be75d5](https://github.com/dhis2/approval-app/commit/6be75d54faf6b577543da53632807bd6297e04b8))
+* keep the same orgUnit selection even when the workflow and/or period change ([f26584c](https://github.com/dhis2/approval-app/commit/f26584ceb7c6466f9439d39a94cb2738fc72e787))
+* show context select value even if disabled ([bcae48e](https://github.com/dhis2/approval-app/commit/bcae48efffe3b816cd7d2aa25f79faa8d1bc4099))
+
 # [1.7.0](https://github.com/dhis2/approval-app/compare/v1.6.1...v1.7.0) (2021-07-14)
 
 
