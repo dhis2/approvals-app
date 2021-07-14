@@ -809,35 +809,55 @@ export const PERIOD_SHORTER = -1
  * @returns {Int}
  */
 export const compareFixedPeriodLength = (left, right) => {
-    const leftIndex = FIXED_PERIODS_BY_LENGTH.findIndex(types => types.includes(left))
-    const rightIndex = FIXED_PERIODS_BY_LENGTH.findIndex(types => types.includes(right))
+    const leftIndex = FIXED_PERIODS_BY_LENGTH.findIndex(types =>
+        types.includes(left)
+    )
+    const rightIndex = FIXED_PERIODS_BY_LENGTH.findIndex(types =>
+        types.includes(right)
+    )
 
     if (leftIndex === rightIndex) return PERIOD_EQUAL
     return leftIndex > rightIndex ? PERIOD_SHORTER : PERIOD_GREATER
 }
 
-export const getLastSubPeriodForTypeAndPeriod = (type, period) => {
-    const fullPeriod = parsePeriodId(period.id)
+export const getCurrentPeriodForType = type => {
+    const currentDate = new Date()
+    let year = currentDate.getFullYear()
 
-    if (!fullPeriod) {
-        throw new Error(
-            `Can't parse period with id "${period.id}"`
-        )
+    // cover this and the next years as that
+    // should cover all existing period types
+    for (let i = 0; i < 2; ++i) {
+        const periods = getFixedPeriodsByTypeAndYear(type, year).reverse()
+
+        for (const period of periods) {
+            const periodStart = new Date(period.startDate)
+            const periodEnd = new Date(period.endDate)
+            const endsBeforePeriodEnd = currentDate <= periodEnd
+            const startsAfterPeriodStart = currentDate >= periodStart
+
+            if (endsBeforePeriodEnd && startsAfterPeriodStart) {
+                return period
+            }
+        }
+
+        ++year
     }
 
-    const { type: periodType } = parsePeriodId(period.id).periodType
-    if (compareFixedPeriodLength(type, periodType) !== PERIOD_GREATER) {
-        throw new Error(
-            `The sub-period type "${type}" is not shorter that the period's type ("${periodType}")`
-        )
-    }
+    return null
+}
 
-    // .slice(-1) returns an array with the last item
-    const [lastSubPeriod] = getFixedPeriodsForTypeAndDateRange(
-        type,
-        period.startDate,
-        period.endDate
-    ).slice(-1)
+export const isGreaterPeriodTypeEndDateWithinShorterPeriod = (
+    greaterPeriodType,
+    shorterPeriod
+) => {
+    const greaterPeriod = getCurrentPeriodForType(greaterPeriodType)
+    const greaterPeriodEndDate = new Date(greaterPeriod.endDate)
+    const shorterPeriodEndDate = new Date(shorterPeriod.endDate)
+    const shorterPeriodStartDate = new Date(shorterPeriod.startDate)
+    const greaterEndsAfterShorterStarts =
+        greaterPeriodEndDate >= shorterPeriodStartDate
+    const greaterEndsBeforeShorterEnds =
+        greaterPeriodEndDate <= shorterPeriodEndDate
 
-    return lastSubPeriod
+    return greaterEndsAfterShorterStarts && greaterEndsBeforeShorterEnds
 }

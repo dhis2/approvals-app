@@ -1,3 +1,4 @@
+import MockDate from 'mockdate'
 import {
     PERIOD_GREATER,
     PERIOD_EQUAL,
@@ -20,13 +21,13 @@ import {
     FINANCIAL_OCT,
     FINANCIAL_NOV,
     compareFixedPeriodLength,
-    getFixedPeriodsForTypeAndDateRange,
-    getFixedPeriodsByTypeAndYear,
+    getCurrentPeriodForType,
     getFixedPeriodType,
     getFixedPeriodTypes,
-    getLastSubPeriodForTypeAndPeriod,
-    parsePeriodId,
+    getFixedPeriodsForTypeAndDateRange,
     getYearOffsetFromNow,
+    isGreaterPeriodTypeEndDateWithinShorterPeriod,
+    parsePeriodId,
 } from './fixed-periods.js'
 
 describe('fixedPeriods utils', () => {
@@ -1111,36 +1112,118 @@ describe('fixedPeriods utils', () => {
         })
     })
 
-    describe('getLastSubPeriodForTypeAndPeriod', () => {
-        it("should throw an error if the period's type is equal to the type", () => {
-            expect(() => getLastSubPeriodForTypeAndPeriod(DAILY, DAILY)).toThrow()
+    describe('getCurrentPeriodForType', () => {
+        afterEach(() => {
+            MockDate.reset()
         })
 
-        it("should throw an error if the period's type is shorter than the type", () => {
-            expect(() => getLastSubPeriodForTypeAndPeriod(WEEKLY, DAILY)).toThrow()
-        })
+        it('should return the current period that ends in the current year', () => {
+            MockDate.set(new Date('2021-10-01').getTime())
 
-        it('should return the last weekly period of the year 2021', () => {
-            const yearPeriod = {
+            const periodType = SIX_MONTHLY
+            const actual = getCurrentPeriodForType(periodType)
+            const expected = {
+                startDate: '2021-07-01',
                 endDate: '2021-12-31',
-                startDate: '2021-01-01',
-                displayName: '2021',
-                iso: '2021',
-                id: '2021'
+                displayName: 'July - December 2021',
+                iso: '2021S2',
+                id: '2021S2',
             }
 
-            const lastWeeklyPeriod = getLastSubPeriodForTypeAndPeriod(
-                WEEKLY,
-                yearPeriod
+            expect(actual).toEqual(expected)
+        })
+
+        it('should return the current period that ends in the next year', () => {
+            MockDate.set(new Date('2021-10-01').getTime())
+
+            const periodType = SIX_MONTHLY_APRIL
+            const actual = getCurrentPeriodForType(periodType)
+            const expected = {
+                startDate: '2021-10-01',
+                endDate: '2022-03-31',
+                displayName: 'October 2021 - March 2022',
+                iso: '2021AprilS2',
+                id: '2021AprilS2',
+            }
+
+            expect(actual).toEqual(expected)
+        })
+
+        describe('yearly - edge case', () => {
+            it('should return the current period that ends in the current year', () => {
+                MockDate.set(new Date('2021-10-01').getTime())
+
+                const periodType = YEARLY
+                const actual = getCurrentPeriodForType(periodType)
+                const expected = {
+                    endDate: '2021-12-31',
+                    startDate: '2021-01-01',
+                    displayName: '2021',
+                    iso: '2021',
+                    id: '2021',
+                }
+
+                expect(actual).toEqual(expected)
+            })
+
+            it('should return the current period that ends in the next year', () => {
+                MockDate.set(new Date('2021-10-01').getTime())
+
+                const periodType = FINANCIAL_APRIL
+                const actual = getCurrentPeriodForType(periodType)
+                const expected = {
+                    endDate: '2022-03-31',
+                    startDate: '2021-04-01',
+                    displayName: 'April 2021 - March 2022',
+                    id: '2021April',
+                }
+
+                expect(actual).toEqual(expected)
+            })
+        })
+    })
+
+    describe('isGreaterPeriodTypeEndDateWithinShorterPeriod', () => {
+        it('should return true when the short period spans over the greater periods end date', () => {
+            MockDate.set(new Date('2021-10-01').getTime())
+
+            const greaterPeriodType = YEARLY
+            const shorterPeriod = parsePeriodId('2021Q4')
+            const expected = true
+            const actual = isGreaterPeriodTypeEndDateWithinShorterPeriod(
+                greaterPeriodType,
+                shorterPeriod
             )
 
-            expect(lastWeeklyPeriod).toEqual({
-              startDate: '2021-12-20',
-              iso: '2021W51',
-              id: '2021W51',
-              endDate: '2021-12-26',
-              displayName: 'Week 51 - 2021-12-20 - 2021-12-26'
-            })
+            expect(actual).toBe(expected)
+        })
+
+        it('should return false when the short period spans over the greater periods end date', () => {
+            MockDate.set(new Date('2021-10-01').getTime())
+
+            const greaterPeriodType = YEARLY
+            const shorterPeriod = parsePeriodId('2021Q3')
+            const expected = false
+            const actual = isGreaterPeriodTypeEndDateWithinShorterPeriod(
+                greaterPeriodType,
+                shorterPeriod
+            )
+
+            expect(actual).toBe(expected)
+        })
+
+        it('should return true when a short period that ends in the following year spans over the greater periods end date', () => {
+            MockDate.set(new Date('2021-10-01').getTime())
+
+            const greaterPeriodType = YEARLY
+            const shorterPeriod = parsePeriodId('2021W52')
+            const expected = true
+            const actual = isGreaterPeriodTypeEndDateWithinShorterPeriod(
+                greaterPeriodType,
+                shorterPeriod
+            )
+
+            expect(actual).toBe(expected)
         })
     })
 })
