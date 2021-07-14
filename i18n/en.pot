@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-07-12T16:08:59.969Z\n"
-"PO-Revision-Date: 2021-07-12T16:08:59.969Z\n"
+"POT-Creation-Date: 2021-07-14T10:11:31.114Z\n"
+"PO-Revision-Date: 2021-07-14T10:11:31.114Z\n"
 
 msgid "Not authorized"
 msgstr "Not authorized"
@@ -177,20 +177,20 @@ msgstr "Financial year (Start July)"
 msgid "Financial year (Start April)"
 msgstr "Financial year (Start April)"
 
-msgid "Choose a period"
-msgstr "Choose a period"
-
 msgid "Period"
 msgstr "Period"
+
+msgid "Choose a period"
+msgstr "Choose a period"
 
 msgid "Choose a workflow first"
 msgstr "Choose a workflow first"
 
-msgid "Choose a workflow"
-msgstr "Choose a workflow"
-
 msgid "Workflow"
 msgstr "Workflow"
+
+msgid "Choose a workflow"
+msgstr "Choose a workflow"
 
 msgid "No workflows found. None may exist, or you may not have access to any."
 msgstr "No workflows found. None may exist, or you may not have access to any."
