@@ -23,7 +23,7 @@ const query = {
                 'displayName',
                 'dataApprovalLevels',
                 'periodType',
-                'dataSets[id,displayName]',
+                'dataSets[id,displayName,periodType]',
             ],
         },
     },
