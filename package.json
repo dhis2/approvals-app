@@ -16,6 +16,8 @@
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^7.1.0",
         "@dhis2/cli-style": "^9.0.1",
+        "@testing-library/jest-dom": "^5.14.1",
+        "@testing-library/react": "^12.0.0",
         "@testing-library/react-hooks": "^7.0.1",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.6",
