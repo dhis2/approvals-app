@@ -73,7 +73,7 @@ describe('<OrgUnitSelect>', () => {
         useSelectionContext.mockImplementation(() => ({
             workflow: mockWorkflows[0],
             period: {
-                id: '20120402'
+                id: '20120402',
             },
             orgUnit: {},
             openedSelect: '',
@@ -81,7 +81,6 @@ describe('<OrgUnitSelect>', () => {
             setOpenedSelect: () => {},
         }))
         const wrapper = shallow(<OrgUnitSelect />)
-        const placeholder = 'Choose an organisation unit'
 
         expect(wrapper.find(ContextSelect).prop('disabled')).toBe(false)
     })
@@ -96,7 +95,6 @@ describe('<OrgUnitSelect>', () => {
             setOpenedSelect: () => {},
         }))
         const wrapper = shallow(<OrgUnitSelect />)
-        const placeholder = 'Choose an organisation unit'
 
         expect(wrapper.find(ContextSelect).prop('disabled')).toBe(true)
     })
@@ -117,8 +115,12 @@ describe('<OrgUnitSelect>', () => {
 
         expect(wrapper.find(ContextSelect).prop('disabled')).toBe(false)
         expect(wrapper.find(ContextSelect).prop('value')).toBe(undefined)
-        expect(wrapper.find(ContextSelect).prop('placeholder')).toBe(placeholder)
-        expect(wrapper.find(ContextSelect).shallow().text().includes(placeholder)).toBe(true)
+        expect(wrapper.find(ContextSelect).prop('placeholder')).toBe(
+            placeholder
+        )
+        expect(
+            wrapper.find(ContextSelect).shallow().text().includes(placeholder)
+        ).toBe(true)
     })
 
     it('does not render placeholder text when disabled and no organisation unit is selected', () => {
@@ -135,8 +137,12 @@ describe('<OrgUnitSelect>', () => {
 
         expect(wrapper.find(ContextSelect).prop('disabled')).toBe(true)
         expect(wrapper.find(ContextSelect).prop('value')).toBe(undefined)
-        expect(wrapper.find(ContextSelect).prop('placeholder')).toBe(placeholder)
-        expect(wrapper.find(ContextSelect).shallow().text().includes(placeholder)).toBe(false)
+        expect(wrapper.find(ContextSelect).prop('placeholder')).toBe(
+            placeholder
+        )
+        expect(
+            wrapper.find(ContextSelect).shallow().text().includes(placeholder)
+        ).toBe(false)
     })
 
     it('renders the value when a organisation unit is selected', () => {

@@ -71,8 +71,8 @@ const ContextSelect = ({
 
 ContextSelect.propTypes = {
     children: PropTypes.node.isRequired,
-    prefix: PropTypes.string.isRequired,
     placeholder: PropTypes.string.isRequired,
+    prefix: PropTypes.string.isRequired,
     onClose: PropTypes.func.isRequired,
     onOpen: PropTypes.func.isRequired,
     disabled: PropTypes.bool,

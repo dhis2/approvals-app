@@ -67,8 +67,12 @@ describe('<WorkflowSelect>', () => {
         const placeholder = 'Choose a workflow'
 
         expect(wrapper.find(ContextSelect).prop('value')).toBe(undefined)
-        expect(wrapper.find(ContextSelect).prop('placeholder')).toBe(placeholder)
-        expect(wrapper.find(ContextSelect).shallow().text().includes(placeholder)).toBe(true)
+        expect(wrapper.find(ContextSelect).prop('placeholder')).toBe(
+            placeholder
+        )
+        expect(
+            wrapper.find(ContextSelect).shallow().text().includes(placeholder)
+        ).toBe(true)
     })
 
     it('renders a the value when a workflow is selected', () => {

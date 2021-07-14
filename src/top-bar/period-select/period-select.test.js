@@ -100,8 +100,12 @@ describe('<PeriodSelect>', () => {
 
         expect(wrapper.find(ContextSelect).prop('disabled')).toBe(false)
         expect(wrapper.find(ContextSelect).prop('value')).toBe(undefined)
-        expect(wrapper.find(ContextSelect).prop('placeholder')).toBe(placeholder)
-        expect(wrapper.find(ContextSelect).shallow().text().includes(placeholder)).toBe(true)
+        expect(wrapper.find(ContextSelect).prop('placeholder')).toBe(
+            placeholder
+        )
+        expect(
+            wrapper.find(ContextSelect).shallow().text().includes(placeholder)
+        ).toBe(true)
     })
 
     it('does not render a placeholder text when disabled and no period is selected', () => {
@@ -117,8 +121,12 @@ describe('<PeriodSelect>', () => {
 
         expect(wrapper.find(ContextSelect).prop('disabled')).toBe(true)
         expect(wrapper.find(ContextSelect).prop('value')).toBe(undefined)
-        expect(wrapper.find(ContextSelect).prop('placeholder')).toBe(placeholder)
-        expect(wrapper.find(ContextSelect).shallow().text().includes(placeholder)).toBe(false)
+        expect(wrapper.find(ContextSelect).prop('placeholder')).toBe(
+            placeholder
+        )
+        expect(
+            wrapper.find(ContextSelect).shallow().text().includes(placeholder)
+        ).toBe(false)
     })
 
     it('renders a the value when a period is selected', () => {
