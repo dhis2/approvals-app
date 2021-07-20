@@ -57,7 +57,7 @@ describe('<DataWorkspace>', () => {
 
     it('if there is only one data set, select it automatically', () => {
         const dataSet = mockDataSets[0]
-        useWorkflowContext.mockImplementation(() => ({
+        useWorkflowContext.mockImplementationOnce(() => ({
             displayName: 'Workflow a',
             id: 'i5m0JPw4DQi',
             periodType: 'Monthly',
@@ -80,7 +80,7 @@ describe('<DataWorkspace>', () => {
     })
 
     it('if there are no data sets, selection should be empty', () => {
-        useWorkflowContext.mockImplementation(() => ({
+        useWorkflowContext.mockImplementationOnce(() => ({
             displayName: 'Workflow a',
             id: 'i5m0JPw4DQi',
             periodType: 'Monthly',
