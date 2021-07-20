@@ -53,6 +53,7 @@ const WorkflowProvider = ({ children }) => {
                 approvalState,
                 allowedActions,
                 params,
+                refresh: refetch,
             }}
         >
             {children}
