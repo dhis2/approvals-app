@@ -11,7 +11,7 @@ const UnapproveButton = () => {
     const { show } = useAlert(
         i18n.t('Unapproval failed: {{error}}', {
             error: error ? error.toString() : '',
-            nsSeparator: null,
+            nsSeparator: '-:-',
         })
     )
 
