@@ -10,7 +10,8 @@ const UnapproveButton = () => {
     const { params, refresh } = useWorkflowContext()
     const { show } = useAlert(
         i18n.t('Unapproval failed: {{error}}', {
-            error: error?.toString(),
+            error: error ? error.toString() : '',
+            nsSeparator: null,
         })
     )
 

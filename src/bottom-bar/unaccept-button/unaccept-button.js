@@ -10,7 +10,8 @@ const UnacceptButton = () => {
     const { params, refresh } = useWorkflowContext()
     const { show } = useAlert(
         i18n.t('Unacceptance failed: {{error}}', {
-            error: error?.toString(),
+            error: error ? error.toString() : '',
+            nsSeparator: null,
         })
     )
 

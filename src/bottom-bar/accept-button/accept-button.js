@@ -10,7 +10,8 @@ const AcceptButton = () => {
     const { params, refresh } = useWorkflowContext()
     const { show } = useAlert(
         i18n.t('Acceptance failed: {{error}}', {
-            error: error?.toString(),
+            error: error ? error.toString() : '',
+            nsSeparator: null,
         })
     )
 
