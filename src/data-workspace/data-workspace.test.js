@@ -82,4 +82,14 @@ describe('<DataWorkspace>', () => {
         expect(wrapper.find(DataSetNavigation).prop('selected')).toBe(null)
         expect(wrapper.find(Display).prop('dataSetId')).toBe(null)
     })
+
+    it('if there are no data sets, selection should be empty', () => {
+        mockUseWorkflowContext({
+            dataSets: [],
+        })
+        const wrapper = shallow(<DataWorkspace />)
+
+        expect(wrapper.find(DataSetNavigation).prop('selected')).toBe(null)
+        expect(wrapper.find(Display).prop('dataSetId')).toBe(null)
+    })
 })
