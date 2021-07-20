@@ -6,4 +6,5 @@ export const APPROVE_DATA_MUTATION = {
     params: ({ wf, pe, ou }) => ({ wf, pe, ou }),
 }
 
-export const useApproveData = () => useDataMutation(APPROVE_DATA_MUTATION)
+export const useApproveData = ({ onComplete, onError }) =>
+    useDataMutation(APPROVE_DATA_MUTATION, { onComplete, onError })

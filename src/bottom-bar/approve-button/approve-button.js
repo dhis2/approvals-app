@@ -8,18 +8,35 @@ import { ApproveModal } from './approve-modal/index.js'
 import { useApproveData } from './use-approve-data.js'
 
 const ApproveButton = ({ disabled }) => {
-    const [approveData, { loading, error: approveError }] = useApproveData()
-    const { show: showApprovalSuccess } = useAlert(i18n.t('Approval saved'))
-
     // state
     const [unexpectedError, setUnexpectedError] = useState(null)
     const [showApproveModal, setShowApproveModal] = useState(false)
     const { params, refresh } = useWorkflowContext()
 
-    // derived state
-    const error = approveError || unexpectedError
+    // callbacks
     const showApprovalDialog = () => setShowApproveModal(true)
     const hideApprovalDialog = () => setShowApproveModal(false)
+    const onApprove = () => {
+        const { wf, pe, ou } = params
+        approveData({ wf, pe, ou })
+    }
+
+    // api
+    const { show: showApprovalSuccess } = useAlert(i18n.t('Approval saved'))
+    const [approveData, { loading, error: approveError }] = useApproveData({
+        onComplete: () => {
+            showApprovalSuccess()
+            refresh()
+            hideApprovalDialog()
+        },
+        onError: e => {
+            setUnexpectedError(e)
+            hideApprovalDialog()
+        },
+    })
+
+    // derived state
+    const error = approveError || unexpectedError
 
     return (
         <>
@@ -36,18 +53,7 @@ const ApproveButton = ({ disabled }) => {
                 <ApproveModal
                     error={error}
                     loading={loading}
-                    onApprove={async () => {
-                        try {
-                            const { wf, pe, ou } = params
-                            await approveData({ wf, pe, ou })
-                            refresh()
-                        } catch (e) {
-                            setUnexpectedError(e)
-                        } finally {
-                            hideApprovalDialog()
-                            showApprovalSuccess()
-                        }
-                    }}
+                    onApprove={onApprove}
                     onCancel={hideApprovalDialog}
                 />
             )}
