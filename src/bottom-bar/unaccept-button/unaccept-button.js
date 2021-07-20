@@ -11,7 +11,7 @@ const UnacceptButton = () => {
     const { show } = useAlert(
         i18n.t('Unacceptance failed: {{error}}', {
             error: error ? error.toString() : '',
-            nsSeparator: null,
+            nsSeparator: '-:-',
         })
     )
 

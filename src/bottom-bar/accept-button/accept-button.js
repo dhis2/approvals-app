@@ -11,7 +11,7 @@ const AcceptButton = () => {
     const { show } = useAlert(
         i18n.t('Acceptance failed: {{error}}', {
             error: error ? error.toString() : '',
-            nsSeparator: null,
+            nsSeparator: '-:-',
         })
     )
 
