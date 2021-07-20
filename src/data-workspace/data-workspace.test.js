@@ -28,23 +28,18 @@ const mockDataSets = [
     },
 ]
 
-beforeEach(() => {
-    useWorkflowContext.mockImplementation(() => ({
-        displayName: 'Workflow a',
-        id: 'i5m0JPw4DQi',
-        periodType: 'Monthly',
-        dataSets: mockDataSets,
-        approvalState: 'APPROVED_HERE',
-    }))
-    useSelectionParams.mockImplementation(() => ({
-        pe: '201204',
-        ou: 'ImspTQPwCqd',
-    }))
-})
+useWorkflowContext.mockImplementation(() => ({
+    displayName: 'Workflow a',
+    id: 'i5m0JPw4DQi',
+    periodType: 'Monthly',
+    dataSets: mockDataSets,
+    approvalState: 'APPROVED_HERE',
+}))
 
-afterEach(() => {
-    jest.resetAllMocks()
-})
+useSelectionParams.mockImplementation(() => ({
+    pe: '201204',
+    ou: 'ImspTQPwCqd',
+}))
 
 describe('<DataWorkspace>', () => {
     it('renders a TitleBar, DataSetNavigation and Display', () => {
@@ -75,6 +70,9 @@ describe('<DataWorkspace>', () => {
     it('if there is more than one data set, do not select one automatically', () => {
         const wrapper = shallow(<DataWorkspace />)
 
+        expect(
+            wrapper.find(DataSetNavigation).prop('dataSets').length
+        ).toBeGreaterThan(0)
         expect(wrapper.find(DataSetNavigation).prop('selected')).toBe(null)
         expect(wrapper.find(Display).prop('dataSetId')).toBe(null)
     })
@@ -89,6 +87,7 @@ describe('<DataWorkspace>', () => {
         }))
         const wrapper = shallow(<DataWorkspace />)
 
+        expect(wrapper.find(DataSetNavigation).prop('dataSets')).toHaveLength(0)
         expect(wrapper.find(DataSetNavigation).prop('selected')).toBe(null)
         expect(wrapper.find(Display).prop('dataSetId')).toBe(null)
     })
