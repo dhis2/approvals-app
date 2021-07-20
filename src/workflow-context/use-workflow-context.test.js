@@ -42,23 +42,26 @@ describe('useWorkflowContext', () => {
     it('combines data from various hooks', () => {
         const { result } = renderHook(() => useWorkflowContext(), { wrapper })
 
-        expect(result.current).toEqual({
-            allowedActions: {
-                canApprove: true,
-            },
-            approvalState: 'SOME_STATE_LABEL',
-            dataSets: [
-                {
-                    displayName: 'Dataset Z',
-                    id: '123',
+        expect(result.current.refresh).toBeInstanceOf(Function)
+        expect(result.current).toEqual(
+            expect.objectContaining({
+                allowedActions: {
+                    canApprove: true,
                 },
-            ],
-            displayName: 'Workflow a',
-            params: {
-                ou: '456',
-                pe: '20120404',
-                wf: 'rIUL3hYOjJc',
-            },
-        })
+                approvalState: 'SOME_STATE_LABEL',
+                dataSets: [
+                    {
+                        displayName: 'Dataset Z',
+                        id: '123',
+                    },
+                ],
+                displayName: 'Workflow a',
+                params: {
+                    ou: '456',
+                    pe: '20120404',
+                    wf: 'rIUL3hYOjJc',
+                },
+            })
+        )
     })
 })
