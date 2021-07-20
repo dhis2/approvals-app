@@ -1,7 +1,7 @@
 import { useDataQuery } from '@dhis2/app-runtime'
 import { renderHook } from '@testing-library/react-hooks'
 import { shallow } from 'enzyme'
-import React, { useEffect } from 'react'
+import React from 'react'
 import { ErrorMessage, Loader } from '../shared/index.js'
 import { useSelectionParams } from './use-selection-params.js'
 import { useWorkflowContext } from './use-workflow-context.js'
@@ -112,8 +112,8 @@ describe('<AppProvider>', () => {
                 approvalStatus: {
                     state: 'APPROVABLE',
                     mayApprove: true,
-                }
-            }
+                },
+            },
         }))
 
         const wrapper = WorkflowProvider

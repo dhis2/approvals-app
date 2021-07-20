@@ -20,7 +20,7 @@ const BottomBar = () => {
                     <StatusTag approvalState={approvalState} />
                 </BottomBarItem>
 
-                {(mayApprove || (disableApproveBtn)) && (
+                {(mayApprove || disableApproveBtn) && (
                     <BottomBarItem>
                         <ApproveButton disabled={disableApproveBtn} />
                     </BottomBarItem>

@@ -1,5 +1,12 @@
 import i18n from '@dhis2/d2-i18n'
-import { Button, ButtonStrip, Modal, ModalTitle, ModalContent, ModalActions } from '@dhis2/ui'
+import {
+    Button,
+    ButtonStrip,
+    Modal,
+    ModalTitle,
+    ModalContent,
+    ModalActions,
+} from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { useWorkflowContext } from '../../../workflow-context/index.js'
@@ -18,41 +25,44 @@ const ApproveModal = ({ onApprove, onCancel }) => {
     return (
         <Modal>
             <ModalTitle>
-                {
-                    count > 1
-                        ? i18n.t('Approving {{count}} data sets', { count })
-                        : i18n.t('Approving {{count}} data set', { count })
-                }
+                {count > 1
+                    ? i18n.t('Approving {{count}} data sets', { count })
+                    : i18n.t('Approving {{count}} data set', { count })}
             </ModalTitle>
 
             <ModalContent>
                 <div className={styles.summary}>
                     {!TODO_GET_PERIOD && (
                         <h1 className={styles.summaryTitle}>
-                            {
-                                count > 1
-                                    ? i18n.t('{{count}} data sets will be approved:', { count })
-                                    : i18n.t('{{count}} data set will be approved:', { count })
-                            }
+                            {count > 1
+                                ? i18n.t(
+                                      '{{count}} data sets will be approved:',
+                                      { count }
+                                  )
+                                : i18n.t(
+                                      '{{count}} data set will be approved:',
+                                      { count }
+                                  )}
                         </h1>
                     )}
 
                     {TODO_GET_PERIOD && (
                         <h1 className={styles.summaryTitle}>
-                            {
-                                count > 1
-                                    ? i18n.t('{{count}} data sets for {{period}} will be approved:', { count })
-                                    : i18n.t('{{count}} data set for {{period}} will be approved:', { count })
-                            }
+                            {count > 1
+                                ? i18n.t(
+                                      '{{count}} data sets for {{period}} will be approved:',
+                                      { count }
+                                  )
+                                : i18n.t(
+                                      '{{count}} data set for {{period}} will be approved:',
+                                      { count }
+                                  )}
                         </h1>
                     )}
 
                     <ul className={styles.summaryList}>
                         {dataSets.map(({ id, displayName }) => (
-                            <li
-                                className={styles.summaryListItem}
-                                key={id}
-                            >
+                            <li className={styles.summaryListItem} key={id}>
                                 {displayName}
                             </li>
                         ))}
@@ -66,9 +76,7 @@ const ApproveModal = ({ onApprove, onCancel }) => {
 
             <ModalActions>
                 <ButtonStrip>
-                    <Button onClick={onCancel}>
-                        {i18n.t('Cancel')}
-                    </Button>
+                    <Button onClick={onCancel}>{i18n.t('Cancel')}</Button>
 
                     <Button primary onClick={onApprove}>
                         {i18n.t('Approve')}
