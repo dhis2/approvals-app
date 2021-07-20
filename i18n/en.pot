@@ -43,6 +43,16 @@ msgstr[1] "Approving {{count}} data set"
 msgid "Are you sure you want to approve this data?"
 msgstr "Are you sure you want to approve this data?"
 
+msgid "There was a problem saving this approval"
+msgstr "There was a problem saving this approval"
+
+msgid ""
+"This data couldn’t be approved. Try again, or contact your system "
+"administrator."
+msgstr ""
+"This data couldn’t be approved. Try again, or contact your system "
+"administrator."
+
 msgid "Cancel"
 msgstr "Cancel"
 

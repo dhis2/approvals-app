@@ -6,6 +6,7 @@ import {
     ModalTitle,
     ModalContent,
     ModalActions,
+    NoticeBox,
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -18,7 +19,7 @@ import styles from './approve-modal.module.css'
 // @TODO: Implement period display once possible
 const TODO_GET_PERIOD = false
 
-const ApproveModal = ({ onApprove, onCancel }) => {
+const ApproveModal = ({ onApprove, onCancel, error }) => {
     const { dataSets } = useWorkflowContext()
     const count = dataSets.length
 
@@ -72,6 +73,14 @@ const ApproveModal = ({ onApprove, onCancel }) => {
                 <p className={styles.confirmationStatement}>
                     {i18n.t('Are you sure you want to approve this data?')}
                 </p>
+
+                {error && (
+                    <NoticeBox title={i18n.t('There was a problem saving this approval')}>
+                        {i18n.t(
+                            'This data couldn’t be approved. Try again, or contact your system administrator.'
+                        )}
+                    </NoticeBox>
+                )}
             </ModalContent>
 
             <ModalActions>
@@ -90,6 +99,7 @@ const ApproveModal = ({ onApprove, onCancel }) => {
 ApproveModal.propTypes = {
     onApprove: PropTypes.func.isRequired,
     onCancel: PropTypes.func.isRequired,
+    error: PropTypes.instanceOf(Error),
 }
 
 export { ApproveModal }
