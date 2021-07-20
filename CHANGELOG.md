@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/dhis2/approval-app/compare/v1.8.0...v1.8.1) (2021-07-20)
+
+
+### Bug Fixes
+
+* use '-:-' instead of null as i18n namespace separator ([d2db355](https://github.com/dhis2/approval-app/commit/d2db35524173e8293fe0467bbc88439be2f1b939))
+
 # [1.8.0](https://github.com/dhis2/approval-app/compare/v1.7.1...v1.8.0) (2021-07-20)
 
 
