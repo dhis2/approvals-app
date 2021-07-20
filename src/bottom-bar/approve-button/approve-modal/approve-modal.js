@@ -76,6 +76,7 @@ const ApproveModal = ({ onApprove, onCancel, error }) => {
 
                 {error && (
                     <NoticeBox
+                        error
                         title={i18n.t(
                             'There was a problem saving this approval'
                         )}
