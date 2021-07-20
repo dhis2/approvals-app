@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/dhis2/approval-app/compare/v1.7.1...v1.8.0) (2021-07-20)
+
+
+### Features
+
+* add bottom bar functionality (DHIS2-11287) ([#21](https://github.com/dhis2/approval-app/issues/21)) ([1f5a77e](https://github.com/dhis2/approval-app/commit/1f5a77ee125bf4fb26bbd92418cc34db42dd8114))
+
 ## [1.7.1](https://github.com/dhis2/approval-app/compare/v1.7.0...v1.7.1) (2021-07-14)
 
 
