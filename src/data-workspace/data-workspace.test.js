@@ -28,19 +28,14 @@ const mockDataSets = [
     },
 ]
 
-const mockUseWorkflowContext = (workflow = {}) => {
+beforeEach(() => {
     useWorkflowContext.mockImplementation(() => ({
         displayName: 'Workflow a',
         id: 'i5m0JPw4DQi',
         periodType: 'Monthly',
-        dataSets: [],
+        dataSets: mockDataSets,
         approvalState: 'APPROVED_HERE',
-        ...workflow,
     }))
-}
-
-beforeEach(() => {
-    mockUseWorkflowContext()
     useSelectionParams.mockImplementation(() => ({
         pe: '201204',
         ou: 'ImspTQPwCqd',
@@ -62,9 +57,13 @@ describe('<DataWorkspace>', () => {
 
     it('if there is only one data set, select it automatically', () => {
         const dataSet = mockDataSets[0]
-        mockUseWorkflowContext({
+        useWorkflowContext.mockImplementation(() => ({
+            displayName: 'Workflow a',
+            id: 'i5m0JPw4DQi',
+            periodType: 'Monthly',
             dataSets: [dataSet],
-        })
+            approvalState: 'APPROVED_HERE',
+        }))
         const wrapper = shallow(<DataWorkspace />)
 
         expect(wrapper.find(DataSetNavigation).prop('selected')).toBe(
@@ -74,9 +73,6 @@ describe('<DataWorkspace>', () => {
     })
 
     it('if there is more than one data set, do not select one automatically', () => {
-        mockUseWorkflowContext({
-            dataSets: mockDataSets,
-        })
         const wrapper = shallow(<DataWorkspace />)
 
         expect(wrapper.find(DataSetNavigation).prop('selected')).toBe(null)
@@ -84,9 +80,13 @@ describe('<DataWorkspace>', () => {
     })
 
     it('if there are no data sets, selection should be empty', () => {
-        mockUseWorkflowContext({
+        useWorkflowContext.mockImplementation(() => ({
+            displayName: 'Workflow a',
+            id: 'i5m0JPw4DQi',
+            periodType: 'Monthly',
             dataSets: [],
-        })
+            approvalState: 'APPROVED_HERE',
+        }))
         const wrapper = shallow(<DataWorkspace />)
 
         expect(wrapper.find(DataSetNavigation).prop('selected')).toBe(null)
