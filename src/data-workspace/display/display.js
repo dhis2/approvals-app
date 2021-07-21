@@ -9,29 +9,23 @@ import {
     getFixedPeriodsForTypeAndDateRange,
     PERIOD_SHORTER,
 } from '../../shared/index.js'
-import { useSelectionParams, useSelectedWorkflow } from '../../workflow-context/index.js'
 import styles from './display.module.css'
 import { Table } from './table.js'
 
 const query = {
     dataSetReport: {
         resource: 'dataSetReport',
-        params: ({
-            dataSetId,
-            period,
-            orgUnit,
-            workflow,
-        }) => {
+        params: ({ dataSetId, period, orgUnit, workflow }) => {
             let periodIds = [period.id]
             const { dataSets } = workflow
             const selectedDataSet = dataSets.find(({ id }) => id === dataSetId)
             const { periodType: dataSetPeriodType } = selectedDataSet
 
-
-            const isDataSetPeriodShorter = compareFixedPeriodLength(
-                workflow.periodType,
-                dataSetPeriodType,
-            ) === PERIOD_SHORTER
+            const isDataSetPeriodShorter =
+                compareFixedPeriodLength(
+                    workflow.periodType,
+                    dataSetPeriodType
+                ) === PERIOD_SHORTER
 
             if (isDataSetPeriodShorter) {
                 periodIds = getFixedPeriodsForTypeAndDateRange(

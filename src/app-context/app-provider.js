@@ -49,7 +49,6 @@ const AppProvider = ({ children }) => {
         throw error
     }
 
-
     const { authorities, organisationUnits } = data.me
     const { dataApprovalWorkflows } = data.dataApprovalWorkflows
     const providerValue = {

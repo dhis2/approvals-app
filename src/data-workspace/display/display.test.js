@@ -26,15 +26,17 @@ describe('<Display>', () => {
     it('asks the user to select a data set if none is selected', () => {
         render(
             <CustomDataProvider options={{ loadForever: true }}>
-                <SelectionContext.Provider value={{
-                    workflow: {
-                        dataApprovalLevels: [],
-                        dataSets: [dataSetOne, dataSetTwo],
-                        displayName: 'Workflow 1',
-                        id: 'foo',
-                        periodType: 'Monthly',
-                    }
-                }}>
+                <SelectionContext.Provider
+                    value={{
+                        workflow: {
+                            dataApprovalLevels: [],
+                            dataSets: [dataSetOne, dataSetTwo],
+                            displayName: 'Workflow 1',
+                            id: 'foo',
+                            periodType: 'Monthly',
+                        },
+                    }}
+                >
                     <Display dataSetId={null} />
                 </SelectionContext.Provider>
             </CustomDataProvider>
@@ -53,28 +55,30 @@ describe('<Display>', () => {
     it('renders a loading spinner if a data set is selected', () => {
         render(
             <CustomDataProvider options={{ loadForever: true }}>
-                <SelectionContext.Provider value={{
-                    orgUnit: {
-                        id: 'ou-2',
-                        path: '/ou-2',
-                        displayName: 'Org unit 2',
-                    },
-                    period: {
-                        displayName: 'January 2021',
-                        startDate: '2021-01-01',
-                        endDate: '2021-01-31',
-                        year: 2021,
-                        iso: '202101',
-                        id: '202101',
-                    },
-                    workflow: {
-                        dataSets: [dataSetOne, dataSetTwo],
-                        dataApprovalLevels: [],
-                        displayName: 'Workflow 1',
-                        periodType: 'Monthly',
-                        id: 'foo',
-                    }
-                }}>
+                <SelectionContext.Provider
+                    value={{
+                        orgUnit: {
+                            id: 'ou-2',
+                            path: '/ou-2',
+                            displayName: 'Org unit 2',
+                        },
+                        period: {
+                            displayName: 'January 2021',
+                            startDate: '2021-01-01',
+                            endDate: '2021-01-31',
+                            year: 2021,
+                            iso: '202101',
+                            id: '202101',
+                        },
+                        workflow: {
+                            dataSets: [dataSetOne, dataSetTwo],
+                            dataApprovalLevels: [],
+                            displayName: 'Workflow 1',
+                            periodType: 'Monthly',
+                            id: 'foo',
+                        },
+                    }}
+                >
                     <Display dataSetId="pBOMPrpg1QX" />
                 </SelectionContext.Provider>
             </CustomDataProvider>
@@ -88,28 +92,30 @@ describe('<Display>', () => {
         const data = {}
         render(
             <CustomDataProvider data={data}>
-                <SelectionContext.Provider value={{
-                    orgUnit: {
-                        id: 'ou-2',
-                        path: '/ou-2',
-                        displayName: 'Org unit 2',
-                    },
-                    period: {
-                        displayName: 'January 2021',
-                        startDate: '2021-01-01',
-                        endDate: '2021-01-31',
-                        year: 2021,
-                        iso: '202101',
-                        id: '202101',
-                    },
-                    workflow: {
-                        dataSets: [dataSetOne, dataSetTwo],
-                        dataApprovalLevels: [],
-                        displayName: 'Workflow 1',
-                        periodType: 'Monthly',
-                        id: 'foo',
-                    }
-                }}>
+                <SelectionContext.Provider
+                    value={{
+                        orgUnit: {
+                            id: 'ou-2',
+                            path: '/ou-2',
+                            displayName: 'Org unit 2',
+                        },
+                        period: {
+                            displayName: 'January 2021',
+                            startDate: '2021-01-01',
+                            endDate: '2021-01-31',
+                            year: 2021,
+                            iso: '202101',
+                            id: '202101',
+                        },
+                        workflow: {
+                            dataSets: [dataSetOne, dataSetTwo],
+                            dataApprovalLevels: [],
+                            displayName: 'Workflow 1',
+                            periodType: 'Monthly',
+                            id: 'foo',
+                        },
+                    }}
+                >
                     <Display dataSetId="pBOMPrpg1QX" />
                 </SelectionContext.Provider>
             </CustomDataProvider>
@@ -147,28 +153,30 @@ describe('<Display>', () => {
         }
         render(
             <CustomDataProvider data={data}>
-                <SelectionContext.Provider value={{
-                    orgUnit: {
-                        id: 'ou-2',
-                        path: '/ou-2',
-                        displayName: 'Org unit 2',
-                    },
-                    period: {
-                        displayName: 'January 2021',
-                        startDate: '2021-01-01',
-                        endDate: '2021-01-31',
-                        year: 2021,
-                        iso: '202101',
-                        id: '202101',
-                    },
-                    workflow: {
-                        dataSets: [dataSetOne, dataSetTwo],
-                        dataApprovalLevels: [],
-                        displayName: 'Workflow 1',
-                        periodType: 'Monthly',
-                        id: 'foo',
-                    }
-                }}>
+                <SelectionContext.Provider
+                    value={{
+                        orgUnit: {
+                            id: 'ou-2',
+                            path: '/ou-2',
+                            displayName: 'Org unit 2',
+                        },
+                        period: {
+                            displayName: 'January 2021',
+                            startDate: '2021-01-01',
+                            endDate: '2021-01-31',
+                            year: 2021,
+                            iso: '202101',
+                            id: '202101',
+                        },
+                        workflow: {
+                            dataSets: [dataSetOne, dataSetTwo],
+                            dataApprovalLevels: [],
+                            displayName: 'Workflow 1',
+                            periodType: 'Monthly',
+                            id: 'foo',
+                        },
+                    }}
+                >
                     <Display dataSetId="pBOMPrpg1QX" />
                 </SelectionContext.Provider>
             </CustomDataProvider>
@@ -205,28 +213,30 @@ describe('<Display>', () => {
         }
         render(
             <CustomDataProvider data={data}>
-                <SelectionContext.Provider value={{
-                    orgUnit: {
-                        id: 'ou-2',
-                        path: '/ou-2',
-                        displayName: 'Org unit 2',
-                    },
-                    period: {
-                        displayName: 'January 2021',
-                        startDate: '2021-01-01',
-                        endDate: '2021-01-31',
-                        year: 2021,
-                        iso: '202101',
-                        id: '202101',
-                    },
-                    workflow: {
-                        dataSets: [dataSetOne, dataSetTwo],
-                        dataApprovalLevels: [],
-                        displayName: 'Workflow 1',
-                        periodType: 'Monthly',
-                        id: 'foo',
-                    }
-                }}>
+                <SelectionContext.Provider
+                    value={{
+                        orgUnit: {
+                            id: 'ou-2',
+                            path: '/ou-2',
+                            displayName: 'Org unit 2',
+                        },
+                        period: {
+                            displayName: 'January 2021',
+                            startDate: '2021-01-01',
+                            endDate: '2021-01-31',
+                            year: 2021,
+                            iso: '202101',
+                            id: '202101',
+                        },
+                        workflow: {
+                            dataSets: [dataSetOne, dataSetTwo],
+                            dataApprovalLevels: [],
+                            displayName: 'Workflow 1',
+                            periodType: 'Monthly',
+                            id: 'foo',
+                        },
+                    }}
+                >
                     <Display dataSetId="pBOMPrpg1QX" />
                 </SelectionContext.Provider>
             </CustomDataProvider>
