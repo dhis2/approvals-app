@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-07-20T08:50:33.586Z\n"
-"PO-Revision-Date: 2021-07-20T08:50:33.586Z\n"
+"POT-Creation-Date: 2021-07-21T09:13:57.788Z\n"
+"PO-Revision-Date: 2021-07-21T09:13:57.788Z\n"
 
 msgid "Not authorized"
 msgstr "Not authorized"
@@ -104,36 +104,6 @@ msgstr ""
 msgid "{{dataSetsCount}} data sets"
 msgstr "{{dataSetsCount}} data sets"
 
-msgid "Approved"
-msgstr "Approved"
-
-msgid "Ready for approval and accepted"
-msgstr "Ready for approval and accepted"
-
-msgid "Ready for approval"
-msgstr "Ready for approval"
-
-msgid "Waiting"
-msgstr "Waiting"
-
-msgid "Cannot approve"
-msgstr "Cannot approve"
-
-msgid "Clear selections"
-msgstr "Clear selections"
-
-msgid "Choose a period first"
-msgstr "Choose a period first"
-
-msgid "Choose a workflow and period first"
-msgstr "Choose a workflow and period first"
-
-msgid "Organisation Unit"
-msgstr "Organisation Unit"
-
-msgid "Choose an organisation unit"
-msgstr "Choose an organisation unit"
-
 msgid "January"
 msgstr "January"
 
@@ -226,6 +196,36 @@ msgstr "Financial year (Start July)"
 
 msgid "Financial year (Start April)"
 msgstr "Financial year (Start April)"
+
+msgid "Approved"
+msgstr "Approved"
+
+msgid "Ready for approval and accepted"
+msgstr "Ready for approval and accepted"
+
+msgid "Ready for approval"
+msgstr "Ready for approval"
+
+msgid "Waiting"
+msgstr "Waiting"
+
+msgid "Cannot approve"
+msgstr "Cannot approve"
+
+msgid "Clear selections"
+msgstr "Clear selections"
+
+msgid "Choose a period first"
+msgstr "Choose a period first"
+
+msgid "Choose a workflow and period first"
+msgstr "Choose a workflow and period first"
+
+msgid "Organisation Unit"
+msgstr "Organisation Unit"
+
+msgid "Choose an organisation unit"
+msgstr "Choose an organisation unit"
 
 msgid "Period"
 msgstr "Period"

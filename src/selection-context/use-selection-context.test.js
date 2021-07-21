@@ -1,8 +1,8 @@
 import { act, renderHook } from '@testing-library/react-hooks'
 import React from 'react'
-import { useAppContext } from '../../app-context/index.js'
-import { pushStateToHistory } from '../../navigation/push-state-to-history.js'
-import { readQueryParams } from '../../navigation/read-query-params.js'
+import { useAppContext } from '../app-context/index.js'
+import { pushStateToHistory } from '../navigation/push-state-to-history.js'
+import { readQueryParams } from '../navigation/read-query-params.js'
 import { SelectionProvider } from './selection-provider.js'
 import { useSelectionContext } from './use-selection-context.js'
 

@@ -1,7 +1,7 @@
 import { MenuItem, Menu } from '@dhis2/ui'
 import { shallow } from 'enzyme'
 import React from 'react'
-import { useSelectionContext } from '../selection-context/index.js'
+import { useSelectionContext } from '../../selection-context/index.js'
 import { PeriodMenu } from './period-menu.js'
 
 jest.mock('../selection-context/index.js', () => ({

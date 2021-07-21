@@ -1,5 +1,5 @@
-import { readQueryParams } from '../../navigation/index.js'
-import { parsePeriodId } from '../../shared/index.js'
+import { readQueryParams } from '../navigation/index.js'
+import { parsePeriodId } from '../shared/index.js'
 
 export const initialValues = workflows => {
     const { wf, pe, ou, ouDisplayName } = readQueryParams()
@@ -35,5 +35,9 @@ export const initialPeriodValue = (periodId, initialWorkflow = {}) => {
 }
 
 export const initialOrgUnitValue = (path, displayName) => {
-    return path && displayName ? { path, displayName } : {}
+    if (!path || !displayName) return {}
+
+    const [lastPathSegment] = path.match(/[/]?[^/]*$/)
+    const id = lastPathSegment.replace('/', '')
+    return { id, path, displayName }
 }

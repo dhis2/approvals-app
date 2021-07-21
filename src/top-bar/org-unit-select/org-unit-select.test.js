@@ -4,8 +4,8 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import { useAppContext } from '../../app-context/index.js'
 import { readQueryParams } from '../../navigation/read-query-params.js'
+import { useSelectionContext } from '../../selection-context/index.js'
 import { ContextSelect } from '../context-select/context-select.js'
-import { useSelectionContext } from '../selection-context/index.js'
 import { ORG_UNIT, OrgUnitSelect } from './org-unit-select.js'
 
 jest.mock('@dhis2/app-runtime', () => ({

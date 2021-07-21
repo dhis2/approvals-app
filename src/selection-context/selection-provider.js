@@ -1,7 +1,7 @@
 import { PropTypes } from '@dhis2/prop-types'
 import React, { useEffect, useReducer } from 'react'
-import { useAppContext } from '../../app-context/index.js'
-import { pushStateToHistory } from '../../navigation/index.js'
+import { useAppContext } from '../app-context/index.js'
+import { pushStateToHistory } from '../navigation/index.js'
 import { initialValues, initialWorkflowValue } from './initial-values.js'
 import { SelectionContext } from './selection-context.js'
 
