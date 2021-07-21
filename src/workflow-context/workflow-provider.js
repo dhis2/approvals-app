@@ -27,11 +27,11 @@ const WorkflowProvider = ({ children }) => {
         }
     }, [params])
 
-    if (!params || !called) {
+    if (!params) {
         return null
     }
 
-    if (loading) {
+    if (loading || !called) {
         return <Loader />
     }
 
