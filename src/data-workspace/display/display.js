@@ -3,10 +3,10 @@ import i18n from '@dhis2/d2-i18n'
 import { NoticeBox, CircularLoader } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
+import { useSelectionContext } from '../../selection-context/index.js'
 import {
     compareFixedPeriodLength,
     getFixedPeriodsForTypeAndDateRange,
-    parsePeriodId,
     PERIOD_SHORTER,
 } from '../../shared/index.js'
 import { useSelectionParams, useSelectedWorkflow } from '../../workflow-context/index.js'
@@ -18,44 +18,40 @@ const query = {
         resource: 'dataSetReport',
         params: ({
             dataSetId,
-            periodId,
-            organisationUnitId,
+            period,
+            orgUnit,
+            workflow,
             dataSetPeriodType,
-            workflowPeriodType,
         }) => {
-            let periodIds = [periodId]
+            let periodIds = [period.id]
 
             const isDataSetPeriodShorter = compareFixedPeriodLength(
-                workflowPeriodType,
+                workflow.periodType,
                 dataSetPeriodType,
             ) === PERIOD_SHORTER
 
             if (isDataSetPeriodShorter) {
-                const selectedPeriod = parsePeriodId(periodId)
                 periodIds = getFixedPeriodsForTypeAndDateRange(
                     dataSetPeriodType,
-                    selectedPeriod.startDate,
-                    selectedPeriod.endDate
+                    period.startDate,
+                    period.endDate
                 )
             }
 
             return {
                 ds: dataSetId,
                 pe: periodIds.join(','),
-                ou: organisationUnitId,
+                ou: orgUnit.id,
             }
         },
     },
 }
 
 const Display = ({ dataSetId }) => {
+    const selection = useSelectionContext()
+    const { period, orgUnit, workflow } = selection
     const params = useSelectionParams()
-    const { pe: periodId, ou: organisationUnitId } = params
-    const {
-        displayName: workflowName,
-        dataSets,
-        periodType: workflowPeriodType,
-    } = useSelectedWorkflow(params)
+    const { dataSets } = useSelectedWorkflow(params)
     const selectedDataSet = dataSets.find(({ id }) => id === dataSetId)
     const { periodType: dataSetPeriodType } = selectedDataSet
 
@@ -66,10 +62,10 @@ const Display = ({ dataSetId }) => {
     const fetchDataSet = () => {
         refetch({
             dataSetId,
-            periodId,
-            organisationUnitId,
+            period,
+            workflow,
+            orgUnit,
             dataSetPeriodType,
-            workflowPeriodType,
         })
     }
 
@@ -86,7 +82,7 @@ const Display = ({ dataSetId }) => {
                 <p>
                     {i18n.t(
                         '{{- workflowName}} has multiple data sets. Choose a data set from the tabs above.',
-                        { workflowName }
+                        { workflowName: workflow.displayName }
                     )}
                 </p>
             </div>
