@@ -3,30 +3,73 @@ import i18n from '@dhis2/d2-i18n'
 import { NoticeBox, CircularLoader } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
+import {
+    compareFixedPeriodLength,
+    getFixedPeriodsForTypeAndDateRange,
+    parsePeriodId,
+    PERIOD_SHORTER,
+} from '../../shared/index.js'
+import { useSelectionParams, useSelectedWorkflow } from '../../workflow-context/index.js'
 import styles from './display.module.css'
 import { Table } from './table.js'
 
 const query = {
     dataSetReport: {
         resource: 'dataSetReport',
-        params: ({ ds, pe, ou }) => ({
-            ds,
-            pe,
-            ou,
-        }),
+        params: ({
+            dataSetId,
+            periodId,
+            organisationUnitId,
+            dataSetPeriodType,
+            workflowPeriodType,
+        }) => {
+            let periodIds = [periodId]
+
+            const isDataSetPeriodShorter = compareFixedPeriodLength(
+                workflowPeriodType,
+                dataSetPeriodType,
+            ) === PERIOD_SHORTER
+
+            if (isDataSetPeriodShorter) {
+                const selectedPeriod = parsePeriodId(periodId)
+                periodIds = getFixedPeriodsForTypeAndDateRange(
+                    dataSetPeriodType,
+                    selectedPeriod.startDate,
+                    selectedPeriod.endDate
+                )
+            }
+
+            return {
+                ds: dataSetId,
+                pe: periodIds.join(','),
+                ou: organisationUnitId,
+            }
+        },
     },
 }
 
-const Display = ({ workflowName, dataSetId, periodId, organisationUnitId }) => {
+const Display = ({ dataSetId }) => {
+    const params = useSelectionParams()
+    const { pe: periodId, ou: organisationUnitId } = params
+    const {
+        displayName: workflowName,
+        dataSets,
+        periodType: workflowPeriodType,
+    } = useSelectedWorkflow(params)
+    const selectedDataSet = dataSets.find(({ id }) => id === dataSetId)
+    const { periodType: dataSetPeriodType } = selectedDataSet
+
     const { called, loading, data, error, refetch } = useDataQuery(query, {
         lazy: true,
     })
     const tables = data?.dataSetReport
     const fetchDataSet = () => {
         refetch({
-            ds: dataSetId,
-            pe: periodId,
-            ou: organisationUnitId,
+            dataSetId,
+            periodId,
+            organisationUnitId,
+            dataSetPeriodType,
+            workflowPeriodType,
         })
     }
 
@@ -113,10 +156,7 @@ const Display = ({ workflowName, dataSetId, periodId, organisationUnitId }) => {
 }
 
 Display.propTypes = {
-    organisationUnitId: PropTypes.string.isRequired,
-    periodId: PropTypes.string.isRequired,
-    workflowName: PropTypes.string.isRequired,
-    dataSetId: PropTypes.string,
+    dataSetId: PropTypes.string.isRequired,
 }
 
 export { Display }

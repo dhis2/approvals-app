@@ -1,5 +1,5 @@
 import { readQueryParams } from '../../navigation/index.js'
-import { parsePeriodId } from '../period-select/index.js'
+import { parsePeriodId } from '../../shared/index.js'
 
 export const initialValues = workflows => {
     const { wf, pe, ou, ouDisplayName } = readQueryParams()
