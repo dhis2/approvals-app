@@ -6,15 +6,15 @@ import { readQueryParams } from '../navigation/read-query-params.js'
 import { SelectionProvider } from './selection-provider.js'
 import { useSelectionContext } from './use-selection-context.js'
 
-jest.mock('../../navigation/push-state-to-history.js', () => ({
+jest.mock('../navigation/push-state-to-history.js', () => ({
     pushStateToHistory: jest.fn(),
 }))
 
-jest.mock('../../navigation/read-query-params.js', () => ({
+jest.mock('../navigation/read-query-params.js', () => ({
     readQueryParams: jest.fn(),
 }))
 
-jest.mock('../../app-context/index.js', () => ({
+jest.mock('../app-context/index.js', () => ({
     useAppContext: jest.fn(),
 }))
 
@@ -90,6 +90,7 @@ describe('useSelectionContext', () => {
         )
         expect(result.current.orgUnit).toEqual({
             path: '/abc',
+            id: 'abc',
             displayName: 'test',
         })
     })

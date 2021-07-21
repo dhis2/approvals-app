@@ -19,7 +19,7 @@ jest.mock('../../app-context/index.js', () => ({
     useAppContext: jest.fn(),
 }))
 
-jest.mock('../selection-context/index.js', () => ({
+jest.mock('../../selection-context/index.js', () => ({
     useSelectionContext: jest.fn(),
 }))
 

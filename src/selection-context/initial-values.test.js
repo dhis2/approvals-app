@@ -83,6 +83,7 @@ describe('initialOrgUnitValue', () => {
     })
     it('returns an object when supplying both params', () => {
         expect(initialOrgUnitValue('/path', 'Display name')).toEqual({
+            id: 'path',
             path: '/path',
             displayName: 'Display name',
         })

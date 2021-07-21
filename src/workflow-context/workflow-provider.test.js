@@ -75,16 +75,16 @@ describe('<AppProvider>', () => {
         expect(wrapper.text()).toEqual(expect.stringContaining('Child'))
     })
 
-    it('renders null if called is false', () => {
+    it('renders a loading spinner if called is false', () => {
         useDataQuery.mockImplementation(() => ({
-            loading: true,
+            loading: false,
             refetch: () => {},
             called: false,
         }))
 
         const wrapper = shallow(<WorkflowProvider>Child</WorkflowProvider>)
 
-        expect(wrapper.type()).toBe(null)
+        expect(wrapper.find(Loader)).toHaveLength(1)
     })
 
     it('renders null if params is null', () => {

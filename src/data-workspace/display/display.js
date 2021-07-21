@@ -21,9 +21,12 @@ const query = {
             period,
             orgUnit,
             workflow,
-            dataSetPeriodType,
         }) => {
             let periodIds = [period.id]
+            const { dataSets } = workflow
+            const selectedDataSet = dataSets.find(({ id }) => id === dataSetId)
+            const { periodType: dataSetPeriodType } = selectedDataSet
+
 
             const isDataSetPeriodShorter = compareFixedPeriodLength(
                 workflow.periodType,
@@ -50,11 +53,6 @@ const query = {
 const Display = ({ dataSetId }) => {
     const selection = useSelectionContext()
     const { period, orgUnit, workflow } = selection
-    const params = useSelectionParams()
-    const { dataSets } = useSelectedWorkflow(params)
-    const selectedDataSet = dataSets.find(({ id }) => id === dataSetId)
-    const { periodType: dataSetPeriodType } = selectedDataSet
-
     const { called, loading, data, error, refetch } = useDataQuery(query, {
         lazy: true,
     })
@@ -65,7 +63,6 @@ const Display = ({ dataSetId }) => {
             period,
             workflow,
             orgUnit,
-            dataSetPeriodType,
         })
     }
 
@@ -152,7 +149,7 @@ const Display = ({ dataSetId }) => {
 }
 
 Display.propTypes = {
-    dataSetId: PropTypes.string.isRequired,
+    dataSetId: PropTypes.string,
 }
 
 export { Display }
