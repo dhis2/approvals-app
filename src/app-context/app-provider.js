@@ -9,7 +9,7 @@ const query = {
     me: {
         resource: 'me',
         params: {
-            fields: ['id', 'authorities', 'organisationUnits'],
+            fields: ['authorities', 'organisationUnits'],
         },
     },
     dataApprovalWorkflows: {
@@ -49,9 +49,13 @@ const AppProvider = ({ children }) => {
         throw error
     }
 
+
+    const { authorities, organisationUnits } = data.me
+    const { dataApprovalWorkflows } = data.dataApprovalWorkflows
     const providerValue = {
-        ...data.me,
-        ...data.dataApprovalWorkflows,
+        authorities,
+        organisationUnits,
+        dataApprovalWorkflows,
     }
 
     return (
