@@ -36,8 +36,9 @@ const query = {
             }
 
             return {
+                // arrays are being handled by the app runtime
+                pe: periodIds,
                 ds: dataSetId,
-                pe: periodIds.join(','),
                 ou: orgUnit.id,
             }
         },
