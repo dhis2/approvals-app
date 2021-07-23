@@ -18,13 +18,15 @@ const TitleBar = () => {
             <span className={styles.workflowDataSetsCount}>
                 <IconDimensionDataSet16 />
 
-                {dataSetsCount === 1 && i18n.t('1 data set', {
-                    dataSetsCount,
-                })}
+                {dataSetsCount === 1 &&
+                    i18n.t('1 data set', {
+                        dataSetsCount,
+                    })}
 
-                {dataSetsCount !== 1 && i18n.t('{{dataSetsCount}} data sets', {
-                    dataSetsCount,
-                })}
+                {dataSetsCount !== 1 &&
+                    i18n.t('{{dataSetsCount}} data sets', {
+                        dataSetsCount,
+                    })}
             </span>
             <StatusTag approvalState={approvalState} />
         </div>

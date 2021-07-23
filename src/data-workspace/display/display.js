@@ -31,11 +31,13 @@ const Display = ({ dataSetId }) => {
     const { period } = selection
     const { dataSets } = workflow
     const selectedDataSet = dataSets.find(({ id }) => id === dataSetId)
-    const periodIds = selectedDataSet ? getFixedPeriodsForTypeAndDateRange(
-        selectedDataSet.periodType,
-        period.startDate,
-        period.endDate
-    ).map(({ id }) => id) : []
+    const periodIds = selectedDataSet
+        ? getFixedPeriodsForTypeAndDateRange(
+              selectedDataSet.periodType,
+              period.startDate,
+              period.endDate
+          ).map(({ id }) => id)
+        : []
 
     const { called, loading, data, error, refetch } = useDataQuery(query, {
         lazy: true,

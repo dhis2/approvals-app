@@ -1,7 +1,6 @@
 import { shallow } from 'enzyme'
 import React from 'react'
 import { useSelectionContext } from '../selection-context/index.js'
-import { useWorkflowContext } from '../workflow-context/index.js'
 import { DataSetNavigation } from './data-set-navigation/index.js'
 import { DataWorkspace } from './data-workspace.js'
 import { Display } from './display/index.js'
@@ -43,11 +42,13 @@ describe('<DataWorkspace>', () => {
     it('if there is only one data set, select it automatically', () => {
         useSelectionContext.mockImplementationOnce(() => ({
             workflow: {
-                dataSets: [{
-                    id: 'data-set-1',
-                    displayName: 'Data set 1',
-                    periodType: 'Monthly',
-                }],
+                dataSets: [
+                    {
+                        id: 'data-set-1',
+                        displayName: 'Data set 1',
+                        periodType: 'Monthly',
+                    },
+                ],
                 displayName: 'Workflow a',
                 id: 'i5m0JPw4DQi',
                 periodType: 'Monthly',
@@ -58,15 +59,15 @@ describe('<DataWorkspace>', () => {
         expect(wrapper.find(DataSetNavigation).prop('selected')).toBe(
             workflow.dataSets[0].id
         )
-        expect(wrapper.find(Display).prop('dataSetId')).toBe(workflow.dataSets[0].id)
+        expect(wrapper.find(Display).prop('dataSetId')).toBe(
+            workflow.dataSets[0].id
+        )
     })
 
     it('if there is more than one data set, do not select one automatically', () => {
         const wrapper = shallow(<DataWorkspace />)
 
-        expect(
-            wrapper.find(DataSetNavigation).prop('selected')
-        ).toBe(null)
+        expect(wrapper.find(DataSetNavigation).prop('selected')).toBe(null)
         expect(wrapper.find(DataSetNavigation).prop('selected')).toBe(null)
         expect(wrapper.find(Display).prop('dataSetId')).toBe(null)
     })

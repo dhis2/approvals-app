@@ -29,7 +29,9 @@ describe('initialWorkflowValue', () => {
     })
 
     it('returns an empty object if the specified ID is not present on a workflow', () => {
-        expect(initialWorkflowValue(mockWorkflows, 'invalid_value')).toEqual(null)
+        expect(initialWorkflowValue(mockWorkflows, 'invalid_value')).toEqual(
+            null
+        )
     })
 
     it('returns the only workflow if only one workflow exist and no ID is specified', () => {
@@ -50,11 +52,15 @@ describe('initialPeriodValue', () => {
     })
     it('returns an empty object when provided with an invalid period ID', () => {
         const invalidPeriodID = 'invalidPeriodID'
-        expect(initialPeriodValue(invalidPeriodID, initialWorkflow)).toEqual(null)
+        expect(initialPeriodValue(invalidPeriodID, initialWorkflow)).toEqual(
+            null
+        )
     })
     it('returns an empty object if the periodId does not match the workflow periodType', () => {
         const monthlyPeriodId = '201204'
-        expect(initialPeriodValue(monthlyPeriodId, initialWorkflow)).toEqual(null)
+        expect(initialPeriodValue(monthlyPeriodId, initialWorkflow)).toEqual(
+            null
+        )
     })
     it('returns a parsed period object if the periodId matches the workflow periodType', () => {
         const dailyPeriodId = '20120404'

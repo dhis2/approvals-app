@@ -11,7 +11,6 @@ jest.mock('../selection-context/use-selection-context.js', () => ({
     useSelectionContext: jest.fn(),
 }))
 
-
 jest.mock('@dhis2/app-runtime', () => ({
     useDataQuery: jest.fn(),
 }))
@@ -25,11 +24,11 @@ describe('<WorkflowProvider>', () => {
     }
 
     const period = {
-        displayName: "2012-04-04",
-        endDate: "2012-04-04",
-        id: "20120404",
-        iso: "20120404",
-        startDate: "2012-04-04",
+        displayName: '2012-04-04',
+        endDate: '2012-04-04',
+        id: '20120404',
+        iso: '20120404',
+        startDate: '2012-04-04',
     }
 
     const orgUnit = {
@@ -38,7 +37,11 @@ describe('<WorkflowProvider>', () => {
         displayName: 'Org unit 456',
     }
 
-    useSelectionContext.mockImplementation(() => ({ workflow, period, orgUnit }))
+    useSelectionContext.mockImplementation(() => ({
+        workflow,
+        period,
+        orgUnit,
+    }))
 
     it('shows a spinner when loading', () => {
         useDataQuery.mockImplementation(() => ({
