@@ -8,6 +8,7 @@ import { SelectionProvider } from '../selection-context/index.js'
 import { TopBar } from '../top-bar/index.js'
 import { WorkflowProvider } from '../workflow-context/index.js'
 import { Layout } from './layout.js'
+
 const App = () => (
     <>
         <CssVariables spacers colors theme />

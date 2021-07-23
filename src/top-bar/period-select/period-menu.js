@@ -19,11 +19,11 @@ const PeriodMenu = ({ periodType, year }) => {
         <Menu dense className={classes.menu}>
             {periods.map(period => (
                 <MenuItem
-                    active={period.id === selectedPeriod.id}
+                    active={period.id === selectedPeriod?.id}
                     key={period.id}
                     href={createHref({
-                        wf: workflow.id,
-                        ou: orgUnit.path,
+                        wf: workflow?.id,
+                        ou: orgUnit?.path,
                         pe: period.id,
                     })}
                     label={period.displayName}

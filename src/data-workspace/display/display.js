@@ -4,68 +4,54 @@ import { NoticeBox, CircularLoader } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 import { useSelectionContext } from '../../selection-context/index.js'
-import {
-    compareFixedPeriodLength,
-    getFixedPeriodsForTypeAndDateRange,
-    PERIOD_SHORTER,
-} from '../../shared/index.js'
+import { getFixedPeriodsForTypeAndDateRange } from '../../shared/index.js'
 import styles from './display.module.css'
 import { Table } from './table.js'
 
 const query = {
     dataSetReport: {
         resource: 'dataSetReport',
-        params: ({ dataSetId, period, orgUnit, workflow }) => {
-            let periodIds = [period.id]
-            const { dataSets } = workflow
-            const selectedDataSet = dataSets.find(({ id }) => id === dataSetId)
-            const { periodType: dataSetPeriodType } = selectedDataSet
-
-            const isDataSetPeriodShorter =
-                compareFixedPeriodLength(
-                    workflow.periodType,
-                    dataSetPeriodType
-                ) === PERIOD_SHORTER
-
-            if (isDataSetPeriodShorter) {
-                periodIds = getFixedPeriodsForTypeAndDateRange(
-                    dataSetPeriodType,
-                    period.startDate,
-                    period.endDate
-                )
-            }
-
-            return {
-                // arrays are being handled by the app runtime
-                pe: periodIds,
-                ds: dataSetId,
-                ou: orgUnit.id,
-            }
-        },
+        params: ({ dataSetId, periodIds, orgUnit }) => ({
+            // arrays are being handled by the app runtime
+            pe: periodIds,
+            ds: dataSetId,
+            ou: orgUnit.id,
+        }),
     },
 }
 
 const Display = ({ dataSetId }) => {
     const selection = useSelectionContext()
-    const { period, orgUnit, workflow } = selection
+    const { orgUnit, workflow } = selection
+
+    // @TODO
+    //   -> http://localhost:3000/#/?ou=%2FImspTQPwCqd%2Fat6UHUQatSo&ouDisplayName=Western%20Area&pe=20210104&wf=i5m0JPw4DQi
+    //   Hangs up when opening period selector and clicking on the prev year button
+    //
+    const { period } = selection
+    const { dataSets } = workflow
+    const selectedDataSet = dataSets.find(({ id }) => id === dataSetId)
+    const periodIds = selectedDataSet ? getFixedPeriodsForTypeAndDateRange(
+        selectedDataSet.periodType,
+        period.startDate,
+        period.endDate
+    ).map(({ id }) => id) : []
+
     const { called, loading, data, error, refetch } = useDataQuery(query, {
         lazy: true,
     })
     const tables = data?.dataSetReport
-    const fetchDataSet = () => {
-        refetch({
-            dataSetId,
-            period,
-            workflow,
-            orgUnit,
-        })
-    }
+    const fetchDataSet = () => refetch({ periodIds, dataSetId, orgUnit })
 
-    useEffect(() => {
-        if (dataSetId) {
-            fetchDataSet()
-        }
-    }, [dataSetId])
+    useEffect(
+        () => {
+            if (periodIds.length && dataSetId) {
+                fetchDataSet()
+            }
+        },
+        // joining so this produces a primitive value
+        [periodIds.join(','), dataSetId]
+    )
 
     if (!dataSetId) {
         return (
@@ -106,7 +92,7 @@ const Display = ({ dataSetId }) => {
         )
     }
 
-    if (!called || loading) {
+    if ((!called && periodIds.length) || loading) {
         return (
             <div className={styles.display}>
                 <div className={styles.loadingWrapper}>
@@ -117,7 +103,7 @@ const Display = ({ dataSetId }) => {
         )
     }
 
-    if (tables.length === 0) {
+    if (!periodIds.length || !tables.length) {
         return (
             <div className={styles.noData}>
                 <p>

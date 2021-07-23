@@ -25,8 +25,8 @@ const reducer = (state, { type, payload }) => {
             return {
                 openedSelect: '',
                 workflow: payload.workflow,
-                period: {},
-                orgUnit: {},
+                period: null,
+                orgUnit: null,
             }
         case ACTIONS.SELECT_WORKFLOW:
             return {
@@ -35,9 +35,9 @@ const reducer = (state, { type, payload }) => {
                 workflow: payload.workflow,
                 period:
                     state.workflow &&
-                    state.workflow.periodType === payload.workflow.periodType
+                    state.workflow?.periodType === payload.workflow?.periodType
                         ? state.period
-                        : {},
+                        : null,
             }
         case ACTIONS.SELECT_PERIOD:
             return {
@@ -46,7 +46,7 @@ const reducer = (state, { type, payload }) => {
                  * Close dropdown only if selecting a period,
                  * not when unsetting it when the year changes
                  */
-                openedSelect: payload.period.id ? '' : state.openedSelect,
+                openedSelect: payload.period?.id ? '' : state.openedSelect,
                 period: payload.period,
             }
         case ACTIONS.SELECT_ORG_UNIT:

@@ -700,7 +700,7 @@ export const getFixedPeriodsByTypeAndYear = (type, year) => {
 
     return periodType && Number.isInteger(offset)
         ? periodType.getPeriods({ offset })
-        : undefined
+        : []
 }
 
 export const parsePeriodId = (id, allowedTypes) => {
@@ -720,7 +720,7 @@ export const parsePeriodId = (id, allowedTypes) => {
     }
 
     if (!match) {
-        return undefined
+        return null
     }
 
     const year = parseInt(match[1])

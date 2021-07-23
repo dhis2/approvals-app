@@ -1,27 +1,34 @@
 import i18n from '@dhis2/d2-i18n'
 import { IconDimensionDataSet16 } from '@dhis2/ui'
-import PropTypes from 'prop-types'
 import React from 'react'
+import { useSelectionContext } from '../../selection-context/index.js'
 import { StatusTag } from '../../shared/status-tag/index.js'
+import { useWorkflowContext } from '../../workflow-context/index.js'
 import styles from './title-bar.module.css'
 
-const TitleBar = ({ name, dataSetsCount, approvalState }) => (
-    <div className={styles.titleBar}>
-        <span className={styles.workflowName}>{name}</span>
-        <span className={styles.workflowDataSetsCount}>
-            <IconDimensionDataSet16 />
-            {i18n.t('{{dataSetsCount}} data sets', {
-                dataSetsCount,
-            })}
-        </span>
-        <StatusTag approvalState={approvalState} />
-    </div>
-)
+const TitleBar = () => {
+    const { approvalState } = useWorkflowContext()
+    const { workflow } = useSelectionContext()
+    const { dataSets, displayName: name } = workflow
+    const dataSetsCount = dataSets.length
 
-TitleBar.propTypes = {
-    approvalState: PropTypes.string.isRequired,
-    dataSetsCount: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
+    return (
+        <div className={styles.titleBar}>
+            <span className={styles.workflowName}>{name}</span>
+            <span className={styles.workflowDataSetsCount}>
+                <IconDimensionDataSet16 />
+
+                {dataSetsCount === 1 && i18n.t('1 data set', {
+                    dataSetsCount,
+                })}
+
+                {dataSetsCount !== 1 && i18n.t('{{dataSetsCount}} data sets', {
+                    dataSetsCount,
+                })}
+            </span>
+            <StatusTag approvalState={approvalState} />
+        </div>
+    )
 }
 
 export { TitleBar }
