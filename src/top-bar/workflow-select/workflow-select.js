@@ -2,8 +2,8 @@ import i18n from '@dhis2/d2-i18n'
 import { Menu } from '@dhis2/ui'
 import React from 'react'
 import { useAppContext } from '../../app-context/index.js'
+import { useSelectionContext } from '../../selection-context/index.js'
 import { ContextSelect } from '../context-select/index.js'
-import { useSelectionContext } from '../selection-context/index.js'
 import { WorkflowSelectOption } from './workflow-select-option.js'
 import classes from './workflow-select.module.css'
 
@@ -18,7 +18,7 @@ const WorkflowSelect = () => {
         setOpenedSelect,
     } = useSelectionContext()
     const open = openedSelect === WORKFLOW
-    const value = selectedWorkflow.displayName
+    const value = selectedWorkflow?.displayName
 
     return (
         <ContextSelect

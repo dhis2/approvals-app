@@ -2,42 +2,55 @@ import { useDataQuery } from '@dhis2/app-runtime'
 import { renderHook } from '@testing-library/react-hooks'
 import { shallow } from 'enzyme'
 import React from 'react'
+import { useSelectionContext } from '../selection-context/index.js'
 import { ErrorMessage, Loader } from '../shared/index.js'
-import { useSelectionParams } from './use-selection-params.js'
 import { useWorkflowContext } from './use-workflow-context.js'
 import { WorkflowProvider } from './workflow-provider.js'
 
-jest.mock('./use-selection-params.js', () => ({
-    useSelectionParams: jest.fn(() => ({
-        wf: 'rIUL3hYOjJc',
-        pe: '20120404',
-        ou: '456',
-    })),
-}))
-
-jest.mock('./use-selected-workflow.js', () => ({
-    useSelectedWorkflow: jest.fn(() => ({
-        displayName: 'Workflow a',
-        id: 'i5m0JPw4DQi',
-        periodType: 'Daily',
-        dataSets: [{ id: '123', displayName: 'Dataset Z' }],
-    })),
+jest.mock('../selection-context/use-selection-context.js', () => ({
+    useSelectionContext: jest.fn(),
 }))
 
 jest.mock('@dhis2/app-runtime', () => ({
     useDataQuery: jest.fn(),
 }))
 
-describe('<AppProvider>', () => {
+describe('<WorkflowProvider>', () => {
+    const workflow = {
+        displayName: 'Workflow a',
+        id: 'i5m0JPw4DQi',
+        periodType: 'Daily',
+        dataSets: [{ id: '123', displayName: 'Dataset Z' }],
+    }
+
+    const period = {
+        displayName: '2012-04-04',
+        endDate: '2012-04-04',
+        id: '20120404',
+        iso: '20120404',
+        startDate: '2012-04-04',
+    }
+
+    const orgUnit = {
+        id: '456',
+        path: '/456',
+        displayName: 'Org unit 456',
+    }
+
+    useSelectionContext.mockImplementation(() => ({
+        workflow,
+        period,
+        orgUnit,
+    }))
+
     it('shows a spinner when loading', () => {
         useDataQuery.mockImplementation(() => ({
             loading: true,
-            refetch: () => {},
             called: true,
+            refetch: () => {},
         }))
 
         const wrapper = shallow(<WorkflowProvider>Child</WorkflowProvider>)
-
         expect(wrapper.find(Loader)).toHaveLength(1)
     })
 
@@ -53,7 +66,6 @@ describe('<AppProvider>', () => {
         }))
 
         const wrapper = shallow(<WorkflowProvider>Child</WorkflowProvider>)
-
         expect(wrapper.find(ErrorMessage)).toHaveLength(1)
     })
 
@@ -71,32 +83,51 @@ describe('<AppProvider>', () => {
         }))
 
         const wrapper = shallow(<WorkflowProvider>Child</WorkflowProvider>)
-
         expect(wrapper.text()).toEqual(expect.stringContaining('Child'))
     })
 
-    it('renders null if called is false', () => {
+    it('renders a loading spinner if called is false', () => {
         useDataQuery.mockImplementation(() => ({
-            loading: true,
-            refetch: () => {},
+            loading: false,
             called: false,
+            refetch: () => {},
         }))
 
         const wrapper = shallow(<WorkflowProvider>Child</WorkflowProvider>)
 
+        expect(wrapper.find(Loader)).toHaveLength(1)
+    })
+
+    it('renders null if workflow is null', () => {
+        useSelectionContext.mockImplementationOnce(() => ({
+            workflow: null,
+            period,
+            orgUnit,
+        }))
+
+        const wrapper = shallow(<WorkflowProvider>Child</WorkflowProvider>)
         expect(wrapper.type()).toBe(null)
     })
 
-    it('renders null if params is null', () => {
-        useSelectionParams.mockImplementationOnce(() => null)
-        useDataQuery.mockImplementation(() => ({
-            loading: true,
-            refetch: () => {},
-            called: true,
+    it('renders null if period is null', () => {
+        useSelectionContext.mockImplementationOnce(() => ({
+            workflow,
+            period: null,
+            orgUnit,
         }))
 
         const wrapper = shallow(<WorkflowProvider>Child</WorkflowProvider>)
+        expect(wrapper.type()).toBe(null)
+    })
 
+    it('renders null if orgUnit is null', () => {
+        useSelectionContext.mockImplementationOnce(() => ({
+            workflow,
+            period,
+            orgUnit: null,
+        }))
+
+        const wrapper = shallow(<WorkflowProvider>Child</WorkflowProvider>)
         expect(wrapper.type()).toBe(null)
     })
 

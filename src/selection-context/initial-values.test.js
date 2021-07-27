@@ -19,7 +19,7 @@ describe('initialWorkflowValue', () => {
     ]
 
     it('returns an empty object by default', () => {
-        expect(initialWorkflowValue([])).toEqual({})
+        expect(initialWorkflowValue([])).toEqual(null)
     })
 
     it('returns the workflow with the provided ID if it exists', () => {
@@ -29,7 +29,9 @@ describe('initialWorkflowValue', () => {
     })
 
     it('returns an empty object if the specified ID is not present on a workflow', () => {
-        expect(initialWorkflowValue(mockWorkflows, 'invalid_value')).toEqual({})
+        expect(initialWorkflowValue(mockWorkflows, 'invalid_value')).toEqual(
+            null
+        )
     })
 
     it('returns the only workflow if only one workflow exist and no ID is specified', () => {
@@ -46,15 +48,19 @@ describe('initialPeriodValue', () => {
         periodType: 'Daily',
     }
     it('returns an empty object by default', () => {
-        expect(initialPeriodValue()).toEqual({})
+        expect(initialPeriodValue()).toEqual(null)
     })
     it('returns an empty object when provided with an invalid period ID', () => {
         const invalidPeriodID = 'invalidPeriodID'
-        expect(initialPeriodValue(invalidPeriodID, initialWorkflow)).toEqual({})
+        expect(initialPeriodValue(invalidPeriodID, initialWorkflow)).toEqual(
+            null
+        )
     })
     it('returns an empty object if the periodId does not match the workflow periodType', () => {
         const monthlyPeriodId = '201204'
-        expect(initialPeriodValue(monthlyPeriodId, initialWorkflow)).toEqual({})
+        expect(initialPeriodValue(monthlyPeriodId, initialWorkflow)).toEqual(
+            null
+        )
     })
     it('returns a parsed period object if the periodId matches the workflow periodType', () => {
         const dailyPeriodId = '20120404'
@@ -73,16 +79,17 @@ describe('initialPeriodValue', () => {
 
 describe('initialOrgUnitValue', () => {
     it('returns an empty object by default', () => {
-        expect(initialOrgUnitValue()).toEqual({})
+        expect(initialOrgUnitValue()).toEqual(null)
     })
     it('returns an empty object when not supplying a path', () => {
-        expect(initialOrgUnitValue(undefined, 'test')).toEqual({})
+        expect(initialOrgUnitValue(undefined, 'test')).toEqual(null)
     })
     it('returns an empty object when not supplying a displayName', () => {
-        expect(initialOrgUnitValue('test', undefined)).toEqual({})
+        expect(initialOrgUnitValue('test', undefined)).toEqual(null)
     })
     it('returns an object when supplying both params', () => {
         expect(initialOrgUnitValue('/path', 'Display name')).toEqual({
+            id: 'path',
             path: '/path',
             displayName: 'Display name',
         })

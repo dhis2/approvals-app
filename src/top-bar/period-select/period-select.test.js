@@ -3,8 +3,8 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import { useAppContext } from '../../app-context/index.js'
 import { readQueryParams } from '../../navigation/read-query-params.js'
+import { useSelectionContext } from '../../selection-context/index.js'
 import { ContextSelect } from '../context-select/context-select.js'
-import { useSelectionContext } from '../selection-context/index.js'
 import { PeriodMenu } from './period-menu.js'
 import { PERIOD, PeriodSelect } from './period-select.js'
 import { YearNavigator } from './year-navigator.js'
@@ -17,7 +17,7 @@ jest.mock('../../app-context/index.js', () => ({
     useAppContext: jest.fn(),
 }))
 
-jest.mock('../selection-context/index.js', () => ({
+jest.mock('../../selection-context/index.js', () => ({
     useSelectionContext: jest.fn(),
 }))
 

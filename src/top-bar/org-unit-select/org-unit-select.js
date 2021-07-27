@@ -2,8 +2,8 @@ import i18n from '@dhis2/d2-i18n'
 import { OrganisationUnitTree } from '@dhis2/ui'
 import React from 'react'
 import { useAppContext } from '../../app-context/index.js'
+import { useSelectionContext } from '../../selection-context/index.js'
 import { ContextSelect } from '../context-select/index.js'
-import { useSelectionContext } from '../selection-context/index.js'
 import classes from './org-unit-select.module.css'
 
 export const ORG_UNIT = 'ORG_UNIT'
@@ -19,15 +19,15 @@ const OrgUnitSelect = () => {
         setOpenedSelect,
     } = useSelectionContext()
     const open = openedSelect === ORG_UNIT
-    const value = orgUnit.displayName
-    const requiredValuesMessage = workflow.id
+    const value = orgUnit?.displayName
+    const requiredValuesMessage = workflow?.id
         ? i18n.t('Choose a period first')
         : i18n.t('Choose a workflow and period first')
     const roots = organisationUnits.map(({ id }) => id)
     const onChange = ({ displayName, id, path }) => {
         selectOrgUnit({ displayName, id, path })
     }
-    const selectedOrgUnitPath = orgUnit.path ? [orgUnit.path] : undefined
+    const selectedOrgUnitPath = orgUnit?.path ? [orgUnit.path] : undefined
 
     return (
         <ContextSelect
@@ -35,7 +35,7 @@ const OrgUnitSelect = () => {
             placeholder={i18n.t('Choose an organisation unit')}
             value={value}
             open={open}
-            disabled={!(workflow.id && period.id)}
+            disabled={!(workflow?.id && period?.id)}
             onOpen={() => setOpenedSelect(ORG_UNIT)}
             onClose={() => setOpenedSelect('')}
             requiredValuesMessage={requiredValuesMessage}

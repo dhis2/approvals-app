@@ -1,20 +1,20 @@
 import { act, renderHook } from '@testing-library/react-hooks'
 import React from 'react'
-import { useAppContext } from '../../app-context/index.js'
-import { pushStateToHistory } from '../../navigation/push-state-to-history.js'
-import { readQueryParams } from '../../navigation/read-query-params.js'
+import { useAppContext } from '../app-context/index.js'
+import { pushStateToHistory } from '../navigation/push-state-to-history.js'
+import { readQueryParams } from '../navigation/read-query-params.js'
 import { SelectionProvider } from './selection-provider.js'
 import { useSelectionContext } from './use-selection-context.js'
 
-jest.mock('../../navigation/push-state-to-history.js', () => ({
+jest.mock('../navigation/push-state-to-history.js', () => ({
     pushStateToHistory: jest.fn(),
 }))
 
-jest.mock('../../navigation/read-query-params.js', () => ({
+jest.mock('../navigation/read-query-params.js', () => ({
     readQueryParams: jest.fn(),
 }))
 
-jest.mock('../../app-context/index.js', () => ({
+jest.mock('../app-context/index.js', () => ({
     useAppContext: jest.fn(),
 }))
 
@@ -90,6 +90,7 @@ describe('useSelectionContext', () => {
         )
         expect(result.current.orgUnit).toEqual({
             path: '/abc',
+            id: 'abc',
             displayName: 'test',
         })
     })
@@ -198,9 +199,9 @@ describe('useSelectionContext', () => {
                 result.current.clearAll()
             })
             expect(result.current.openedSelect).toEqual('')
-            expect(result.current.workflow).toEqual({})
-            expect(result.current.period).toEqual({})
-            expect(result.current.orgUnit).toEqual({})
+            expect(result.current.workflow).toEqual(null)
+            expect(result.current.period).toEqual(null)
+            expect(result.current.orgUnit).toEqual(null)
             expect(mock).toHaveBeenCalledTimes(1)
         })
     })

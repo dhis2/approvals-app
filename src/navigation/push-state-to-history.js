@@ -3,10 +3,10 @@ import { history } from './history.js'
 
 export const pushStateToHistory = state => {
     const paramString = stringify({
-        wf: state.workflow.id,
-        pe: state.period.id,
-        ou: state.orgUnit.path,
-        ouDisplayName: state.orgUnit.displayName,
+        wf: state.workflow?.id,
+        pe: state.period?.id,
+        ou: state.orgUnit?.path,
+        ouDisplayName: state.orgUnit?.displayName,
     })
 
     const search = paramString ? `?${paramString}` : ''

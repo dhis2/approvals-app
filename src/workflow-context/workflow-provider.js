@@ -2,36 +2,38 @@ import { useDataQuery } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { PropTypes } from '@dhis2/prop-types'
 import React, { useEffect } from 'react'
+import { useSelectionContext } from '../selection-context/index.js'
 import { ErrorMessage, Loader } from '../shared/index.js'
-import { useSelectedWorkflow } from './use-selected-workflow.js'
-import { useSelectionParams } from './use-selection-params.js'
 import { WorkflowContext } from './workflow-context.js'
 
 const query = {
     approvalStatus: {
         resource: 'dataApprovals',
-        params: ({ wf, pe, ou }) => ({ wf, pe, ou }),
+        params: ({ workflow, period, orgUnit }) => ({
+            wf: workflow.id,
+            pe: period.id,
+            ou: orgUnit.id,
+        }),
     },
 }
 
 const WorkflowProvider = ({ children }) => {
-    const params = useSelectionParams()
-    const { displayName, dataSets } = useSelectedWorkflow(params)
+    const { workflow, period, orgUnit } = useSelectionContext()
     const { loading, error, data, called, refetch } = useDataQuery(query, {
         lazy: true,
     })
 
     useEffect(() => {
-        if (params) {
-            refetch(params)
+        if (workflow && period && orgUnit) {
+            refetch({ workflow, period, orgUnit })
         }
-    }, [params])
+    }, [workflow, period, orgUnit])
 
-    if (!params || !called) {
+    if (!workflow || !period || !orgUnit) {
         return null
     }
 
-    if (loading) {
+    if (loading || !called) {
         return <Loader />
     }
 
@@ -48,11 +50,8 @@ const WorkflowProvider = ({ children }) => {
     return (
         <WorkflowContext.Provider
             value={{
-                displayName,
-                dataSets,
                 approvalState,
                 allowedActions,
-                params,
                 refresh: refetch,
             }}
         >

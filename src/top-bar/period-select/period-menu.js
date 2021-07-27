@@ -2,8 +2,8 @@ import { Menu, MenuItem } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { createHref } from '../../navigation/index.js'
-import { useSelectionContext } from '../selection-context/index.js'
-import { getFixedPeriodsByTypeAndYear } from './fixed-periods.js'
+import { useSelectionContext } from '../../selection-context/index.js'
+import { getFixedPeriodsByTypeAndYear } from '../../shared/index.js'
 import classes from './period-menu.module.css'
 
 const PeriodMenu = ({ periodType, year }) => {
@@ -19,11 +19,11 @@ const PeriodMenu = ({ periodType, year }) => {
         <Menu dense className={classes.menu}>
             {periods.map(period => (
                 <MenuItem
-                    active={period.id === selectedPeriod.id}
+                    active={period.id === selectedPeriod?.id}
                     key={period.id}
                     href={createHref({
-                        wf: workflow.id,
-                        ou: orgUnit.path,
+                        wf: workflow?.id,
+                        ou: orgUnit?.path,
                         pe: period.id,
                     })}
                     label={period.displayName}

@@ -6,11 +6,13 @@ const defaultFn = () => {
 
 const SelectionContext = createContext({
     workflow: {},
-    setWorkflow: defaultFn,
     period: {},
-    setPeriod: defaultFn,
     orgUnit: {},
-    setOrgUnit: defaultFn,
+    selectWorkflow: defaultFn,
+    selectPeriod: defaultFn,
+    selectOrgUnit: defaultFn,
+    clearAll: defaultFn,
+    setOpenedSelect: defaultFn,
 })
 
 export { SelectionContext }

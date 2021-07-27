@@ -1,23 +1,11 @@
 import { renderHook } from '@testing-library/react-hooks'
 import React from 'react'
+import { useSelectionContext } from '../selection-context/use-selection-context.js'
 import { useWorkflowContext } from './use-workflow-context.js'
 import { WorkflowProvider } from './workflow-provider.js'
 
-jest.mock('./use-selection-params.js', () => ({
-    useSelectionParams: jest.fn(() => ({
-        wf: 'rIUL3hYOjJc',
-        pe: '20120404',
-        ou: '456',
-    })),
-}))
-
-jest.mock('./use-selected-workflow.js', () => ({
-    useSelectedWorkflow: jest.fn(() => ({
-        displayName: 'Workflow a',
-        id: 'i5m0JPw4DQi',
-        periodType: 'Daily',
-        dataSets: [{ id: '123', displayName: 'Dataset Z' }],
-    })),
+jest.mock('../selection-context/use-selection-context.js', () => ({
+    useSelectionContext: jest.fn(),
 }))
 
 jest.mock('@dhis2/app-runtime', () => ({
@@ -36,10 +24,38 @@ jest.mock('@dhis2/app-runtime', () => ({
 }))
 
 describe('useWorkflowContext', () => {
-    const wrapper = ({ children }) => (
-        <WorkflowProvider>{children}</WorkflowProvider>
-    )
+    const workflow = {
+        displayName: 'Workflow a',
+        id: 'i5m0JPw4DQi',
+        periodType: 'Daily',
+        dataSets: [{ id: '123', displayName: 'Dataset Z' }],
+    }
+
+    const period = {
+        displayName: '2012-04-04',
+        endDate: '2012-04-04',
+        id: '20120404',
+        iso: '20120404',
+        startDate: '2012-04-04',
+    }
+
+    const orgUnit = {
+        id: '456',
+        path: '/456',
+        displayName: 'Org unit 456',
+    }
+
+    useSelectionContext.mockImplementation(() => ({
+        workflow,
+        period,
+        orgUnit,
+    }))
+
     it('combines data from various hooks', () => {
+        const wrapper = ({ children }) => (
+            <WorkflowProvider>{children}</WorkflowProvider>
+        )
+
         const { result } = renderHook(() => useWorkflowContext(), { wrapper })
 
         expect(result.current.refresh).toBeInstanceOf(Function)
@@ -49,18 +65,6 @@ describe('useWorkflowContext', () => {
                     canApprove: true,
                 },
                 approvalState: 'SOME_STATE_LABEL',
-                dataSets: [
-                    {
-                        displayName: 'Dataset Z',
-                        id: '123',
-                    },
-                ],
-                displayName: 'Workflow a',
-                params: {
-                    ou: '456',
-                    pe: '20120404',
-                    wf: 'rIUL3hYOjJc',
-                },
             })
         )
     })
