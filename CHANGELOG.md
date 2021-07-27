@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/dhis2/approval-app/compare/v1.8.1...v1.9.0) (2021-07-27)
+
+
+### Features
+
+* handle different period types of workflow and data sets (DHIS2-11288) ([#30](https://github.com/dhis2/approval-app/issues/30)) ([ae990e1](https://github.com/dhis2/approval-app/commit/ae990e1006251778f909b0772a3f895438813533))
+
 ## [1.8.1](https://github.com/dhis2/approval-app/compare/v1.8.0...v1.8.1) (2021-07-20)
 
 
