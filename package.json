@@ -13,8 +13,11 @@
         "start": "d2-app-scripts start",
         "test": "d2-app-scripts test"
     },
+    "resolutions": {
+        "@dhis2/app-runtime": "2.9.0-beta.6"
+    },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^7.1.0",
+        "@dhis2/cli-app-scripts": "^7.1.1",
         "@dhis2/cli-style": "^9.0.1",
         "@testing-library/jest-dom": "^5.14.1",
         "@testing-library/react": "^12.0.0",
@@ -26,7 +29,7 @@
         "mockdate": "^3.0.5"
     },
     "dependencies": {
-        "@dhis2/app-runtime": "^2.8.0",
+        "@dhis2/app-runtime": "^2.9.0-beta.6",
         "@dhis2/ui": "^6.10.5",
         "history": "^5.0.0",
         "prop-types": "^15.7.2",
