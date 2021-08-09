@@ -9,9 +9,7 @@ describe('getTagDisplayData', () => {
             type: 'positive',
         }
         expect(getTagDisplayData('APPROVED_HERE')).toEqual(expectedDisplayData)
-        expect(getTagDisplayData('APPROVED_ELSEWHERE')).toEqual(
-            expectedDisplayData
-        )
+        expect(getTagDisplayData('APPROVED_ABOVE')).toEqual(expectedDisplayData)
     })
     it('returns "ready for approval and accepted" display data for the correct approval states', () => {
         const expectedDisplayData = {
@@ -20,9 +18,6 @@ describe('getTagDisplayData', () => {
             type: 'neutral',
         }
         expect(getTagDisplayData('ACCEPTED_HERE')).toEqual(expectedDisplayData)
-        expect(getTagDisplayData('ACCEPTED_ELSEWHERE')).toEqual(
-            expectedDisplayData
-        )
     })
     it('returns "ready for approval" display data for the correct approval states', () => {
         const expectedDisplayData = {
@@ -41,9 +36,6 @@ describe('getTagDisplayData', () => {
             type: 'default',
         }
         expect(getTagDisplayData('UNAPPROVED_WAITING')).toEqual(
-            expectedDisplayData
-        )
-        expect(getTagDisplayData('UNAPPROVED_ELSEWHERE')).toEqual(
             expectedDisplayData
         )
         expect(getTagDisplayData('UNAPPROVED_ABOVE')).toEqual(
