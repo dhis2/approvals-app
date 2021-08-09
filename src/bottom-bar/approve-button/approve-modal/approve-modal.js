@@ -10,7 +10,7 @@ import {
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { useWorkflowContext } from '../../../workflow-context/index.js'
+import { useSelectionContext } from '../../../selection-context/index.js'
 import styles from './approve-modal.module.css'
 
 // Hendrik is working on some changes that will allow to get the current
@@ -20,7 +20,8 @@ import styles from './approve-modal.module.css'
 const TODO_GET_PERIOD = false
 
 const ApproveModal = ({ onApprove, onCancel, error }) => {
-    const { dataSets } = useWorkflowContext()
+    const { workflow } = useSelectionContext()
+    const { dataSets } = workflow
     const count = dataSets.length
 
     return (

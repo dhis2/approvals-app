@@ -57,7 +57,7 @@ const WorkflowProvider = ({ children }) => {
                     wf: workflow.id,
                     pe: period.id,
                     ou: orgUnit.id,
-                }
+                },
             }}
         >
             {children}
