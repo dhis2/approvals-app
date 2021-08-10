@@ -53,6 +53,11 @@ const WorkflowProvider = ({ children }) => {
                 approvalState,
                 allowedActions,
                 refresh: refetch,
+                params: {
+                    wf: workflow.id,
+                    pe: period.id,
+                    ou: orgUnit.id,
+                },
             }}
         >
             {children}
