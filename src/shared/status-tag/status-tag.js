@@ -16,12 +16,10 @@ const StatusTag = ({ approvalState }) => {
 StatusTag.propTypes = {
     approvalState: PropTypes.oneOf([
         'APPROVED_HERE',
-        'APPROVED_ELSEWHERE',
+        'APPROVED_ABOVE',
         'ACCEPTED_HERE',
-        'ACCEPTED_ELSEWHERE',
         'UNAPPROVED_READY',
         'UNAPPROVED_WAITING',
-        'UNAPPROVED_ELSEWHERE',
         'UNAPPROVED_ABOVE',
         'UNAPPROVABLE',
     ]),

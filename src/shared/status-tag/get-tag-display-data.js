@@ -13,7 +13,7 @@ import { Approved, Ready, Waiting } from './icons.js'
 const getTagDisplayData = approvalState => {
     switch (approvalState) {
         case 'APPROVED_HERE':
-        case 'APPROVED_ELSEWHERE':
+        case 'APPROVED_ABOVE':
             return {
                 icon: Approved,
                 displayName: i18n.t('Approved'),
@@ -21,7 +21,6 @@ const getTagDisplayData = approvalState => {
             }
 
         case 'ACCEPTED_HERE':
-        case 'ACCEPTED_ELSEWHERE':
             return {
                 icon: Ready,
                 displayName: i18n.t('Ready for approval and accepted'),
@@ -36,7 +35,6 @@ const getTagDisplayData = approvalState => {
             }
 
         case 'UNAPPROVED_WAITING':
-        case 'UNAPPROVED_ELSEWHERE':
         case 'UNAPPROVED_ABOVE':
             return {
                 icon: Waiting,
