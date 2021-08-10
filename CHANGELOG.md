@@ -1,3 +1,11 @@
+## [1.9.1](https://github.com/dhis2/approval-app/compare/v1.9.0...v1.9.1) (2021-08-10)
+
+
+### Bug Fixes
+
+* bottom bar actions ([#37](https://github.com/dhis2/approval-app/issues/37)) ([b6dcde7](https://github.com/dhis2/approval-app/commit/b6dcde72c80bc7e309b8d67e767ed2cebd1c8756))
+* **status-tag:** remove unused status tag states and add APPROVED_ABOVE ([e175523](https://github.com/dhis2/approval-app/commit/e1755238302928121c9ab2f0e427c5fb354344d8))
+
 # [1.9.0](https://github.com/dhis2/approval-app/compare/v1.8.1...v1.9.0) (2021-07-27)
 
 
