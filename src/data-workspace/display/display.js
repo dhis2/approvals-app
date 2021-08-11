@@ -22,13 +22,7 @@ const query = {
 
 const Display = ({ dataSetId }) => {
     const selection = useSelectionContext()
-    const { orgUnit, workflow } = selection
-
-    // @TODO
-    //   -> http://localhost:3000/#/?ou=%2FImspTQPwCqd%2Fat6UHUQatSo&ouDisplayName=Western%20Area&pe=20210104&wf=i5m0JPw4DQi
-    //   Hangs up when opening period selector and clicking on the prev year button
-    //
-    const { period } = selection
+    const { orgUnit, workflow, period } = selection
     const { dataSets } = workflow
     const selectedDataSet = dataSets.find(({ id }) => id === dataSetId)
     const periodIds = selectedDataSet
@@ -110,7 +104,11 @@ const Display = ({ dataSetId }) => {
             <div className={styles.noData}>
                 <p>
                     {i18n.t(
-                        `This data set doesn't have any data for the selected period and organisation unit.`
+                        `This data set doesn't have any data for {{- period}} in {{- orgUnit}}.`,
+                        {
+                            period: period.displayName,
+                            orgUnit: orgUnit.displayName,
+                        }
                     )}
                 </p>
             </div>
