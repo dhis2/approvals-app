@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/dhis2/approval-app/compare/v1.9.2...v1.10.0) (2021-08-11)
+
+
+### Features
+
+* **approve-button:** show workflow and period in confirmation modal ([#41](https://github.com/dhis2/approval-app/issues/41)) ([19df5bb](https://github.com/dhis2/approval-app/commit/19df5bb6d4337a682d222db62f63c61edac4f9f3))
+
 ## [1.9.2](https://github.com/dhis2/approval-app/compare/v1.9.1...v1.9.2) (2021-08-11)
 
 
