@@ -186,7 +186,7 @@ describe('<Display>', () => {
 
         expect(
             screen.getByText(
-                `This data set doesn't have any data for the selected period and organisation unit.`
+                `This data set doesn't have any data for January 2021 in Org unit 2.`
             )
         ).toBeInTheDocument()
     })
