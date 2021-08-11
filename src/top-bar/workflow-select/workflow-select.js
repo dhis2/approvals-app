@@ -43,7 +43,7 @@ const WorkflowSelect = () => {
                             id={workflow.id}
                             name={workflow.displayName}
                             periodType={workflow.periodType}
-                            active={workflow.id === selectedWorkflow.id}
+                            active={workflow.id === selectedWorkflow?.id}
                             onClick={() => selectWorkflow(workflow)}
                         />
                     ))}
@@ -54,3 +54,4 @@ const WorkflowSelect = () => {
 }
 
 export { WorkflowSelect, WORKFLOW }
+//
