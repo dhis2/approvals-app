@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/dhis2/approval-app/compare/v1.10.0...v1.10.1) (2021-08-11)
+
+
+### Bug Fixes
+
+* **data-workspace:** add period and org unit display name to 'no data for period' message ([b2bc34f](https://github.com/dhis2/approval-app/commit/b2bc34f73e047f088b901e1840ad8f949ac23093))
+
 # [1.10.0](https://github.com/dhis2/approval-app/compare/v1.9.2...v1.10.0) (2021-08-11)
 
 
