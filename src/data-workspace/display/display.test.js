@@ -137,14 +137,17 @@ describe('<Display>', () => {
 
         data.dataSetReport = []
         userEvent.click(screen.getByRole('button', 'Retry loading data set'))
-        await waitForElementToBeRemoved(() => screen.getByRole('progressbar'))
+        await waitFor(() => screen.getByRole('progressbar'))
 
-        expect(
-            screen.queryByRole(
-                'heading',
-                'There was a problem displaying this data set'
-            )
-        ).not.toBeInTheDocument()
+        await waitFor(() => {
+            expect(
+                screen.queryByRole(
+                    'heading',
+                    'There was a problem displaying this data set'
+                )
+            ).not.toBeInTheDocument()
+            expect(screen.queryByRole('progressbar')).not.toBeInTheDocument()
+        })
     })
 
     it('shows a message if the data set report has no data for the seleted period and organisation unit', async () => {

@@ -63,6 +63,17 @@ const Display = ({ dataSetId }) => {
         )
     }
 
+    if ((!called && periodIds.length) || loading) {
+        return (
+            <div className={styles.display}>
+                <div className={styles.loadingWrapper}>
+                    <CircularLoader small />
+                    {i18n.t('Loading data set')}
+                </div>
+            </div>
+        )
+    }
+
     if (error) {
         return (
             <div className={styles.display}>
@@ -84,17 +95,6 @@ const Display = ({ dataSetId }) => {
                         {i18n.t('Retry loading data set')}
                     </button>
                 </NoticeBox>
-            </div>
-        )
-    }
-
-    if ((!called && periodIds.length) || loading) {
-        return (
-            <div className={styles.display}>
-                <div className={styles.loadingWrapper}>
-                    <CircularLoader small />
-                    {i18n.t('Loading data set')}
-                </div>
             </div>
         )
     }

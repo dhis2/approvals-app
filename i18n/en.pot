@@ -78,6 +78,9 @@ msgstr ""
 "{{- workflowName}} has multiple data sets. Choose a data set from the tabs "
 "above."
 
+msgid "Loading data set"
+msgstr "Loading data set"
+
 msgid "There was a problem displaying this data set"
 msgstr "There was a problem displaying this data set"
 
