@@ -1,3 +1,10 @@
+## [1.9.2](https://github.com/dhis2/approval-app/compare/v1.9.1...v1.9.2) (2021-08-11)
+
+
+### Bug Fixes
+
+* **workflow-select:** allow selected workflow to be null ([#40](https://github.com/dhis2/approval-app/issues/40)) ([68fd920](https://github.com/dhis2/approval-app/commit/68fd920c7f5659b6a2257de3009331f208d00d81))
+
 ## [1.9.1](https://github.com/dhis2/approval-app/compare/v1.9.0...v1.9.1) (2021-08-10)
 
 
