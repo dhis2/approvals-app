@@ -45,7 +45,7 @@ afterEach(() => {
 describe('<WorkflowSelect>', () => {
     it('renders a ContextSelect with WorkflowSelectOptions', () => {
         useSelectionContext.mockImplementation(() => ({
-            workflow: {},
+            workflow: null,
             openedSelect: '',
             selectWorkflow: () => {},
             setOpenedSelect: () => {},
