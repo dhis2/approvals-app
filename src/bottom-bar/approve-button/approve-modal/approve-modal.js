@@ -13,14 +13,8 @@ import React from 'react'
 import { useSelectionContext } from '../../../selection-context/index.js'
 import styles from './approve-modal.module.css'
 
-// Hendrik is working on some changes that will allow to get the current
-// period value from the url, until we can leverage on that,
-// we don't display the period
-// @TODO: Implement period display once possible
-const TODO_GET_PERIOD = false
-
 const ApproveModal = ({ onApprove, onCancel, error }) => {
-    const { workflow } = useSelectionContext()
+    const { workflow, period } = useSelectionContext()
     const { dataSets } = workflow
     const count = dataSets.length
 
@@ -34,33 +28,25 @@ const ApproveModal = ({ onApprove, onCancel, error }) => {
 
             <ModalContent>
                 <div className={styles.summary}>
-                    {!TODO_GET_PERIOD && (
-                        <h1 className={styles.summaryTitle}>
-                            {count > 1
-                                ? i18n.t(
-                                      '{{count}} data sets will be approved:',
-                                      { count }
-                                  )
-                                : i18n.t(
-                                      '{{count}} data set will be approved:',
-                                      { count }
-                                  )}
-                        </h1>
-                    )}
-
-                    {TODO_GET_PERIOD && (
-                        <h1 className={styles.summaryTitle}>
-                            {count > 1
-                                ? i18n.t(
-                                      '{{count}} data sets for {{period}} will be approved:',
-                                      { count }
-                                  )
-                                : i18n.t(
-                                      '{{count}} data set for {{period}} will be approved:',
-                                      { count }
-                                  )}
-                        </h1>
-                    )}
+                    <h1 className={styles.summaryTitle}>
+                        {count > 1
+                            ? i18n.t(
+                                  '{{count}} data sets for {{- workflow}}, {{period}} will be approved:',
+                                  {
+                                      count,
+                                      workflow: workflow.displayName,
+                                      period: period.displayName,
+                                  }
+                              )
+                            : i18n.t(
+                                  '{{count}} data set for {{- workflow}}, {{period}} will be approved:',
+                                  {
+                                      count,
+                                      workflow: workflow.displayName,
+                                      period: period.displayName,
+                                  }
+                              )}
+                    </h1>
 
                     <ul className={styles.summaryList}>
                         {dataSets.map(({ id, displayName }) => (
