@@ -1,4 +1,4 @@
-import { useDataQuery } from '@dhis2/app-runtime'
+import { useDataEngine } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 import React, { createContext, useContext, useRef } from 'react'
 
@@ -7,39 +7,32 @@ const defaultFn = () => {
 }
 
 const ApprovalStatusContext = createContext({
-    getApprovalStatuses: defaultFn,
     registerNodeLabel: defaultFn,
 })
 
 const useApprovalStatusContext = () => useContext(ApprovalStatusContext)
 
-const query = {
-    approvalStatuses: {
-        resource: 'dataApprovals/approvals',
-        params: ({ workflowId, periodId, orgUnitIds }) => ({
-            pe: periodId,
-            wf: workflowId,
-            ou: orgUnitIds.join(),
-        }),
-    },
-}
-
 const ApprovalStatusContextProvider = ({ children, periodId, workflowId }) => {
+    const engine = useDataEngine()
     const registeredNodesRef = useRef(new Map())
-    const { /*loading, data, error,*/ refetch } = useDataQuery(query, {
-        lazy: true,
-        onComplete: data => {
-            console.log(
-                'GET approvalStatuses - onComplete',
-                data.approvalStatuses.length
-            )
-        },
-        onError: error => {
-            console.log('GET approvalStatuses - onError', error)
-        },
-    })
-    const getApprovalStatuses = orgUnitIds => {
-        refetch({ periodId, workflowId, orgUnitIds })
+    const getApprovalStatuses = async orgUnitIds => {
+        try {
+            const { approvalStatuses } = await engine.query({
+                approvalStatuses: {
+                    resource: 'dataApprovals/approvals',
+                    params: {
+                        pe: periodId,
+                        wf: workflowId,
+                        ou: orgUnitIds.join(),
+                    },
+                },
+            })
+            approvalStatuses.forEach(({ ou, state }) => {
+                const setIcon = registeredNodesRef.current.get(ou)
+            })
+        } catch (error) {
+            console.log('ERROR', error)
+        }
     }
     const registerNodeLabel = (id, setIcon) => {
         registeredNodesRef.current.set(id, { id, setIcon })
