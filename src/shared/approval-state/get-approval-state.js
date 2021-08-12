@@ -59,11 +59,11 @@ const getApprovalStateText = approvalState => {
     }
 }
 
-const getTagDisplayData = approvalState => {
+const getApprovalStateDisplayData = approvalState => {
     const displayName = getApprovalStateText(approvalState)
     const { icon, type } = getApprovalStateIcon(approvalState)
 
     return { displayName, icon, type }
 }
 
-export { getTagDisplayData, getApprovalStateIcon }
+export { getApprovalStateDisplayData, getApprovalStateIcon }

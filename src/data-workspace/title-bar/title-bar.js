@@ -2,7 +2,7 @@ import i18n from '@dhis2/d2-i18n'
 import { IconDimensionDataSet16 } from '@dhis2/ui'
 import React from 'react'
 import { useSelectionContext } from '../../selection-context/index.js'
-import { StatusTag } from '../../shared/status-tag/index.js'
+import { StatusTag } from '../../shared/approval-state/index.js'
 import { useWorkflowContext } from '../../workflow-context/index.js'
 import styles from './title-bar.module.css'
 
