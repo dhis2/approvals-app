@@ -30,7 +30,7 @@
     },
     "dependencies": {
         "@dhis2/app-runtime": "^2.9.0-beta.6",
-        "@dhis2/ui": "^6.10.5",
+        "@dhis2/ui": "^6.15.2",
         "history": "^5.0.0",
         "prop-types": "^15.7.2",
         "query-string": "^7.0.1"
