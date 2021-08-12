@@ -33,8 +33,8 @@ const OrgUnitSelect = () => {
 
     return (
         <ApprovalStatusContextProvider
-            periodId={period.id}
-            workflowId={workflow.id}
+            periodId={period?.id}
+            workflowId={workflow?.id}
         >
             {({ getApprovalStatuses }) => (
                 <ContextSelect
