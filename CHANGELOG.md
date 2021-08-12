@@ -1,3 +1,10 @@
+## [1.10.2](https://github.com/dhis2/approval-app/compare/v1.10.1...v1.10.2) (2021-08-12)
+
+
+### Bug Fixes
+
+* **status-tag:** align approval state classification with design specs ([#44](https://github.com/dhis2/approval-app/issues/44)) ([4e9f52d](https://github.com/dhis2/approval-app/commit/4e9f52dd30981f4437c0d6e112e01e8b6ed45ddb))
+
 ## [1.10.1](https://github.com/dhis2/approval-app/compare/v1.10.0...v1.10.1) (2021-08-11)
 
 
