@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-07-23T07:15:00.023Z\n"
-"PO-Revision-Date: 2021-07-23T07:15:00.023Z\n"
+"POT-Creation-Date: 2021-08-12T11:12:06.430Z\n"
+"PO-Revision-Date: 2021-08-12T11:12:06.430Z\n"
 
 msgid "Not authorized"
 msgstr "Not authorized"
@@ -94,12 +94,8 @@ msgstr "Retry loading data set"
 msgid "Loading data set"
 msgstr "Loading data set"
 
-msgid ""
-"This data set doesn't have any data for the selected period and "
-"organisation unit."
-msgstr ""
-"This data set doesn't have any data for the selected period and "
-"organisation unit."
+msgid "This data set doesn't have any data for {{- period}} in {{- orgUnit}}."
+msgstr "This data set doesn't have any data for {{- period}} in {{- orgUnit}}."
 
 msgid "1 data set"
 msgstr "1 data set"
@@ -200,20 +196,26 @@ msgstr "Financial year (Start July)"
 msgid "Financial year (Start April)"
 msgstr "Financial year (Start April)"
 
-msgid "Approved"
-msgstr "Approved"
-
-msgid "Ready for approval and accepted"
-msgstr "Ready for approval and accepted"
-
 msgid "Ready for approval"
 msgstr "Ready for approval"
 
-msgid "Waiting"
-msgstr "Waiting"
+msgid "Ready for approval — Accepted"
+msgstr "Ready for approval — Accepted"
 
-msgid "Cannot approve"
-msgstr "Cannot approve"
+msgid "Waiting for lower level approval"
+msgstr "Waiting for lower level approval"
+
+msgid "Waiting for higher level approval"
+msgstr "Waiting for higher level approval"
+
+msgid "Approved"
+msgstr "Approved"
+
+msgid "Cannot be approved"
+msgstr "Cannot be approved"
+
+msgid "Could not retrieve approval status"
+msgstr "Could not retrieve approval status"
 
 msgid "Clear selections"
 msgstr "Clear selections"
