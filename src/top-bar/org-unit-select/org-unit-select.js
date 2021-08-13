@@ -1,16 +1,17 @@
 import i18n from '@dhis2/d2-i18n'
 import { OrganisationUnitTree } from '@dhis2/ui'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useAppContext } from '../../app-context/index.js'
 import { useSelectionContext } from '../../selection-context/index.js'
 import { ContextSelect } from '../context-select/index.js'
-import { ApprovalStatusContextProvider } from './approval-status-context.js'
 import { ApprovalStatusLabel } from './approval-status-label.js'
+import { useApprovalStatuses } from './approval-statuses.js'
 import classes from './org-unit-select.module.css'
 
 export const ORG_UNIT = 'ORG_UNIT'
 
 const OrgUnitSelect = () => {
+    const { fetchApprovalStatuses } = useApprovalStatuses()
     const { organisationUnits } = useAppContext()
     const {
         orgUnit,
@@ -31,46 +32,53 @@ const OrgUnitSelect = () => {
     }
     const selectedOrgUnitPath = orgUnit?.path ? [orgUnit.path] : undefined
 
+    useEffect(() => {
+        if (period?.id && workflow?.id) {
+            fetchApprovalStatuses({
+                periodId: period.id,
+                workflowId: workflow.id,
+                orgUnitIds: roots,
+            })
+        }
+    }, [...roots, period?.id, workflow?.id])
+
     return (
-        <ApprovalStatusContextProvider
-            periodId={period?.id}
-            workflowId={workflow?.id}
+        <ContextSelect
+            prefix={i18n.t('Organisation Unit')}
+            placeholder={i18n.t('Choose an organisation unit')}
+            value={value}
+            open={open}
+            disabled={!(workflow?.id && period?.id)}
+            onOpen={() => setOpenedSelect(ORG_UNIT)}
+            onClose={() => setOpenedSelect('')}
+            requiredValuesMessage={requiredValuesMessage}
         >
-            {({ getApprovalStatuses }) => (
-                <ContextSelect
-                    prefix={i18n.t('Organisation Unit')}
-                    placeholder={i18n.t('Choose an organisation unit')}
-                    value={value}
-                    open={open}
-                    disabled={!(workflow?.id && period?.id)}
-                    onOpen={() => setOpenedSelect(ORG_UNIT)}
-                    onClose={() => setOpenedSelect('')}
-                    requiredValuesMessage={requiredValuesMessage}
-                >
-                    <div className={classes.scrollbox}>
-                        <OrganisationUnitTree
-                            roots={roots}
-                            onChange={onChange}
-                            initiallyExpanded={selectedOrgUnitPath}
-                            selected={selectedOrgUnitPath}
-                            singleSelection
-                            renderNodeLabel={({ label, node }) => (
-                                <ApprovalStatusLabel
-                                    label={label}
-                                    id={node.id}
-                                />
-                            )}
-                            onChildrenLoaded={({ children }) => {
-                                const orgUnitIds = children.map(({ id }) => id)
-                                if (orgUnitIds.length > 0) {
-                                    getApprovalStatuses(orgUnitIds)
-                                }
-                            }}
+            <div className={classes.scrollbox}>
+                <OrganisationUnitTree
+                    roots={roots}
+                    onChange={onChange}
+                    initiallyExpanded={selectedOrgUnitPath}
+                    selected={selectedOrgUnitPath}
+                    singleSelection
+                    renderNodeLabel={({ label, node }) => (
+                        <ApprovalStatusLabel
+                            label={label}
+                            orgUnitId={node.id}
                         />
-                    </div>
-                </ContextSelect>
-            )}
-        </ApprovalStatusContextProvider>
+                    )}
+                    onChildrenLoaded={({ children }) => {
+                        const orgUnitIds = children.map(({ id }) => id)
+                        if (orgUnitIds.length > 0) {
+                            fetchApprovalStatuses({
+                                workflowId: workflow.id,
+                                periodId: period.id,
+                                orgUnitIds,
+                            })
+                        }
+                    }}
+                />
+            </div>
+        </ContextSelect>
     )
 }
 
