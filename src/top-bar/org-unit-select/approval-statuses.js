@@ -148,7 +148,7 @@ const _useFetchApprovalStatuses = ({ updateApprovalStatuses }) => {
 export const useApprovalStatuses = () => {
     const { approvalStatuses, updateApprovalStatuses } =
         useApprovalStatusesContext()
-    const fetchApprovalStatuses = _useFetchApprovalStatuses({
+    const fetchApprovalStatuses = useFetchApprovalStatuses({
         updateApprovalStatuses,
     })
 
