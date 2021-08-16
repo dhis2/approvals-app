@@ -81,7 +81,7 @@ const useFetchApprovalStatus = ({ updateApprovalStatuses }) => {
                     },
                 })
                 approvalStatuses.forEach(({ ou, state }) => {
-                    updateObject[ou] = state
+                    updateObject[ou] = state || 'UNAPPROVABLE'
                 })
             } catch (error) {
                 orgUnitIds.forEach(orgUnitId => {
