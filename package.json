@@ -30,7 +30,8 @@
         "@dhis2/ui": "^6.15.1",
         "history": "^5.0.0",
         "prop-types": "^15.7.2",
-        "query-string": "^7.0.1"
+        "query-string": "^7.0.1",
+        "use-debounce": "^7.0.0"
     },
     "resolutions": {
         "@dhis2/app-runtime": "2.9.0-beta.6"

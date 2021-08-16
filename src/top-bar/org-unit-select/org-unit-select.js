@@ -4,7 +4,6 @@ import React from 'react'
 import { useAppContext } from '../../app-context/index.js'
 import { useSelectionContext } from '../../selection-context/index.js'
 import { ContextSelect } from '../context-select/index.js'
-import { ApprovalStatusContextProvider } from './approval-status-context.js'
 import { ApprovalStatusLabel } from './approval-status-label.js'
 import classes from './org-unit-select.module.css'
 
@@ -32,45 +31,32 @@ const OrgUnitSelect = () => {
     const selectedOrgUnitPath = orgUnit?.path ? [orgUnit.path] : undefined
 
     return (
-        <ApprovalStatusContextProvider
-            periodId={period?.id}
-            workflowId={workflow?.id}
+        <ContextSelect
+            prefix={i18n.t('Organisation Unit')}
+            placeholder={i18n.t('Choose an organisation unit')}
+            value={value}
+            open={open}
+            disabled={!(workflow?.id && period?.id)}
+            onOpen={() => setOpenedSelect(ORG_UNIT)}
+            onClose={() => setOpenedSelect('')}
+            requiredValuesMessage={requiredValuesMessage}
         >
-            {({ getApprovalStatuses }) => (
-                <ContextSelect
-                    prefix={i18n.t('Organisation Unit')}
-                    placeholder={i18n.t('Choose an organisation unit')}
-                    value={value}
-                    open={open}
-                    disabled={!(workflow?.id && period?.id)}
-                    onOpen={() => setOpenedSelect(ORG_UNIT)}
-                    onClose={() => setOpenedSelect('')}
-                    requiredValuesMessage={requiredValuesMessage}
-                >
-                    <div className={classes.scrollbox}>
-                        <OrganisationUnitTree
-                            roots={roots}
-                            onChange={onChange}
-                            initiallyExpanded={selectedOrgUnitPath}
-                            selected={selectedOrgUnitPath}
-                            singleSelection
-                            renderNodeLabel={({ label, node }) => (
-                                <ApprovalStatusLabel
-                                    label={label}
-                                    id={node.id}
-                                />
-                            )}
-                            onChildrenLoaded={({ children }) => {
-                                const orgUnitIds = children.map(({ id }) => id)
-                                if (orgUnitIds.length > 0) {
-                                    getApprovalStatuses(orgUnitIds)
-                                }
-                            }}
+            <div className={classes.scrollbox}>
+                <OrganisationUnitTree
+                    roots={roots}
+                    onChange={onChange}
+                    initiallyExpanded={selectedOrgUnitPath}
+                    selected={selectedOrgUnitPath}
+                    singleSelection
+                    renderNodeLabel={({ label, node }) => (
+                        <ApprovalStatusLabel
+                            label={label}
+                            orgUnitId={node.id}
                         />
-                    </div>
-                </ContextSelect>
-            )}
-        </ApprovalStatusContextProvider>
+                    )}
+                />
+            </div>
+        </ContextSelect>
     )
 }
 
