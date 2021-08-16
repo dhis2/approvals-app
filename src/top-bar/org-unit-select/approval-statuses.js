@@ -29,29 +29,33 @@ class ApprovalStatusesMap {
     }
 }
 
-const useFetchApprovalStatuses = ({ updateApprovalStatuses }) => {
+const useFetchApprovalStatus = ({ updateApprovalStatuses }) => {
     const engine = useDataEngine()
     const requestQueue = useRef([])
     const fetchApprovalStatuses = useDebouncedCallback(() => {
-        const queries = []
+        const batchedQueries = []
         requestQueue.current.forEach(query => {
-            const existingQuery = queries.find(({ workflowId, periodId }) => {
-                return (
-                    workflowId === query.workflowId &&
-                    periodId === query.periodId
-                )
-            })
-            if (existingQuery) {
-                existingQuery.orgUnitIds = existingQuery.orgUnitIds.concat(
-                    query.orgUnitIds
-                )
+            const existingBatchedQuery = batchedQueries.find(
+                ({ workflowId, periodId }) => {
+                    return (
+                        workflowId === query.workflowId &&
+                        periodId === query.periodId
+                    )
+                }
+            )
+            if (existingBatchedQuery) {
+                existingBatchedQuery.orgUnitIds.push(query.orgUnitId)
             } else {
-                queries.push(query)
+                batchedQueries.push({
+                    workflowId: query.workflowId,
+                    periodId: query.periodId,
+                    orgUnitIds: [query.orgUnitId],
+                })
             }
         })
         requestQueue.current = []
 
-        queries.forEach(({ workflowId, periodId, orgUnitIds }) => {
+        batchedQueries.forEach(({ workflowId, periodId, orgUnitIds }) => {
             engine
                 .query({
                     approvalStatuses: {
@@ -77,11 +81,11 @@ const useFetchApprovalStatuses = ({ updateApprovalStatuses }) => {
         })
     }, 10)
 
-    return ({ workflowId, periodId, orgUnitIds }) => {
+    return ({ workflowId, periodId, orgUnitId }) => {
         requestQueue.current.push({
             periodId,
             workflowId,
-            orgUnitIds,
+            orgUnitId,
         })
         fetchApprovalStatuses()
     }
@@ -109,13 +113,13 @@ export const ApprovalStatusesProvider = ({ children }) => {
             return newApprovalStatuses
         })
     }
-    const fetchApprovalStatuses = useFetchApprovalStatuses({
+    const fetchApprovalStatus = useFetchApprovalStatus({
         updateApprovalStatuses,
     })
 
     return (
         <ApprovalStatusesContext.Provider
-            value={{ approvalStatuses, fetchApprovalStatuses }}
+            value={{ approvalStatuses, fetchApprovalStatus }}
         >
             {children}
         </ApprovalStatusesContext.Provider>
@@ -127,7 +131,7 @@ ApprovalStatusesProvider.propTypes = {
 }
 
 export const useApprovalStatus = () => {
-    const { approvalStatuses, fetchApprovalStatuses } =
+    const { approvalStatuses, fetchApprovalStatus } =
         useApprovalStatusesContext()
 
     return {
@@ -138,12 +142,6 @@ export const useApprovalStatus = () => {
                 orgUnitId,
             })
         },
-        fetchApprovalStatus: ({ workflowId, periodId, orgUnitId }) => {
-            return fetchApprovalStatuses({
-                workflowId,
-                periodId,
-                orgUnitIds: [orgUnitId],
-            })
-        },
+        fetchApprovalStatus,
     }
 }
