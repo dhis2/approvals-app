@@ -1,4 +1,5 @@
 import { useDataEngine } from '@dhis2/app-runtime'
+import PropTypes from 'prop-types'
 import React, { createContext, useContext, useRef, useState } from 'react'
 import { useDebouncedCallback } from 'use-debounce'
 
@@ -28,40 +29,6 @@ class ApprovalStatusesMap {
     }
 }
 
-export const ApprovalStatusesProvider = ({ children }) => {
-    const [approvalStatuses, setApprovalStatuses] = useState(
-        new ApprovalStatusesMap()
-    )
-
-    const updateApprovalStatuses = ({
-        workflowId,
-        periodId,
-        approvalStatusUpdates,
-    }) => {
-        setApprovalStatuses(approvalStatuses => {
-            const newApprovalStatuses = approvalStatuses.clone()
-            for (const [orgUnitId, status] of Object.entries(
-                approvalStatusUpdates
-            )) {
-                newApprovalStatuses.set(
-                    { workflowId, periodId, orgUnitId },
-                    status
-                )
-            }
-            return newApprovalStatuses
-        })
-    }
-
-    return (
-        <ApprovalStatusesContext.Provider
-            value={{ approvalStatuses, updateApprovalStatuses }}
-        >
-            {children}
-        </ApprovalStatusesContext.Provider>
-    )
-}
-
-// Debounced version
 const useFetchApprovalStatuses = ({ updateApprovalStatuses }) => {
     const engine = useDataEngine()
     const requestQueue = useRef([])
@@ -75,7 +42,9 @@ const useFetchApprovalStatuses = ({ updateApprovalStatuses }) => {
                 )
             })
             if (existingQuery) {
-                existingQuery.orgUnitIds.concat(query.orgUnitIds)
+                existingQuery.orgUnitIds = existingQuery.orgUnitIds.concat(
+                    query.orgUnitIds
+                )
             } else {
                 queries.push(query)
             }
@@ -106,7 +75,7 @@ const useFetchApprovalStatuses = ({ updateApprovalStatuses }) => {
                     })
                 })
         })
-    }, 250)
+    }, 10)
 
     return ({ workflowId, periodId, orgUnitIds }) => {
         requestQueue.current.push({
@@ -118,39 +87,48 @@ const useFetchApprovalStatuses = ({ updateApprovalStatuses }) => {
     }
 }
 
-// Non-debounced version
-const _useFetchApprovalStatuses = ({ updateApprovalStatuses }) => {
-    const engine = useDataEngine()
-    return async ({ workflowId, periodId, orgUnitIds }) => {
-        const { approvalStatuses } = await engine.query({
-            approvalStatuses: {
-                resource: 'dataApprovals/approvals',
-                params: {
-                    wf: workflowId,
-                    pe: periodId,
-                    ou: orgUnitIds,
-                },
-            },
-        })
-
-        const updateObject = {}
-        approvalStatuses.forEach(({ ou, state }) => {
-            updateObject[ou] = state
-        })
-        updateApprovalStatuses({
-            periodId,
-            workflowId,
-            approvalStatusUpdates: updateObject,
+export const ApprovalStatusesProvider = ({ children }) => {
+    const [approvalStatuses, setApprovalStatuses] = useState(
+        new ApprovalStatusesMap()
+    )
+    const updateApprovalStatuses = ({
+        workflowId,
+        periodId,
+        approvalStatusUpdates,
+    }) => {
+        setApprovalStatuses(approvalStatuses => {
+            const newApprovalStatuses = approvalStatuses.clone()
+            for (const [orgUnitId, status] of Object.entries(
+                approvalStatusUpdates
+            )) {
+                newApprovalStatuses.set(
+                    { workflowId, periodId, orgUnitId },
+                    status
+                )
+            }
+            return newApprovalStatuses
         })
     }
-}
-
-export const useApprovalStatuses = () => {
-    const { approvalStatuses, updateApprovalStatuses } =
-        useApprovalStatusesContext()
     const fetchApprovalStatuses = useFetchApprovalStatuses({
         updateApprovalStatuses,
     })
+
+    return (
+        <ApprovalStatusesContext.Provider
+            value={{ approvalStatuses, fetchApprovalStatuses }}
+        >
+            {children}
+        </ApprovalStatusesContext.Provider>
+    )
+}
+
+ApprovalStatusesProvider.propTypes = {
+    children: PropTypes.node,
+}
+
+export const useApprovalStatus = () => {
+    const { approvalStatuses, fetchApprovalStatuses } =
+        useApprovalStatusesContext()
 
     return {
         getApprovalStatus: ({ workflowId, periodId, orgUnitId }) => {
@@ -160,6 +138,12 @@ export const useApprovalStatuses = () => {
                 orgUnitId,
             })
         },
-        fetchApprovalStatuses,
+        fetchApprovalStatus: ({ workflowId, periodId, orgUnitId }) => {
+            return fetchApprovalStatuses({
+                workflowId,
+                periodId,
+                orgUnitIds: [orgUnitId],
+            })
+        },
     }
 }

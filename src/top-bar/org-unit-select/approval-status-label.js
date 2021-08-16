@@ -1,18 +1,26 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelectionContext } from '../../selection-context/index.js'
 import { getApprovalStateDisplayData } from '../../shared/approval-state/index.js'
 import classes from './approval-status-label.module.css'
-import { useApprovalStatuses } from './approval-statuses.js'
+import { useApprovalStatus } from './approval-statuses.js'
 
 const ApprovalStatusLabel = ({ label, orgUnitId }) => {
     const { workflow, period } = useSelectionContext()
-    const { getApprovalStatus } = useApprovalStatuses()
+    const { getApprovalStatus, fetchApprovalStatus } = useApprovalStatus()
     const approvalStatus = getApprovalStatus({
         workflowId: workflow.id,
         periodId: period.id,
         orgUnitId,
     })
+
+    useEffect(() => {
+        fetchApprovalStatus({
+            periodId: period.id,
+            workflowId: workflow.id,
+            orgUnitId,
+        })
+    }, [])
 
     if (approvalStatus) {
         const { displayName, icon: Icon } =
@@ -30,8 +38,8 @@ const ApprovalStatusLabel = ({ label, orgUnitId }) => {
 }
 
 ApprovalStatusLabel.propTypes = {
-    orgUnitId: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
+    orgUnitId: PropTypes.string.isRequired,
 }
 
 export { ApprovalStatusLabel }
