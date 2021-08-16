@@ -7,7 +7,7 @@ export const currentYear = new Date().getFullYear()
 // To avoid users from navigating too far back
 const startYear = 1970
 
-const YearNavigator = ({ year, onYearChange }) => (
+const YearNavigator = ({ maxYear, year, onYearChange }) => (
     <div className={classes.container}>
         <Button
             disabled={year === startYear}
@@ -16,7 +16,7 @@ const YearNavigator = ({ year, onYearChange }) => (
         />
         <span className={classes.year}>{year}</span>
         <Button
-            disabled={year === currentYear}
+            disabled={year === maxYear}
             onClick={() => onYearChange(year + 1)}
             icon={<IconArrowRight24 />}
         />
@@ -24,6 +24,7 @@ const YearNavigator = ({ year, onYearChange }) => (
 )
 
 YearNavigator.propTypes = {
+    maxYear: PropTypes.number.isRequired,
     year: PropTypes.number.isRequired,
     onYearChange: PropTypes.func,
 }
