@@ -55,9 +55,22 @@ const useFetchApprovalStatus = ({ updateApprovalStatuses }) => {
         })
         requestQueue.current = []
 
-        batchedQueries.forEach(({ workflowId, periodId, orgUnitIds }) => {
-            engine
-                .query({
+        batchedQueries.forEach(async ({ workflowId, periodId, orgUnitIds }) => {
+            updateApprovalStatuses({
+                periodId,
+                workflowId,
+                approvalStatusUpdates: orgUnitIds.reduce(
+                    (statuses, orgUnitId) => {
+                        statuses[orgUnitId] = 'LOADING'
+                        return statuses
+                    },
+                    {}
+                ),
+            })
+
+            const updateObject = {}
+            try {
+                const { approvalStatuses } = await engine.query({
                     approvalStatuses: {
                         resource: 'dataApprovals/approvals',
                         params: {
@@ -67,17 +80,19 @@ const useFetchApprovalStatus = ({ updateApprovalStatuses }) => {
                         },
                     },
                 })
-                .then(({ approvalStatuses }) => {
-                    const updateObject = {}
-                    approvalStatuses.forEach(({ ou, state }) => {
-                        updateObject[ou] = state
-                    })
-                    updateApprovalStatuses({
-                        periodId,
-                        workflowId,
-                        approvalStatusUpdates: updateObject,
-                    })
+                approvalStatuses.forEach(({ ou, state }) => {
+                    updateObject[ou] = state
                 })
+            } catch (error) {
+                orgUnitIds.forEach(orgUnitId => {
+                    updateObject[orgUnitId] = 'FETCH_ERROR'
+                })
+            }
+            updateApprovalStatuses({
+                periodId,
+                workflowId,
+                approvalStatusUpdates: updateObject,
+            })
         })
     }, 10)
 

@@ -22,7 +22,11 @@ const ApprovalStatusLabel = ({ label, orgUnitId }) => {
         })
     }, [])
 
-    if (approvalStatus) {
+    if (approvalStatus === 'LOADING') {
+        return label
+    } else if (approvalStatus === 'FETCH_ERROR') {
+        return label
+    } else if (approvalStatus) {
         const { displayName, icon: Icon } =
             getApprovalStateDisplayData(approvalStatus)
         return (
