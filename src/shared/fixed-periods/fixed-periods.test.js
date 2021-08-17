@@ -1,4 +1,5 @@
 import {
+    isValidPeriodType,
     getFixedPeriodType,
     getFixedPeriodTypes,
     getFixedPeriodsForTypeAndDateRange,
@@ -12,6 +13,31 @@ describe('fixedPeriods utils', () => {
         // 2019-06-17
         jest.spyOn(Date, 'now').mockImplementation(() => 1560765600000)
     )
+
+    describe('isValidPeriodType', () => {
+        it('returns true for valid period types', () => {
+            expect(isValidPeriodType('Daily')).toBe(true)
+            expect(isValidPeriodType('Weekly')).toBe(true)
+            expect(isValidPeriodType('WeeklyWednesday')).toBe(true)
+            expect(isValidPeriodType('WeeklyThursday')).toBe(true)
+            expect(isValidPeriodType('WeeklySaturday')).toBe(true)
+            expect(isValidPeriodType('WeeklySunday')).toBe(true)
+            expect(isValidPeriodType('BiWeekly')).toBe(true)
+            expect(isValidPeriodType('Monthly')).toBe(true)
+            expect(isValidPeriodType('BiMonthly')).toBe(true)
+            expect(isValidPeriodType('Quarterly')).toBe(true)
+            expect(isValidPeriodType('SixMonthly')).toBe(true)
+            expect(isValidPeriodType('SixMonthlyApril')).toBe(true)
+            expect(isValidPeriodType('Yearly')).toBe(true)
+            expect(isValidPeriodType('FinancialApril')).toBe(true)
+            expect(isValidPeriodType('FinancialJuly')).toBe(true)
+            expect(isValidPeriodType('FinancialOct')).toBe(true)
+            expect(isValidPeriodType('FinancialNov')).toBe(true)
+        })
+        it('returns false for an invalid period type', () => {
+            expect(isValidPeriodType('INVALID')).toBe(false)
+        })
+    })
 
     describe('getFixedPeriodTypes', () => {
         it('should return a list of available period ranges', () => {

@@ -32,6 +32,28 @@ const FINANCIAL_JULY = 'FinancialJuly'
 const FINANCIAL_OCT = 'FinancialOct'
 const FINANCIAL_NOV = 'FinancialNov'
 
+const PERIOD_TYPES = new Set([
+    DAILY,
+    WEEKLY,
+    WEEKLY_WEDNESDAY,
+    WEEKLY_THURSDAY,
+    WEEKLY_SATURDAY,
+    WEEKLY_SUNDAY,
+    BI_WEEKLY,
+    MONTHLY,
+    BI_MONTHLY,
+    QUARTERLY,
+    SIX_MONTHLY,
+    SIX_MONTHLY_APRIL,
+    YEARLY,
+    FINANCIAL_APRIL,
+    FINANCIAL_JULY,
+    FINANCIAL_OCT,
+    FINANCIAL_NOV,
+])
+
+export const isValidPeriodType = periodType => PERIOD_TYPES.has(periodType)
+
 const getMonthName = key => {
     const monthNames = [
         i18n.t('January'),
