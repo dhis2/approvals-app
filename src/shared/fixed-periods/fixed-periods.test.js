@@ -4,6 +4,7 @@ import {
     getFixedPeriodsForTypeAndDateRange,
     getYearOffsetFromNow,
     parsePeriodId,
+    getMostRecentCompletedYear,
 } from './fixed-periods.js'
 
 describe('fixedPeriods utils', () => {
@@ -910,6 +911,29 @@ describe('fixedPeriods utils', () => {
                     startDate: '2021-05-01',
                 },
             ])
+        })
+    })
+
+    describe('getMostRecentCompletedYear', () => {
+        it('throws an error if no periodType is specified', () => {
+            expect(() => getMostRecentCompletedYear()).toThrowError(
+                'No "periodType" supplied to "getMostRecentCompletedYear"'
+            )
+        })
+        it('returns the current year (2019) for a Monthly periodType', () => {
+            // Given the fact that today is 2019-06-17,
+            // there are completed Monthly periods in this year
+            expect(getMostRecentCompletedYear('Monthly')).toEqual(2019)
+        })
+        it('returns the previous year (2018) for a Yearly periodType', () => {
+            // Given the fact that today is 2019-06-17,
+            // there are no completed Yearly periods in this year
+            expect(getMostRecentCompletedYear('Yearly')).toEqual(2018)
+        })
+        it('returns the previous year (2018) for a Monthly periodType if January has not completed', () => {
+            // 2019-01-10
+            jest.spyOn(Date, 'now').mockImplementationOnce(() => 1547078400000)
+            expect(getMostRecentCompletedYear('Monthly')).toEqual(2018)
         })
     })
 })
