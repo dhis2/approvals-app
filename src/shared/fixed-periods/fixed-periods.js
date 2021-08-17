@@ -13,24 +13,24 @@ import i18n from '@dhis2/d2-i18n'
  */
 
 // Period types
-export const DAILY = 'Daily'
-export const WEEKLY = 'Weekly'
-export const WEEKLY_WEDNESDAY = 'WeeklyWednesday'
-export const WEEKLY_THURSDAY = 'WeeklyThursday'
-export const WEEKLY_SATURDAY = 'WeeklySaturday'
-export const WEEKLY_SUNDAY = 'WeeklySunday'
-export const BI_WEEKLY = 'BiWeekly'
-export const MONTHLY = 'Monthly'
-export const BI_MONTHLY = 'BiMonthly'
-export const QUARTERLY = 'Quarterly'
-export const SIX_MONTHLY = 'SixMonthly'
-export const SIX_MONTHLY_APRIL = 'SixMonthlyApril'
-// export const SIX_MONTHLY_NOV = 'SixMonthlyNov'
-export const YEARLY = 'Yearly'
-export const FINANCIAL_APRIL = 'FinancialApril'
-export const FINANCIAL_JULY = 'FinancialJuly'
-export const FINANCIAL_OCT = 'FinancialOct'
-export const FINANCIAL_NOV = 'FinancialNov'
+const DAILY = 'Daily'
+const WEEKLY = 'Weekly'
+const WEEKLY_WEDNESDAY = 'WeeklyWednesday'
+const WEEKLY_THURSDAY = 'WeeklyThursday'
+const WEEKLY_SATURDAY = 'WeeklySaturday'
+const WEEKLY_SUNDAY = 'WeeklySunday'
+const BI_WEEKLY = 'BiWeekly'
+const MONTHLY = 'Monthly'
+const BI_MONTHLY = 'BiMonthly'
+const QUARTERLY = 'Quarterly'
+const SIX_MONTHLY = 'SixMonthly'
+const SIX_MONTHLY_APRIL = 'SixMonthlyApril'
+// const SIX_MONTHLY_NOV = 'SixMonthlyNov'
+const YEARLY = 'Yearly'
+const FINANCIAL_APRIL = 'FinancialApril'
+const FINANCIAL_JULY = 'FinancialJuly'
+const FINANCIAL_OCT = 'FinancialOct'
+const FINANCIAL_NOV = 'FinancialNov'
 
 const getMonthName = key => {
     const monthNames = [
@@ -777,87 +777,36 @@ export const getFixedPeriodsForTypeAndDateRange = (
     return convertedPeriods.reverse()
 }
 
-const FIXED_PERIODS_BY_LENGTH = [
-    [DAILY],
-    [WEEKLY, WEEKLY_WEDNESDAY, WEEKLY_THURSDAY, WEEKLY_SATURDAY, WEEKLY_SUNDAY],
-    [BI_WEEKLY],
-    [MONTHLY],
-    [BI_MONTHLY],
-    [QUARTERLY],
-    [SIX_MONTHLY, SIX_MONTHLY_APRIL],
-    [YEARLY, FINANCIAL_APRIL, FINANCIAL_JULY, FINANCIAL_OCT, FINANCIAL_NOV],
-]
-
-export const PERIOD_GREATER = 1
-export const PERIOD_EQUAL = 0
-export const PERIOD_SHORTER = -1
-
-/*
- * IF left < right THEN return  1
- * IF left > right THEN return -1
- * IF left = right THEN return  0
- *
- * Why right > left = 1 and not the other way?
- * When partially applying this function, it makes sense this way:
- *
- * const compareWithWeekly = partial(compareFixedPeriodLength, 'WEEKLY')
- * const isGreater = compareWithWeekly('YEARLY') === PERIOD_GREATER
- * -> isGreater is true
- *
- * @param {string} right
- * @param {string} left
- * @returns {Int}
- */
-export const compareFixedPeriodLength = (left, right) => {
-    const leftIndex = FIXED_PERIODS_BY_LENGTH.findIndex(types =>
-        types.includes(left)
-    )
-    const rightIndex = FIXED_PERIODS_BY_LENGTH.findIndex(types =>
-        types.includes(right)
-    )
-
-    if (leftIndex === rightIndex) return PERIOD_EQUAL
-    return leftIndex > rightIndex ? PERIOD_SHORTER : PERIOD_GREATER
-}
-
-export const getCurrentPeriodForType = type => {
-    const currentDate = new Date()
-    let year = currentDate.getFullYear()
-
-    // cover this and the next years as that
-    // should cover all existing period types
-    for (let i = 0; i < 2; ++i) {
-        const periods = getFixedPeriodsByTypeAndYear(type, year).reverse()
-
-        for (const period of periods) {
-            const periodStart = new Date(period.startDate)
-            const periodEnd = new Date(period.endDate)
-            const endsBeforePeriodEnd = currentDate <= periodEnd
-            const startsAfterPeriodStart = currentDate >= periodStart
-
-            if (endsBeforePeriodEnd && startsAfterPeriodStart) {
-                return period
-            }
-        }
-
-        ++year
+export const getMostRecentCompletedYear = periodType => {
+    if (!periodType) {
+        throw new Error(
+            'No "periodType" supplied to "getMostRecentCompletedYear"'
+        )
     }
 
-    return null
-}
+    const endDate = new Date(Date.now())
+    let year = endDate.getFullYear()
+    let periods = getFixedPeriodsForTypeAndDateRange(
+        periodType,
+        `${endDate.getFullYear()}-01-01`,
+        endDate
+    )
 
-export const isGreaterPeriodTypeEndDateWithinShorterPeriod = (
-    greaterPeriodType,
-    shorterPeriod
-) => {
-    const greaterPeriod = getCurrentPeriodForType(greaterPeriodType)
-    const greaterPeriodEndDate = new Date(greaterPeriod.endDate)
-    const shorterPeriodEndDate = new Date(shorterPeriod.endDate)
-    const shorterPeriodStartDate = new Date(shorterPeriod.startDate)
-    const greaterEndsAfterShorterStarts =
-        greaterPeriodEndDate >= shorterPeriodStartDate
-    const greaterEndsBeforeShorterEnds =
-        greaterPeriodEndDate <= shorterPeriodEndDate
-
-    return greaterEndsAfterShorterStarts && greaterEndsBeforeShorterEnds
+    if (periods.length > 0) {
+        return year
+    } else {
+        /**
+         * Practically speaking we could also just return `year - 1` here
+         * but this logic would allow for periods to span over multiple years
+         */
+        while (periods.length === 0) {
+            --year
+            periods = getFixedPeriodsForTypeAndDateRange(
+                periodType,
+                `${year}-01-01`,
+                `${year}-12-31`
+            )
+        }
+        return year
+    }
 }

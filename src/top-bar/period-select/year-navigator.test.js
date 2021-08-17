@@ -1,7 +1,7 @@
 import { Button } from '@dhis2/ui'
 import { shallow } from 'enzyme'
 import React from 'react'
-import { YearNavigator, currentYear } from './year-navigator.js'
+import { YearNavigator } from './year-navigator.js'
 
 describe('<YearNavigator>', () => {
     it('renders two buttons and a span', () => {
@@ -21,8 +21,8 @@ describe('<YearNavigator>', () => {
         expect(wrapper.find(Button).last().prop('disabled')).toBe(false)
     })
 
-    it('disables the forward button when the year is the current year', () => {
-        const wrapper = shallow(<YearNavigator year={currentYear} />)
+    it('disables the forward button when the year is equal to the maxYear', () => {
+        const wrapper = shallow(<YearNavigator year={2020} maxYear={2020} />)
 
         expect(wrapper.find(Button).first().prop('disabled')).toBe(false)
         expect(wrapper.find(Button).last().prop('disabled')).toBe(true)

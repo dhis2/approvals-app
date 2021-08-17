@@ -1,33 +1,10 @@
-import MockDate from 'mockdate'
 import {
-    PERIOD_GREATER,
-    PERIOD_EQUAL,
-    PERIOD_SHORTER,
-    DAILY,
-    WEEKLY,
-    WEEKLY_WEDNESDAY,
-    WEEKLY_THURSDAY,
-    WEEKLY_SATURDAY,
-    WEEKLY_SUNDAY,
-    BI_WEEKLY,
-    MONTHLY,
-    BI_MONTHLY,
-    QUARTERLY,
-    SIX_MONTHLY,
-    SIX_MONTHLY_APRIL,
-    YEARLY,
-    FINANCIAL_APRIL,
-    FINANCIAL_JULY,
-    FINANCIAL_OCT,
-    FINANCIAL_NOV,
-    compareFixedPeriodLength,
-    getCurrentPeriodForType,
     getFixedPeriodType,
     getFixedPeriodTypes,
     getFixedPeriodsForTypeAndDateRange,
     getYearOffsetFromNow,
-    isGreaterPeriodTypeEndDateWithinShorterPeriod,
     parsePeriodId,
+    getMostRecentCompletedYear,
 } from './fixed-periods.js'
 
 describe('fixedPeriods utils', () => {
@@ -937,293 +914,29 @@ describe('fixedPeriods utils', () => {
         })
     })
 
-    describe('compareFixedPeriodLength', () => {
-        const notEqual = [
-            [DAILY, WEEKLY],
-            [DAILY, WEEKLY_WEDNESDAY],
-            [DAILY, WEEKLY_THURSDAY],
-            [DAILY, WEEKLY_SATURDAY],
-            [DAILY, WEEKLY_SUNDAY],
-            [DAILY, BI_WEEKLY],
-            [DAILY, MONTHLY],
-            [DAILY, BI_MONTHLY],
-            [DAILY, QUARTERLY],
-            [DAILY, SIX_MONTHLY],
-            [DAILY, SIX_MONTHLY_APRIL],
-            [DAILY, YEARLY],
-            [DAILY, FINANCIAL_APRIL],
-            [DAILY, FINANCIAL_JULY],
-            [DAILY, FINANCIAL_OCT],
-            [DAILY, FINANCIAL_NOV],
-            [WEEKLY, BI_WEEKLY],
-            [WEEKLY, MONTHLY],
-            [WEEKLY, BI_MONTHLY],
-            [WEEKLY, QUARTERLY],
-            [WEEKLY, SIX_MONTHLY],
-            [WEEKLY, SIX_MONTHLY_APRIL],
-            [WEEKLY, YEARLY],
-            [WEEKLY, FINANCIAL_APRIL],
-            [WEEKLY, FINANCIAL_JULY],
-            [WEEKLY, FINANCIAL_OCT],
-            [WEEKLY, FINANCIAL_NOV],
-            [WEEKLY_WEDNESDAY, BI_WEEKLY],
-            [WEEKLY_WEDNESDAY, MONTHLY],
-            [WEEKLY_WEDNESDAY, BI_MONTHLY],
-            [WEEKLY_WEDNESDAY, QUARTERLY],
-            [WEEKLY_WEDNESDAY, SIX_MONTHLY],
-            [WEEKLY_WEDNESDAY, SIX_MONTHLY_APRIL],
-            [WEEKLY_WEDNESDAY, YEARLY],
-            [WEEKLY_WEDNESDAY, FINANCIAL_APRIL],
-            [WEEKLY_WEDNESDAY, FINANCIAL_JULY],
-            [WEEKLY_WEDNESDAY, FINANCIAL_OCT],
-            [WEEKLY_WEDNESDAY, FINANCIAL_NOV],
-            [WEEKLY_THURSDAY, BI_WEEKLY],
-            [WEEKLY_THURSDAY, MONTHLY],
-            [WEEKLY_THURSDAY, BI_MONTHLY],
-            [WEEKLY_THURSDAY, QUARTERLY],
-            [WEEKLY_THURSDAY, SIX_MONTHLY],
-            [WEEKLY_THURSDAY, SIX_MONTHLY_APRIL],
-            [WEEKLY_THURSDAY, YEARLY],
-            [WEEKLY_THURSDAY, FINANCIAL_APRIL],
-            [WEEKLY_THURSDAY, FINANCIAL_JULY],
-            [WEEKLY_THURSDAY, FINANCIAL_OCT],
-            [WEEKLY_THURSDAY, FINANCIAL_NOV],
-            [WEEKLY_SATURDAY, BI_WEEKLY],
-            [WEEKLY_SATURDAY, MONTHLY],
-            [WEEKLY_SATURDAY, BI_MONTHLY],
-            [WEEKLY_SATURDAY, QUARTERLY],
-            [WEEKLY_SATURDAY, SIX_MONTHLY],
-            [WEEKLY_SATURDAY, SIX_MONTHLY_APRIL],
-            [WEEKLY_SATURDAY, YEARLY],
-            [WEEKLY_SATURDAY, FINANCIAL_APRIL],
-            [WEEKLY_SATURDAY, FINANCIAL_JULY],
-            [WEEKLY_SATURDAY, FINANCIAL_OCT],
-            [WEEKLY_SATURDAY, FINANCIAL_NOV],
-            [WEEKLY_SUNDAY, BI_WEEKLY],
-            [WEEKLY_SUNDAY, MONTHLY],
-            [WEEKLY_SUNDAY, BI_MONTHLY],
-            [WEEKLY_SUNDAY, QUARTERLY],
-            [WEEKLY_SUNDAY, SIX_MONTHLY],
-            [WEEKLY_SUNDAY, SIX_MONTHLY_APRIL],
-            [WEEKLY_SUNDAY, YEARLY],
-            [WEEKLY_SUNDAY, FINANCIAL_APRIL],
-            [WEEKLY_SUNDAY, FINANCIAL_JULY],
-            [WEEKLY_SUNDAY, FINANCIAL_OCT],
-            [WEEKLY_SUNDAY, FINANCIAL_NOV],
-            [BI_WEEKLY, MONTHLY],
-            [BI_WEEKLY, BI_MONTHLY],
-            [BI_WEEKLY, QUARTERLY],
-            [BI_WEEKLY, SIX_MONTHLY],
-            [BI_WEEKLY, SIX_MONTHLY_APRIL],
-            [BI_WEEKLY, YEARLY],
-            [BI_WEEKLY, FINANCIAL_APRIL],
-            [BI_WEEKLY, FINANCIAL_JULY],
-            [BI_WEEKLY, FINANCIAL_OCT],
-            [BI_WEEKLY, FINANCIAL_NOV],
-            [MONTHLY, BI_MONTHLY],
-            [MONTHLY, QUARTERLY],
-            [MONTHLY, SIX_MONTHLY],
-            [MONTHLY, SIX_MONTHLY_APRIL],
-            [MONTHLY, YEARLY],
-            [MONTHLY, FINANCIAL_APRIL],
-            [MONTHLY, FINANCIAL_JULY],
-            [MONTHLY, FINANCIAL_OCT],
-            [MONTHLY, FINANCIAL_NOV],
-            [BI_MONTHLY, QUARTERLY],
-            [BI_MONTHLY, SIX_MONTHLY],
-            [BI_MONTHLY, SIX_MONTHLY_APRIL],
-            [BI_MONTHLY, YEARLY],
-            [BI_MONTHLY, FINANCIAL_APRIL],
-            [BI_MONTHLY, FINANCIAL_JULY],
-            [BI_MONTHLY, FINANCIAL_OCT],
-            [BI_MONTHLY, FINANCIAL_NOV],
-            [SIX_MONTHLY, YEARLY],
-            [SIX_MONTHLY, FINANCIAL_APRIL],
-            [SIX_MONTHLY, FINANCIAL_JULY],
-            [SIX_MONTHLY, FINANCIAL_OCT],
-            [SIX_MONTHLY, FINANCIAL_NOV],
-            [SIX_MONTHLY_APRIL, YEARLY],
-            [SIX_MONTHLY_APRIL, FINANCIAL_APRIL],
-            [SIX_MONTHLY_APRIL, FINANCIAL_JULY],
-            [SIX_MONTHLY_APRIL, FINANCIAL_OCT],
-            [SIX_MONTHLY_APRIL, FINANCIAL_NOV],
-        ]
-
-        it('should be shorter', () => {
-            notEqual.forEach(([shorter, greater]) => {
-                const result = compareFixedPeriodLength(greater, shorter)
-                expect(result).toBe(PERIOD_SHORTER)
-            })
-        })
-
-        it('should be greater', () => {
-            notEqual.forEach(([shorter, greater]) => {
-                const result = compareFixedPeriodLength(shorter, greater)
-                expect(result).toBe(PERIOD_GREATER)
-            })
-        })
-
-        const equal = [
-            [DAILY, DAILY],
-            [WEEKLY, WEEKLY],
-            [WEEKLY, WEEKLY_WEDNESDAY],
-            [WEEKLY, WEEKLY_THURSDAY],
-            [WEEKLY, WEEKLY_SATURDAY],
-            [WEEKLY, WEEKLY_SUNDAY],
-            [WEEKLY_WEDNESDAY, WEEKLY_WEDNESDAY],
-            [WEEKLY_WEDNESDAY, WEEKLY_THURSDAY],
-            [WEEKLY_WEDNESDAY, WEEKLY_SATURDAY],
-            [WEEKLY_WEDNESDAY, WEEKLY_SUNDAY],
-            [WEEKLY_THURSDAY, WEEKLY_THURSDAY],
-            [WEEKLY_THURSDAY, WEEKLY_SATURDAY],
-            [WEEKLY_THURSDAY, WEEKLY_SUNDAY],
-            [WEEKLY_SATURDAY, WEEKLY_SATURDAY],
-            [WEEKLY_SATURDAY, WEEKLY_SUNDAY],
-            [WEEKLY_SUNDAY, WEEKLY_SUNDAY],
-            [BI_WEEKLY, BI_WEEKLY],
-            [MONTHLY, MONTHLY],
-            [BI_MONTHLY, BI_MONTHLY],
-            [QUARTERLY, QUARTERLY],
-            [SIX_MONTHLY, SIX_MONTHLY],
-            [SIX_MONTHLY, SIX_MONTHLY_APRIL],
-            [SIX_MONTHLY_APRIL, SIX_MONTHLY_APRIL],
-            [YEARLY, YEARLY],
-            [YEARLY, FINANCIAL_APRIL],
-            [YEARLY, FINANCIAL_JULY],
-            [YEARLY, FINANCIAL_OCT],
-            [YEARLY, FINANCIAL_NOV],
-            [FINANCIAL_APRIL, FINANCIAL_APRIL],
-            [FINANCIAL_APRIL, FINANCIAL_JULY],
-            [FINANCIAL_APRIL, FINANCIAL_OCT],
-            [FINANCIAL_APRIL, FINANCIAL_NOV],
-            [FINANCIAL_JULY, FINANCIAL_JULY],
-            [FINANCIAL_JULY, FINANCIAL_OCT],
-            [FINANCIAL_JULY, FINANCIAL_NOV],
-            [FINANCIAL_OCT, FINANCIAL_OCT],
-            [FINANCIAL_OCT, FINANCIAL_NOV],
-            [FINANCIAL_NOV, FINANCIAL_NOV],
-        ]
-
-        it('should equal', () => {
-            equal.forEach(([left, right]) => {
-                const result = compareFixedPeriodLength(left, right)
-                expect(result).toBe(PERIOD_EQUAL)
-            })
-        })
-    })
-
-    describe('getCurrentPeriodForType', () => {
-        afterEach(() => {
-            MockDate.reset()
-        })
-
-        it('should return the current period that ends in the current year', () => {
-            MockDate.set(new Date('2021-10-01').getTime())
-
-            const periodType = SIX_MONTHLY
-            const actual = getCurrentPeriodForType(periodType)
-            const expected = {
-                startDate: '2021-07-01',
-                endDate: '2021-12-31',
-                displayName: 'July - December 2021',
-                iso: '2021S2',
-                id: '2021S2',
-            }
-
-            expect(actual).toEqual(expected)
-        })
-
-        it('should return the current period that ends in the next year', () => {
-            MockDate.set(new Date('2021-10-01').getTime())
-
-            const periodType = SIX_MONTHLY_APRIL
-            const actual = getCurrentPeriodForType(periodType)
-            const expected = {
-                startDate: '2021-10-01',
-                endDate: '2022-03-31',
-                displayName: 'October 2021 - March 2022',
-                iso: '2021AprilS2',
-                id: '2021AprilS2',
-            }
-
-            expect(actual).toEqual(expected)
-        })
-
-        describe('yearly - edge case', () => {
-            it('should return the current period that ends in the current year', () => {
-                MockDate.set(new Date('2021-10-01').getTime())
-
-                const periodType = YEARLY
-                const actual = getCurrentPeriodForType(periodType)
-                const expected = {
-                    endDate: '2021-12-31',
-                    startDate: '2021-01-01',
-                    displayName: '2021',
-                    iso: '2021',
-                    id: '2021',
-                }
-
-                expect(actual).toEqual(expected)
-            })
-
-            it('should return the current period that ends in the next year', () => {
-                MockDate.set(new Date('2021-10-01').getTime())
-
-                const periodType = FINANCIAL_APRIL
-                const actual = getCurrentPeriodForType(periodType)
-                const expected = {
-                    endDate: '2022-03-31',
-                    startDate: '2021-04-01',
-                    displayName: 'April 2021 - March 2022',
-                    id: '2021April',
-                }
-
-                expect(actual).toEqual(expected)
-            })
-        })
-    })
-
-    describe('isGreaterPeriodTypeEndDateWithinShorterPeriod', () => {
-        it('should return true when the short period spans over the greater periods end date', () => {
-            MockDate.set(new Date('2021-10-01').getTime())
-
-            const greaterPeriodType = YEARLY
-            const shorterPeriod = parsePeriodId('2021Q4')
-            const expected = true
-            const actual = isGreaterPeriodTypeEndDateWithinShorterPeriod(
-                greaterPeriodType,
-                shorterPeriod
+    describe('getMostRecentCompletedYear', () => {
+        it('throws an error if no periodType is specified', () => {
+            expect(() => getMostRecentCompletedYear()).toThrowError(
+                'No "periodType" supplied to "getMostRecentCompletedYear"'
             )
-
-            expect(actual).toBe(expected)
         })
-
-        it('should return false when the short period spans over the greater periods end date', () => {
-            MockDate.set(new Date('2021-10-01').getTime())
-
-            const greaterPeriodType = YEARLY
-            const shorterPeriod = parsePeriodId('2021Q3')
-            const expected = false
-            const actual = isGreaterPeriodTypeEndDateWithinShorterPeriod(
-                greaterPeriodType,
-                shorterPeriod
-            )
-
-            expect(actual).toBe(expected)
+        it('returns the current year (2019) for a Monthly periodType', () => {
+            // Given the fact that today is 2019-06-17,
+            // there are completed Monthly periods in this year
+            expect(getMostRecentCompletedYear('Monthly')).toEqual(2019)
         })
-
-        it('should return true when a short period that ends in the following year spans over the greater periods end date', () => {
-            MockDate.set(new Date('2021-10-01').getTime())
-
-            const greaterPeriodType = YEARLY
-            const shorterPeriod = parsePeriodId('2021W52')
-            const expected = true
-            const actual = isGreaterPeriodTypeEndDateWithinShorterPeriod(
-                greaterPeriodType,
-                shorterPeriod
-            )
-
-            expect(actual).toBe(expected)
+        it('returns the previous year (2018) for a Yearly periodType', () => {
+            // Given the fact that today is 2019-06-17,
+            // there are no completed Yearly periods in this year
+            expect(getMostRecentCompletedYear('Yearly')).toEqual(2018)
+        })
+        it('returns the previous year (2018) for a Monthly periodType if January has not completed', () => {
+            // 2019-01-10
+            jest.spyOn(Date, 'now').mockImplementationOnce(() => 1547078400000)
+            expect(getMostRecentCompletedYear('Monthly')).toEqual(2018)
+        })
+        it('returns the previous year (2018) for a FinancialOct periodType', () => {
+            expect(getMostRecentCompletedYear('FinancialOct')).toEqual(2018)
         })
     })
 })
