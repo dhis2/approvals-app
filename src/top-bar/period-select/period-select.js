@@ -8,10 +8,13 @@ import { YearNavigator } from './year-navigator.js'
 
 export const PERIOD = 'PERIOD'
 
+const computeMaxYear = periodType =>
+    periodType ? getMostRecentCompletedYear(periodType) : null
+
 const PeriodSelect = () => {
     const { period, workflow, selectPeriod, openedSelect, setOpenedSelect } =
         useSelectionContext()
-    const maxYear = getMostRecentCompletedYear(workflow?.periodType)
+    const maxYear = computeMaxYear(workflow?.periodType)
     const [year, setYear] = useState(period?.year || maxYear)
     const open = openedSelect === PERIOD
     const value = period?.displayName

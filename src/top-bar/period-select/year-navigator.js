@@ -24,8 +24,8 @@ const YearNavigator = ({ maxYear, year, onYearChange }) => (
 )
 
 YearNavigator.propTypes = {
-    maxYear: PropTypes.number.isRequired,
-    year: PropTypes.number.isRequired,
+    maxYear: PropTypes.number,
+    year: PropTypes.number,
     onYearChange: PropTypes.func,
 }
 
