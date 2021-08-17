@@ -935,5 +935,8 @@ describe('fixedPeriods utils', () => {
             jest.spyOn(Date, 'now').mockImplementationOnce(() => 1547078400000)
             expect(getMostRecentCompletedYear('Monthly')).toEqual(2018)
         })
+        it('returns the previous year (2018) for a FinancialOct periodType', () => {
+            expect(getMostRecentCompletedYear('FinancialOct')).toEqual(2018)
+        })
     })
 })
