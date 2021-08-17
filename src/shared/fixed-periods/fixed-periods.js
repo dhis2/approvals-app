@@ -786,8 +786,19 @@ export const getFixedPeriodsForTypeAndDateRange = (
     endDate
 ) => {
     // Allow dates and date-strings
-    startDate = startDate instanceof Date ? startDate : new Date(startDate)
-    endDate = endDate instanceof Date ? endDate : new Date(endDate)
+    startDate = new Date(startDate)
+    endDate = new Date(endDate)
+
+    if (isNaN(startDate.getTime())) {
+        throw new Error(
+            'Invalid startDate provided to getFixedPeriodsForTypeAndDateRange'
+        )
+    }
+    if (isNaN(endDate.getTime())) {
+        throw new Error(
+            'Invalid endDate provided to getFixedPeriodsForTypeAndDateRange'
+        )
+    }
 
     let year = endDate.getFullYear()
     let startDateReached = false
