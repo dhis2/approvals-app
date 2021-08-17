@@ -1,4 +1,6 @@
 import {
+    isValidPeriodType,
+    getYearWithOffset,
     getFixedPeriodType,
     getFixedPeriodTypes,
     getFixedPeriodsForTypeAndDateRange,
@@ -7,37 +9,11 @@ import {
     getMostRecentCompletedYear,
 } from './fixed-periods.js'
 
-describe('fixedPeriods utils', () => {
+describe('Fixed period utilities', () => {
     beforeAll(() =>
         // 2019-06-17
         jest.spyOn(Date, 'now').mockImplementation(() => 1560765600000)
     )
-
-    describe('getFixedPeriodTypes', () => {
-        it('should return a list of available period ranges', () => {
-            const periodIds = getFixedPeriodTypes().map(option => option.type)
-
-            expect(periodIds).toEqual([
-                'Daily',
-                'Weekly',
-                'WeeklyWednesday',
-                'WeeklyThursday',
-                'WeeklySaturday',
-                'WeeklySunday',
-                'BiWeekly',
-                'Monthly',
-                'BiMonthly',
-                'Quarterly',
-                'SixMonthly',
-                'SixMonthlyApril',
-                'Yearly',
-                'FinancialNov',
-                'FinancialOct',
-                'FinancialJuly',
-                'FinancialApril',
-            ])
-        })
-    })
 
     describe('Daily period generator', () => {
         let periods
@@ -665,15 +641,9 @@ describe('fixedPeriods utils', () => {
         })
     })
 
-    describe('Year offset from now helper', () => {
-        it('should process future offsets correctly', () => {
-            expect(getYearOffsetFromNow('2025')).toEqual(6)
-        })
-        it('should process past offsets correctly', () => {
-            expect(getYearOffsetFromNow('2014')).toEqual(-5)
-        })
-    })
-
+    /*
+     * PERIOD ID PARSER
+     */
     describe('Period id parser', () => {
         it('should parse daily periods correctly', () => {
             const period = parsePeriodId('20140101')
@@ -784,159 +754,266 @@ describe('fixedPeriods utils', () => {
         })
     })
 
-    describe('getFixedPeriodsForTypeAndDateRange', () => {
-        it('should return an empty array if the period exceeds the date range', () => {
-            expect(
-                getFixedPeriodsForTypeAndDateRange(
-                    'Yearly',
-                    '2021-04-08',
-                    '2021-06-06'
+    /*
+     * HELPERS
+     */
+    describe('Helper functions', () => {
+        describe('getFixedPeriodType', () => {
+            // Behaviour for valid period tpes is tested via the generators
+            it('should throw an error if an invalid period type is provided', () => {
+                expect(() => getFixedPeriodType('INVALID')).toThrowError(
+                    'Invalid period type "INVALID" supplied to "getFixedPeriodType"'
                 )
-            ).toEqual([])
+            })
         })
-        it('should return the expected result even when the date range spans multiple years', () => {
-            expect(
-                getFixedPeriodsForTypeAndDateRange(
-                    'Weekly',
-                    '2021-04-01',
-                    '2021-04-30'
-                )
-            ).toEqual([
-                {
-                    displayName: 'Week 13 - 2021-03-29 - 2021-04-04',
-                    endDate: '2021-04-04',
-                    id: '2021W13',
-                    iso: '2021W13',
-                    startDate: '2021-03-29',
-                },
-                {
-                    displayName: 'Week 14 - 2021-04-05 - 2021-04-11',
-                    endDate: '2021-04-11',
-                    id: '2021W14',
-                    iso: '2021W14',
-                    startDate: '2021-04-05',
-                },
-                {
-                    displayName: 'Week 15 - 2021-04-12 - 2021-04-18',
-                    endDate: '2021-04-18',
-                    id: '2021W15',
-                    iso: '2021W15',
-                    startDate: '2021-04-12',
-                },
-                {
-                    displayName: 'Week 16 - 2021-04-19 - 2021-04-25',
-                    endDate: '2021-04-25',
-                    id: '2021W16',
-                    iso: '2021W16',
-                    startDate: '2021-04-19',
-                },
-            ])
-        })
-        it('should return the expected result even when the date range spans multiple years', () => {
-            expect(
-                getFixedPeriodsForTypeAndDateRange(
-                    'Monthly',
-                    '2020-08-08',
-                    '2021-06-06'
-                )
-            ).toEqual([
-                {
-                    displayName: 'August 2020',
-                    endDate: '2020-08-31',
-                    id: '202008',
-                    iso: '202008',
-                    startDate: '2020-08-01',
-                },
-                {
-                    displayName: 'September 2020',
-                    endDate: '2020-09-30',
-                    id: '202009',
-                    iso: '202009',
-                    startDate: '2020-09-01',
-                },
-                {
-                    displayName: 'October 2020',
-                    endDate: '2020-10-31',
-                    id: '202010',
-                    iso: '202010',
-                    startDate: '2020-10-01',
-                },
-                {
-                    displayName: 'November 2020',
-                    endDate: '2020-11-30',
-                    id: '202011',
-                    iso: '202011',
-                    startDate: '2020-11-01',
-                },
-                {
-                    displayName: 'December 2020',
-                    endDate: '2020-12-31',
-                    id: '202012',
-                    iso: '202012',
-                    startDate: '2020-12-01',
-                },
-                {
-                    displayName: 'January 2021',
-                    endDate: '2021-01-31',
-                    id: '202101',
-                    iso: '202101',
-                    startDate: '2021-01-01',
-                },
-                {
-                    displayName: 'February 2021',
-                    endDate: '2021-02-28',
-                    id: '202102',
-                    iso: '202102',
-                    startDate: '2021-02-01',
-                },
-                {
-                    displayName: 'March 2021',
-                    endDate: '2021-03-31',
-                    id: '202103',
-                    iso: '202103',
-                    startDate: '2021-03-01',
-                },
-                {
-                    displayName: 'April 2021',
-                    endDate: '2021-04-30',
-                    id: '202104',
-                    iso: '202104',
-                    startDate: '2021-04-01',
-                },
-                {
-                    displayName: 'May 2021',
-                    endDate: '2021-05-31',
-                    id: '202105',
-                    iso: '202105',
-                    startDate: '2021-05-01',
-                },
-            ])
-        })
-    })
 
-    describe('getMostRecentCompletedYear', () => {
-        it('throws an error if no periodType is specified', () => {
-            expect(() => getMostRecentCompletedYear()).toThrowError(
-                'No "periodType" supplied to "getMostRecentCompletedYear"'
-            )
+        describe('getYearOffsetFromNow', () => {
+            it('should throw an error if an invalid year value is provided', () => {
+                expect(() => getYearOffsetFromNow()).toThrowError(
+                    'Invalid year "undefined" passed to "getYearOffsetFromNow"'
+                )
+                expect(() => getYearOffsetFromNow('INVALID')).toThrowError(
+                    'Invalid year "INVALID" passed to "getYearOffsetFromNow"'
+                )
+            })
+            it('should process future offsets correctly', () => {
+                expect(getYearOffsetFromNow('2025')).toEqual(6)
+            })
+            it('should process past offsets correctly', () => {
+                expect(getYearOffsetFromNow('2014')).toEqual(-5)
+            })
         })
-        it('returns the current year (2019) for a Monthly periodType', () => {
-            // Given the fact that today is 2019-06-17,
-            // there are completed Monthly periods in this year
-            expect(getMostRecentCompletedYear('Monthly')).toEqual(2019)
+
+        describe('isValidPeriodType', () => {
+            it('returns true for valid period types', () => {
+                expect(isValidPeriodType('Daily')).toBe(true)
+                expect(isValidPeriodType('Weekly')).toBe(true)
+                expect(isValidPeriodType('WeeklyWednesday')).toBe(true)
+                expect(isValidPeriodType('WeeklyThursday')).toBe(true)
+                expect(isValidPeriodType('WeeklySaturday')).toBe(true)
+                expect(isValidPeriodType('WeeklySunday')).toBe(true)
+                expect(isValidPeriodType('BiWeekly')).toBe(true)
+                expect(isValidPeriodType('Monthly')).toBe(true)
+                expect(isValidPeriodType('BiMonthly')).toBe(true)
+                expect(isValidPeriodType('Quarterly')).toBe(true)
+                expect(isValidPeriodType('SixMonthly')).toBe(true)
+                expect(isValidPeriodType('SixMonthlyApril')).toBe(true)
+                expect(isValidPeriodType('Yearly')).toBe(true)
+                expect(isValidPeriodType('FinancialApril')).toBe(true)
+                expect(isValidPeriodType('FinancialJuly')).toBe(true)
+                expect(isValidPeriodType('FinancialOct')).toBe(true)
+                expect(isValidPeriodType('FinancialNov')).toBe(true)
+            })
+            it('returns false for an invalid period type', () => {
+                expect(isValidPeriodType('INVALID')).toBe(false)
+            })
         })
-        it('returns the previous year (2018) for a Yearly periodType', () => {
-            // Given the fact that today is 2019-06-17,
-            // there are no completed Yearly periods in this year
-            expect(getMostRecentCompletedYear('Yearly')).toEqual(2018)
+
+        describe('getYearWithOffset', () => {
+            it('should return the current year if offset is zero', () => {
+                expect(getYearWithOffset(0)).toEqual(2019)
+                expect(getYearWithOffset('0')).toEqual(2019)
+            })
+            it('should return the current year if the offset cannot be parsed as an int', () => {
+                expect(getYearWithOffset('WHOOT')).toEqual(2019)
+                expect(getYearWithOffset({})).toEqual(2019)
+            })
+            it('should return the correct year if a valid offset is passed', () => {
+                expect(getYearWithOffset(-10)).toEqual(2009)
+                expect(getYearWithOffset('-10')).toEqual(2009)
+            })
+            it('negative offsets return years in the past and positive in the future', () => {
+                expect(getYearWithOffset(-10)).toEqual(2009)
+                expect(getYearWithOffset(10)).toEqual(2029)
+            })
         })
-        it('returns the previous year (2018) for a Monthly periodType if January has not completed', () => {
-            // 2019-01-10
-            jest.spyOn(Date, 'now').mockImplementationOnce(() => 1547078400000)
-            expect(getMostRecentCompletedYear('Monthly')).toEqual(2018)
+
+        describe('getFixedPeriodTypes', () => {
+            it('should return a list of available period ranges', () => {
+                const periodIds = getFixedPeriodTypes().map(
+                    option => option.type
+                )
+
+                expect(periodIds).toEqual([
+                    'Daily',
+                    'Weekly',
+                    'WeeklyWednesday',
+                    'WeeklyThursday',
+                    'WeeklySaturday',
+                    'WeeklySunday',
+                    'BiWeekly',
+                    'Monthly',
+                    'BiMonthly',
+                    'Quarterly',
+                    'SixMonthly',
+                    'SixMonthlyApril',
+                    'Yearly',
+                    'FinancialNov',
+                    'FinancialOct',
+                    'FinancialJuly',
+                    'FinancialApril',
+                ])
+            })
         })
-        it('returns the previous year (2018) for a FinancialOct periodType', () => {
-            expect(getMostRecentCompletedYear('FinancialOct')).toEqual(2018)
+
+        describe('getFixedPeriodsForTypeAndDateRange', () => {
+            it('should return an empty array if the period exceeds the date range', () => {
+                expect(
+                    getFixedPeriodsForTypeAndDateRange(
+                        'Yearly',
+                        '2021-04-08',
+                        '2021-06-06'
+                    )
+                ).toEqual([])
+            })
+            it('should return the expected result even when the date range spans multiple years', () => {
+                expect(
+                    getFixedPeriodsForTypeAndDateRange(
+                        'Weekly',
+                        '2021-04-01',
+                        '2021-04-30'
+                    )
+                ).toEqual([
+                    {
+                        displayName: 'Week 13 - 2021-03-29 - 2021-04-04',
+                        endDate: '2021-04-04',
+                        id: '2021W13',
+                        iso: '2021W13',
+                        startDate: '2021-03-29',
+                    },
+                    {
+                        displayName: 'Week 14 - 2021-04-05 - 2021-04-11',
+                        endDate: '2021-04-11',
+                        id: '2021W14',
+                        iso: '2021W14',
+                        startDate: '2021-04-05',
+                    },
+                    {
+                        displayName: 'Week 15 - 2021-04-12 - 2021-04-18',
+                        endDate: '2021-04-18',
+                        id: '2021W15',
+                        iso: '2021W15',
+                        startDate: '2021-04-12',
+                    },
+                    {
+                        displayName: 'Week 16 - 2021-04-19 - 2021-04-25',
+                        endDate: '2021-04-25',
+                        id: '2021W16',
+                        iso: '2021W16',
+                        startDate: '2021-04-19',
+                    },
+                ])
+            })
+            it('should return the expected result even when the date range spans multiple years', () => {
+                expect(
+                    getFixedPeriodsForTypeAndDateRange(
+                        'Monthly',
+                        '2020-08-08',
+                        '2021-06-06'
+                    )
+                ).toEqual([
+                    {
+                        displayName: 'August 2020',
+                        endDate: '2020-08-31',
+                        id: '202008',
+                        iso: '202008',
+                        startDate: '2020-08-01',
+                    },
+                    {
+                        displayName: 'September 2020',
+                        endDate: '2020-09-30',
+                        id: '202009',
+                        iso: '202009',
+                        startDate: '2020-09-01',
+                    },
+                    {
+                        displayName: 'October 2020',
+                        endDate: '2020-10-31',
+                        id: '202010',
+                        iso: '202010',
+                        startDate: '2020-10-01',
+                    },
+                    {
+                        displayName: 'November 2020',
+                        endDate: '2020-11-30',
+                        id: '202011',
+                        iso: '202011',
+                        startDate: '2020-11-01',
+                    },
+                    {
+                        displayName: 'December 2020',
+                        endDate: '2020-12-31',
+                        id: '202012',
+                        iso: '202012',
+                        startDate: '2020-12-01',
+                    },
+                    {
+                        displayName: 'January 2021',
+                        endDate: '2021-01-31',
+                        id: '202101',
+                        iso: '202101',
+                        startDate: '2021-01-01',
+                    },
+                    {
+                        displayName: 'February 2021',
+                        endDate: '2021-02-28',
+                        id: '202102',
+                        iso: '202102',
+                        startDate: '2021-02-01',
+                    },
+                    {
+                        displayName: 'March 2021',
+                        endDate: '2021-03-31',
+                        id: '202103',
+                        iso: '202103',
+                        startDate: '2021-03-01',
+                    },
+                    {
+                        displayName: 'April 2021',
+                        endDate: '2021-04-30',
+                        id: '202104',
+                        iso: '202104',
+                        startDate: '2021-04-01',
+                    },
+                    {
+                        displayName: 'May 2021',
+                        endDate: '2021-05-31',
+                        id: '202105',
+                        iso: '202105',
+                        startDate: '2021-05-01',
+                    },
+                ])
+            })
+        })
+
+        describe('getMostRecentCompletedYear', () => {
+            it('throws an error if no periodType is specified', () => {
+                expect(() =>
+                    getMostRecentCompletedYear('INVALID')
+                ).toThrowError(
+                    'Invalid periodType "INVALID" supplied to "getMostRecentCompletedYear"'
+                )
+            })
+            it('returns the current year (2019) for a Monthly periodType', () => {
+                // Given the fact that today is 2019-06-17,
+                // there are completed Monthly periods in this year
+                expect(getMostRecentCompletedYear('Monthly')).toEqual(2019)
+            })
+            it('returns the previous year (2018) for a Yearly periodType', () => {
+                // Given the fact that today is 2019-06-17,
+                // there are no completed Yearly periods in this year
+                expect(getMostRecentCompletedYear('Yearly')).toEqual(2018)
+            })
+            it('returns the previous year (2018) for a Monthly periodType if January has not completed', () => {
+                // 2019-01-10
+                jest.spyOn(Date, 'now').mockImplementationOnce(
+                    () => 1547078400000
+                )
+                expect(getMostRecentCompletedYear('Monthly')).toEqual(2018)
+            })
+            it('returns the previous year (2018) for a FinancialOct periodType', () => {
+                expect(getMostRecentCompletedYear('FinancialOct')).toEqual(2018)
+            })
         })
     })
 })
