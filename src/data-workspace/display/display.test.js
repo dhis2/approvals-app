@@ -52,6 +52,29 @@ describe('<Display>', () => {
         ).toBeInTheDocument()
     })
 
+    it('shows a message if the workflow has no data sets', () => {
+        render(
+            <CustomDataProvider options={{ loadForever: true }}>
+                <SelectionContext.Provider
+                    value={{
+                        workflow: {
+                            dataApprovalLevels: [],
+                            dataSets: [],
+                            displayName: 'Workflow 1',
+                            id: 'foo',
+                            periodType: 'Monthly',
+                        },
+                    }}
+                >
+                    <Display dataSetId={null} />
+                </SelectionContext.Provider>
+            </CustomDataProvider>
+        )
+        expect(
+            screen.getByText(`This workflow does not contain any data sets.`)
+        ).toBeInTheDocument()
+    })
+
     it('renders a loading spinner if a data set is selected', () => {
         render(
             <CustomDataProvider options={{ loadForever: true }}>
