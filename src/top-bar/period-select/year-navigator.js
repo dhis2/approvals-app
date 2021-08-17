@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import classes from './year-navigator.module.css'
 
-export const currentYear = new Date().getFullYear()
 // To avoid users from navigating too far back
 const startYear = 1970
 
