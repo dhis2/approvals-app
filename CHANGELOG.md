@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/dhis2/approval-app/compare/v1.10.2...v1.11.0) (2021-08-17)
+
+
+### Features
+
+* **period-select:** skip to previous year if no ended periods in current year ([#50](https://github.com/dhis2/approval-app/issues/50)) ([d8be02b](https://github.com/dhis2/approval-app/commit/d8be02b72273b088775744a9c11896a019cd7e49))
+
 ## [1.10.2](https://github.com/dhis2/approval-app/compare/v1.10.1...v1.10.2) (2021-08-12)
 
 
