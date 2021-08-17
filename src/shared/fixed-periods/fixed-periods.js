@@ -702,13 +702,26 @@ export const getFixedPeriodTypes = () => [
     },
 ]
 
-export const getFixedPeriodType = type => {
-    if (!isValidPeriodType(type)) {
+export const getFixedPeriodType = periodType => {
+    if (!isValidPeriodType(periodType)) {
         throw new Error(
-            `Invalid period type "${type}" supplied to "getFixedPeriodType"`
+            `Invalid period type "${periodType}" supplied to "getFixedPeriodType"`
         )
     }
-    return getFixedPeriodTypes().find(option => option.type === type)
+    const periodTypeObj = getFixedPeriodTypes().find(
+        ({ type }) => type === periodType
+    )
+
+    if (!periodTypeObj) {
+        /**
+         * This error suggests the list of period types at the top of this file
+         * contains a period type name which has not been implemented yet in
+         * getFixedPeriodTypes
+         */
+        throw new Error(`Could not find periodType object for "${periodType}"`)
+    }
+
+    return periodTypeObj
 }
 
 export const getYearOffsetFromNow = year => {
