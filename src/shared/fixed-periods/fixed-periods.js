@@ -830,9 +830,9 @@ export const getFixedPeriodsForTypeAndDateRange = (
 }
 
 export const getMostRecentCompletedYear = periodType => {
-    if (!periodType) {
+    if (!isValidPeriodType(periodType)) {
         throw new Error(
-            'No "periodType" supplied to "getMostRecentCompletedYear"'
+            `Invalid periodType "${periodType}" supplied to "getMostRecentCompletedYear"`
         )
     }
 

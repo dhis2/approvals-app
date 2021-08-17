@@ -988,8 +988,10 @@ describe('Fixed period utilities', () => {
 
         describe('getMostRecentCompletedYear', () => {
             it('throws an error if no periodType is specified', () => {
-                expect(() => getMostRecentCompletedYear()).toThrowError(
-                    'No "periodType" supplied to "getMostRecentCompletedYear"'
+                expect(() =>
+                    getMostRecentCompletedYear('INVALID')
+                ).toThrowError(
+                    'Invalid periodType "INVALID" supplied to "getMostRecentCompletedYear"'
                 )
             })
             it('returns the current year (2019) for a Monthly periodType', () => {
