@@ -1,3 +1,10 @@
+## [1.11.1](https://github.com/dhis2/approval-app/compare/v1.11.0...v1.11.1) (2021-08-17)
+
+
+### Bug Fixes
+
+* **fixed-periods:** prevent infinite loops ([#52](https://github.com/dhis2/approval-app/issues/52)) ([f9175b0](https://github.com/dhis2/approval-app/commit/f9175b03323b84cf9eea09a3ccf58984b673a689))
+
 # [1.11.0](https://github.com/dhis2/approval-app/compare/v1.10.2...v1.11.0) (2021-08-17)
 
 
