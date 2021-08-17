@@ -1,5 +1,6 @@
 import {
     isValidPeriodType,
+    getYearWithOffset,
     getFixedPeriodType,
     getFixedPeriodTypes,
     getFixedPeriodsForTypeAndDateRange,
@@ -36,6 +37,25 @@ describe('fixedPeriods utils', () => {
         })
         it('returns false for an invalid period type', () => {
             expect(isValidPeriodType('INVALID')).toBe(false)
+        })
+    })
+
+    describe('getYearWithOffset', () => {
+        it('should return the current year if offset is zero', () => {
+            expect(getYearWithOffset(0)).toEqual(2019)
+            expect(getYearWithOffset('0')).toEqual(2019)
+        })
+        it('should return the current year if the offset cannot be parsed as an int', () => {
+            expect(getYearWithOffset('WHOOT')).toEqual(2019)
+            expect(getYearWithOffset({})).toEqual(2019)
+        })
+        it('should return the correct year if a valid offset is passed', () => {
+            expect(getYearWithOffset(-10)).toEqual(2009)
+            expect(getYearWithOffset('-10')).toEqual(2009)
+        })
+        it('negative offsets return years in the past and positive in the future', () => {
+            expect(getYearWithOffset(-10)).toEqual(2009)
+            expect(getYearWithOffset(10)).toEqual(2029)
         })
     })
 
