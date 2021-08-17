@@ -73,9 +73,16 @@ const getMonthName = key => {
     return monthNames[key]
 }
 
+/**
+ * Initialise a Date instance with Date.now() for Jest mocking.
+ * This can be removed once we upgrade Jest to a verion which
+ * supports `jest.setSystemTime`.
+ */
+const getCurrentDate = () => new Date(Date.now())
+
 export const getYearWithOffset = offset => {
     const offsetInt = parseInt(offset, 10) || 0
-    return new Date(Date.now()).getFullYear() + offsetInt
+    return getCurrentDate().getFullYear() + offsetInt
 }
 
 const getDailyPeriodType = (formatYyyyMmDd, fnFilter) => {
@@ -554,7 +561,7 @@ const formatYyyyMmDd = date => {
 
 const filterFuturePeriods = periods => {
     const array = []
-    const now = new Date(Date.now())
+    const now = getCurrentDate()
 
     for (let i = 0; i < periods.length; i++) {
         if (new Date(periods[i].startDate) <= now) {
@@ -725,14 +732,14 @@ export const getFixedPeriodType = periodType => {
 }
 
 export const getYearOffsetFromNow = year => {
-    const yearInt = parseInt(year)
+    const yearInt = parseInt(year, 10)
     if (!Number.isInteger(yearInt)) {
         throw new Error(
             `Invalid year "${year}" passed to "getYearOffsetFromNow"`
         )
     }
 
-    return yearInt - new Date(Date.now()).getFullYear()
+    return yearInt - getCurrentDate().getFullYear()
 }
 
 export const getFixedPeriodsByTypeAndYear = (type, year) => {
@@ -764,7 +771,7 @@ export const parsePeriodId = (id, allowedTypes) => {
         return null
     }
 
-    const year = parseInt(match[1])
+    const year = parseInt(match[1], 10)
     const offset = getYearOffsetFromNow(year)
     const periods = periodType.getPeriods({ offset })
     const period = periods.find(period => period.id === id)
@@ -780,6 +787,8 @@ export const parsePeriodId = (id, allowedTypes) => {
     }
 }
 
+const isValidDate = date => !isNaN(date.getTime())
+
 export const getFixedPeriodsForTypeAndDateRange = (
     type,
     startDate,
@@ -789,12 +798,12 @@ export const getFixedPeriodsForTypeAndDateRange = (
     startDate = new Date(startDate)
     endDate = new Date(endDate)
 
-    if (isNaN(startDate.getTime())) {
+    if (!isValidDate(startDate)) {
         throw new Error(
             'Invalid startDate provided to getFixedPeriodsForTypeAndDateRange'
         )
     }
-    if (isNaN(endDate.getTime())) {
+    if (!isValidDate(endDate)) {
         throw new Error(
             'Invalid endDate provided to getFixedPeriodsForTypeAndDateRange'
         )
@@ -836,7 +845,7 @@ export const getMostRecentCompletedYear = periodType => {
         )
     }
 
-    const endDate = new Date(Date.now())
+    const endDate = getCurrentDate()
     let year = endDate.getFullYear()
     let periods = getFixedPeriodsForTypeAndDateRange(
         periodType,
