@@ -106,7 +106,7 @@ const getDailyPeriodType = (formatYyyyMmDd, fnFilter) => {
 
 const getWeeklyPeriodType = (formatYyyyMmDd, weekObj, fnFilter) => {
     // Calculate the first date of an EPI year base on ISO standard  ( first week always contains 4th Jan )
-    const getEpiWeekStartDay = (year, startDayOfWeek) => {
+    const getEpiWeekStartDay = (year, startDayOfWeek = 1) => {
         const jan4 = new Date(year, 0, 4)
         const jan4DayOfWeek = jan4.getDay()
         const startDate = jan4
