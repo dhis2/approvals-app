@@ -14,7 +14,9 @@ const computeMaxYear = periodType =>
 const PeriodSelect = () => {
     const { period, workflow, selectPeriod, openedSelect, setOpenedSelect } =
         useSelectionContext()
-    const maxYear = computeMaxYear(workflow?.periodType)
+    const [maxYear, setMaxYear] = useState(() =>
+        computeMaxYear(workflow?.periodType)
+    )
     const [year, setYear] = useState(period?.year || maxYear)
     const open = openedSelect === PERIOD
     const value = period?.displayName
@@ -24,6 +26,12 @@ const PeriodSelect = () => {
             setYear(period.year)
         }
     }, [period?.year])
+
+    useEffect(() => {
+        if (workflow?.periodType) {
+            setMaxYear(computeMaxYear(workflow?.periodType))
+        }
+    }, [workflow?.periodType])
 
     return (
         <ContextSelect
