@@ -711,6 +711,15 @@ describe('fixedPeriods utils', () => {
         })
     })
 
+    describe('getFixedPeriodType', () => {
+        // Behaviour for valid period tpes is tested via the generators
+        it('should throw an error if an invalid period type is provided', () => {
+            expect(() => getFixedPeriodType('INVALID')).toThrowError(
+                'Invalid period type "INVALID" supplied to "getFixedPeriodType"'
+            )
+        })
+    })
+
     describe('Year offset from now helper', () => {
         it('should process future offsets correctly', () => {
             expect(getYearOffsetFromNow('2025')).toEqual(6)

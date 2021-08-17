@@ -702,8 +702,14 @@ export const getFixedPeriodTypes = () => [
     },
 ]
 
-export const getFixedPeriodType = type =>
-    getFixedPeriodTypes().find(option => option.type === type)
+export const getFixedPeriodType = type => {
+    if (!isValidPeriodType(type)) {
+        throw new Error(
+            `Invalid period type "${type}" supplied to "getFixedPeriodType"`
+        )
+    }
+    return getFixedPeriodTypes().find(option => option.type === type)
+}
 
 export const getYearOffsetFromNow = year =>
     year - new Date(Date.now()).getFullYear()
