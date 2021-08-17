@@ -768,6 +768,14 @@ describe('Fixed period utilities', () => {
         })
 
         describe('getYearOffsetFromNow', () => {
+            it('should throw an error if an invalid year value is provided', () => {
+                expect(() => getYearOffsetFromNow()).toThrowError(
+                    'Invalid year "undefined" passed to "getYearOffsetFromNow"'
+                )
+                expect(() => getYearOffsetFromNow('INVALID')).toThrowError(
+                    'Invalid year "INVALID" passed to "getYearOffsetFromNow"'
+                )
+            })
             it('should process future offsets correctly', () => {
                 expect(getYearOffsetFromNow('2025')).toEqual(6)
             })
