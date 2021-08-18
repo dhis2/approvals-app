@@ -9,3 +9,12 @@
     overflow-y: auto;
     padding-top: var(--spacers-dp8);
 }
+
+/*
+ * Override default checked styles of organisation unit tree, which
+ * offer limited contrast against status icon colours
+ */
+.scrollbox :global(.checked) {
+    background: var(--colors-grey300) !important;
+    color: var(--colors-grey900) !important;
+}
