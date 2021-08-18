@@ -14,6 +14,7 @@ const DataWorkspace = () => {
         <>
             <TitleBar />
             <DataSetNavigation
+                dataSets={workflow?.dataSets}
                 selected={selectedDataSet}
                 onChange={setSelectedDataSet}
             />

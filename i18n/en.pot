@@ -5,10 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-08-12T11:12:06.430Z\n"
-"PO-Revision-Date: 2021-08-12T11:12:06.430Z\n"
-"POT-Creation-Date: 2021-08-12T12:36:19.640Z\n"
-"PO-Revision-Date: 2021-08-12T12:36:19.640Z\n"
+"POT-Creation-Date: 2021-08-17T21:15:20.392Z\n"
+"PO-Revision-Date: 2021-08-17T21:15:20.392Z\n"
 
 msgid "Not authorized"
 msgstr "Not authorized"
@@ -70,6 +68,9 @@ msgstr "Unapproval failed: {{error}}"
 msgid "Unapprove"
 msgstr "Unapprove"
 
+msgid "This workflow does not contain any data sets."
+msgstr "This workflow does not contain any data sets."
+
 msgid "Choose a data set to review"
 msgstr "Choose a data set to review"
 
@@ -95,9 +96,6 @@ msgstr ""
 
 msgid "Retry loading data set"
 msgstr "Retry loading data set"
-
-msgid "Loading data set"
-msgstr "Loading data set"
 
 msgid "This data set doesn't have any data for {{- period}} in {{- orgUnit}}."
 msgstr "This data set doesn't have any data for {{- period}} in {{- orgUnit}}."
