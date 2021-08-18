@@ -1,3 +1,5 @@
+import i18n from '@dhis2/d2-i18n'
+import { IconWarning16, colors } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 import { useSelectionContext } from '../../selection-context/index.js'
@@ -25,7 +27,17 @@ const ApprovalStatusLabel = ({ label, orgUnitId }) => {
     if (approvalStatus === 'LOADING') {
         return label
     } else if (approvalStatus === 'FETCH_ERROR') {
-        return label
+        return (
+            <div className={classes.container}>
+                <span
+                    title={i18n.t('Failed to load approval state')}
+                    className={classes.iconContainer}
+                >
+                    <IconWarning16 color={colors.yellow500} />
+                </span>
+                {label}
+            </div>
+        )
     } else if (approvalStatus) {
         return (
             <div className={classes.container}>

@@ -1,3 +1,10 @@
 .container {
-    display: flex;
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr;
+    column-gap: var(--spacers-dp4);
+}
+
+.iconContainer {
+    display: inline-flex;
 }

@@ -1,5 +1,4 @@
 .container {
     display: inline-flex;
     align-items: center;
-    margin-right: var(--spacers-dp4);
 }

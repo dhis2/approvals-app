@@ -6,7 +6,9 @@
 }
 
 .label {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: var(--spacers-dp4);
     font-size: 13px;
     line-height: 16px;
 }

@@ -32,6 +32,10 @@ const StatusIcon = ({ approvalState, showTitle }) => {
     )
 }
 
+StatusIcon.defaultProps = {
+    showTitle: true,
+}
+
 StatusIcon.propTypes = {
     approvalState: PropTypes.oneOf([
         'APPROVED_HERE',
