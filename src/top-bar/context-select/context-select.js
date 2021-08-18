@@ -19,6 +19,7 @@ const ContextSelect = ({
     disabled,
     open,
     requiredValuesMessage,
+    popoverMaxWidth,
 }) => {
     const buttonRef = useRef()
     const Icon = open ? IconChevronUp24 : IconChevronDown24
@@ -61,6 +62,7 @@ const ContextSelect = ({
                     arrow={false}
                     placement="bottom-end"
                     onClickOutside={onClose}
+                    maxWidth={popoverMaxWidth}
                 >
                     {children}
                 </Popover>
@@ -77,6 +79,7 @@ ContextSelect.propTypes = {
     onOpen: PropTypes.func.isRequired,
     disabled: PropTypes.bool,
     open: PropTypes.bool,
+    popoverMaxWidth: PropTypes.number,
     requiredValuesMessage: PropTypes.string,
     value: PropTypes.string,
 }
