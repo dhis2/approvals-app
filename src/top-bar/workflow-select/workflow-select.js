@@ -22,6 +22,7 @@ const WorkflowSelect = () => {
 
     return (
         <ContextSelect
+            dataTest="workflow-context-select"
             prefix={i18n.t('Workflow')}
             placeholder={i18n.t('Choose a workflow')}
             value={value}

@@ -1,7 +1,8 @@
 {
     "baseUrl": "http://localhost:3000",
-    "video": true,
+    "video": false,
     "projectId": "3wojdo",
+    "experimentalInteractiveRunEvents": true,
     "env": {
         "dhis2DataTestPrefix": "dhis2-approval",
         "networkMode": "live",

@@ -1,3 +1,4 @@
-import { enableAutoLogin, enableNetworkShim } from '@dhis2/cypress-commands';
-enableNetworkShim();
-enableAutoLogin();
+import { enableAutoLogin, enableNetworkShim } from '@dhis2/cypress-commands'
+
+enableAutoLogin()
+enableNetworkShim()
