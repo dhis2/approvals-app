@@ -16,7 +16,9 @@ const UnacceptButton = () => {
     )
 
     useEffect(() => {
-        if (error?.message) show()
+        if (error?.message) {
+            show()
+        }
     }, [error?.message])
 
     return (

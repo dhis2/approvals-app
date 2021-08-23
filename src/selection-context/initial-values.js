@@ -37,7 +37,9 @@ export const initialPeriodValue = (periodId, initialWorkflow = {}) => {
 }
 
 export const initialOrgUnitValue = (path, displayName) => {
-    if (!path || !displayName) return null
+    if (!path || !displayName) {
+        return null
+    }
 
     const [lastPathSegment] = path.match(/[/]?[^/]*$/)
     const id = lastPathSegment.replace('/', '')
