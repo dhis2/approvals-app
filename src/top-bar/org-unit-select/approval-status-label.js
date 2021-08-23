@@ -7,6 +7,23 @@ import { ApprovalStatusIcon } from '../../shared/approval-status/index.js'
 import classes from './approval-status-label.module.css'
 import { useApprovalStatus } from './approval-statuses.js'
 
+const renderIcon = approvalStatus => {
+    if (approvalStatus === 'LOADING') {
+        return <span className={classes.loadingIcon}></span>
+    } else if (approvalStatus === 'FETCH_ERROR') {
+        return (
+            <span
+                title={i18n.t('Failed to load approval state')}
+                className={classes.iconContainer}
+            >
+                <IconWarning16 color={colors.yellow500} />
+            </span>
+        )
+    } else if (approvalStatus) {
+        return <ApprovalStatusIcon approvalStatus={approvalStatus} />
+    }
+}
+
 const ApprovalStatusLabel = ({ label, orgUnitId }) => {
     const { workflow, period } = useSelectionContext()
     const { getApprovalStatus, fetchApprovalStatus } = useApprovalStatus()
@@ -24,34 +41,12 @@ const ApprovalStatusLabel = ({ label, orgUnitId }) => {
         })
     }, [])
 
-    if (approvalStatus === 'LOADING') {
-        return (
-            <div className={classes.container}>
-                <span className={classes.loadingIcon}></span>
-                {label}
-            </div>
-        )
-    } else if (approvalStatus === 'FETCH_ERROR') {
-        return (
-            <div className={classes.container}>
-                <span
-                    title={i18n.t('Failed to load approval state')}
-                    className={classes.iconContainer}
-                >
-                    <IconWarning16 color={colors.yellow500} />
-                </span>
-                {label}
-            </div>
-        )
-    } else if (approvalStatus) {
-        return (
-            <div className={classes.container}>
-                <ApprovalStatusIcon approvalStatus={approvalStatus} />
-                {label}
-            </div>
-        )
-    }
-    return label
+    return (
+        <div className={classes.container}>
+            {renderIcon(approvalStatus)}
+            {label}
+        </div>
+    )
 }
 
 ApprovalStatusLabel.propTypes = {
