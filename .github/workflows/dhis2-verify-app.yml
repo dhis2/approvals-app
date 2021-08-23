@@ -102,6 +102,7 @@ jobs:
                   BROWSER: none
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+                  CYPRESS_dhis2BaseUrl: http://localhost:8080
                   CYPRESS_dhis2ApiVersion: 37
                   CYPRESS_networkMode: stub
 
