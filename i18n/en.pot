@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-08-18T10:16:01.189Z\n"
-"PO-Revision-Date: 2021-08-18T10:16:01.189Z\n"
+"POT-Creation-Date: 2021-08-23T10:37:01.415Z\n"
+"PO-Revision-Date: 2021-08-23T10:37:01.415Z\n"
 
 msgid "Not authorized"
 msgstr "Not authorized"
@@ -222,6 +222,9 @@ msgstr "Clear selections"
 
 msgid "Waiting for approval"
 msgstr "Waiting for approval"
+
+msgid "Failed to load approval state"
+msgstr "Failed to load approval state"
 
 msgid "Choose a period first"
 msgstr "Choose a period first"

@@ -6,12 +6,14 @@ import classes from './status-icon.module.css'
 
 const getIconColorForType = type => {
     switch (type) {
+        case 'default':
+            return colors.grey500
         case 'neutral':
-            return colors.blue800
+            return colors.blue700
         case 'positive':
-            return colors.green800
+            return colors.green600
         case 'negative':
-            return colors.red800
+            return colors.red600
     }
 }
 
