@@ -1,5 +1,6 @@
 import '../common/index.js'
 import {
+    Given,
     When,
     Then,
     defineParameterType,
@@ -21,25 +22,10 @@ defineParameterType({
     regexp: new RegExp(buttonLabels.join('|')),
 })
 
-Then('the status tag indicates this data is {status}', status => {
+Given('the status tag indicates this data is {status}', status => {
     cy.get('[data-test="bottom-bar"]')
         .find('[data-test="dhis2-uicore-tag-text"]')
         .should('have.text', status)
-})
-
-Then('the {buttonLabel} button is visible and enabled', buttonLabel => {
-    cy.get('[data-test="bottom-bar"]')
-        .find('button')
-        .contains(buttonLabel)
-        .should('be.visible')
-        .and('not.be.disabled')
-})
-
-Then('the {buttonLabel} button is not rendered', buttonLabel => {
-    cy.get('[data-test="bottom-bar"]')
-        .find('button')
-        .contains(buttonLabel)
-        .should('not.exist')
 })
 
 When('the user clicks the {buttonLabel} button', buttonLabel => {
@@ -47,6 +33,23 @@ When('the user clicks the {buttonLabel} button', buttonLabel => {
         .find('button')
         .contains(buttonLabel)
         .click()
+})
+
+Then('the following buttons are available', dataTable => {
+    dataTable.hashes().forEach(({ label, available }) => {
+        if (available) {
+            cy.get('[data-test="bottom-bar"]')
+                .find('button')
+                .contains(label)
+                .should('be.visible')
+                .and('not.be.disabled')
+        } else {
+            cy.get('[data-test="bottom-bar"]')
+                .find('button')
+                .contains(label)
+                .should('not.exist')
+        }
+    })
 })
 
 Then('a circular loader is rendered', () => {

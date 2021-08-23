@@ -1,7 +1,7 @@
 Feature: Users can approve, accept, unapprove, and unaccept data
 
     Background:
-        When the admin user visits the app
+        Given the admin user visits the app
         Then the user has workflow "Mortality < 5 years" preselected
         When the user selects period "Februari 2021"
         And the user selects organisation unit "Badjia"
@@ -11,51 +11,53 @@ Feature: Users can approve, accept, unapprove, and unaccept data
 
     # In "Ready for approval" state the "Approve" action becomes available
     Scenario: User approves data
-        Then the status tag indicates this data is Ready for approval
-        And the Approve button is visible and enabled
+        Given the status tag indicates this data is Ready for approval
         When the user clicks the Approve button
         Then a modal confirmation dialog is displayed
         When the confirmation button is clicked
         Then a circular loader is rendered
-        And an alert bar is displayed with the text Approval saved
-        And the status tag indicates this data is Approved
-        And the Approve button is not rendered
-        And the Accept button is visible and enabled
-        And the Unapprove button is visible and enabled
-        And the Unaccept button is not rendered
+        And the following buttons are available
+            | label     | available |
+            | Approve   |           |
+            | Accept    | yes       |
+            | Unapprove | yes       |
+            | Unaccept  |           |
 
     # In "Approved" state the "Accept" action becomes available
     Scenario: User accepts data
-        Then the status tag indicates this data is Approved
-        And the Accept button is visible and enabled
+        Given the status tag indicates this data is Approved
         When the user clicks the Accept button
         Then a circular loader is rendered
         And the status tag indicates this data is Ready for approval — Accepted
-        And the Approve button is visible and enabled
-        And the Accept button is not rendered
-        And the Unapprove button is visible and enabled
-        And the Unaccept button is visible and enabled
+        And the following buttons are available
+            | label     | available |
+            | Approve   | yes       |
+            | Accept    |           |
+            | Unapprove | yes       |
+            | Unaccept  | yes       |
 
     # In "Ready for approval — Accepted" state the "Unaccept" action becomes available
     Scenario: User unaccepts data
-        Then the status tag indicates this data is Ready for approval — Accepted
-        And the Unaccept button is visible and enabled
+        Given the status tag indicates this data is Ready for approval — Accepted
         When the user clicks the Unaccept button
         Then a circular loader is rendered
         And the status tag indicates this data is Approved
-        And the Approve button is not rendered
-        And the Accept button is visible and enabled
-        And the Unapprove button is visible and enabled
-        And the Unaccept button is not rendered
+        And the following buttons are available
+            | label     | available |
+            | Approve   |           |
+            | Accept    | yes       |
+            | Unapprove | yes       |
+            | Unaccept  |           |
 
     # After unaccepting the state jumps back to "Approved" and the "Unapprove" action becomes available
     Scenario: User unapproves data
-        Then the status tag indicates this data is Approved
-        And the Unapprove button is visible and enabled
+        Given the status tag indicates this data is Approved
         When the user clicks the Unapprove button
         Then a circular loader is rendered
         And the status tag indicates this data is Ready for approval
-        And the Approve button is visible and enabled
-        And the Accept button is not rendered
-        And the Unapprove button is not rendered
-        And the Unaccept button is not rendered
+        And the following buttons are available
+            | label     | available |
+            | Approve   | yes       |
+            | Accept    |           |
+            | Unapprove |           |
+            | Unaccept  |           |

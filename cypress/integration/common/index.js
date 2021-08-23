@@ -1,6 +1,6 @@
-import { Then, When } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then, When } from 'cypress-cucumber-preprocessor/steps'
 
-When('the admin user visits the app', () => {
+Given('the admin user visits the app', () => {
     cy.visit('/')
 })
 
