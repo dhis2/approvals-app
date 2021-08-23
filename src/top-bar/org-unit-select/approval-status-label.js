@@ -1,5 +1,5 @@
 import i18n from '@dhis2/d2-i18n'
-import { IconWarning16, colors } from '@dhis2/ui'
+import { IconWarning16, colors, Tooltip } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 import { useSelectionContext } from '../../selection-context/index.js'
@@ -12,12 +12,18 @@ const renderIcon = approvalStatus => {
         return <span className={classes.loadingIcon}></span>
     } else if (approvalStatus === 'FETCH_ERROR') {
         return (
-            <span
-                title={i18n.t('Failed to load approval state')}
-                className={classes.iconContainer}
-            >
-                <IconWarning16 color={colors.yellow500} />
-            </span>
+            <Tooltip content={i18n.t('Failed to load approval state')}>
+                {({ onMouseOver, onMouseOut, ref }) => (
+                    <span
+                        className={classes.iconContainer}
+                        onMouseOver={onMouseOver}
+                        onMouseOut={onMouseOut}
+                        ref={ref}
+                    >
+                        <IconWarning16 color={colors.yellow500} />
+                    </span>
+                )}
+            </Tooltip>
         )
     } else if (approvalStatus) {
         return <ApprovalStatusIcon approvalStatus={approvalStatus} />
