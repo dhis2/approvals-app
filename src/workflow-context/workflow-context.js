@@ -1,7 +1,7 @@
 import { createContext } from 'react'
 
 const WorkflowContext = createContext({
-    approvalState: '',
+    approvalStatus: '',
     allowedActions: {},
     refresh: () => {
         throw new Error('WorkflowContext.refresh has not been initialized')

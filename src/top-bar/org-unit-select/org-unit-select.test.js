@@ -1,16 +1,16 @@
-import { useDataQuery } from '@dhis2/app-runtime'
+import { CustomDataProvider } from '@dhis2/app-runtime'
 import { Popover, Layer, OrganisationUnitTree, Tooltip } from '@dhis2/ui'
+import { render, screen, waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { shallow } from 'enzyme'
 import React from 'react'
 import { useAppContext } from '../../app-context/index.js'
 import { readQueryParams } from '../../navigation/read-query-params.js'
 import { useSelectionContext } from '../../selection-context/index.js'
 import { ContextSelect } from '../context-select/context-select.js'
+import { ApprovalStatusesProvider } from './approval-statuses.js'
 import { ORG_UNIT, OrgUnitSelect } from './org-unit-select.js'
 
-jest.mock('@dhis2/app-runtime', () => ({
-    useDataQuery: jest.fn(),
-}))
 jest.mock('../../navigation/read-query-params.js', () => ({
     readQueryParams: jest.fn(),
 }))
@@ -209,19 +209,7 @@ describe('<OrgUnitSelect>', () => {
         expect(setOpenedSelect).toHaveBeenCalledWith(ORG_UNIT)
     })
 
-    it('calls selectOrgUnit when clicking a node in the org unit tree', () => {
-        useDataQuery.mockImplementation(() => ({
-            error: null,
-            loading: false,
-            data: {
-                ImspTQPwCqd: {
-                    id: 'ImspTQPwCqd',
-                    path: '/ImspTQPwCqd',
-                    displayName: 'Sierra Leone',
-                    children: [],
-                },
-            },
-        }))
+    it('calls selectOrgUnit when clicking a node in the org unit tree', async () => {
         const selectOrgUnit = jest.fn()
         useSelectionContext.mockImplementation(() => ({
             workflow: {
@@ -235,21 +223,25 @@ describe('<OrgUnitSelect>', () => {
             selectOrgUnit,
         }))
 
-        // This test is quite brittle due to this selector ¯\_(ツ)_/¯
-        const clickableNode = shallow(<OrgUnitSelect />)
-            .find(OrganisationUnitTree)
-            .dive()
-            .find('OrganisationUnitNode')
-            .dive()
-            .find('Node')
-            .dive()
-            .find('Label')
-            .dive()
-            .find('SingleSelectionLabel')
-            .dive()
-            .find('span')
+        render(
+            <CustomDataProvider
+                data={{
+                    organisationUnits: {
+                        id: 'ImspTQPwCqd',
+                        path: '/ImspTQPwCqd',
+                        displayName: 'Sierra Leone',
+                        children: [],
+                    },
+                }}
+            >
+                <ApprovalStatusesProvider>
+                    <OrgUnitSelect />
+                </ApprovalStatusesProvider>
+            </CustomDataProvider>
+        )
 
-        clickableNode.simulate('click')
+        await waitFor(() => screen.getByText('Sierra Leone'))
+        userEvent.click(screen.getByText('Sierra Leone'))
 
         expect(selectOrgUnit).toHaveBeenCalledTimes(1)
         expect(selectOrgUnit).toHaveBeenCalledWith({

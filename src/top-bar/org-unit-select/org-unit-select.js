@@ -1,9 +1,11 @@
 import i18n from '@dhis2/d2-i18n'
-import { OrganisationUnitTree } from '@dhis2/ui'
+import { OrganisationUnitTree, Divider } from '@dhis2/ui'
 import React from 'react'
 import { useAppContext } from '../../app-context/index.js'
 import { useSelectionContext } from '../../selection-context/index.js'
 import { ContextSelect } from '../context-select/index.js'
+import { ApprovalStatusIconsLegend } from './approval-status-icons-legend.js'
+import { ApprovalStatusLabel } from './approval-status-label.js'
 import classes from './org-unit-select.module.css'
 
 export const ORG_UNIT = 'ORG_UNIT'
@@ -39,15 +41,26 @@ const OrgUnitSelect = () => {
             onOpen={() => setOpenedSelect(ORG_UNIT)}
             onClose={() => setOpenedSelect('')}
             requiredValuesMessage={requiredValuesMessage}
+            popoverMaxWidth={400}
         >
-            <div className={classes.scrollbox}>
-                <OrganisationUnitTree
-                    roots={roots}
-                    onChange={onChange}
-                    initiallyExpanded={selectedOrgUnitPath}
-                    selected={selectedOrgUnitPath}
-                    singleSelection
-                />
+            <div className={classes.popoverContainer}>
+                <div className={classes.scrollbox}>
+                    <OrganisationUnitTree
+                        roots={roots}
+                        onChange={onChange}
+                        initiallyExpanded={selectedOrgUnitPath}
+                        selected={selectedOrgUnitPath}
+                        singleSelection
+                        renderNodeLabel={({ label, node }) => (
+                            <ApprovalStatusLabel
+                                label={label}
+                                orgUnitId={node.id}
+                            />
+                        )}
+                    />
+                </div>
+                <Divider margin={0} />
+                <ApprovalStatusIconsLegend />
             </div>
         </ContextSelect>
     )

@@ -106,6 +106,27 @@ msgstr "1 data set"
 msgid "{{dataSetsCount}} data sets"
 msgstr "{{dataSetsCount}} data sets"
 
+msgid "Ready for approval"
+msgstr "Ready for approval"
+
+msgid "Ready for approval — Accepted"
+msgstr "Ready for approval — Accepted"
+
+msgid "Waiting for lower level approval"
+msgstr "Waiting for lower level approval"
+
+msgid "Waiting for higher level approval"
+msgstr "Waiting for higher level approval"
+
+msgid "Approved"
+msgstr "Approved"
+
+msgid "Cannot be approved"
+msgstr "Cannot be approved"
+
+msgid "Could not retrieve approval status"
+msgstr "Could not retrieve approval status"
+
 msgid "January"
 msgstr "January"
 
@@ -199,29 +220,14 @@ msgstr "Financial year (Start July)"
 msgid "Financial year (Start April)"
 msgstr "Financial year (Start April)"
 
-msgid "Ready for approval"
-msgstr "Ready for approval"
-
-msgid "Ready for approval — Accepted"
-msgstr "Ready for approval — Accepted"
-
-msgid "Waiting for lower level approval"
-msgstr "Waiting for lower level approval"
-
-msgid "Waiting for higher level approval"
-msgstr "Waiting for higher level approval"
-
-msgid "Approved"
-msgstr "Approved"
-
-msgid "Cannot be approved"
-msgstr "Cannot be approved"
-
-msgid "Could not retrieve approval status"
-msgstr "Could not retrieve approval status"
-
 msgid "Clear selections"
 msgstr "Clear selections"
+
+msgid "Waiting for approval"
+msgstr "Waiting for approval"
+
+msgid "Failed to load approval state"
+msgstr "Failed to load approval state"
 
 msgid "Choose a period first"
 msgstr "Choose a period first"
