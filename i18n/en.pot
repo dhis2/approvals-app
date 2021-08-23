@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-08-23T10:37:01.415Z\n"
-"PO-Revision-Date: 2021-08-23T10:37:01.415Z\n"
+"POT-Creation-Date: 2021-08-17T21:15:20.392Z\n"
+"PO-Revision-Date: 2021-08-17T21:15:20.392Z\n"
 
 msgid "Not authorized"
 msgstr "Not authorized"
@@ -67,6 +67,9 @@ msgstr "Unapproval failed: {{error}}"
 
 msgid "Unapprove"
 msgstr "Unapprove"
+
+msgid "This workflow does not contain any data sets."
+msgstr "This workflow does not contain any data sets."
 
 msgid "Choose a data set to review"
 msgstr "Choose a data set to review"

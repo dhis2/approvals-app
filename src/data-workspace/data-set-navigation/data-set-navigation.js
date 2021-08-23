@@ -1,13 +1,9 @@
 import { TabBar, Tab } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { useSelectionContext } from '../../selection-context/index.js'
 
-const DataSetNavigation = ({ selected, onChange }) => {
-    const { workflow } = useSelectionContext()
-    const { dataSets } = workflow
-
-    return (
+const DataSetNavigation = ({ dataSets, selected, onChange }) =>
+    dataSets && dataSets?.length > 0 ? (
         <TabBar scrollable>
             {dataSets.map(dataSet => (
                 <Tab
@@ -19,11 +15,17 @@ const DataSetNavigation = ({ selected, onChange }) => {
                 </Tab>
             ))}
         </TabBar>
-    )
-}
+    ) : null
 
 DataSetNavigation.propTypes = {
     onChange: PropTypes.func.isRequired,
+    dataSets: PropTypes.arrayOf(
+        PropTypes.shape({
+            displayName: PropTypes.string,
+            id: PropTypes.string,
+            periodType: PropTypes.string,
+        })
+    ),
     selected: PropTypes.string,
 }
 

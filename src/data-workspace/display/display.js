@@ -49,6 +49,14 @@ const Display = ({ dataSetId }) => {
         [periodIds.join(','), dataSetId]
     )
 
+    if (!dataSets || dataSets.length === 0) {
+        return (
+            <div className={styles.noData}>
+                <p>{i18n.t('This workflow does not contain any data sets.')}</p>
+            </div>
+        )
+    }
+
     if (!dataSetId) {
         return (
             <div className={styles.chooseDataSet}>

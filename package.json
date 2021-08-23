@@ -1,6 +1,6 @@
 {
     "name": "approval-app",
-    "version": "1.11.0",
+    "version": "1.11.2",
     "description": "",
     "license": "BSD-3-Clause",
     "private": true,
@@ -15,7 +15,7 @@
     },
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^7.1.1",
-        "@dhis2/cli-style": "^9.0.1",
+        "@dhis2/cli-style": "^9.2.0",
         "@testing-library/jest-dom": "^5.14.1",
         "@testing-library/react": "^12.0.0",
         "@testing-library/react-hooks": "^7.0.1",
