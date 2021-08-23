@@ -1,5 +1,5 @@
 import i18n from '@dhis2/d2-i18n'
-import { OrganisationUnitTree, Divider } from '@dhis2/ui'
+import { OrganisationUnitTree, Divider, InputField } from '@dhis2/ui'
 import React from 'react'
 import { useAppContext } from '../../app-context/index.js'
 import { useSelectionContext } from '../../selection-context/index.js'
@@ -7,6 +7,7 @@ import { ContextSelect } from '../context-select/index.js'
 import { ApprovalStatusIconsLegend } from './approval-status-icons-legend.js'
 import { ApprovalStatusLabel } from './approval-status-label.js'
 import classes from './org-unit-select.module.css'
+import { useFilter } from './use-filter.js'
 
 export const ORG_UNIT = 'ORG_UNIT'
 
@@ -20,6 +21,10 @@ const OrgUnitSelect = () => {
         openedSelect,
         setOpenedSelect,
     } = useSelectionContext()
+    const { filterQuery, setFilterQuery, filteredPaths } = useFilter({
+        selectedOrgUnitPath: orgUnit?.path,
+    })
+
     const open = openedSelect === ORG_UNIT
     const value = orgUnit?.displayName
     const requiredValuesMessage = workflow?.id
@@ -44,6 +49,14 @@ const OrgUnitSelect = () => {
             popoverMaxWidth={400}
         >
             <div className={classes.popoverContainer}>
+                <InputField
+                    className={classes.filterField}
+                    placeholder={i18n.t('Search organisation units')}
+                    value={filterQuery}
+                    onChange={({ value }) => setFilterQuery(value)}
+                    dense
+                />
+                <Divider margin={0} />
                 <div className={classes.scrollbox}>
                     <OrganisationUnitTree
                         roots={roots}
@@ -51,6 +64,7 @@ const OrgUnitSelect = () => {
                         initiallyExpanded={selectedOrgUnitPath}
                         selected={selectedOrgUnitPath}
                         singleSelection
+                        filter={filteredPaths}
                         renderNodeLabel={({ label, node }) => (
                             <ApprovalStatusLabel
                                 label={label}

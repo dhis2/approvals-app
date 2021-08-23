@@ -3,9 +3,19 @@
     width: 400px;
 }
 
+.filterField {
+    padding: var(--spacers-dp8);
+    padding-bottom: var(--spacers-dp4);
+}
+/* Override InputField styles by hiding status icon wrapper */
+.filterField :global(.status-icon) {
+    display: none;
+}
+
 .scrollbox {
     min-height: 400px;
-    max-height: 70vh;
+    /* Subtract height of filter field and icons legend */
+    max-height: calc(80vh - 50px - 60px);
     overflow-y: auto;
     padding-top: var(--spacers-dp8);
 }
