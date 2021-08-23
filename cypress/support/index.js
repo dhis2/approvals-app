@@ -1,4 +1,10 @@
-import { enableAutoLogin, enableNetworkShim } from '@dhis2/cypress-commands'
+import {
+    enableAutoLogin,
+    enableNetworkShim,
+    isStubMode,
+} from '@dhis2/cypress-commands'
 
-enableAutoLogin()
+if (!isStubMode()) {
+    enableAutoLogin()
+}
 enableNetworkShim()
