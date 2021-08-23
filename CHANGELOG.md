@@ -1,3 +1,28 @@
+# [1.12.0](https://github.com/dhis2/approval-app/compare/v1.11.2...v1.12.0) (2021-08-23)
+
+
+### Bug Fixes
+
+* add color prop to approval state icons ([40e327d](https://github.com/dhis2/approval-app/commit/40e327d346592e6a6f9cbf83b2ee85e1ed5ccf34))
+* add loading and fetch error statuses ([3692ba5](https://github.com/dhis2/approval-app/commit/3692ba5ac9f0c7fb6b8ac992a7ea43e2046cf7a0))
+* add maxpopoverwidth prop to ContextSelect ([a84d057](https://github.com/dhis2/approval-app/commit/a84d0577612c1ffb790ca5227b2b2004c9f406c4))
+* remove empty comment ([912547d](https://github.com/dhis2/approval-app/commit/912547d538a5f5447e0f682baae2d11c58a98dec))
+* tweak approval status label loading animation ([76b18e1](https://github.com/dhis2/approval-app/commit/76b18e125b019a764dbd5650d56093b082b76dd2))
+* use 'UNAPPROVABLE' as default approval status ([4a7b6b3](https://github.com/dhis2/approval-app/commit/4a7b6b39fbb57bdee5c33c03e0809613269e0286))
+* use custom org unit tree checked styles ([d3ee0fe](https://github.com/dhis2/approval-app/commit/d3ee0fe939b308730e9a420bfedb16c23148c0f6))
+* use tooltip for FETCH_ERROR ([1d4ebd4](https://github.com/dhis2/approval-app/commit/1d4ebd44623147f020f104ad28da9271ccb96c22))
+* **org-unit-select:** allow period and workflow to be null ([1096354](https://github.com/dhis2/approval-app/commit/10963548054edab133ba8465ad2f944a64c79187))
+* **org-unit-select:** switch to data-engine so requests aren't cancelled ([02ebb44](https://github.com/dhis2/approval-app/commit/02ebb449a83ad80fa65164c1ebfa2fc65c3dbae2))
+
+
+### Features
+
+* add icon for approval status load error ([a30dfdd](https://github.com/dhis2/approval-app/commit/a30dfddba21da9b6bb9d5c19854ed90c0be3729a))
+* add loading icon for approval states ([b2d59c9](https://github.com/dhis2/approval-app/commit/b2d59c93c8bc3edb2a64e1a198e9b5b65ae34373))
+* add org-unit approval status context ([4975641](https://github.com/dhis2/approval-app/commit/497564143777af9803ef8254a5248bdeee841621))
+* add StatusIcon component ([e3e7ecd](https://github.com/dhis2/approval-app/commit/e3e7ecdee4d2cc63ae03fd297bb45894d8d09e99))
+* use status icons ([430c0c3](https://github.com/dhis2/approval-app/commit/430c0c3d7dd41a5b3c9e3ab56dccf964c47fde6d))
+
 ## [1.11.2](https://github.com/dhis2/approval-app/compare/v1.11.1...v1.11.2) (2021-08-18)
 
 
