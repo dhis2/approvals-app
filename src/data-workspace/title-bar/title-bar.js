@@ -2,12 +2,12 @@ import i18n from '@dhis2/d2-i18n'
 import { IconDimensionDataSet16 } from '@dhis2/ui'
 import React from 'react'
 import { useSelectionContext } from '../../selection-context/index.js'
-import { StatusTag } from '../../shared/approval-state/index.js'
+import { ApprovalStatusTag } from '../../shared/approval-status/index.js'
 import { useWorkflowContext } from '../../workflow-context/index.js'
 import styles from './title-bar.module.css'
 
 const TitleBar = () => {
-    const { approvalState } = useWorkflowContext()
+    const { approvalStatus } = useWorkflowContext()
     const { workflow } = useSelectionContext()
     const { dataSets, displayName: name } = workflow
     const dataSetsCount = dataSets.length
@@ -28,7 +28,7 @@ const TitleBar = () => {
                         dataSetsCount,
                     })}
             </span>
-            <StatusTag approvalState={approvalState} />
+            <ApprovalStatusTag approvalStatus={approvalStatus} />
         </div>
     )
 }

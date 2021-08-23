@@ -1,8 +1,8 @@
 import { colors } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { getApprovalStateDisplayData } from './get-approval-state.js'
-import classes from './status-icon.module.css'
+import classes from './approval-status-icon.module.css'
+import { getApprovalStatusDisplayData } from './get-approval-status.js'
 
 const getIconColorForType = type => {
     switch (type) {
@@ -17,12 +17,12 @@ const getIconColorForType = type => {
     }
 }
 
-const StatusIcon = ({ approvalState, showTitle }) => {
+const ApprovalStatusIcon = ({ approvalStatus, showTitle }) => {
     const {
         icon: Icon,
         displayName,
         type,
-    } = getApprovalStateDisplayData(approvalState)
+    } = getApprovalStatusDisplayData(approvalStatus)
 
     return (
         <span
@@ -34,12 +34,12 @@ const StatusIcon = ({ approvalState, showTitle }) => {
     )
 }
 
-StatusIcon.defaultProps = {
+ApprovalStatusIcon.defaultProps = {
     showTitle: true,
 }
 
-StatusIcon.propTypes = {
-    approvalState: PropTypes.oneOf([
+ApprovalStatusIcon.propTypes = {
+    approvalStatus: PropTypes.oneOf([
         'APPROVED_HERE',
         'APPROVED_ABOVE',
         'ACCEPTED_HERE',
@@ -51,4 +51,4 @@ StatusIcon.propTypes = {
     showTitle: PropTypes.bool,
 }
 
-export { StatusIcon }
+export { ApprovalStatusIcon }

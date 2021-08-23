@@ -1,5 +1,5 @@
 import React from 'react'
-import { StatusTag } from '../shared/index.js'
+import { ApprovalStatusTag } from '../shared/index.js'
 import { useWorkflowContext } from '../workflow-context/index.js'
 import { AcceptButton } from './accept-button/index.js'
 import { ApproveButton } from './approve-button/index.js'
@@ -9,7 +9,7 @@ import { UnacceptButton } from './unaccept-button/index.js'
 import { UnapproveButton } from './unapprove-button/index.js'
 
 const BottomBar = () => {
-    const { allowedActions, approvalState } = useWorkflowContext()
+    const { allowedActions, approvalStatus } = useWorkflowContext()
     const { mayAccept, mayApprove, mayUnaccept, mayUnapprove } = allowedActions
     const disableApproveBtn = !mayApprove && !mayUnapprove
 
@@ -17,7 +17,7 @@ const BottomBar = () => {
         <>
             <div className={styles.bottomBar}>
                 <BottomBarItem>
-                    <StatusTag approvalState={approvalState} />
+                    <ApprovalStatusTag approvalStatus={approvalStatus} />
                 </BottomBarItem>
 
                 {(mayApprove || disableApproveBtn) && (

@@ -2,8 +2,8 @@ import i18n from '@dhis2/d2-i18n'
 import { IconBlock16, IconError16 } from '@dhis2/ui'
 import { Approved, Ready, Waiting } from './icons.js'
 
-const getApprovalStateIcon = approvalState => {
-    switch (approvalState) {
+const getApprovalStatusIcon = approvalStatus => {
+    switch (approvalStatus) {
         case 'UNAPPROVED_READY':
         case 'ACCEPTED_HERE':
             return {
@@ -33,12 +33,12 @@ const getApprovalStateIcon = approvalState => {
                 type: 'negative',
             }
         default:
-            throw new Error(`Unknown approval state: '${approvalState}'`)
+            throw new Error(`Unknown approval status: '${approvalStatus}'`)
     }
 }
 
-const getApprovalStateText = approvalState => {
-    switch (approvalState) {
+const getApprovalStatusText = approvalStatus => {
+    switch (approvalStatus) {
         case 'UNAPPROVED_READY':
             return i18n.t('Ready for approval')
         case 'ACCEPTED_HERE':
@@ -55,15 +55,15 @@ const getApprovalStateText = approvalState => {
         case 'ERROR':
             return i18n.t('Could not retrieve approval status')
         default:
-            throw new Error(`Unknown approval state: '${approvalState}'`)
+            throw new Error(`Unknown approval status: '${approvalStatus}'`)
     }
 }
 
-const getApprovalStateDisplayData = approvalState => {
-    const displayName = getApprovalStateText(approvalState)
-    const { icon, type } = getApprovalStateIcon(approvalState)
+const getApprovalStatusDisplayData = approvalStatus => {
+    const displayName = getApprovalStatusText(approvalStatus)
+    const { icon, type } = getApprovalStatusIcon(approvalStatus)
 
     return { displayName, icon, type }
 }
 
-export { getApprovalStateDisplayData, getApprovalStateIcon }
+export { getApprovalStatusDisplayData }

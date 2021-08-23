@@ -64,7 +64,7 @@ describe('useWorkflowContext', () => {
                 allowedActions: {
                     canApprove: true,
                 },
-                approvalState: 'SOME_STATE_LABEL',
+                approvalStatus: 'SOME_STATE_LABEL',
             })
         )
     })

@@ -1,14 +1,14 @@
 import { Tag } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { getApprovalStateDisplayData } from './get-approval-state.js'
+import { getApprovalStatusDisplayData } from './get-approval-status.js'
 
-const StatusTag = ({ approvalState }) => {
+const ApprovalStatusTag = ({ approvalStatus }) => {
     const {
         icon: Icon,
         displayName,
         type,
-    } = getApprovalStateDisplayData(approvalState)
+    } = getApprovalStatusDisplayData(approvalStatus)
     const props = {
         [type]: true,
         icon: <Icon />,
@@ -17,8 +17,8 @@ const StatusTag = ({ approvalState }) => {
     return <Tag {...props}>{displayName}</Tag>
 }
 
-StatusTag.propTypes = {
-    approvalState: PropTypes.oneOf([
+ApprovalStatusTag.propTypes = {
+    approvalStatus: PropTypes.oneOf([
         'APPROVED_HERE',
         'APPROVED_ABOVE',
         'ACCEPTED_HERE',
@@ -29,4 +29,4 @@ StatusTag.propTypes = {
     ]),
 }
 
-export { StatusTag }
+export { ApprovalStatusTag }

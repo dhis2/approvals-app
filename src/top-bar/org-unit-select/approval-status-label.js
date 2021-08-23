@@ -3,7 +3,7 @@ import { IconWarning16, colors } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 import { useSelectionContext } from '../../selection-context/index.js'
-import { StatusIcon } from '../../shared/approval-state/index.js'
+import { ApprovalStatusIcon } from '../../shared/approval-status/index.js'
 import classes from './approval-status-label.module.css'
 import { useApprovalStatus } from './approval-statuses.js'
 
@@ -46,7 +46,7 @@ const ApprovalStatusLabel = ({ label, orgUnitId }) => {
     } else if (approvalStatus) {
         return (
             <div className={classes.container}>
-                <StatusIcon approvalState={approvalStatus} />
+                <ApprovalStatusIcon approvalStatus={approvalStatus} />
                 {label}
             </div>
         )
