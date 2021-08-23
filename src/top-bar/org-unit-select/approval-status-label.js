@@ -25,7 +25,12 @@ const ApprovalStatusLabel = ({ label, orgUnitId }) => {
     }, [])
 
     if (approvalStatus === 'LOADING') {
-        return label
+        return (
+            <div className={classes.container}>
+                <span className={classes.loadingIcon}></span>
+                {label}
+            </div>
+        )
     } else if (approvalStatus === 'FETCH_ERROR') {
         return (
             <div className={classes.container}>

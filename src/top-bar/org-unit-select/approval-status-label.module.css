@@ -8,3 +8,18 @@
 .iconContainer {
     display: inline-flex;
 }
+
+.loadingIcon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--colors-grey500);
+    border-radius: 50%;
+    animation: loading 2s infinite;
+}
+
+@keyframes loading {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}

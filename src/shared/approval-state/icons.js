@@ -50,10 +50,11 @@ const Waiting = ({ color }) => (
         xmlns="http://www.w3.org/2000/svg"
         color={color}
     >
-        <path d="M3 2H4H5H11H12H13V3H12V6.20711L10.2071 8L12 9.79289V13H13V14H12H11H5H4H3V13H4V9.79289L5.79289 8L4 6.20711V3H3V2ZM5 13H11V10.2071L8.79289 8L11 5.79289V3H5V5.79289L7.20711 8L5 10.2071V13Z"
-              fill="currentColor"
-              fillRule="evenodd"
-              clipRule="evenodd"
+        <path
+            d="M3 2H4H5H11H12H13V3H12V6.20711L10.2071 8L12 9.79289V13H13V14H12H11H5H4H3V13H4V9.79289L5.79289 8L4 6.20711V3H3V2ZM5 13H11V10.2071L8.79289 8L11 5.79289V3H5V5.79289L7.20711 8L5 10.2071V13Z"
+            fill="currentColor"
+            fillRule="evenodd"
+            clipRule="evenodd"
         />
     </svg>
 )
