@@ -45,15 +45,20 @@ const PeriodSelect = () => {
             onClose={() => setOpenedSelect('')}
             requiredValuesMessage={i18n.t('Choose a workflow first')}
         >
-            <YearNavigator
-                maxYear={maxYear}
-                year={year}
-                onYearChange={year => {
-                    selectPeriod(null)
-                    setYear(year)
-                }}
-            />
-            <PeriodMenu periodType={workflow?.periodType} year={year} />
+            {year && (
+                <>
+                    <YearNavigator
+                        maxYear={maxYear}
+                        year={year}
+                        onYearChange={year => {
+                            selectPeriod(null)
+                            setYear(year)
+                        }}
+                    />
+
+                    <PeriodMenu periodType={workflow?.periodType} year={year} />
+                </>
+            )}
         </ContextSelect>
     )
 }
