@@ -1,6 +1,12 @@
 import { IconBlock16, IconError16 } from '@dhis2/ui'
+// eslint-disable-next-line no-unused-vars
+import moment from 'moment'
 import { getApprovalStatusDisplayData } from './get-approval-status.js'
 import { Approved, Ready, Waiting } from './icons.js'
+
+jest.mock('moment', () => {
+    return () => jest.requireActual('moment')('2020-01-01T00:00:00.000Z')
+})
 
 describe('getApprovalStatusDisplayData', () => {
     it('returns the correct display data for approval status "UNAPPROVED_READY"', () => {
@@ -41,23 +47,55 @@ describe('getApprovalStatusDisplayData', () => {
             type: 'default',
         })
     })
-    it('returns the correct display data for approval status "APPROVED_HERE"', () => {
-        expect(
-            getApprovalStatusDisplayData({ approvalStatus: 'APPROVED_HERE' })
-        ).toEqual({
-            displayName: 'Approved',
-            icon: Approved,
-            type: 'positive',
-        })
-    })
-    it('returns the correct display data for approval status "APPROVED_ABOVE"', () => {
-        expect(
-            getApprovalStatusDisplayData({ approvalStatus: 'APPROVED_ABOVE' })
-        ).toEqual({
-            displayName: 'Approved',
-            icon: Approved,
-            type: 'positive',
-        })
+    describe('approved approval statuses "APPROVED_HERE" and "APPROVED_ABOVE"', () => {
+        for (const approvalStatus of ['APPROVED_HERE', 'APPROVED_ABOVE']) {
+            it(`returns the correct diplay data for ${approvalStatus} when only approvalStatus is supplied`, () => {
+                expect(
+                    getApprovalStatusDisplayData({ approvalStatus })
+                ).toEqual({
+                    displayName: 'Approved',
+                    icon: Approved,
+                    type: 'positive',
+                })
+            })
+            it(`returns the correct diplay data for ${approvalStatus} when approvalStatus and approvedBy are passed`, () => {
+                expect(
+                    getApprovalStatusDisplayData({
+                        approvalStatus,
+                        approvedBy: 'Hendrik',
+                    })
+                ).toEqual({
+                    displayName: 'Approved by Hendrik',
+                    icon: Approved,
+                    type: 'positive',
+                })
+            })
+            it(`returns the correct diplay data for ${approvalStatus} when approvalStatus and approvedAt are passed`, () => {
+                expect(
+                    getApprovalStatusDisplayData({
+                        approvalStatus,
+                        approvedAt: '2020-08-24T18:55:03.165Z',
+                    })
+                ).toEqual({
+                    displayName: 'Approved 2 years ago',
+                    icon: Approved,
+                    type: 'positive',
+                })
+            })
+            it(`returns the correct diplay data for ${approvalStatus} when only all options are passed`, () => {
+                expect(
+                    getApprovalStatusDisplayData({
+                        approvalStatus,
+                        approvedBy: 'Hendrik',
+                        approvedAt: '2020-08-24T18:55:03.165Z',
+                    })
+                ).toEqual({
+                    displayName: 'Approved by Hendrik 2 years ago',
+                    icon: Approved,
+                    type: 'positive',
+                })
+            })
+        }
     })
     it('returns the correct display data for approval status "UNAPPROVABLE"', () => {
         expect(
