@@ -35,6 +35,7 @@ const PeriodSelect = () => {
 
     return (
         <ContextSelect
+            dataTest="period-context-select"
             prefix={i18n.t('Period')}
             placeholder={i18n.t('Choose a period')}
             value={value}

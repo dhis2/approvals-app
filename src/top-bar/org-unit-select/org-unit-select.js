@@ -33,6 +33,7 @@ const OrgUnitSelect = () => {
 
     return (
         <ContextSelect
+            dataTest="org-unit-context-select"
             prefix={i18n.t('Organisation Unit')}
             placeholder={i18n.t('Choose an organisation unit')}
             value={value}

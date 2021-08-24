@@ -11,6 +11,7 @@ import classes from './context-select.module.css'
 
 const ContextSelect = ({
     children,
+    dataTest,
     prefix,
     placeholder,
     value,
@@ -29,9 +30,10 @@ const ContextSelect = ({
             className={classes.button}
             onClick={onOpen}
             disabled={disabled}
+            data-test={`${dataTest}-button`}
         >
             <span className={classes.prefix}>{prefix}</span>
-            <span className={classes.value}>
+            <span className={classes.value} data-test="value">
                 {value || (!disabled && placeholder)}
             </span>
             <Icon color={disabled ? colors.grey600 : undefined} />
@@ -63,6 +65,7 @@ const ContextSelect = ({
                     placement="bottom-end"
                     onClickOutside={onClose}
                     maxWidth={popoverMaxWidth}
+                    dataTest={`${dataTest}-popover`}
                 >
                     {children}
                 </Popover>
@@ -73,6 +76,7 @@ const ContextSelect = ({
 
 ContextSelect.propTypes = {
     children: PropTypes.node.isRequired,
+    dataTest: PropTypes.string.isRequired,
     placeholder: PropTypes.string.isRequired,
     prefix: PropTypes.string.isRequired,
     onClose: PropTypes.func.isRequired,

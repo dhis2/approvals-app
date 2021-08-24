@@ -15,7 +15,7 @@ const BottomBar = () => {
 
     return (
         <>
-            <div className={styles.bottomBar}>
+            <div className={styles.bottomBar} data-test="bottom-bar">
                 <BottomBarItem>
                     <ApprovalStatusTag approvalStatus={approvalStatus} />
                 </BottomBarItem>
