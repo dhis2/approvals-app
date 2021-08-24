@@ -29,7 +29,12 @@ const PeriodSelect = () => {
 
     useEffect(() => {
         if (workflow?.periodType) {
-            setMaxYear(computeMaxYear(workflow?.periodType))
+            const newMaxYear = computeMaxYear(workflow?.periodType)
+            setMaxYear(newMaxYear)
+
+            if (!period?.year) {
+                setYear(newMaxYear)
+            }
         }
     }, [workflow?.periodType])
 
