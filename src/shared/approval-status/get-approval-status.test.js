@@ -4,64 +4,82 @@ import { Approved, Ready, Waiting } from './icons.js'
 
 describe('getApprovalStatusDisplayData', () => {
     it('returns the correct display data for approval status "UNAPPROVED_READY"', () => {
-        expect(getApprovalStatusDisplayData('UNAPPROVED_READY')).toEqual({
+        expect(
+            getApprovalStatusDisplayData({ approvalStatus: 'UNAPPROVED_READY' })
+        ).toEqual({
             displayName: 'Ready for approval',
             icon: Ready,
             type: 'neutral',
         })
     })
     it('returns the correct display data for approval status "ACCEPTED_HERE"', () => {
-        expect(getApprovalStatusDisplayData('ACCEPTED_HERE')).toEqual({
+        expect(
+            getApprovalStatusDisplayData({ approvalStatus: 'ACCEPTED_HERE' })
+        ).toEqual({
             displayName: 'Ready for approval — Accepted',
             icon: Ready,
             type: 'neutral',
         })
     })
     it('returns the correct display data for approval status "UNAPPROVED_WAITING"', () => {
-        expect(getApprovalStatusDisplayData('UNAPPROVED_WAITING')).toEqual({
+        expect(
+            getApprovalStatusDisplayData({
+                approvalStatus: 'UNAPPROVED_WAITING',
+            })
+        ).toEqual({
             displayName: 'Waiting for lower level approval',
             icon: Waiting,
             type: 'default',
         })
     })
     it('returns the correct display data for approval status "UNAPPROVED_ABOVE"', () => {
-        expect(getApprovalStatusDisplayData('UNAPPROVED_ABOVE')).toEqual({
+        expect(
+            getApprovalStatusDisplayData({ approvalStatus: 'UNAPPROVED_ABOVE' })
+        ).toEqual({
             displayName: 'Waiting for higher level approval',
             icon: Waiting,
             type: 'default',
         })
     })
     it('returns the correct display data for approval status "APPROVED_HERE"', () => {
-        expect(getApprovalStatusDisplayData('APPROVED_HERE')).toEqual({
+        expect(
+            getApprovalStatusDisplayData({ approvalStatus: 'APPROVED_HERE' })
+        ).toEqual({
             displayName: 'Approved',
             icon: Approved,
             type: 'positive',
         })
     })
     it('returns the correct display data for approval status "APPROVED_ABOVE"', () => {
-        expect(getApprovalStatusDisplayData('APPROVED_ABOVE')).toEqual({
+        expect(
+            getApprovalStatusDisplayData({ approvalStatus: 'APPROVED_ABOVE' })
+        ).toEqual({
             displayName: 'Approved',
             icon: Approved,
             type: 'positive',
         })
     })
     it('returns the correct display data for approval status "UNAPPROVABLE"', () => {
-        expect(getApprovalStatusDisplayData('UNAPPROVABLE')).toEqual({
+        expect(
+            getApprovalStatusDisplayData({ approvalStatus: 'UNAPPROVABLE' })
+        ).toEqual({
             displayName: 'Cannot be approved',
             icon: IconBlock16,
             type: 'negative',
         })
     })
     it('returns the correct display data for approval status "ERROR"', () => {
-        expect(getApprovalStatusDisplayData('ERROR')).toEqual({
+        expect(
+            getApprovalStatusDisplayData({ approvalStatus: 'ERROR' })
+        ).toEqual({
             displayName: 'Could not retrieve approval status',
             icon: IconError16,
             type: 'negative',
         })
     })
     it('throws an error when encountering an unknown approval status', () => {
-        expect(() => getApprovalStatusDisplayData('bad input')).toThrow(
-            "Unknown approval status: 'bad input'"
-        )
+        expect(() =>
+            getApprovalStatusDisplayData({ approvalStatus: 'bad input' })
+        ).toThrow("Unknown approval status: 'bad input'")
     })
 })

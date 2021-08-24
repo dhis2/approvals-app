@@ -22,7 +22,7 @@ const ApprovalStatusIcon = ({ approvalStatus, showTitle }) => {
         icon: Icon,
         displayName,
         type,
-    } = getApprovalStatusDisplayData(approvalStatus)
+    } = getApprovalStatusDisplayData({ approvalStatus })
 
     return (
         <span
