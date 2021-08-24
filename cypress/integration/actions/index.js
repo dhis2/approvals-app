@@ -1,31 +1,14 @@
 import '../common/index.js'
 import {
-    Given,
     When,
     Then,
     defineParameterType,
 } from 'cypress-cucumber-preprocessor/steps'
 
-const statuses = [
-    'Ready for approval',
-    'Approved',
-    'Ready for approval — Accepted',
-]
-defineParameterType({
-    name: 'status',
-    regexp: new RegExp(statuses.join('|')),
-})
-
 const buttonLabels = ['Approve', 'Accept', 'Unapprove', 'Unaccept']
 defineParameterType({
     name: 'buttonLabel',
     regexp: new RegExp(buttonLabels.join('|')),
-})
-
-Given('the status tag indicates this data is {status}', status => {
-    cy.get('[data-test="bottom-bar"]')
-        .find('[data-test="dhis2-uicore-tag-text"]')
-        .should('have.text', status)
 })
 
 When('the user clicks the {buttonLabel} button', buttonLabel => {
