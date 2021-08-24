@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import { ApprovalStatusTag } from './approval-status-tag.js'
 
-describe('<ClearAllButton>', () => {
+describe('<ApprovalStatusTag>', () => {
     it('renders a tag for non-approved approvalStatuses', () => {
         const wrapper = shallow(
             <ApprovalStatusTag approvalStatus="UNAPPROVED_READY" />
