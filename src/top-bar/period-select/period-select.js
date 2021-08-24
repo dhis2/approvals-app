@@ -29,7 +29,12 @@ const PeriodSelect = () => {
 
     useEffect(() => {
         if (workflow?.periodType) {
-            setMaxYear(computeMaxYear(workflow?.periodType))
+            const newMaxYear = computeMaxYear(workflow?.periodType)
+            setMaxYear(newMaxYear)
+
+            if (!period?.year) {
+                setYear(newMaxYear)
+            }
         }
     }, [workflow?.periodType])
 
@@ -45,15 +50,20 @@ const PeriodSelect = () => {
             onClose={() => setOpenedSelect('')}
             requiredValuesMessage={i18n.t('Choose a workflow first')}
         >
-            <YearNavigator
-                maxYear={maxYear}
-                year={year}
-                onYearChange={year => {
-                    selectPeriod(null)
-                    setYear(year)
-                }}
-            />
-            <PeriodMenu periodType={workflow?.periodType} year={year} />
+            {year && (
+                <>
+                    <YearNavigator
+                        maxYear={maxYear}
+                        year={year}
+                        onYearChange={year => {
+                            selectPeriod(null)
+                            setYear(year)
+                        }}
+                    />
+
+                    <PeriodMenu periodType={workflow?.periodType} year={year} />
+                </>
+            )}
         </ContextSelect>
     )
 }

@@ -75,12 +75,12 @@ const ContextSelect = ({
 }
 
 ContextSelect.propTypes = {
-    children: PropTypes.node.isRequired,
     dataTest: PropTypes.string.isRequired,
     placeholder: PropTypes.string.isRequired,
     prefix: PropTypes.string.isRequired,
     onClose: PropTypes.func.isRequired,
     onOpen: PropTypes.func.isRequired,
+    children: PropTypes.node,
     disabled: PropTypes.bool,
     open: PropTypes.bool,
     popoverMaxWidth: PropTypes.number,
