@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/dhis2/approval-app/compare/v1.12.0...v1.13.0) (2021-08-24)
+
+
+### Features
+
+* add custom app icon ([05c2923](https://github.com/dhis2/approval-app/commit/05c292322aae25c1cfe5183759657dbfe2df5a99))
+
 # [1.12.0](https://github.com/dhis2/approval-app/compare/v1.11.2...v1.12.0) (2021-08-23)
 
 
