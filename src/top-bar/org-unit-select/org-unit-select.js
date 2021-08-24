@@ -60,7 +60,7 @@ const OrgUnitSelect = () => {
                         )}
                     />
                 </div>
-                <Divider margin={0} />
+                <Divider margin="0" />
                 <ApprovalStatusIconsLegend />
             </div>
         </ContextSelect>

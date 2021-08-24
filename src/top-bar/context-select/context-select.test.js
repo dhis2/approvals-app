@@ -16,6 +16,7 @@ describe('<ContextSelect>', () => {
         value: 'value',
         onClose: () => {},
         onOpen: () => {},
+        dataTest: 'context-select',
     }
     describe('base state - not open or disabled', () => {
         const onOpen = jest.fn()
