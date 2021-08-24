@@ -1,3 +1,10 @@
+## [1.13.1](https://github.com/dhis2/approval-app/compare/v1.13.0...v1.13.1) (2021-08-24)
+
+
+### Bug Fixes
+
+* **period-select:** update when periodType changes ([#61](https://github.com/dhis2/approval-app/issues/61)) ([ab91327](https://github.com/dhis2/approval-app/commit/ab91327b0b101f269bb6dc623a31530e17733ec8))
+
 # [1.13.0](https://github.com/dhis2/approval-app/compare/v1.12.0...v1.13.0) (2021-08-24)
 
 
