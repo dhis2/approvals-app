@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/dhis2/approval-app/compare/v1.13.1...v1.14.0) (2021-08-25)
+
+
+### Features
+
+* **status-tag:** show user and date/time if approved ([#62](https://github.com/dhis2/approval-app/issues/62)) ([9f76cf0](https://github.com/dhis2/approval-app/commit/9f76cf08d45d8c1cbda45f748bd89570cf5f3d15))
+
 ## [1.13.1](https://github.com/dhis2/approval-app/compare/v1.13.0...v1.13.1) (2021-08-24)
 
 
