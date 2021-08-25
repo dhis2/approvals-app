@@ -9,7 +9,8 @@ import { UnacceptButton } from './unaccept-button/index.js'
 import { UnapproveButton } from './unapprove-button/index.js'
 
 const BottomBar = () => {
-    const { allowedActions, approvalStatus } = useWorkflowContext()
+    const { allowedActions, approvalStatus, approvedBy, approvedAt } =
+        useWorkflowContext()
     const { mayAccept, mayApprove, mayUnaccept, mayUnapprove } = allowedActions
     const disableApproveBtn = !mayApprove && !mayUnapprove
 
@@ -17,7 +18,11 @@ const BottomBar = () => {
         <>
             <div className={styles.bottomBar} data-test="bottom-bar">
                 <BottomBarItem>
-                    <ApprovalStatusTag approvalStatus={approvalStatus} />
+                    <ApprovalStatusTag
+                        approvalStatus={approvalStatus}
+                        approvedBy={approvedBy}
+                        approvedAt={approvedAt}
+                    />
                 </BottomBarItem>
 
                 {(mayApprove || disableApproveBtn) && (

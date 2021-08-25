@@ -49,5 +49,5 @@ defineParameterType({
 Then('the status tag shows the approval status "{status}"', status => {
     cy.get('[data-test="bottom-bar"]')
         .find('[data-test="dhis2-uicore-tag-text"]')
-        .should('have.text', status)
+        .should('contain.text', status)
 })

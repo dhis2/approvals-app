@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-08-17T21:15:20.392Z\n"
-"PO-Revision-Date: 2021-08-17T21:15:20.392Z\n"
+"POT-Creation-Date: 2021-08-25T07:18:46.070Z\n"
+"PO-Revision-Date: 2021-08-25T07:18:46.070Z\n"
 
 msgid "Not authorized"
 msgstr "Not authorized"
@@ -106,6 +106,21 @@ msgstr "1 data set"
 msgid "{{dataSetsCount}} data sets"
 msgstr "{{dataSetsCount}} data sets"
 
+msgid "Approved {{- dateTimeStr}}"
+msgstr "Approved {{- dateTimeStr}}"
+
+msgid "Approved by {{- name}} {{timeAgo}}"
+msgstr "Approved by {{- name}} {{timeAgo}}"
+
+msgid "Approved {{timeAgo}}"
+msgstr "Approved {{timeAgo}}"
+
+msgid "Approved by {{- name}}"
+msgstr "Approved by {{- name}}"
+
+msgid "Approved"
+msgstr "Approved"
+
 msgid "Ready for approval"
 msgstr "Ready for approval"
 
@@ -117,9 +132,6 @@ msgstr "Waiting for lower level approval"
 
 msgid "Waiting for higher level approval"
 msgstr "Waiting for higher level approval"
-
-msgid "Approved"
-msgstr "Approved"
 
 msgid "Cannot be approved"
 msgstr "Cannot be approved"

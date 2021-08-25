@@ -7,7 +7,7 @@ import { useWorkflowContext } from '../../workflow-context/index.js'
 import styles from './title-bar.module.css'
 
 const TitleBar = () => {
-    const { approvalStatus } = useWorkflowContext()
+    const { approvalStatus, approvedBy, approvedAt } = useWorkflowContext()
     const { workflow } = useSelectionContext()
     const { dataSets, displayName: name } = workflow
     const dataSetsCount = dataSets.length
@@ -28,7 +28,11 @@ const TitleBar = () => {
                         dataSetsCount,
                     })}
             </span>
-            <ApprovalStatusTag approvalStatus={approvalStatus} />
+            <ApprovalStatusTag
+                approvalStatus={approvalStatus}
+                approvedBy={approvedBy}
+                approvedAt={approvedAt}
+            />
         </div>
     )
 }

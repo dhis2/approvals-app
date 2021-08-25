@@ -1,5 +1,6 @@
 import i18n from '@dhis2/d2-i18n'
 import { IconBlock16, IconError16 } from '@dhis2/ui'
+import moment from 'moment'
 import { Approved, Ready, Waiting } from './icons.js'
 
 const getApprovalStatusIcon = approvalStatus => {
@@ -37,7 +38,21 @@ const getApprovalStatusIcon = approvalStatus => {
     }
 }
 
-const getApprovalStatusText = approvalStatus => {
+const getApprovedStatusText = ({ approvedAt, approvedBy: name }) => {
+    if (approvedAt) {
+        const timeAgo = moment(approvedAt).fromNow()
+
+        return name
+            ? i18n.t('Approved by {{- name}} {{timeAgo}}', { name, timeAgo })
+            : i18n.t('Approved {{timeAgo}}', { timeAgo })
+    }
+
+    return name
+        ? i18n.t('Approved by {{- name}}', { name })
+        : i18n.t('Approved')
+}
+
+const getApprovalStatusText = ({ approvalStatus, approvedAt, approvedBy }) => {
     switch (approvalStatus) {
         case 'UNAPPROVED_READY':
             return i18n.t('Ready for approval')
@@ -49,7 +64,7 @@ const getApprovalStatusText = approvalStatus => {
             return i18n.t('Waiting for higher level approval')
         case 'APPROVED_HERE':
         case 'APPROVED_ABOVE':
-            return i18n.t('Approved')
+            return getApprovedStatusText({ approvedAt, approvedBy })
         case 'UNAPPROVABLE':
             return i18n.t('Cannot be approved')
         case 'ERROR':
@@ -59,11 +74,22 @@ const getApprovalStatusText = approvalStatus => {
     }
 }
 
-const getApprovalStatusDisplayData = approvalStatus => {
-    const displayName = getApprovalStatusText(approvalStatus)
+const isApproved = approvalStatus =>
+    approvalStatus === 'APPROVED_HERE' || approvalStatus === 'APPROVED_ABOVE'
+
+const getApprovalStatusDisplayData = ({
+    approvalStatus,
+    approvedAt,
+    approvedBy,
+}) => {
+    const displayName = getApprovalStatusText({
+        approvalStatus,
+        approvedAt,
+        approvedBy,
+    })
     const { icon, type } = getApprovalStatusIcon(approvalStatus)
 
     return { displayName, icon, type }
 }
 
-export { getApprovalStatusDisplayData }
+export { getApprovalStatusDisplayData, isApproved }
