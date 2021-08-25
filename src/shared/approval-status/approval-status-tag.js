@@ -25,7 +25,7 @@ const ApprovalStatusTag = ({ approvalStatus, approvedAt, approvedBy }) => {
         return tag
     }
 
-    const dateTimeStr = moment(approvedAt).format('YYYY/MM/DD HH:MM')
+    const dateTimeStr = moment(approvedAt).format('LLL')
     const tooltipContent = i18n.t('Approved {{- dateTimeStr}}', { dateTimeStr })
 
     return <Tooltip content={tooltipContent}>{tag}</Tooltip>
