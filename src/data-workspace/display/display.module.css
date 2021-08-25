@@ -49,3 +49,6 @@
     cursor: pointer;
     text-decoration: underline;
 }
+.nonDefaultFormWarning {
+    margin-bottom: var(--spacers-dp12);
+}

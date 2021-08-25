@@ -15,12 +15,21 @@ describe('<Display>', () => {
         displayName: 'Mortality < 5 years',
         id: 'pBOMPrpg1QX',
         periodType: 'Monthly',
+        formType: 'DEFAULT',
     }
 
     const dataSetTwo = {
         displayName: 'Mortality > 4 years',
         id: 'pBOMPrpg1QZ',
         periodType: 'Monthly',
+        formType: 'DEFAULT',
+    }
+
+    const dataSetThree = {
+        displayName: 'I have a custom formType',
+        id: 'custom',
+        periodType: 'Monthly',
+        formType: 'HTML',
     }
 
     it('asks the user to select a data set if none is selected', () => {
@@ -271,5 +280,70 @@ describe('<Display>', () => {
         await waitForElementToBeRemoved(() => screen.getByRole('progressbar'))
 
         expect(await screen.findAllByRole('table')).toHaveLength(3)
+        expect(
+            await screen.queryByText(
+                /This data set does not use a default form. The data is displayed as a simple grid below, but this might not be a suitable representation..*/
+            )
+        ).not.toBeInTheDocument()
+    })
+    it('renders a notification above the tables if the selected dataset does not use a default form type', async () => {
+        const data = {
+            dataSetReport: [
+                {
+                    title: 'Data set 1',
+                    headers: [{ name: 'Header 1' }, { name: 'Header 2' }],
+                    rows: [],
+                },
+                {
+                    title: 'Data set 2',
+                    headers: [{ name: 'Header 1' }, { name: 'Header 2' }],
+                    rows: [],
+                },
+                {
+                    title: 'Data set 3',
+                    headers: [{ name: 'Header 1' }, { name: 'Header 2' }],
+                    rows: [],
+                },
+            ],
+        }
+        render(
+            <CustomDataProvider data={data}>
+                <SelectionContext.Provider
+                    value={{
+                        orgUnit: {
+                            id: 'ou-2',
+                            path: '/ou-2',
+                            displayName: 'Org unit 2',
+                        },
+                        period: {
+                            displayName: 'January 2021',
+                            startDate: '2021-01-01',
+                            endDate: '2021-01-31',
+                            year: 2021,
+                            iso: '202101',
+                            id: '202101',
+                        },
+                        workflow: {
+                            dataSets: [dataSetOne, dataSetTwo, dataSetThree],
+                            dataApprovalLevels: [],
+                            displayName: 'Workflow 1',
+                            periodType: 'Monthly',
+                            id: 'foo',
+                        },
+                    }}
+                >
+                    <Display dataSetId={dataSetThree.id} />
+                </SelectionContext.Provider>
+            </CustomDataProvider>
+        )
+
+        await waitForElementToBeRemoved(() => screen.getByRole('progressbar'))
+
+        expect(await screen.findAllByRole('table')).toHaveLength(3)
+        expect(
+            await screen.getByText(
+                /This data set does not use a default form. The data is displayed as a simple grid below, but this might not be a suitable representation..*/
+            )
+        ).toBeInTheDocument()
     })
 })
