@@ -38,18 +38,18 @@ const getApprovalStatusIcon = approvalStatus => {
     }
 }
 
-const getApprovedStatusText = ({ approvedAt, approvedBy }) => {
-    const approvedMsg = approvedBy
-        ? i18n.t('Approved by {{approvedBy}}', { approvedBy })
-        : i18n.t('Approved')
+const getApprovedStatusText = ({ approvedAt, approvedBy: name }) => {
+    if (approvedAt) {
+        const timeAgo = moment(approvedAt).fromNow()
 
-    if (!approvedAt) {
-        return approvedMsg
+        return name
+            ? i18n.t('Approved by {{- name}} {{timeAgo}}', { name, timeAgo })
+            : i18n.t('Approved {{timeAgo}}', { timeAgo })
     }
 
-    const approvedAtMsg = moment(approvedAt).fromNow()
-
-    return `${approvedMsg} ${approvedAtMsg}`
+    return name
+        ? i18n.t('Approved by {{- name}}', { name })
+        : i18n.t('Approved')
 }
 
 const getApprovalStatusText = ({ approvalStatus, approvedAt, approvedBy }) => {
