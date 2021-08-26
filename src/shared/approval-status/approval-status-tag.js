@@ -19,7 +19,11 @@ const ApprovalStatusTag = ({ approvalStatus, approvedAt, approvedBy }) => {
         icon: <Icon />,
     }
     const shouldRenderTooltip = isApproved(approvalStatus) && approvedAt
-    const tag = <Tag {...props}>{displayName}</Tag>
+    const tag = (
+        <Tag {...props} maxWidth="auto">
+            {displayName}
+        </Tag>
+    )
 
     if (!shouldRenderTooltip) {
         return tag
