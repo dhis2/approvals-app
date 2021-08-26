@@ -8,6 +8,7 @@
     min-height: 40px;
     border-right: 1px solid var(--colors-grey400);
     cursor: pointer;
+    user-select: none;
 }
 .prefix {
     color: var(--colors-grey600);
