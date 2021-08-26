@@ -18,14 +18,13 @@ Then('the user has workflow "Mortality < 5 years" preselected', () => {
 When('the user selects period "Februari 2021"', () => {
     cy.get('[data-test="period-context-select-button"]').click()
     cy.get('[data-test="period-context-select-popover"]')
-        .contains('February 2021')
+        .contains('March 2021')
         .click()
 })
 
 When('the user selects organisation unit "Badjia"', () => {
     cy.get('[data-test="org-unit-context-select-button"]').click()
 
-    cy.openOrgUnitNodeByName('Sierra Leone')
     cy.openOrgUnitNodeByName('Bo')
 
     cy.get('[data-test="org-unit-context-select-popover"]')

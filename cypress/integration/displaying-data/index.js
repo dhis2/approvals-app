@@ -23,7 +23,6 @@ When('the user selects organisation unit "Sierra Leone"', () => {
 
 When('the user selects organisation unit "Bo"', () => {
     cy.get('[data-test="org-unit-context-select-button"]').click()
-    cy.openOrgUnitNodeByName('Sierra Leone')
     cy.get('[data-test="org-unit-context-select-popover"]')
         .contains('Bo')
         .click()
@@ -31,7 +30,6 @@ When('the user selects organisation unit "Bo"', () => {
 
 When('the user selects organisation unit "Baoma Station CHP"', () => {
     cy.get('[data-test="org-unit-context-select-button"]').click()
-    cy.openOrgUnitNodeByName('Sierra Leone')
     cy.openOrgUnitNodeByName('Bo')
     cy.openOrgUnitNodeByName('Baoma')
     cy.get('[data-test="org-unit-context-select-popover"]')
