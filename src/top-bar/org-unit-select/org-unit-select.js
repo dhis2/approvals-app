@@ -30,7 +30,8 @@ const OrgUnitSelect = () => {
         selectOrgUnit({ displayName, id, path })
     }
     const selectedOrgUnitPath = orgUnit?.path ? [orgUnit.path] : undefined
-    const initiallySelected = selectedOrgUnitPath || organisationUnits.map(({ path }) => path)
+    const initiallySelected =
+        selectedOrgUnitPath || organisationUnits.map(({ path }) => path)
 
     return (
         <ContextSelect
