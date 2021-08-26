@@ -38,6 +38,7 @@ const mockWorkflows = [
 const mockOrgUnitRoots = [
     {
         id: 'ImspTQPwCqd',
+        path: '/ImspTQPwCqd',
         displayName: 'Sierra Leone',
     },
 ]
