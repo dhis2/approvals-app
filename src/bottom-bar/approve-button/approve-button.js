@@ -22,7 +22,9 @@ const ApproveButton = ({ disabled }) => {
     }
 
     // api
-    const { show: showApprovalSuccess } = useAlert(i18n.t('Approval saved'))
+    const { show: showApprovalSuccess } = useAlert(i18n.t('Approval saved'), {
+        success: true,
+    })
     const [approveData, { loading, error: approveError }] = useApproveData({
         onComplete: () => {
             showApprovalSuccess()
