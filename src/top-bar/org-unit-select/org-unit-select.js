@@ -30,6 +30,7 @@ const OrgUnitSelect = () => {
         selectOrgUnit({ displayName, id, path })
     }
     const selectedOrgUnitPath = orgUnit?.path ? [orgUnit.path] : undefined
+    const initiallySelected = selectedOrgUnitPath || organisationUnits.map(({ path }) => path)
 
     return (
         <ContextSelect
@@ -49,7 +50,7 @@ const OrgUnitSelect = () => {
                     <OrganisationUnitTree
                         roots={roots}
                         onChange={onChange}
-                        initiallyExpanded={selectedOrgUnitPath}
+                        initiallyExpanded={initiallySelected}
                         selected={selectedOrgUnitPath}
                         singleSelection
                         renderNodeLabel={({ label, node }) => (

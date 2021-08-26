@@ -9,7 +9,7 @@ const query = {
     me: {
         resource: 'me',
         params: {
-            fields: ['authorities', 'organisationUnits'],
+            fields: ['authorities', 'organisationUnits[id,path]'],
         },
     },
     dataApprovalWorkflows: {
