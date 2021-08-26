@@ -26,8 +26,8 @@ const ApproveButton = ({ disabled }) => {
     const [approveData, { loading, error: approveError }] = useApproveData({
         onComplete: () => {
             showApprovalSuccess()
-            refresh()
             hideApprovalDialog()
+            refresh()
         },
         onError: e => setUnexpectedError(e),
     })
