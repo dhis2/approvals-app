@@ -1,3 +1,11 @@
+# [1.14.0](https://github.com/dhis2/approval-app/compare/v1.13.1...v1.14.0) (2021-08-26)
+
+
+### Features
+
+* **data-workspace:** show notification for non-default form types ([#65](https://github.com/dhis2/approval-app/issues/65)) ([a50ba16](https://github.com/dhis2/approval-app/commit/a50ba165277fe18f6d4349839a2711398cea4d9d))
+* **status-tag:** show user and date/time if approved ([#62](https://github.com/dhis2/approval-app/issues/62)) ([9f76cf0](https://github.com/dhis2/approval-app/commit/9f76cf08d45d8c1cbda45f748bd89570cf5f3d15))
+
 # [1.14.0](https://github.com/dhis2/approval-app/compare/v1.13.1...v1.14.0) (2021-08-25)
 
 
