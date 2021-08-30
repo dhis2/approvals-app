@@ -34,7 +34,7 @@
         "start-server-and-test": "^1.13.1"
     },
     "dependencies": {
-        "@dhis2/app-runtime": "^2.8.0",
+        "@dhis2/app-runtime": "^2.10.0",
         "@dhis2/ui": "^6.18.1",
         "history": "^5.0.1",
         "prop-types": "^15.7.2",
