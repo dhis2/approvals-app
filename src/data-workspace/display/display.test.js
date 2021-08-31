@@ -286,6 +286,7 @@ describe('<Display>', () => {
             )
         ).not.toBeInTheDocument()
     })
+
     it('renders a notification above the tables if the selected dataset does not use a default form type', async () => {
         const data = {
             dataSetReport: [
@@ -342,7 +343,7 @@ describe('<Display>', () => {
         expect(await screen.findAllByRole('table')).toHaveLength(3)
         expect(
             await screen.getByText(
-                /This data set does not use a default form. The data is displayed as a simple grid below, but this might not be a suitable representation..*/
+                /This data set uses a custom form, which isn't supported in this app.+/
             )
         ).toBeInTheDocument()
     })
