@@ -139,7 +139,7 @@ const Display = ({ dataSetId }) => {
                         <br />
                         {/* TODO: Add link to legacy app once available */}
                         {i18n.t(
-                            "The data is displayed in the default form below. To continue using custom forms, use the Data Approval legacy app."
+                            'The data is displayed in the default form below. To continue using custom forms, use the Data Approval legacy app.'
                         )}
                     </p>
                 </NoticeBox>

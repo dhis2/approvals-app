@@ -28,9 +28,7 @@ const Table = ({ title, columns, rows }) => (
     <>
         <DataTable className={styles.dataTable}>
             <TableHead>
-                <DataTableToolbar>
-                    {title}
-                </DataTableToolbar>
+                <DataTableToolbar>{title}</DataTableToolbar>
                 <DataTableRow>
                     {columns.map(column => (
                         <DataTableColumnHeader key={column}>
@@ -45,10 +43,14 @@ const Table = ({ title, columns, rows }) => (
 
                     return (
                         <DataTableRow key={index}>
-                            <DataTableCell className={styles.labelCell}>{firstCell}</DataTableCell>
+                            <DataTableCell className={styles.labelCell}>
+                                {firstCell}
+                            </DataTableCell>
 
                             {cells.map((value, index) => (
-                                <DataTableCell key={index}>{value}</DataTableCell>
+                                <DataTableCell key={index}>
+                                    {value}
+                                </DataTableCell>
                             ))}
                         </DataTableRow>
                     )
