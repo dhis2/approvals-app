@@ -38,9 +38,9 @@ const getApprovalStatusIcon = approvalStatus => {
     }
 }
 
-const getApprovedStatusText = ({ approvedAt, approvedBy: name }) => {
-    if (approvedAt) {
-        const timeAgo = moment(approvedAt).fromNow()
+const getApprovedStatusText = ({ approvalDateTime, approvedBy: name }) => {
+    if (approvalDateTime) {
+        const timeAgo = moment(approvalDateTime).fromNow()
 
         return name
             ? i18n.t('Approved by {{- name}} {{timeAgo}}', { name, timeAgo })
@@ -52,7 +52,11 @@ const getApprovedStatusText = ({ approvedAt, approvedBy: name }) => {
         : i18n.t('Approved')
 }
 
-const getApprovalStatusText = ({ approvalStatus, approvedAt, approvedBy }) => {
+const getApprovalStatusText = ({
+    approvalStatus,
+    approvalDateTime,
+    approvedBy,
+}) => {
     switch (approvalStatus) {
         case 'UNAPPROVED_READY':
             return i18n.t('Ready for approval')
@@ -64,7 +68,7 @@ const getApprovalStatusText = ({ approvalStatus, approvedAt, approvedBy }) => {
             return i18n.t('Waiting for higher level approval')
         case 'APPROVED_HERE':
         case 'APPROVED_ABOVE':
-            return getApprovedStatusText({ approvedAt, approvedBy })
+            return getApprovedStatusText({ approvalDateTime, approvedBy })
         case 'UNAPPROVABLE':
             return i18n.t('Cannot be approved')
         case 'ERROR':
@@ -79,12 +83,12 @@ const isApproved = approvalStatus =>
 
 const getApprovalStatusDisplayData = ({
     approvalStatus,
-    approvedAt,
+    approvalDateTime,
     approvedBy,
 }) => {
     const displayName = getApprovalStatusText({
         approvalStatus,
-        approvedAt,
+        approvalDateTime,
         approvedBy,
     })
     const { icon, type } = getApprovalStatusIcon(approvalStatus)
