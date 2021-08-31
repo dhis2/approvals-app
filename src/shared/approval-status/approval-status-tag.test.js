@@ -7,8 +7,8 @@ import { ApprovalStatusTag } from './approval-status-tag.js'
 jest.mock('@dhis2/app-runtime', () => ({
     useConfig: jest.fn(() => ({
         systemInfo: {
-            serverTimeZoneId: 'Etc/UTC'
-        }
+            serverTimeZoneId: 'Etc/UTC',
+        },
     })),
 }))
 
