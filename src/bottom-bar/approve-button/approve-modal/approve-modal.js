@@ -14,7 +14,7 @@ import { useSelectionContext } from '../../../selection-context/index.js'
 import styles from './approve-modal.module.css'
 
 const ApproveModal = ({ onApprove, onCancel, error }) => {
-    const { workflow, period } = useSelectionContext()
+    const { workflow } = useSelectionContext()
     const { dataSets } = workflow
     const count = dataSets.length
 
@@ -31,20 +31,12 @@ const ApproveModal = ({ onApprove, onCancel, error }) => {
                     <h1 className={styles.summaryTitle}>
                         {count > 1
                             ? i18n.t(
-                                  '{{count}} data sets for {{- workflow}}, {{period}} will be approved:',
-                                  {
-                                      count,
-                                      workflow: workflow.displayName,
-                                      period: period.displayName,
-                                  }
+                                  '{{count}} data sets for workflow {{- workflow}}:',
+                                  { count, workflow: workflow.displayName }
                               )
                             : i18n.t(
-                                  '{{count}} data set for {{- workflow}}, {{period}} will be approved:',
-                                  {
-                                      count,
-                                      workflow: workflow.displayName,
-                                      period: period.displayName,
-                                  }
+                                  '{{count}} data set for workflow {{- workflow}}:',
+                                  { count, workflow: workflow.displayName }
                               )}
                     </h1>
 

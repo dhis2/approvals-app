@@ -134,12 +134,12 @@ const Display = ({ dataSetId }) => {
                 >
                     <p>
                         {i18n.t(
-                            'This data set does not use a default form. The data is displayed as a simple grid below, but this might not be a suitable representation.'
+                            "This data set uses a custom form, which isn't supported in this app."
                         )}
                         <br />
                         {/* TODO: Add link to legacy app once available */}
                         {i18n.t(
-                            'Displaying data from data sets using custom forms is currently not supported in this app. Please refer to the legacy app instead.'
+                            'The data is displayed in the default form below. To continue using custom forms, use the Data Approval legacy app.'
                         )}
                     </p>
                 </NoticeBox>

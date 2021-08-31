@@ -8,7 +8,7 @@ const ClearAllButton = () => {
     const { clearAll, period, orgUnit } = useSelectionContext()
 
     return period?.id || orgUnit?.path ? (
-        <Button className={classes.button} secondary onClick={clearAll}>
+        <Button small className={classes.button} secondary onClick={clearAll}>
             {i18n.t('Clear selections')}
         </Button>
     ) : null
