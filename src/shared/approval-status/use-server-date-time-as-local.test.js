@@ -13,7 +13,7 @@ describe('useServerDateTimeAsLocal hook', () => {
      */
     it('Converts correctly if on server time', () => {
         useConfig.mockReturnValueOnce({
-            systemInfo: { serverTimeZoneId: 'Etc/UCT' },
+            systemInfo: { serverTimeZoneId: 'Etc/UTC' },
         })
         const dateStr = '2021-08-31 16:00:00'
         const localDateTime = new Date(dateStr)
