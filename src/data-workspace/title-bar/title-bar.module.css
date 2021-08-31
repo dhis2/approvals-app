@@ -17,5 +17,7 @@
     grid-template-columns: auto auto;
     align-items: center;
     grid-gap: var(--spacers-dp4);
-    color: var(--colors-grey600);
+    color: var(--colors-grey700);
+    font-size: 14px;
+    line-height: 16px;
 }
