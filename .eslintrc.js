@@ -9,4 +9,12 @@ module.exports = {
     rules: {
         'import/extensions': [2, 'ignorePackages'],
     },
+    overrides: [
+        {
+            files: ['*.test.js'],
+            rules: {
+                'no-unused-vars': 'off',
+            },
+        },
+    ],
 }

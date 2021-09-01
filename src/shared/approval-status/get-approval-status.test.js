@@ -1,5 +1,4 @@
 import { IconBlock16, IconError16 } from '@dhis2/ui'
-// eslint-disable-next-line no-unused-vars
 import moment from 'moment'
 import { getApprovalStatusDisplayData } from './get-approval-status.js'
 import { Approved, Ready, Waiting } from './icons.js'
@@ -70,11 +69,11 @@ describe('getApprovalStatusDisplayData', () => {
                     type: 'positive',
                 })
             })
-            it(`returns the correct diplay data for ${approvalStatus} when approvalStatus and approvedAt are passed`, () => {
+            it(`returns the correct diplay data for ${approvalStatus} when approvalStatus and approvalDateTime are passed`, () => {
                 expect(
                     getApprovalStatusDisplayData({
                         approvalStatus,
-                        approvedAt: '2020-08-24T18:55:03.165Z',
+                        approvalDateTime: '2020-08-24T18:55:03.165Z',
                     })
                 ).toEqual({
                     displayName: 'Approved 2 years ago',
@@ -87,7 +86,7 @@ describe('getApprovalStatusDisplayData', () => {
                     getApprovalStatusDisplayData({
                         approvalStatus,
                         approvedBy: 'Hendrik',
-                        approvedAt: '2020-08-24T18:55:03.165Z',
+                        approvalDateTime: '2020-08-24T18:55:03.165Z',
                     })
                 ).toEqual({
                     displayName: 'Approved by Hendrik 2 years ago',

@@ -7,13 +7,19 @@ import {
     getApprovalStatusDisplayData,
     isApproved,
 } from './get-approval-status.js'
+import { useServerDateTimeAsLocal } from './use-server-date-time-as-local.js'
 
 const ApprovalStatusTag = ({ approvalStatus, approvedAt, approvedBy }) => {
+    const approvalDateTime = useServerDateTimeAsLocal(approvedAt)
     const {
         icon: Icon,
         displayName,
         type,
-    } = getApprovalStatusDisplayData({ approvalStatus, approvedAt, approvedBy })
+    } = getApprovalStatusDisplayData({
+        approvalStatus,
+        approvalDateTime,
+        approvedBy,
+    })
     const props = {
         [type]: true,
         icon: <Icon />,
@@ -29,7 +35,7 @@ const ApprovalStatusTag = ({ approvalStatus, approvedAt, approvedBy }) => {
         return tag
     }
 
-    const dateTimeStr = moment(approvedAt).format('LLL')
+    const dateTimeStr = moment(approvalDateTime).format('LLL')
     const tooltipContent = i18n.t('Approved {{- dateTimeStr}}', { dateTimeStr })
 
     return <Tooltip content={tooltipContent}>{tag}</Tooltip>

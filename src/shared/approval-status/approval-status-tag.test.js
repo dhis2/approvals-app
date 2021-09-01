@@ -1,7 +1,16 @@
+import { useConfig } from '@dhis2/app-runtime'
 import { Tag, Tooltip } from '@dhis2/ui'
 import { shallow } from 'enzyme'
 import React from 'react'
 import { ApprovalStatusTag } from './approval-status-tag.js'
+
+jest.mock('@dhis2/app-runtime', () => ({
+    useConfig: jest.fn(() => ({
+        systemInfo: {
+            serverTimeZoneId: 'Etc/UTC',
+        },
+    })),
+}))
 
 describe('<ApprovalStatusTag>', () => {
     it('renders a tag for non-approved approvalStatuses', () => {
