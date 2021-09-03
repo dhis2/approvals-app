@@ -1,3 +1,22 @@
+# [1.14.0](https://github.com/dhis2/approval-app/compare/v1.13.1...v1.14.0) (2021-09-03)
+
+
+### Bug Fixes
+
+* **approval-status-tag:** unset max width of Tag component ([#67](https://github.com/dhis2/approval-app/issues/67)) ([6235aa4](https://github.com/dhis2/approval-app/commit/6235aa4e09fde8c63fc8fad3345d50f2f99c9aa0))
+* **bottom-bar:** update button state before unmounting via refresh ([#66](https://github.com/dhis2/approval-app/issues/66)) ([854d3dc](https://github.com/dhis2/approval-app/commit/854d3dcf45a3af895b6c7dcad6b6c8a1ae01c80b))
+* **clear all selections button:** make button "small" (DHIS2-11674) ([2ab2929](https://github.com/dhis2/approval-app/commit/2ab292982ba5e3996843532e91706fb9025b0068))
+* **context select:** remove top/bottom padding ([009aa2a](https://github.com/dhis2/approval-app/commit/009aa2a7bf6085693ea5712bc64c6272357e1e4d))
+* **data set count label:** adjust font-size / line-height (DHIS2-11680) ([819b93c](https://github.com/dhis2/approval-app/commit/819b93c5b26ce8fd69271afb31a38c44480ec4ef))
+* **data set display table:** table should use only needed space (DHIS2-11678) ([68b7048](https://github.com/dhis2/approval-app/commit/68b7048fcd1b084d2aa7452942ac21604b7e835d))
+* **status-tag:** adjust date/time for server-client timezone offset ([#74](https://github.com/dhis2/approval-app/issues/74)) ([ef1cafd](https://github.com/dhis2/approval-app/commit/ef1cafdbd8895e1b3e477c856a2e8436ffd05d5f))
+
+
+### Features
+
+* **data-workspace:** show notification for non-default form types ([#65](https://github.com/dhis2/approval-app/issues/65)) ([a50ba16](https://github.com/dhis2/approval-app/commit/a50ba165277fe18f6d4349839a2711398cea4d9d))
+* **status-tag:** show user and date/time if approved ([#62](https://github.com/dhis2/approval-app/issues/62)) ([9f76cf0](https://github.com/dhis2/approval-app/commit/9f76cf08d45d8c1cbda45f748bd89570cf5f3d15))
+
 # [1.14.0](https://github.com/dhis2/approval-app/compare/v1.13.1...v1.14.0) (2021-09-01)
 
 
