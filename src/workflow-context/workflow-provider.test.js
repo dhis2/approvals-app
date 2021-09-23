@@ -43,9 +43,9 @@ describe('<WorkflowProvider>', () => {
         orgUnit,
     }))
 
-    it('shows a spinner when loading', () => {
+    it('shows a spinner when fetching', () => {
         useDataQuery.mockImplementation(() => ({
-            loading: true,
+            fetching: true,
             called: true,
             refetch: () => {},
         }))

@@ -19,12 +19,9 @@ const query = {
 
 const WorkflowProvider = ({ children }) => {
     const { workflow, period, orgUnit } = useSelectionContext()
-    const { loading, error, fetching, data, called, refetch } = useDataQuery(
-        query,
-        {
-            lazy: true,
-        }
-    )
+    const { error, fetching, data, called, refetch } = useDataQuery(query, {
+        lazy: true,
+    })
 
     useEffect(() => {
         if (workflow && period && orgUnit) {
