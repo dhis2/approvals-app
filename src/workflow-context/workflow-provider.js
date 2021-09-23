@@ -36,7 +36,7 @@ const WorkflowProvider = ({ children }) => {
         return null
     }
 
-    if (!called || loading || fetching) {
+    if (!called || fetching) {
         return <Loader />
     }
 
