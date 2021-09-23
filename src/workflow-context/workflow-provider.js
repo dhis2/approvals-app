@@ -19,9 +19,12 @@ const query = {
 
 const WorkflowProvider = ({ children }) => {
     const { workflow, period, orgUnit } = useSelectionContext()
-    const { loading, error, data, called, refetch } = useDataQuery(query, {
-        lazy: true,
-    })
+    const { loading, error, fetching, data, called, refetch } = useDataQuery(
+        query,
+        {
+            lazy: true,
+        }
+    )
 
     useEffect(() => {
         if (workflow && period && orgUnit) {
@@ -33,7 +36,7 @@ const WorkflowProvider = ({ children }) => {
         return null
     }
 
-    if (loading || !called) {
+    if (!called || loading || fetching) {
         return <Loader />
     }
 
