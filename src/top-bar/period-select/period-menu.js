@@ -1,10 +1,23 @@
 import { Menu, MenuItem } from '@dhis2/ui'
+import moment from 'moment'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { useAppContext } from '../../app-context/index.js'
 import { createHref } from '../../navigation/index.js'
 import { useSelectionContext } from '../../selection-context/index.js'
 import { getFixedPeriodsByTypeAndYear } from '../../shared/index.js'
 import classes from './period-menu.module.css'
+
+const formatPeriod = ({ period, periodType, dateFormat }) => {
+    if (periodType === 'Daily') {
+        return moment(period.displayName, 'YYYY-MM-DD').format(
+            // moment format tokens are case sensitive
+            // see https://momentjs.com/docs/#/parsing/string-format/
+            dateFormat === 'yyyy-mm-dd' ? 'YYYY-MM-DD' : 'DD-MM-YYYY'
+        )
+    }
+    return period.displayName
+}
 
 const PeriodMenu = ({ periodType, year }) => {
     const {
@@ -13,6 +26,7 @@ const PeriodMenu = ({ periodType, year }) => {
         orgUnit,
         selectPeriod,
     } = useSelectionContext()
+    const { dateFormat } = useAppContext()
     const periods = getFixedPeriodsByTypeAndYear(periodType, year, {
         reversePeriods: true,
     })
@@ -28,7 +42,7 @@ const PeriodMenu = ({ periodType, year }) => {
                         ou: orgUnit?.path,
                         pe: period.id,
                     })}
-                    label={period.displayName}
+                    label={formatPeriod({ period, periodType, dateFormat })}
                     onClick={() => selectPeriod(period)}
                 />
             ))}
