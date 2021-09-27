@@ -203,11 +203,11 @@ describe('<PeriodSelect>', () => {
 
         expect(selectPeriod).toHaveBeenCalledTimes(1)
         expect(selectPeriod).toHaveBeenCalledWith({
-            displayName: 'January 2012',
-            endDate: '2012-01-31',
-            id: '201201',
-            iso: '201201',
-            startDate: '2012-01-01',
+            displayName: 'December 2012',
+            endDate: '2012-12-31',
+            id: '201212',
+            iso: '201212',
+            startDate: '2012-12-01',
         })
     })
 

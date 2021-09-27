@@ -742,12 +742,12 @@ export const getYearOffsetFromNow = year => {
     return yearInt - getCurrentDate().getFullYear()
 }
 
-export const getFixedPeriodsByTypeAndYear = (type, year) => {
+export const getFixedPeriodsByTypeAndYear = (type, year, config) => {
     const periodType = getFixedPeriodType(type)
     const offset = getYearOffsetFromNow(year)
 
     return periodType && Number.isInteger(offset)
-        ? periodType.getPeriods({ offset })
+        ? periodType.getPeriods({ ...config, offset })
         : []
 }
 
