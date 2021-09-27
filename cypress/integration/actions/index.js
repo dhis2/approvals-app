@@ -11,6 +11,13 @@ defineParameterType({
     regexp: new RegExp(buttonLabels.join('|')),
 })
 
+Then('the {buttonLabel} button is disabled', buttonLabel => {
+    cy.get('[data-test="bottom-bar"]')
+        .find('button')
+        .contains(buttonLabel)
+        .should('be.disabled')
+})
+
 When('the user clicks the {buttonLabel} button', buttonLabel => {
     cy.get('[data-test="bottom-bar"]')
         .find('button')
