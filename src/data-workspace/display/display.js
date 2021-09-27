@@ -34,7 +34,7 @@ const Display = ({ dataSetId }) => {
           ).map(({ id }) => id)
         : []
 
-    const { called, loading, data, error, refetch } = useDataQuery(query, {
+    const { called, fetching, data, error, refetch } = useDataQuery(query, {
         lazy: true,
     })
     const tables = data?.dataSetReport
@@ -72,7 +72,7 @@ const Display = ({ dataSetId }) => {
         )
     }
 
-    if ((!called && periodIds.length) || loading) {
+    if ((!called && periodIds.length) || fetching) {
         return (
             <div className={styles.display}>
                 <div className={styles.loadingWrapper}>
