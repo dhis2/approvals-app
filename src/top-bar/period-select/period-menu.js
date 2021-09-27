@@ -13,7 +13,9 @@ const PeriodMenu = ({ periodType, year }) => {
         orgUnit,
         selectPeriod,
     } = useSelectionContext()
-    const periods = getFixedPeriodsByTypeAndYear(periodType, year)
+    const periods = getFixedPeriodsByTypeAndYear(periodType, year, {
+        reversePeriods: true,
+    })
 
     return (
         <Menu dense className={classes.menu}>

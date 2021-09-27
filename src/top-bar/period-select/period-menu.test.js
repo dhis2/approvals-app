@@ -58,11 +58,11 @@ describe('<PeriodMenu>', () => {
 
         expect(selectPeriod).toHaveBeenCalledTimes(1)
         expect(selectPeriod).toHaveBeenCalledWith({
-            displayName: 'January 2018',
-            endDate: '2018-01-31',
-            id: '201801',
-            iso: '201801',
-            startDate: '2018-01-01',
+            displayName: 'December 2018',
+            endDate: '2018-12-31',
+            id: '201812',
+            iso: '201812',
+            startDate: '2018-12-01',
         })
     })
 })
