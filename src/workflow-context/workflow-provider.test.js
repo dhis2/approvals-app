@@ -43,9 +43,9 @@ describe('<WorkflowProvider>', () => {
         orgUnit,
     }))
 
-    it('shows a spinner when loading', () => {
+    it('shows a spinner when fetching', () => {
         useDataQuery.mockImplementation(() => ({
-            loading: true,
+            fetching: true,
             called: true,
             refetch: () => {},
         }))
@@ -54,12 +54,12 @@ describe('<WorkflowProvider>', () => {
         expect(wrapper.find(Loader)).toHaveLength(1)
     })
 
-    it('shows an error message if there is a loading error', () => {
+    it('shows an error message if there is an error fetching', () => {
         const message = 'Something went wrong'
         const error = new Error(message)
 
         useDataQuery.mockImplementation(() => ({
-            loading: false,
+            fetching: false,
             called: true,
             refetch: () => {},
             error,
@@ -71,7 +71,7 @@ describe('<WorkflowProvider>', () => {
 
     it('renders the children once data has been received', () => {
         useDataQuery.mockImplementation(() => ({
-            loading: false,
+            fetching: false,
             error: undefined,
             called: true,
             data: {
@@ -88,7 +88,7 @@ describe('<WorkflowProvider>', () => {
 
     it('renders a loading spinner if called is false', () => {
         useDataQuery.mockImplementation(() => ({
-            loading: false,
+            fetching: false,
             called: false,
             refetch: () => {},
         }))
@@ -137,7 +137,7 @@ describe('<WorkflowProvider>', () => {
         useDataQuery.mockImplementation(() => ({
             refetch,
             error: null,
-            loading: false,
+            fetching: false,
             called: true,
             data: {
                 approvalStatus: {
