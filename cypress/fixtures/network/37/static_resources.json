@@ -17,16 +17,16 @@
         },
         "statusCode": 200,
         "responseBody": [
-            "{\"contextPath\":\"http://localhost:8081\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2021-09-28T13:52:24.449\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2021-04-29T13:32:44.792\",\"intervalSinceLastAnalyticsTableSuccess\":\"3648 h, 19 m, 39 s\",\"lastAnalyticsTableRuntime\":\"00:07:17.180\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.37.1-SNAPSHOT\",\"revision\":\"395da8e\",\"buildTime\":\"2021-09-23T07:46:17.000\",\"jasperReportsVersion\":\"6.3.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":false,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
-            "{\"contextPath\":\"http://localhost:8081\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2021-09-28T13:52:27.317\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2021-04-29T13:32:44.792\",\"intervalSinceLastAnalyticsTableSuccess\":\"3648 h, 19 m, 42 s\",\"lastAnalyticsTableRuntime\":\"00:07:17.180\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.37.1-SNAPSHOT\",\"revision\":\"395da8e\",\"buildTime\":\"2021-09-23T07:46:17.000\",\"jasperReportsVersion\":\"6.3.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":false,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
-            "{\"contextPath\":\"http://localhost:8081\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2021-09-28T13:52:29.665\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2021-04-29T13:32:44.792\",\"intervalSinceLastAnalyticsTableSuccess\":\"3648 h, 19 m, 44 s\",\"lastAnalyticsTableRuntime\":\"00:07:17.180\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.37.1-SNAPSHOT\",\"revision\":\"395da8e\",\"buildTime\":\"2021-09-23T07:46:17.000\",\"jasperReportsVersion\":\"6.3.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":false,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
-            "{\"contextPath\":\"http://localhost:8081\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2021-09-28T13:52:31.989\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2021-04-29T13:32:44.792\",\"intervalSinceLastAnalyticsTableSuccess\":\"3648 h, 19 m, 47 s\",\"lastAnalyticsTableRuntime\":\"00:07:17.180\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.37.1-SNAPSHOT\",\"revision\":\"395da8e\",\"buildTime\":\"2021-09-23T07:46:17.000\",\"jasperReportsVersion\":\"6.3.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":false,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
-            "{\"contextPath\":\"http://localhost:8081\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2021-09-28T13:52:39.115\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2021-04-29T13:32:44.792\",\"intervalSinceLastAnalyticsTableSuccess\":\"3648 h, 19 m, 54 s\",\"lastAnalyticsTableRuntime\":\"00:07:17.180\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.37.1-SNAPSHOT\",\"revision\":\"395da8e\",\"buildTime\":\"2021-09-23T07:46:17.000\",\"jasperReportsVersion\":\"6.3.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":false,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
-            "{\"contextPath\":\"http://localhost:8081\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2021-09-28T13:52:41.548\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2021-04-29T13:32:44.792\",\"intervalSinceLastAnalyticsTableSuccess\":\"3648 h, 19 m, 56 s\",\"lastAnalyticsTableRuntime\":\"00:07:17.180\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.37.1-SNAPSHOT\",\"revision\":\"395da8e\",\"buildTime\":\"2021-09-23T07:46:17.000\",\"jasperReportsVersion\":\"6.3.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":false,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
-            "{\"contextPath\":\"http://localhost:8081\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2021-09-28T13:52:42.693\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2021-04-29T13:32:44.792\",\"intervalSinceLastAnalyticsTableSuccess\":\"3648 h, 19 m, 57 s\",\"lastAnalyticsTableRuntime\":\"00:07:17.180\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.37.1-SNAPSHOT\",\"revision\":\"395da8e\",\"buildTime\":\"2021-09-23T07:46:17.000\",\"jasperReportsVersion\":\"6.3.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":false,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
-            "{\"contextPath\":\"http://localhost:8081\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2021-09-28T13:52:44.472\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2021-04-29T13:32:44.792\",\"intervalSinceLastAnalyticsTableSuccess\":\"3648 h, 19 m, 59 s\",\"lastAnalyticsTableRuntime\":\"00:07:17.180\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.37.1-SNAPSHOT\",\"revision\":\"395da8e\",\"buildTime\":\"2021-09-23T07:46:17.000\",\"jasperReportsVersion\":\"6.3.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":false,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}"
+            "{\"contextPath\":\"http://localhost:8081\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2021-09-28T14:28:50.256\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2021-04-29T13:32:44.792\",\"intervalSinceLastAnalyticsTableSuccess\":\"3648 h, 56 m, 5 s\",\"lastAnalyticsTableRuntime\":\"00:07:17.180\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.37.1-SNAPSHOT\",\"revision\":\"395da8e\",\"buildTime\":\"2021-09-23T07:46:17.000\",\"jasperReportsVersion\":\"6.3.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":false,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
+            "{\"contextPath\":\"http://localhost:8081\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2021-09-28T14:28:52.886\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2021-04-29T13:32:44.792\",\"intervalSinceLastAnalyticsTableSuccess\":\"3648 h, 56 m, 8 s\",\"lastAnalyticsTableRuntime\":\"00:07:17.180\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.37.1-SNAPSHOT\",\"revision\":\"395da8e\",\"buildTime\":\"2021-09-23T07:46:17.000\",\"jasperReportsVersion\":\"6.3.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":false,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
+            "{\"contextPath\":\"http://localhost:8081\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2021-09-28T14:28:55.052\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2021-04-29T13:32:44.792\",\"intervalSinceLastAnalyticsTableSuccess\":\"3648 h, 56 m, 10 s\",\"lastAnalyticsTableRuntime\":\"00:07:17.180\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.37.1-SNAPSHOT\",\"revision\":\"395da8e\",\"buildTime\":\"2021-09-23T07:46:17.000\",\"jasperReportsVersion\":\"6.3.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":false,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
+            "{\"contextPath\":\"http://localhost:8081\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2021-09-28T14:28:57.317\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2021-04-29T13:32:44.792\",\"intervalSinceLastAnalyticsTableSuccess\":\"3648 h, 56 m, 12 s\",\"lastAnalyticsTableRuntime\":\"00:07:17.180\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.37.1-SNAPSHOT\",\"revision\":\"395da8e\",\"buildTime\":\"2021-09-23T07:46:17.000\",\"jasperReportsVersion\":\"6.3.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":false,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
+            "{\"contextPath\":\"http://localhost:8081\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2021-09-28T14:29:03.493\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2021-04-29T13:32:44.792\",\"intervalSinceLastAnalyticsTableSuccess\":\"3648 h, 56 m, 18 s\",\"lastAnalyticsTableRuntime\":\"00:07:17.180\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.37.1-SNAPSHOT\",\"revision\":\"395da8e\",\"buildTime\":\"2021-09-23T07:46:17.000\",\"jasperReportsVersion\":\"6.3.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":false,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
+            "{\"contextPath\":\"http://localhost:8081\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2021-09-28T14:29:05.594\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2021-04-29T13:32:44.792\",\"intervalSinceLastAnalyticsTableSuccess\":\"3648 h, 56 m, 20 s\",\"lastAnalyticsTableRuntime\":\"00:07:17.180\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.37.1-SNAPSHOT\",\"revision\":\"395da8e\",\"buildTime\":\"2021-09-23T07:46:17.000\",\"jasperReportsVersion\":\"6.3.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":false,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
+            "{\"contextPath\":\"http://localhost:8081\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2021-09-28T14:29:06.661\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2021-04-29T13:32:44.792\",\"intervalSinceLastAnalyticsTableSuccess\":\"3648 h, 56 m, 21 s\",\"lastAnalyticsTableRuntime\":\"00:07:17.180\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.37.1-SNAPSHOT\",\"revision\":\"395da8e\",\"buildTime\":\"2021-09-23T07:46:17.000\",\"jasperReportsVersion\":\"6.3.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":false,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
+            "{\"contextPath\":\"http://localhost:8081\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2021-09-28T14:29:08.036\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2021-04-29T13:32:44.792\",\"intervalSinceLastAnalyticsTableSuccess\":\"3648 h, 56 m, 23 s\",\"lastAnalyticsTableRuntime\":\"00:07:17.180\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.37.1-SNAPSHOT\",\"revision\":\"395da8e\",\"buildTime\":\"2021-09-23T07:46:17.000\",\"jasperReportsVersion\":\"6.3.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":false,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}"
         ],
-        "responseSize": 1021,
+        "responseSize": 1020,
         "responseHeaders": {
             "server": "nginx/1.21.1",
             "content-type": "application/json;charset=UTF-8",
@@ -155,40 +155,6 @@
         }
     },
     {
-        "path": "/api/37/systemSettings/applicationTitle",
-        "featureName": null,
-        "static": true,
-        "count": 8,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "localhost:8081",
-            "proxy-connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "same-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 200,
-        "responseBody": "{\"applicationTitle\":\"DHIS 2 Demo - Sierra Leone\"}",
-        "responseSize": 49,
-        "responseHeaders": {
-            "server": "nginx/1.21.1",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "access-control-allow-credentials": "true",
-            "access-control-allow-origin": "http://localhost:3000",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
         "path": "/api/37/me/dashboard",
         "featureName": null,
         "static": true,
@@ -217,6 +183,40 @@
             "vary": "Origin",
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block",
+            "x-frame-options": "SAMEORIGIN"
+        }
+    },
+    {
+        "path": "/api/37/systemSettings/applicationTitle",
+        "featureName": null,
+        "static": true,
+        "count": 8,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "localhost:8081",
+            "proxy-connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "same-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "{\"applicationTitle\":\"DHIS 2 Demo - Sierra Leone\"}",
+        "responseSize": 49,
+        "responseHeaders": {
+            "server": "nginx/1.21.1",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
             "x-xss-protection": "1; mode=block",
             "x-frame-options": "SAMEORIGIN"
