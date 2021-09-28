@@ -19,7 +19,7 @@ describe('Fixed period utilities', () => {
         let periods
 
         beforeAll(() => {
-            const option = getFixedPeriodType('Daily')
+            const option = getFixedPeriodType({ periodType: 'Daily' })
 
             periods = option.getPeriods({
                 offset: 2019 - new Date(Date.now()).getFullYear(),
@@ -58,7 +58,7 @@ describe('Fixed period utilities', () => {
         let periods
 
         beforeAll(() => {
-            const option = getFixedPeriodType('Weekly')
+            const option = getFixedPeriodType({ periodType: 'Weekly' })
 
             periods = option.getPeriods({
                 offset: 2009 - new Date(Date.now()).getFullYear(),
@@ -97,7 +97,9 @@ describe('Fixed period utilities', () => {
 
         describe('-> Weekly Wednesday', () => {
             beforeAll(() => {
-                const option = getFixedPeriodType('WeeklyWednesday')
+                const option = getFixedPeriodType({
+                    periodType: 'WeeklyWednesday',
+                })
 
                 periods = option.getPeriods({
                     offset: 2019 - new Date(Date.now()).getFullYear(),
@@ -125,7 +127,9 @@ describe('Fixed period utilities', () => {
 
         describe('-> Weekly Thursday', () => {
             beforeAll(() => {
-                const option = getFixedPeriodType('WeeklyThursday')
+                const option = getFixedPeriodType({
+                    periodType: 'WeeklyThursday',
+                })
 
                 periods = option.getPeriods({
                     offset: 2019 - new Date(Date.now()).getFullYear(),
@@ -153,7 +157,9 @@ describe('Fixed period utilities', () => {
 
         describe('-> Weekly Saturday', () => {
             beforeAll(() => {
-                const option = getFixedPeriodType('WeeklySaturday')
+                const option = getFixedPeriodType({
+                    periodType: 'WeeklySaturday',
+                })
 
                 periods = option.getPeriods({
                     offset: 2019 - new Date(Date.now()).getFullYear(),
@@ -182,7 +188,9 @@ describe('Fixed period utilities', () => {
 
         describe('-> Weekly Sunday', () => {
             beforeAll(() => {
-                const option = getFixedPeriodType('WeeklySunday')
+                const option = getFixedPeriodType({
+                    periodType: 'WeeklySunday',
+                })
 
                 periods = option.getPeriods({
                     offset: 2019 - new Date(Date.now()).getFullYear(),
@@ -213,7 +221,7 @@ describe('Fixed period utilities', () => {
         let periods
 
         beforeAll(() => {
-            const option = getFixedPeriodType('BiWeekly')
+            const option = getFixedPeriodType({ periodType: 'BiWeekly' })
 
             periods = option.getPeriods({
                 offset: 2019 - new Date(Date.now()).getFullYear(),
@@ -255,7 +263,7 @@ describe('Fixed period utilities', () => {
         let periods
 
         beforeAll(() => {
-            const option = getFixedPeriodType('Monthly')
+            const option = getFixedPeriodType({ periodType: 'Monthly' })
 
             periods = option.getPeriods({
                 offset: 2019 - new Date(Date.now()).getFullYear(),
@@ -293,7 +301,7 @@ describe('Fixed period utilities', () => {
         let periods
 
         beforeAll(() => {
-            const option = getFixedPeriodType('BiMonthly')
+            const option = getFixedPeriodType({ periodType: 'BiMonthly' })
 
             periods = option.getPeriods({
                 offset: 2019 - new Date(Date.now()).getFullYear(),
@@ -341,7 +349,7 @@ describe('Fixed period utilities', () => {
         let periods
 
         beforeAll(() => {
-            const option = getFixedPeriodType('Quarterly')
+            const option = getFixedPeriodType({ periodType: 'Quarterly' })
 
             periods = option.getPeriods({
                 offset: 2019 - new Date(Date.now()).getFullYear(),
@@ -379,7 +387,7 @@ describe('Fixed period utilities', () => {
         let periods
 
         beforeAll(() => {
-            const option = getFixedPeriodType('SixMonthly')
+            const option = getFixedPeriodType({ periodType: 'SixMonthly' })
 
             periods = option.getPeriods({
                 offset: 2019 - new Date(Date.now()).getFullYear(),
@@ -417,7 +425,7 @@ describe('Fixed period utilities', () => {
         let periods
 
         beforeAll(() => {
-            const option = getFixedPeriodType('SixMonthlyApril')
+            const option = getFixedPeriodType({ periodType: 'SixMonthlyApril' })
 
             periods = option.getPeriods({
                 offset: 2019 - new Date(Date.now()).getFullYear(),
@@ -455,7 +463,7 @@ describe('Fixed period utilities', () => {
         let periods
 
         beforeAll(() => {
-            const option = getFixedPeriodType('Yearly')
+            const option = getFixedPeriodType({ periodType: 'Yearly' })
 
             periods = option.getPeriods({
                 offset: 10, // 2020 - 2029
@@ -493,7 +501,7 @@ describe('Fixed period utilities', () => {
         let periods
 
         beforeAll(() => {
-            const option = getFixedPeriodType('FinancialNov')
+            const option = getFixedPeriodType({ periodType: 'FinancialNov' })
 
             periods = option.getPeriods({
                 offset: 9,
@@ -533,7 +541,7 @@ describe('Fixed period utilities', () => {
         let periods
 
         beforeAll(() => {
-            const option = getFixedPeriodType('FinancialOct')
+            const option = getFixedPeriodType({ periodType: 'FinancialOct' })
 
             periods = option.getPeriods({
                 offset: 9,
@@ -573,7 +581,7 @@ describe('Fixed period utilities', () => {
         let periods
 
         beforeAll(() => {
-            const option = getFixedPeriodType('FinancialJuly')
+            const option = getFixedPeriodType({ periodType: 'FinancialJuly' })
 
             periods = option.getPeriods({
                 offset: 9,
@@ -609,7 +617,7 @@ describe('Fixed period utilities', () => {
         let periods
 
         beforeAll(() => {
-            const option = getFixedPeriodType('FinancialApril')
+            const option = getFixedPeriodType({ periodType: 'FinancialApril' })
 
             periods = option.getPeriods({
                 offset: 9,
@@ -761,7 +769,9 @@ describe('Fixed period utilities', () => {
         describe('getFixedPeriodType', () => {
             // Behaviour for valid period tpes is tested via the generators
             it('should throw an error if an invalid period type is provided', () => {
-                expect(() => getFixedPeriodType('INVALID')).toThrowError(
+                expect(() =>
+                    getFixedPeriodType({ periodType: 'INVALID' })
+                ).toThrowError(
                     'Invalid period type "INVALID" supplied to "getFixedPeriodType"'
                 )
             })

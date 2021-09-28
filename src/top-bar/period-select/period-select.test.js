@@ -1,3 +1,4 @@
+import { useConfig } from '@dhis2/app-runtime'
 import { Popover, Layer, MenuItem, Tooltip } from '@dhis2/ui'
 import { shallow } from 'enzyme'
 import React from 'react'
@@ -8,6 +9,10 @@ import { ContextSelect } from '../context-select/context-select.js'
 import { PeriodMenu } from './period-menu.js'
 import { PERIOD, PeriodSelect } from './period-select.js'
 import { YearNavigator } from './year-navigator.js'
+
+jest.mock('@dhis2/app-runtime', () => ({
+    useConfig: jest.fn(),
+}))
 
 jest.mock('../../navigation/read-query-params.js', () => ({
     readQueryParams: jest.fn(),
@@ -35,6 +40,9 @@ const mockWorkflows = [
 ]
 
 beforeEach(() => {
+    useConfig.mockImplementation(() => ({
+        systemInfo: {},
+    }))
     useAppContext.mockImplementation(() => ({
         dataApprovalWorkflows: mockWorkflows,
     }))

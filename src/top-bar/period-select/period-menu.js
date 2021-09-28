@@ -1,4 +1,6 @@
+import { useConfig } from '@dhis2/app-runtime'
 import { Menu, MenuItem } from '@dhis2/ui'
+import moment from 'moment'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { createHref } from '../../navigation/index.js'
@@ -13,8 +15,23 @@ const PeriodMenu = ({ periodType, year }) => {
         orgUnit,
         selectPeriod,
     } = useSelectionContext()
-    const periods = getFixedPeriodsByTypeAndYear(periodType, year, {
-        reversePeriods: true,
+    const {
+        systemInfo: { dateFormat },
+    } = useConfig()
+    const periods = getFixedPeriodsByTypeAndYear({
+        periodType,
+        year,
+        formatYyyyMmDd: date => {
+            if (periodType === 'Daily') {
+                // moment format tokens are case sensitive
+                // see https://momentjs.com/docs/#/parsing/string-format/
+                return moment(date).format(dateFormat.toUpperCase())
+            }
+            return moment(date).format('YYYY-MM-DD')
+        },
+        config: {
+            reversePeriods: true,
+        },
     })
 
     return (
