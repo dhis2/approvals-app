@@ -5,6 +5,7 @@ import React, { useEffect } from 'react'
 import { useSelectionContext } from '../selection-context/index.js'
 import { ErrorMessage, Loader } from '../shared/index.js'
 import { WorkflowContext } from './workflow-context.js'
+import styles from './workflow-provider.module.css'
 
 const query = {
     approvalStatus: {
@@ -22,10 +23,11 @@ const WorkflowProvider = ({ children }) => {
     const { fetching, error, data, called, refetch } = useDataQuery(query, {
         lazy: true,
     })
+    const fetchApprovalStatus = () => refetch({ workflow, period, orgUnit })
 
     useEffect(() => {
         if (workflow && period && orgUnit) {
-            refetch({ workflow, period, orgUnit })
+            fetchApprovalStatus()
         }
     }, [workflow, period, orgUnit])
 
@@ -40,7 +42,13 @@ const WorkflowProvider = ({ children }) => {
     if (error) {
         return (
             <ErrorMessage title={i18n.t('Could not load approval data')}>
-                {error.message}
+                <p>{error.message}</p>
+                <button
+                    className={styles.retryButton}
+                    onClick={fetchApprovalStatus}
+                >
+                    {i18n.t('Retry loading approval data')}
+                </button>
             </ErrorMessage>
         )
     }
