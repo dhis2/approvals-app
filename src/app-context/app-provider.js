@@ -12,9 +12,6 @@ const query = {
             fields: ['authorities', 'organisationUnits[id,path]'],
         },
     },
-    system: {
-        resource: 'system/info',
-    },
     dataApprovalWorkflows: {
         // This is generic enpoint but will only return
         // workflows a user is allowed to see
@@ -54,12 +51,10 @@ const AppProvider = ({ children }) => {
 
     const { authorities, organisationUnits } = data.me
     const { dataApprovalWorkflows } = data.dataApprovalWorkflows
-    const { dateFormat } = data.system
     const providerValue = {
         authorities,
         organisationUnits,
         dataApprovalWorkflows,
-        dateFormat,
     }
 
     return (

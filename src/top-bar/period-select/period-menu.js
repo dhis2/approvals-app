@@ -1,8 +1,8 @@
+import { useConfig } from '@dhis2/app-runtime'
 import { Menu, MenuItem } from '@dhis2/ui'
 import moment from 'moment'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { useAppContext } from '../../app-context/index.js'
 import { createHref } from '../../navigation/index.js'
 import { useSelectionContext } from '../../selection-context/index.js'
 import { getFixedPeriodsByTypeAndYear } from '../../shared/index.js'
@@ -26,7 +26,9 @@ const PeriodMenu = ({ periodType, year }) => {
         orgUnit,
         selectPeriod,
     } = useSelectionContext()
-    const { dateFormat } = useAppContext()
+    const {
+        systemInfo: { dateFormat },
+    } = useConfig()
     const periods = getFixedPeriodsByTypeAndYear(periodType, year, {
         reversePeriods: true,
     })
