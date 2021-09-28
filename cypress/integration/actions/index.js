@@ -12,8 +12,7 @@ defineParameterType({
 })
 
 Then('the {buttonLabel} button is disabled', buttonLabel => {
-    cy.get('[data-test="bottom-bar"]')
-        .find('button')
+    cy.get('[data-test="bottom-bar"] button')
         .contains(buttonLabel)
         .should('be.disabled')
 })
