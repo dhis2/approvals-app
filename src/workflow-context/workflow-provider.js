@@ -3,9 +3,8 @@ import i18n from '@dhis2/d2-i18n'
 import { PropTypes } from '@dhis2/prop-types'
 import React, { useEffect } from 'react'
 import { useSelectionContext } from '../selection-context/index.js'
-import { ErrorMessage, Loader } from '../shared/index.js'
+import { ErrorMessage, Loader, RetryButton } from '../shared/index.js'
 import { WorkflowContext } from './workflow-context.js'
-import styles from './workflow-provider.module.css'
 
 const query = {
     approvalStatus: {
@@ -43,12 +42,9 @@ const WorkflowProvider = ({ children }) => {
         return (
             <ErrorMessage title={i18n.t('Could not load approval data')}>
                 <p>{error.message}</p>
-                <button
-                    className={styles.retryButton}
-                    onClick={fetchApprovalStatus}
-                >
+                <RetryButton onClick={fetchApprovalStatus}>
                     {i18n.t('Retry loading approval data')}
-                </button>
+                </RetryButton>
             </ErrorMessage>
         )
     }
