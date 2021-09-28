@@ -83,7 +83,7 @@ jobs:
             - name: Test
               run: yarn d2-app-scripts test
 
-    e2e_v37:
+    e2ev37:
         runs-on: ubuntu-latest
         if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
 
