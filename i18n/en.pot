@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-09-02T13:26:50.571Z\n"
-"PO-Revision-Date: 2021-09-02T13:26:50.571Z\n"
+"POT-Creation-Date: 2021-09-28T13:14:40.432Z\n"
+"PO-Revision-Date: 2021-09-28T13:14:40.432Z\n"
 
 msgid "Not authorized"
 msgstr "Not authorized"
@@ -286,3 +286,6 @@ msgstr "No workflows found. None may exist, or you may not have access to any."
 
 msgid "Could not load approval data"
 msgstr "Could not load approval data"
+
+msgid "Retry loading approval data"
+msgstr "Retry loading approval data"

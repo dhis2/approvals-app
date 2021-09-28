@@ -4,7 +4,10 @@ import { NoticeBox, CircularLoader } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 import { useSelectionContext } from '../../selection-context/index.js'
-import { getFixedPeriodsForTypeAndDateRange } from '../../shared/index.js'
+import {
+    getFixedPeriodsForTypeAndDateRange,
+    RetryButton,
+} from '../../shared/index.js'
 import styles from './display.module.css'
 import { Table } from './table.js'
 
@@ -97,12 +100,9 @@ const Display = ({ dataSetId }) => {
                             `This data set couldn't be loaded or displayed. Try again, or contact your system administrator.`
                         )}
                     </p>
-                    <button
-                        className={styles.retryButton}
-                        onClick={fetchDataSet}
-                    >
+                    <RetryButton onClick={fetchDataSet}>
                         {i18n.t('Retry loading data set')}
-                    </button>
+                    </RetryButton>
                 </NoticeBox>
             </div>
         )
