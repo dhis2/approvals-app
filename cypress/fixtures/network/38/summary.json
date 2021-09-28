@@ -1,9 +1,9 @@
 {
     "count": 340,
-    "totalResponseSize": 111020,
-    "duplicates": 232,
+    "totalResponseSize": 108277,
+    "duplicates": 233,
     "nonDeterministicResponses": 11,
-    "apiVersion": 37,
+    "apiVersion": 38,
     "fixtureFiles": [
         "static_resources.json",
         "users_can_approve,_accept,_unapprove,_and_unaccept_data.json",
