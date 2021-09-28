@@ -19,7 +19,7 @@ const query = {
 
 const WorkflowProvider = ({ children }) => {
     const { workflow, period, orgUnit } = useSelectionContext()
-    const { loading, error, data, called, refetch } = useDataQuery(query, {
+    const { fetching, error, data, called, refetch } = useDataQuery(query, {
         lazy: true,
     })
 
@@ -33,7 +33,7 @@ const WorkflowProvider = ({ children }) => {
         return null
     }
 
-    if (loading || !called) {
+    if (fetching || !called) {
         return <Loader />
     }
 

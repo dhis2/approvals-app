@@ -30,9 +30,9 @@ const query = {
 }
 
 const AppProvider = ({ children }) => {
-    const { data, loading, error } = useDataQuery(query)
+    const { data, fetching, error } = useDataQuery(query)
 
-    if (loading) {
+    if (fetching) {
         return (
             <Layer>
                 <Loader />
