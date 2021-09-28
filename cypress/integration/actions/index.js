@@ -12,9 +12,13 @@ defineParameterType({
 })
 
 Then('the {buttonLabel} button is disabled', buttonLabel => {
-    cy.get('[data-test="bottom-bar"] button')
-        .contains(buttonLabel)
-        .should('be.disabled')
+    cy.get('[data-test="bottom-bar"]').should($bottomBar => {
+        const $btnWithLabel = $bottomBar.find('button').filter(function () {
+            return this.innerText === buttonLabel
+        })
+
+        expect($btnWithLabel.prop('disabled')).to.be.true
+    })
 })
 
 When('the user clicks the {buttonLabel} button', buttonLabel => {
