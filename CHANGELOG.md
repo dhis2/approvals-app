@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/dhis2/approval-app/compare/v1.14.0...v1.15.0) (2021-09-28)
+
+
+### Features
+
+* **workflow-provider:** add retry button ([#95](https://github.com/dhis2/approval-app/issues/95)) ([39d53b3](https://github.com/dhis2/approval-app/commit/39d53b3649db96f3ef74bfb52e429fda7723b7b8))
+
 # [1.14.0](https://github.com/dhis2/approval-app/compare/v1.13.1...v1.14.0) (2021-09-28)
 
 
