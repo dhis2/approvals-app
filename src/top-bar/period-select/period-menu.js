@@ -8,17 +8,6 @@ import { useSelectionContext } from '../../selection-context/index.js'
 import { getFixedPeriodsByTypeAndYear } from '../../shared/index.js'
 import classes from './period-menu.module.css'
 
-const formatPeriod = ({ period, periodType, dateFormat }) => {
-    if (periodType === 'Daily') {
-        return moment(period.displayName, 'YYYY-MM-DD').format(
-            // moment format tokens are case sensitive
-            // see https://momentjs.com/docs/#/parsing/string-format/
-            dateFormat === 'yyyy-mm-dd' ? 'YYYY-MM-DD' : 'DD-MM-YYYY'
-        )
-    }
-    return period.displayName
-}
-
 const PeriodMenu = ({ periodType, year }) => {
     const {
         workflow,
@@ -29,8 +18,20 @@ const PeriodMenu = ({ periodType, year }) => {
     const {
         systemInfo: { dateFormat },
     } = useConfig()
-    const periods = getFixedPeriodsByTypeAndYear(periodType, year, {
-        reversePeriods: true,
+    const periods = getFixedPeriodsByTypeAndYear({
+        periodType,
+        year,
+        formatYyyyMmDd: date => {
+            if (periodType === 'Daily') {
+                // moment format tokens are case sensitive
+                // see https://momentjs.com/docs/#/parsing/string-format/
+                return moment(date).format(dateFormat.toUpperCase())
+            }
+            return moment(date).format('YYYY-MM-DD')
+        },
+        config: {
+            reversePeriods: true,
+        },
     })
 
     return (
@@ -44,7 +45,7 @@ const PeriodMenu = ({ periodType, year }) => {
                         ou: orgUnit?.path,
                         pe: period.id,
                     })}
-                    label={formatPeriod({ period, periodType, dateFormat })}
+                    label={period.displayName}
                     onClick={() => selectPeriod(period)}
                 />
             ))}

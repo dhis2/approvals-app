@@ -548,7 +548,7 @@ const getFinancialAprilPeriodType = (formatYyyyMmDd, fnFilter) => {
     }
 }
 
-const formatYyyyMmDd = date => {
+const defaultFormatYyyyMmDd = date => {
     const y = date.getFullYear()
     let m = String(date.getMonth() + 1)
     let d = String(date.getDate())
@@ -559,7 +559,7 @@ const formatYyyyMmDd = date => {
     return `${y}-${m}-${d}`
 }
 
-const filterFuturePeriods = periods => {
+const defaultFilterFuturePeriods = periods => {
     const array = []
     const now = getCurrentDate()
 
@@ -572,7 +572,10 @@ const filterFuturePeriods = periods => {
     return array
 }
 
-export const getFixedPeriodTypes = () => [
+export const getFixedPeriodTypes = ({
+    formatYyyyMmDd = defaultFormatYyyyMmDd,
+    filterFuturePeriods = defaultFilterFuturePeriods,
+} = {}) => [
     {
         type: DAILY,
         regex: /^([0-9]{4})([0-9]{2})([0-9]{2})$/, // YYYYMMDD
@@ -709,15 +712,20 @@ export const getFixedPeriodTypes = () => [
     },
 ]
 
-export const getFixedPeriodType = periodType => {
+export const getFixedPeriodType = ({
+    periodType,
+    formatYyyyMmDd,
+    filterFuturePeriods,
+}) => {
     if (!isValidPeriodType(periodType)) {
         throw new Error(
             `Invalid period type "${periodType}" supplied to "getFixedPeriodType"`
         )
     }
-    const periodTypeObj = getFixedPeriodTypes().find(
-        ({ type }) => type === periodType
-    )
+    const periodTypeObj = getFixedPeriodTypes({
+        formatYyyyMmDd,
+        filterFuturePeriods,
+    }).find(({ type }) => type === periodType)
 
     if (!periodTypeObj) {
         /**
@@ -742,12 +750,22 @@ export const getYearOffsetFromNow = year => {
     return yearInt - getCurrentDate().getFullYear()
 }
 
-export const getFixedPeriodsByTypeAndYear = (type, year, config) => {
-    const periodType = getFixedPeriodType(type)
+export const getFixedPeriodsByTypeAndYear = ({
+    periodType,
+    year,
+    formatYyyyMmDd,
+    filterFuturePeriods,
+    config,
+}) => {
+    const fixedPeriod = getFixedPeriodType({
+        periodType,
+        formatYyyyMmDd,
+        filterFuturePeriods,
+    })
     const offset = getYearOffsetFromNow(year)
 
-    return periodType && Number.isInteger(offset)
-        ? periodType.getPeriods({ ...config, offset })
+    return fixedPeriod && Number.isInteger(offset)
+        ? fixedPeriod.getPeriods({ ...config, offset })
         : []
 }
 
@@ -790,7 +808,7 @@ export const parsePeriodId = (id, allowedTypes) => {
 const isValidDate = date => !isNaN(date.getTime())
 
 export const getFixedPeriodsForTypeAndDateRange = (
-    type,
+    periodType,
     startDate,
     endDate
 ) => {
@@ -814,7 +832,7 @@ export const getFixedPeriodsForTypeAndDateRange = (
     const convertedPeriods = []
 
     while (!startDateReached) {
-        getFixedPeriodsByTypeAndYear(type, year)
+        getFixedPeriodsByTypeAndYear({ periodType, year })
             .reverse()
             .forEach(period => {
                 const periodEnd = new Date(period.endDate)
