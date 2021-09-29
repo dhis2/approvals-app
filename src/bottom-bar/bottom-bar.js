@@ -11,7 +11,7 @@ import { UnapproveButton } from './unapprove-button/index.js'
 const approvedStatuses = new Set([
     APPROVAL_STATUSES.APPROVED_HERE,
     APPROVAL_STATUSES.APPROVED_ABOVE,
-    APPROVAL_STATUSES.ACCEPTED,
+    APPROVAL_STATUSES.ACCEPTED_HERE,
 ])
 
 const BottomBar = () => {
