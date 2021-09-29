@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/dhis2/approval-app/compare/v1.15.0...v1.16.0) (2021-09-29)
+
+
+### Features
+
+* **data set:** persist selectetd data set in query params ([5ee1054](https://github.com/dhis2/approval-app/commit/5ee10548ee7383b530edcd3ef0a26d9b6ed90085))
+
 # [1.15.0](https://github.com/dhis2/approval-app/compare/v1.14.0...v1.15.0) (2021-09-28)
 
 
