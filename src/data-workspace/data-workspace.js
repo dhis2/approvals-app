@@ -1,14 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelectionContext } from '../selection-context/index.js'
 import { DataSetNavigation } from './data-set-navigation/index.js'
 import { Display } from './display/index.js'
 import { TitleBar } from './title-bar/index.js'
+import { useSelectedDataSet } from './use-selected-data-set/index.js'
 
 const DataWorkspace = () => {
-    const { workflow } = useSelectionContext()
-    const [selectedDataSet, setSelectedDataSet] = useState(
-        workflow.dataSets.length === 1 ? workflow.dataSets[0].id : null
-    )
+    const { workflow, selectDataSet } = useSelectionContext()
+    const selectedDataSet = useSelectedDataSet()
 
     return (
         <>
@@ -16,7 +15,7 @@ const DataWorkspace = () => {
             <DataSetNavigation
                 dataSets={workflow?.dataSets}
                 selected={selectedDataSet}
-                onChange={setSelectedDataSet}
+                onChange={selectDataSet}
             />
             <Display dataSetId={selectedDataSet} />
         </>

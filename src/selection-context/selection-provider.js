@@ -11,6 +11,7 @@ const ACTIONS = {
     SELECT_WORKFLOW: 'SELECT_WORKFLOW',
     SELECT_PERIOD: 'SELECT_PERIOD',
     SELECT_ORG_UNIT: 'SELECT_ORG_UNIT',
+    SELECT_DATA_SET: 'SELECT_DATA_SET',
     SET_STATE_FROM_QUERY_PARAMS: 'SET_STATE_FROM_QUERY_PARAMS',
 }
 
@@ -27,6 +28,7 @@ const reducer = (state, { type, payload }) => {
                 workflow: payload.workflow,
                 period: null,
                 orgUnit: null,
+                dataSet: null,
             }
         case ACTIONS.SELECT_WORKFLOW:
             return {
@@ -38,6 +40,7 @@ const reducer = (state, { type, payload }) => {
                     state.workflow?.periodType === payload.workflow?.periodType
                         ? state.period
                         : null,
+                dataSet: null,
             }
         case ACTIONS.SELECT_PERIOD:
             return {
@@ -48,12 +51,19 @@ const reducer = (state, { type, payload }) => {
                  */
                 openedSelect: payload.period?.id ? '' : state.openedSelect,
                 period: payload.period,
+                dataSet: null,
             }
         case ACTIONS.SELECT_ORG_UNIT:
             return {
                 ...state,
                 openedSelect: '',
                 orgUnit: payload.orgUnit,
+                dataSet: null,
+            }
+        case ACTIONS.SELECT_DATA_SET:
+            return {
+                ...state,
+                dataSet: payload.dataSet,
             }
         case ACTIONS.SET_STATE_FROM_QUERY_PARAMS:
             return {
@@ -67,18 +77,18 @@ const reducer = (state, { type, payload }) => {
 
 const SelectionProvider = ({ children }) => {
     const { dataApprovalWorkflows } = useAppContext()
-    const [{ openedSelect, workflow, period, orgUnit }, dispatch] = useReducer(
-        reducer,
-        {
+    const [{ openedSelect, workflow, period, orgUnit, dataSet }, dispatch] =
+        useReducer(reducer, {
             openedSelect: '',
             ...initialValues(dataApprovalWorkflows),
-        }
-    )
+        })
+
     const providerValue = {
         workflow,
         period,
         orgUnit,
         openedSelect,
+        dataSet,
         clearAll: () =>
             dispatch({
                 type: ACTIONS.CLEAR_ALL,
@@ -99,11 +109,13 @@ const SelectionProvider = ({ children }) => {
             dispatch({ type: ACTIONS.SELECT_PERIOD, payload: { period } }),
         selectOrgUnit: orgUnit =>
             dispatch({ type: ACTIONS.SELECT_ORG_UNIT, payload: { orgUnit } }),
+        selectDataSet: dataSet =>
+            dispatch({ type: ACTIONS.SELECT_DATA_SET, payload: { dataSet } }),
     }
 
     useEffect(() => {
-        pushStateToHistory({ workflow, period, orgUnit })
-    }, [workflow, period, orgUnit])
+        pushStateToHistory({ workflow, period, orgUnit, dataSet })
+    }, [workflow, period, orgUnit, dataSet])
 
     useEffect(() => {
         const setStateFromQueryParams = () => {

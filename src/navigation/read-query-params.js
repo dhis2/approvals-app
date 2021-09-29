@@ -10,5 +10,6 @@ export const readQueryParams = () => {
         pe: params.pe,
         ou: params.ou,
         ouDisplayName: params.ouDisplayName,
+        dataSet: params.dataSet,
     }
 }
