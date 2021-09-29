@@ -2,6 +2,7 @@ import { useDataEngine } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 import React, { createContext, useContext, useRef, useState } from 'react'
 import { useDebouncedCallback } from 'use-debounce'
+import { APPROVAL_STATUSES } from '../../shared/index.js'
 
 const ApprovalStatusesContext = createContext()
 
@@ -61,7 +62,7 @@ const useFetchApprovalStatus = ({ updateApprovalStatuses }) => {
                 workflowId,
                 approvalStatusUpdates: orgUnitIds.reduce(
                     (statuses, orgUnitId) => {
-                        statuses[orgUnitId] = 'LOADING'
+                        statuses[orgUnitId] = APPROVAL_STATUSES.LOADING
                         return statuses
                     },
                     {}
@@ -81,11 +82,11 @@ const useFetchApprovalStatus = ({ updateApprovalStatuses }) => {
                     },
                 })
                 approvalStatuses.forEach(({ ou, state }) => {
-                    updateObject[ou] = state || 'UNAPPROVABLE'
+                    updateObject[ou] = state || APPROVAL_STATUSES.UNAPPROVABLE
                 })
             } catch (error) {
                 orgUnitIds.forEach(orgUnitId => {
-                    updateObject[orgUnitId] = 'FETCH_ERROR'
+                    updateObject[orgUnitId] = APPROVAL_STATUSES.ERROR
                 })
             }
             updateApprovalStatuses({
