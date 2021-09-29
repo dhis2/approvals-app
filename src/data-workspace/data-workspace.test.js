@@ -29,7 +29,10 @@ describe('<DataWorkspace>', () => {
         ],
     }
 
-    useSelectionContext.mockImplementation(() => ({ workflow }))
+    useSelectionContext.mockImplementation(() => ({
+        workflow,
+        selectDataSet: jest.fn(),
+    }))
 
     it('renders a TitleBar, DataSetNavigation and Display', () => {
         const wrapper = shallow(<DataWorkspace />)
@@ -37,53 +40,5 @@ describe('<DataWorkspace>', () => {
         expect(wrapper.find(TitleBar)).toHaveLength(1)
         expect(wrapper.find(DataSetNavigation)).toHaveLength(1)
         expect(wrapper.find(Display)).toHaveLength(1)
-    })
-
-    it('if there is only one data set, select it automatically', () => {
-        useSelectionContext.mockImplementationOnce(() => ({
-            workflow: {
-                dataSets: [
-                    {
-                        id: 'data-set-1',
-                        displayName: 'Data set 1',
-                        periodType: 'Monthly',
-                    },
-                ],
-                displayName: 'Workflow a',
-                id: 'i5m0JPw4DQi',
-                periodType: 'Monthly',
-            },
-        }))
-        const wrapper = shallow(<DataWorkspace />)
-
-        expect(wrapper.find(DataSetNavigation).prop('selected')).toBe(
-            workflow.dataSets[0].id
-        )
-        expect(wrapper.find(Display).prop('dataSetId')).toBe(
-            workflow.dataSets[0].id
-        )
-    })
-
-    it('if there is more than one data set, do not select one automatically', () => {
-        const wrapper = shallow(<DataWorkspace />)
-
-        expect(wrapper.find(DataSetNavigation).prop('selected')).toBe(null)
-        expect(wrapper.find(DataSetNavigation).prop('selected')).toBe(null)
-        expect(wrapper.find(Display).prop('dataSetId')).toBe(null)
-    })
-
-    it('if there are no data sets, selection should be empty', () => {
-        useSelectionContext.mockImplementationOnce(() => ({
-            workflow: {
-                dataSets: [],
-                displayName: 'Workflow a',
-                id: 'i5m0JPw4DQi',
-                periodType: 'Monthly',
-            },
-        }))
-        const wrapper = shallow(<DataWorkspace />)
-
-        expect(wrapper.find(DataSetNavigation).prop('selected')).toBe(null)
-        expect(wrapper.find(Display).prop('dataSetId')).toBe(null)
     })
 })

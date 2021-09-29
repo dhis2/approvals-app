@@ -2,12 +2,15 @@ import { readQueryParams } from '../navigation/index.js'
 import { parsePeriodId } from '../shared/index.js'
 
 export const initialValues = workflows => {
-    const { wf, pe, ou, ouDisplayName } = readQueryParams()
+    const queryParams = readQueryParams()
+    const { wf, pe, ou, ouDisplayName, dataSet: dataSetParam } = queryParams
+
     const workflow = initialWorkflowValue(workflows, wf)
     const period = initialPeriodValue(pe, workflow)
     const orgUnit = initialOrgUnitValue(ou, ouDisplayName)
+    const dataSet = initialDataSetValue(dataSetParam)
 
-    return { workflow, period, orgUnit }
+    return { workflow, period, orgUnit, dataSet }
 }
 
 export const initialWorkflowValue = (workflows, workflowId) => {
@@ -44,4 +47,12 @@ export const initialOrgUnitValue = (path, displayName) => {
     const [lastPathSegment] = path.match(/[/]?[^/]*$/)
     const id = lastPathSegment.replace('/', '')
     return { id, path, displayName }
+}
+
+export const initialDataSetValue = dataSetParam => {
+    if (!dataSetParam) {
+        return null
+    }
+
+    return dataSetParam
 }

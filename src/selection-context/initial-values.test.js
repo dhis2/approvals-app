@@ -2,6 +2,7 @@ import {
     initialWorkflowValue,
     initialPeriodValue,
     initialOrgUnitValue,
+    initialDataSetValue,
 } from './initial-values.js'
 
 describe('initialWorkflowValue', () => {
@@ -18,7 +19,7 @@ describe('initialWorkflowValue', () => {
         },
     ]
 
-    it('returns an empty object by default', () => {
+    it('returns null by default', () => {
         expect(initialWorkflowValue([])).toEqual(null)
     })
 
@@ -28,7 +29,7 @@ describe('initialWorkflowValue', () => {
         )
     })
 
-    it('returns an empty object if the specified ID is not present on a workflow', () => {
+    it('returns null if the specified ID is not present on a workflow', () => {
         expect(initialWorkflowValue(mockWorkflows, 'invalid_value')).toEqual(
             null
         )
@@ -47,16 +48,16 @@ describe('initialPeriodValue', () => {
         id: 'i5m0JPw4DQi',
         periodType: 'Daily',
     }
-    it('returns an empty object by default', () => {
+    it('returns null by default', () => {
         expect(initialPeriodValue()).toEqual(null)
     })
-    it('returns an empty object when provided with an invalid period ID', () => {
+    it('returns null when provided with an invalid period ID', () => {
         const invalidPeriodID = 'invalidPeriodID'
         expect(initialPeriodValue(invalidPeriodID, initialWorkflow)).toEqual(
             null
         )
     })
-    it('returns an empty object if the periodId does not match the workflow periodType', () => {
+    it('returns null if the periodId does not match the workflow periodType', () => {
         const monthlyPeriodId = '201204'
         expect(initialPeriodValue(monthlyPeriodId, initialWorkflow)).toEqual(
             null
@@ -78,13 +79,13 @@ describe('initialPeriodValue', () => {
 })
 
 describe('initialOrgUnitValue', () => {
-    it('returns an empty object by default', () => {
+    it('returns null by default', () => {
         expect(initialOrgUnitValue()).toEqual(null)
     })
-    it('returns an empty object when not supplying a path', () => {
+    it('returns null when not supplying a path', () => {
         expect(initialOrgUnitValue(undefined, 'test')).toEqual(null)
     })
-    it('returns an empty object when not supplying a displayName', () => {
+    it('returns null when not supplying a displayName', () => {
         expect(initialOrgUnitValue('test', undefined)).toEqual(null)
     })
     it('returns an object when supplying both params', () => {
@@ -93,5 +94,15 @@ describe('initialOrgUnitValue', () => {
             path: '/path',
             displayName: 'Display name',
         })
+    })
+})
+
+describe('initialDataSetValue', () => {
+    it('returns null by default', () => {
+        expect(initialDataSetValue()).toEqual(null)
+    })
+
+    it('returns a string when supplying the params', () => {
+        expect(initialDataSetValue('foo')).toEqual('foo')
     })
 })
