@@ -2,7 +2,10 @@ import { colors } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import classes from './approval-status-icon.module.css'
-import { getApprovalStatusDisplayData } from './get-approval-status.js'
+import {
+    getApprovalStatusDisplayData,
+    APPROVAL_STATUSES,
+} from './get-approval-status.js'
 
 const getIconColorForType = type => {
     switch (type) {
@@ -39,15 +42,7 @@ ApprovalStatusIcon.defaultProps = {
 }
 
 ApprovalStatusIcon.propTypes = {
-    approvalStatus: PropTypes.oneOf([
-        'APPROVED_HERE',
-        'APPROVED_ABOVE',
-        'ACCEPTED_HERE',
-        'UNAPPROVED_READY',
-        'UNAPPROVED_WAITING',
-        'UNAPPROVED_ABOVE',
-        'UNAPPROVABLE',
-    ]),
+    approvalStatus: PropTypes.oneOf(Object.values(APPROVAL_STATUSES)),
     showTitle: PropTypes.bool,
 }
 

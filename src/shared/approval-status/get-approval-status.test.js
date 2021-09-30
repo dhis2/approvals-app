@@ -1,6 +1,9 @@
 import { IconBlock16, IconError16 } from '@dhis2/ui'
 import moment from 'moment'
-import { getApprovalStatusDisplayData } from './get-approval-status.js'
+import {
+    getApprovalStatusDisplayData,
+    APPROVAL_STATUSES,
+} from './get-approval-status.js'
 import { Approved, Ready, Waiting } from './icons.js'
 
 jest.mock('moment', () => {
@@ -10,7 +13,9 @@ jest.mock('moment', () => {
 describe('getApprovalStatusDisplayData', () => {
     it('returns the correct display data for approval status "UNAPPROVED_READY"', () => {
         expect(
-            getApprovalStatusDisplayData({ approvalStatus: 'UNAPPROVED_READY' })
+            getApprovalStatusDisplayData({
+                approvalStatus: APPROVAL_STATUSES.UNAPPROVED_READY,
+            })
         ).toEqual({
             displayName: 'Ready for approval',
             icon: Ready,
@@ -19,7 +24,9 @@ describe('getApprovalStatusDisplayData', () => {
     })
     it('returns the correct display data for approval status "ACCEPTED_HERE"', () => {
         expect(
-            getApprovalStatusDisplayData({ approvalStatus: 'ACCEPTED_HERE' })
+            getApprovalStatusDisplayData({
+                approvalStatus: APPROVAL_STATUSES.ACCEPTED_HERE,
+            })
         ).toEqual({
             displayName: 'Ready for approval — Accepted',
             icon: Ready,
@@ -29,7 +36,7 @@ describe('getApprovalStatusDisplayData', () => {
     it('returns the correct display data for approval status "UNAPPROVED_WAITING"', () => {
         expect(
             getApprovalStatusDisplayData({
-                approvalStatus: 'UNAPPROVED_WAITING',
+                approvalStatus: APPROVAL_STATUSES.UNAPPROVED_WAITING,
             })
         ).toEqual({
             displayName: 'Waiting for lower level approval',
@@ -39,7 +46,9 @@ describe('getApprovalStatusDisplayData', () => {
     })
     it('returns the correct display data for approval status "UNAPPROVED_ABOVE"', () => {
         expect(
-            getApprovalStatusDisplayData({ approvalStatus: 'UNAPPROVED_ABOVE' })
+            getApprovalStatusDisplayData({
+                approvalStatus: APPROVAL_STATUSES.UNAPPROVED_ABOVE,
+            })
         ).toEqual({
             displayName: 'Waiting for higher level approval',
             icon: Waiting,
@@ -47,7 +56,10 @@ describe('getApprovalStatusDisplayData', () => {
         })
     })
     describe('approved approval statuses "APPROVED_HERE" and "APPROVED_ABOVE"', () => {
-        for (const approvalStatus of ['APPROVED_HERE', 'APPROVED_ABOVE']) {
+        for (const approvalStatus of [
+            APPROVAL_STATUSES.APPROVED_HERE,
+            APPROVAL_STATUSES.APPROVED_ABOVE,
+        ]) {
             it(`returns the correct diplay data for ${approvalStatus} when only approvalStatus is supplied`, () => {
                 expect(
                     getApprovalStatusDisplayData({ approvalStatus })
@@ -98,7 +110,9 @@ describe('getApprovalStatusDisplayData', () => {
     })
     it('returns the correct display data for approval status "UNAPPROVABLE"', () => {
         expect(
-            getApprovalStatusDisplayData({ approvalStatus: 'UNAPPROVABLE' })
+            getApprovalStatusDisplayData({
+                approvalStatus: APPROVAL_STATUSES.UNAPPROVABLE,
+            })
         ).toEqual({
             displayName: 'Cannot be approved',
             icon: IconBlock16,
@@ -107,7 +121,9 @@ describe('getApprovalStatusDisplayData', () => {
     })
     it('returns the correct display data for approval status "ERROR"', () => {
         expect(
-            getApprovalStatusDisplayData({ approvalStatus: 'ERROR' })
+            getApprovalStatusDisplayData({
+                approvalStatus: APPROVAL_STATUSES.ERROR,
+            })
         ).toEqual({
             displayName: 'Could not retrieve approval status',
             icon: IconError16,

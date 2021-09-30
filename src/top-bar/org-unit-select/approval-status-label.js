@@ -3,14 +3,14 @@ import { IconWarning16, colors, Tooltip } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 import { useSelectionContext } from '../../selection-context/index.js'
-import { ApprovalStatusIcon } from '../../shared/approval-status/index.js'
+import { ApprovalStatusIcon, APPROVAL_STATUSES } from '../../shared/index.js'
 import classes from './approval-status-label.module.css'
 import { useApprovalStatus } from './approval-statuses.js'
 
 const renderIcon = approvalStatus => {
-    if (approvalStatus === 'LOADING') {
+    if (approvalStatus === APPROVAL_STATUSES.LOADING) {
         return <span className={classes.loadingIcon}></span>
-    } else if (approvalStatus === 'FETCH_ERROR') {
+    } else if (approvalStatus === APPROVAL_STATUSES.ERROR) {
         return (
             <Tooltip content={i18n.t('Failed to load approval state')}>
                 {({ onMouseOver, onMouseOut, ref }) => (

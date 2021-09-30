@@ -6,6 +6,7 @@ import React from 'react'
 import {
     getApprovalStatusDisplayData,
     isApproved,
+    APPROVAL_STATUSES,
 } from './get-approval-status.js'
 import { useServerDateTimeAsLocal } from './use-server-date-time-as-local.js'
 
@@ -42,15 +43,7 @@ const ApprovalStatusTag = ({ approvalStatus, approvedAt, approvedBy }) => {
 }
 
 ApprovalStatusTag.propTypes = {
-    approvalStatus: PropTypes.oneOf([
-        'APPROVED_HERE',
-        'APPROVED_ABOVE',
-        'ACCEPTED_HERE',
-        'UNAPPROVED_READY',
-        'UNAPPROVED_WAITING',
-        'UNAPPROVED_ABOVE',
-        'UNAPPROVABLE',
-    ]),
+    approvalStatus: PropTypes.oneOf(Object.values(APPROVAL_STATUSES)),
     approvedAt: PropTypes.string,
     approvedBy: PropTypes.string,
 }
