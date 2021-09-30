@@ -1,3 +1,11 @@
+## [1.16.2](https://github.com/dhis2/approval-app/compare/v1.16.1...v1.16.2) (2021-09-30)
+
+
+### Bug Fixes
+
+* **data set table:** ensure 480px max-width rule works ([6377e6a](https://github.com/dhis2/approval-app/commit/6377e6ac7e661662f7b658aa886d677b9ac4ef0b))
+* **data set table:** make table use min-required width ([62432f9](https://github.com/dhis2/approval-app/commit/62432f978b3b57964c9bc2fba6226e05952ee831))
+
 ## [1.16.1](https://github.com/dhis2/approval-app/compare/v1.16.0...v1.16.1) (2021-09-30)
 
 
