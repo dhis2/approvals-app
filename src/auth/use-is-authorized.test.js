@@ -4,7 +4,7 @@ import { AppContext } from '../app-context/index.js'
 import { useIsAuthorized } from './use-is-authorized.js'
 
 describe('useIsAuthorized', () => {
-    it('returns false for unauthorised users', () => {
+    it('returns the correct object for unauthorised users', () => {
         const value = {
             authorities: ['dummy'],
         }
@@ -15,10 +15,13 @@ describe('useIsAuthorized', () => {
 
         const { result } = renderHook(() => useIsAuthorized(), { wrapper })
 
-        expect(result.current).toEqual(false)
+        expect(result.current).toEqual({
+            hasAppAccess: false,
+            hasApprovalAuthorities: false,
+        })
     })
 
-    it('returns true for authorised users', () => {
+    it('returns the correct object for authorised users', () => {
         const value = {
             authorities: ['M_dhis-web-approval'],
         }
@@ -29,10 +32,47 @@ describe('useIsAuthorized', () => {
 
         const { result } = renderHook(() => useIsAuthorized(), { wrapper })
 
-        expect(result.current).toEqual(true)
+        expect(result.current).toEqual({
+            hasAppAccess: true,
+            hasApprovalAuthorities: false,
+        })
     })
 
-    it('returns true for superusers', () => {
+    it('returns the correct object for authorised users with F_APPROVE_DATA authority', () => {
+        const value = {
+            authorities: ['M_dhis-web-approval', 'F_APPROVE_DATA'],
+        }
+
+        const wrapper = ({ children }) => (
+            <AppContext.Provider value={value}>{children}</AppContext.Provider>
+        )
+
+        const { result } = renderHook(() => useIsAuthorized(), { wrapper })
+
+        expect(result.current).toEqual({
+            hasAppAccess: true,
+            hasApprovalAuthorities: true,
+        })
+    })
+
+    it('returns the correct object for authorised users with F_APPROVE_DATA_LOWER_LEVELS authority', () => {
+        const value = {
+            authorities: ['M_dhis-web-approval', 'F_APPROVE_DATA_LOWER_LEVELS'],
+        }
+
+        const wrapper = ({ children }) => (
+            <AppContext.Provider value={value}>{children}</AppContext.Provider>
+        )
+
+        const { result } = renderHook(() => useIsAuthorized(), { wrapper })
+
+        expect(result.current).toEqual({
+            hasAppAccess: true,
+            hasApprovalAuthorities: true,
+        })
+    })
+
+    it('returns the correct object for superusers', () => {
         const value = {
             authorities: ['ALL'],
         }
@@ -43,6 +83,9 @@ describe('useIsAuthorized', () => {
 
         const { result } = renderHook(() => useIsAuthorized(), { wrapper })
 
-        expect(result.current).toEqual(true)
+        expect(result.current).toEqual({
+            hasAppAccess: true,
+            hasApprovalAuthorities: true,
+        })
     })
 })
