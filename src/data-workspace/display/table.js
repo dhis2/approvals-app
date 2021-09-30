@@ -31,11 +31,19 @@ const Table = ({ title, columns, rows }) => (
             <TableHead>
                 <DataTableToolbar columns={columns.length}>{title}</DataTableToolbar>
                 <DataTableRow>
-                    {columns.map(column => (
-                        <DataTableColumnHeader key={column}>
-                            {column}
-                        </DataTableColumnHeader>
-                    ))}
+                    <DataTableColumnHeader className={styles.cell}>
+                        <span className={styles.labelCellContent}>
+                            {columns[0]}
+                        </span>
+                    </DataTableColumnHeader>
+
+                    {columns.slice(1).map(column => {
+                        return (
+                            <DataTableColumnHeader key={column} className={styles.cell}>
+                                {column}
+                            </DataTableColumnHeader>
+                        )
+                    })}
                 </DataTableRow>
             </TableHead>
             <TableBody>
@@ -44,12 +52,14 @@ const Table = ({ title, columns, rows }) => (
 
                     return (
                         <DataTableRow key={index}>
-                            <DataTableCell className={styles.labelCell}>
-                                {firstCell}
+                            <DataTableCell className={styles.cell}>
+                                <span className={styles.labelCellContent}>
+                                    {firstCell}
+                                </span>
                             </DataTableCell>
 
                             {cells.map((value, index) => (
-                                <DataTableCell key={index}>
+                                <DataTableCell key={index} className={styles.cell}>
                                     {value}
                                 </DataTableCell>
                             ))}
