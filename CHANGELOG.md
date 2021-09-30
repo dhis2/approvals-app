@@ -1,3 +1,10 @@
+## [1.16.4](https://github.com/dhis2/approval-app/compare/v1.16.3...v1.16.4) (2021-09-30)
+
+
+### Bug Fixes
+
+* revert pr[#102](https://github.com/dhis2/approval-app/issues/102) because the bug was actually expected behavior ([#104](https://github.com/dhis2/approval-app/issues/104)) ([6709bc2](https://github.com/dhis2/approval-app/commit/6709bc2fb857b1bd161ebe03a1239bd073b023b6))
+
 ## [1.16.3](https://github.com/dhis2/approval-app/compare/v1.16.2...v1.16.3) (2021-09-30)
 
 
