@@ -1,3 +1,10 @@
+## [1.16.3](https://github.com/dhis2/approval-app/compare/v1.16.2...v1.16.3) (2021-09-30)
+
+
+### Bug Fixes
+
+* show message to users with no authority to approve data ([#102](https://github.com/dhis2/approval-app/issues/102)) ([b4fae37](https://github.com/dhis2/approval-app/commit/b4fae37b210f7ae932196fe7ba5dc18b542b8c48))
+
 ## [1.16.2](https://github.com/dhis2/approval-app/compare/v1.16.1...v1.16.2) (2021-09-30)
 
 
