@@ -5,23 +5,19 @@ import { ErrorMessage } from '../shared/index.js'
 import { useIsAuthorized } from './use-is-authorized.js'
 
 const AuthWall = ({ children }) => {
-    const { hasAppAccess, hasApprovalAuthorities } = useIsAuthorized()
+    const isAuthorized = useIsAuthorized()
 
-    if (hasAppAccess && hasApprovalAuthorities) {
-        return children
+    if (!isAuthorized) {
+        return (
+            <ErrorMessage title={i18n.t('Not authorized')}>
+                {i18n.t(
+                    "You don't have access to the Data Approval App. Contact a system administrator to request access."
+                )}
+            </ErrorMessage>
+        )
     }
 
-    const message = !hasAppAccess
-        ? i18n.t(
-              "You don't have access to the Data Approval App. Contact a system administrator to request access."
-          )
-        : i18n.t(
-              'You are not allowed to approve data. Contact a system administrator to request the appropriate authorities.'
-          )
-
-    return (
-        <ErrorMessage title={i18n.t('Not authorized')}>{message}</ErrorMessage>
-    )
+    return children
 }
 
 AuthWall.propTypes = {
