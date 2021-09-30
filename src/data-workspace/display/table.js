@@ -12,9 +12,9 @@ import styles from './table.module.css'
 
 // Needs to have the same width as the table, so can't use the one from
 // @dhis2/ui
-const DataTableToolbar = ({ children }) => (
+const DataTableToolbar = ({ children, columns }) => (
     <tr>
-        <th className={styles.titleCell} colSpan="2">
+        <th className={styles.titleCell} colSpan={columns.toString()}>
             {children}
         </th>
     </tr>
@@ -22,19 +22,33 @@ const DataTableToolbar = ({ children }) => (
 
 DataTableToolbar.propTypes = {
     children: PropTypes.any.isRequired,
+    columns: PropTypes.number.isRequired,
 }
 
 const Table = ({ title, columns, rows }) => (
     <>
         <DataTable className={styles.dataTable}>
             <TableHead>
-                <DataTableToolbar>{title}</DataTableToolbar>
+                <DataTableToolbar columns={columns.length}>
+                    {title}
+                </DataTableToolbar>
                 <DataTableRow>
-                    {columns.map(column => (
-                        <DataTableColumnHeader key={column}>
-                            {column}
-                        </DataTableColumnHeader>
-                    ))}
+                    <DataTableColumnHeader className={styles.cell}>
+                        <span className={styles.labelCellContent}>
+                            {columns[0]}
+                        </span>
+                    </DataTableColumnHeader>
+
+                    {columns.slice(1).map(column => {
+                        return (
+                            <DataTableColumnHeader
+                                key={column}
+                                className={styles.cell}
+                            >
+                                {column}
+                            </DataTableColumnHeader>
+                        )
+                    })}
                 </DataTableRow>
             </TableHead>
             <TableBody>
@@ -43,12 +57,17 @@ const Table = ({ title, columns, rows }) => (
 
                     return (
                         <DataTableRow key={index}>
-                            <DataTableCell className={styles.labelCell}>
-                                {firstCell}
+                            <DataTableCell className={styles.cell}>
+                                <span className={styles.labelCellContent}>
+                                    {firstCell}
+                                </span>
                             </DataTableCell>
 
                             {cells.map((value, index) => (
-                                <DataTableCell key={index}>
+                                <DataTableCell
+                                    key={index}
+                                    className={styles.cell}
+                                >
                                     {value}
                                 </DataTableCell>
                             ))}

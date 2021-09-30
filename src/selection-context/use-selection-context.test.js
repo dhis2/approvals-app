@@ -115,7 +115,7 @@ describe('useSelectionContext', () => {
     })
 
     describe('functions returned from the hook update the state and url', () => {
-        it.only('setOpenedSelect', () => {
+        it('setOpenedSelect', () => {
             const mock = jest.fn()
             pushStateToHistory.mockImplementation(mock)
 
