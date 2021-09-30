@@ -9,7 +9,8 @@ export const useIsAuthorized = () => {
         authority =>
             authority === 'ALL' ||
             authority === 'F_APPROVE_DATA' ||
-            authority === 'F_APPROVE_DATA_LOWER_LEVELS'
+            authority === 'F_APPROVE_DATA_LOWER_LEVELS' ||
+            authority === 'F_ACCEPT_DATA_LOWER_LEVELS'
     )
 
     return { hasAppAccess, hasApprovalAuthorities }
