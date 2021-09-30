@@ -72,6 +72,23 @@ describe('useIsAuthorized', () => {
         })
     })
 
+    it('returns the correct object for authorised users with F_ACCEPT_DATA_LOWER_LEVELS authority', () => {
+        const value = {
+            authorities: ['M_dhis-web-approval', 'F_ACCEPT_DATA_LOWER_LEVELS'],
+        }
+
+        const wrapper = ({ children }) => (
+            <AppContext.Provider value={value}>{children}</AppContext.Provider>
+        )
+
+        const { result } = renderHook(() => useIsAuthorized(), { wrapper })
+
+        expect(result.current).toEqual({
+            hasAppAccess: true,
+            hasApprovalAuthorities: true,
+        })
+    })
+
     it('returns the correct object for superusers', () => {
         const value = {
             authorities: ['ALL'],
