@@ -1,3 +1,10 @@
+## [1.16.1](https://github.com/dhis2/approval-app/compare/v1.16.0...v1.16.1) (2021-09-30)
+
+
+### Bug Fixes
+
+* **bottom-bar:** disable approve button when it is allowed but pointless ([#100](https://github.com/dhis2/approval-app/issues/100)) ([0a92315](https://github.com/dhis2/approval-app/commit/0a92315d977fa4f30a20a4025b2907f0250e9c8d))
+
 # [1.16.0](https://github.com/dhis2/approval-app/compare/v1.15.0...v1.16.0) (2021-09-29)
 
 
