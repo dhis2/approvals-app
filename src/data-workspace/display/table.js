@@ -12,9 +12,9 @@ import styles from './table.module.css'
 
 // Needs to have the same width as the table, so can't use the one from
 // @dhis2/ui
-const DataTableToolbar = ({ children }) => (
+const DataTableToolbar = ({ children, columns }) => (
     <tr>
-        <th className={styles.titleCell} colSpan="2">
+        <th className={styles.titleCell} colSpan={columns.toString()}>
             {children}
         </th>
     </tr>
@@ -22,13 +22,14 @@ const DataTableToolbar = ({ children }) => (
 
 DataTableToolbar.propTypes = {
     children: PropTypes.any.isRequired,
+    columns: PropTypes.number.isRequired,
 }
 
 const Table = ({ title, columns, rows }) => (
     <>
         <DataTable className={styles.dataTable}>
             <TableHead>
-                <DataTableToolbar>{title}</DataTableToolbar>
+                <DataTableToolbar columns={columns.length}>{title}</DataTableToolbar>
                 <DataTableRow>
                     {columns.map(column => (
                         <DataTableColumnHeader key={column}>
