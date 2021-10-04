@@ -26,11 +26,12 @@ describe('getApprovalStatusDisplayData', () => {
         expect(
             getApprovalStatusDisplayData({
                 approvalStatus: APPROVAL_STATUSES.ACCEPTED_HERE,
+                approvedBy: 'Hendrik',
             })
         ).toEqual({
-            displayName: 'Ready for approval — Accepted',
-            icon: Ready,
-            type: 'neutral',
+            displayName: 'Approval by Hendrik accepted 2 years ago',
+            icon: Approved,
+            type: 'positive',
         })
     })
     it('returns the correct display data for approval status "UNAPPROVED_WAITING"', () => {
@@ -55,58 +56,45 @@ describe('getApprovalStatusDisplayData', () => {
             type: 'default',
         })
     })
-    describe('approved approval statuses "APPROVED_HERE" and "APPROVED_ABOVE"', () => {
-        for (const approvalStatus of [
-            APPROVAL_STATUSES.APPROVED_HERE,
-            APPROVAL_STATUSES.APPROVED_ABOVE,
-        ]) {
-            it(`returns the correct diplay data for ${approvalStatus} when only approvalStatus is supplied`, () => {
-                expect(
-                    getApprovalStatusDisplayData({ approvalStatus })
-                ).toEqual({
-                    displayName: 'Approved',
-                    icon: Approved,
-                    type: 'positive',
-                })
+    it('returns the correct diplay data for "APPROVED_HERE"', () => {
+        expect(
+            getApprovalStatusDisplayData({
+                approvalStatus: APPROVAL_STATUSES.APPROVED_HERE,
+                approvedBy: 'Hendrik',
+                // The actual value for this field is irrelevant due to the moment mock
+                approvalDateTime: 'Not empty',
             })
-            it(`returns the correct diplay data for ${approvalStatus} when approvalStatus and approvedBy are passed`, () => {
-                expect(
-                    getApprovalStatusDisplayData({
-                        approvalStatus,
-                        approvedBy: 'Hendrik',
-                    })
-                ).toEqual({
-                    displayName: 'Approved by Hendrik',
-                    icon: Approved,
-                    type: 'positive',
+        ).toEqual({
+            displayName: 'Approved by Hendrik 2 years ago',
+            icon: Approved,
+            type: 'positive',
+        })
+    })
+    describe('approved approval statuse "APPROVED_ABOVE"', () => {
+        it(`returns the correct diplay data for APPROVED_ABOVE when only approvalStatus is supplied`, () => {
+            expect(
+                getApprovalStatusDisplayData({
+                    approvalStatus: APPROVAL_STATUSES.APPROVED_ABOVE,
                 })
+            ).toEqual({
+                displayName: 'Approved at higher level ',
+                icon: Approved,
+                type: 'positive',
             })
-            it(`returns the correct diplay data for ${approvalStatus} when approvalStatus and approvalDateTime are passed`, () => {
-                expect(
-                    getApprovalStatusDisplayData({
-                        approvalStatus,
-                        approvalDateTime: '2020-08-24T18:55:03.165Z',
-                    })
-                ).toEqual({
-                    displayName: 'Approved 2 years ago',
-                    icon: Approved,
-                    type: 'positive',
+        })
+        it(`returns the correct diplay data for APPROVED_ABOVE when approvalStatus and approvedAt are passed`, () => {
+            expect(
+                getApprovalStatusDisplayData({
+                    approvalStatus: APPROVAL_STATUSES.APPROVED_ABOVE,
+                    // The actual value for this field is irrelevant due to the moment mock
+                    approvalDateTime: 'Not empty',
                 })
+            ).toEqual({
+                displayName: 'Approved at higher level 2 years ago',
+                icon: Approved,
+                type: 'positive',
             })
-            it(`returns the correct diplay data for ${approvalStatus} when only all options are passed`, () => {
-                expect(
-                    getApprovalStatusDisplayData({
-                        approvalStatus,
-                        approvedBy: 'Hendrik',
-                        approvalDateTime: '2020-08-24T18:55:03.165Z',
-                    })
-                ).toEqual({
-                    displayName: 'Approved by Hendrik 2 years ago',
-                    icon: Approved,
-                    type: 'positive',
-                })
-            })
-        }
+        })
     })
     it('returns the correct display data for approval status "UNAPPROVABLE"', () => {
         expect(
