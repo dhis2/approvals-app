@@ -83,6 +83,17 @@ describe('getApprovalStatusDisplayData', () => {
             type: 'positive',
         })
     })
+    it('returns the correct display data for approval status "UNAUTHORIZED"', () => {
+        expect(
+            getApprovalStatusDisplayData({
+                approvalStatus: APPROVAL_STATUSES.UNAUTHORIZED,
+            })
+        ).toEqual({
+            displayName: 'Cannot be approved',
+            icon: IconBlock16,
+            type: 'negative',
+        })
+    })
     it('returns the correct display data for approval status "UNAPPROVABLE"', () => {
         expect(
             getApprovalStatusDisplayData({
