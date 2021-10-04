@@ -1,3 +1,10 @@
+## [1.16.6](https://github.com/dhis2/approval-app/compare/v1.16.5...v1.16.6) (2021-10-04)
+
+
+### Bug Fixes
+
+* **approval-status-tag:** show custom tag text for unauthorized users ([#106](https://github.com/dhis2/approval-app/issues/106)) ([bb2a483](https://github.com/dhis2/approval-app/commit/bb2a4839daf0d7608a6bc1e0b1c4c756ffa86ac6))
+
 ## [1.16.5](https://github.com/dhis2/approval-app/compare/v1.16.4...v1.16.5) (2021-10-04)
 
 
