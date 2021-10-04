@@ -11,6 +11,7 @@ const APPROVAL_STATUSES = {
     APPROVED_HERE: 'APPROVED_HERE',
     APPROVED_ABOVE: 'APPROVED_ABOVE',
     UNAPPROVABLE: 'UNAPPROVABLE',
+    UNAUTHORIZED: 'UNAUTHORIZED',
     LOADING: 'LOADING',
     ERROR: 'ERROR',
 }
@@ -36,6 +37,7 @@ const getApprovalStatusIcon = approvalStatus => {
                 type: 'positive',
             }
         case APPROVAL_STATUSES.UNAPPROVABLE:
+        case APPROVAL_STATUSES.UNAUTHORIZED:
             return {
                 icon: IconBlock16,
                 type: 'negative',
@@ -76,6 +78,8 @@ const getApprovalStatusText = ({
             return i18n.t('Approved at higher level {{timeAgo}}', {
                 timeAgo: moment(approvalDateTime).fromNow(),
             })
+        case APPROVAL_STATUSES.UNAUTHORIZED:
+            return i18n.t('You do not have authority to approve data')
         case APPROVAL_STATUSES.UNAPPROVABLE:
             return i18n.t('Cannot be approved')
         case APPROVAL_STATUSES.ERROR:

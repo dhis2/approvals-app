@@ -1,4 +1,5 @@
 import React from 'react'
+import { useIsAuthorized } from '../auth/use-is-authorized.js'
 import { ApprovalStatusTag, APPROVAL_STATUSES } from '../shared/index.js'
 import { useWorkflowContext } from '../workflow-context/index.js'
 import { AcceptButton } from './accept-button/index.js'
@@ -17,6 +18,7 @@ const approvedStatuses = new Set([
 const BottomBar = () => {
     const { allowedActions, approvalStatus, approvedBy, approvedAt } =
         useWorkflowContext()
+    const { hasApprovalAuthorities } = useIsAuthorized()
     const { mayAccept, mayApprove, mayUnaccept, mayUnapprove } = allowedActions
     const disableApproveBtn =
         /* We want to signal that the user can't approve or unapprove anything 
@@ -29,7 +31,11 @@ const BottomBar = () => {
             <div className={styles.bottomBar} data-test="bottom-bar">
                 <BottomBarItem>
                     <ApprovalStatusTag
-                        approvalStatus={approvalStatus}
+                        approvalStatus={
+                            hasApprovalAuthorities
+                                ? approvalStatus
+                                : APPROVAL_STATUSES.UNAUTHORIZED
+                        }
                         approvedBy={approvedBy}
                         approvedAt={approvedAt}
                     />
