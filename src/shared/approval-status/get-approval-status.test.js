@@ -70,30 +70,17 @@ describe('getApprovalStatusDisplayData', () => {
             type: 'positive',
         })
     })
-    describe('approved approval statuse "APPROVED_ABOVE"', () => {
-        it(`returns the correct diplay data for APPROVED_ABOVE when only approvalStatus is supplied`, () => {
-            expect(
-                getApprovalStatusDisplayData({
-                    approvalStatus: APPROVAL_STATUSES.APPROVED_ABOVE,
-                })
-            ).toEqual({
-                displayName: 'Approved at higher level ',
-                icon: Approved,
-                type: 'positive',
+    it('returns the correct diplay data for "APPROVED_ABOVE"', () => {
+        expect(
+            getApprovalStatusDisplayData({
+                approvalStatus: APPROVAL_STATUSES.APPROVED_ABOVE,
+                // The actual value for this field is irrelevant due to the moment mock
+                approvalDateTime: 'Not empty',
             })
-        })
-        it(`returns the correct diplay data for APPROVED_ABOVE when approvalStatus and approvedAt are passed`, () => {
-            expect(
-                getApprovalStatusDisplayData({
-                    approvalStatus: APPROVAL_STATUSES.APPROVED_ABOVE,
-                    // The actual value for this field is irrelevant due to the moment mock
-                    approvalDateTime: 'Not empty',
-                })
-            ).toEqual({
-                displayName: 'Approved at higher level 2 years ago',
-                icon: Approved,
-                type: 'positive',
-            })
+        ).toEqual({
+            displayName: 'Approved at higher level 2 years ago',
+            icon: Approved,
+            type: 'positive',
         })
     })
     it('returns the correct display data for approval status "UNAPPROVABLE"', () => {
