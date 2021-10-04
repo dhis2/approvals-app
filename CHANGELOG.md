@@ -1,3 +1,10 @@
+## [1.16.5](https://github.com/dhis2/approval-app/compare/v1.16.4...v1.16.5) (2021-10-04)
+
+
+### Bug Fixes
+
+* **approval-status-tag:** show correct status texts and icons ([#105](https://github.com/dhis2/approval-app/issues/105)) ([ba2f9ae](https://github.com/dhis2/approval-app/commit/ba2f9aeb96ae9e83b154b3140b8266b0c9ba4a0a))
+
 ## [1.16.4](https://github.com/dhis2/approval-app/compare/v1.16.3...v1.16.4) (2021-09-30)
 
 
