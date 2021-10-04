@@ -34,11 +34,12 @@ When('the user selects organisation unit "Badjia"', () => {
 
 const statuses = [
     'Ready for approval',
-    'Approved',
-    'Ready for approval — Accepted',
-    'Cannot be approved',
     'Waiting for lower level approval',
     'Waiting for higher level approval',
+    'Approval by .+ accepted .+',
+    'Approved by .+',
+    'Approved at higher level .+',
+    'Cannot be approved',
 ]
 defineParameterType({
     name: 'status',
@@ -48,5 +49,8 @@ defineParameterType({
 Then('the status tag shows the approval status "{status}"', status => {
     cy.get(
         '[data-test="bottom-bar"] [data-test="dhis2-uicore-tag-text"]'
-    ).should('contain.text', status)
+    ).should($tag => {
+        const statusRegex = new RegExp(status)
+        expect(statusRegex.test($tag.text())).to.be.true
+    })
 })

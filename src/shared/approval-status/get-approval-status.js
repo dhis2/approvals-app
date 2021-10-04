@@ -18,7 +18,6 @@ const APPROVAL_STATUSES = {
 const getApprovalStatusIcon = approvalStatus => {
     switch (approvalStatus) {
         case APPROVAL_STATUSES.UNAPPROVED_READY:
-        case APPROVAL_STATUSES.ACCEPTED_HERE:
             return {
                 icon: Ready,
                 type: 'neutral',
@@ -29,6 +28,7 @@ const getApprovalStatusIcon = approvalStatus => {
                 icon: Waiting,
                 type: 'default',
             }
+        case APPROVAL_STATUSES.ACCEPTED_HERE:
         case APPROVAL_STATUSES.APPROVED_HERE:
         case APPROVAL_STATUSES.APPROVED_ABOVE:
             return {
@@ -50,20 +50,6 @@ const getApprovalStatusIcon = approvalStatus => {
     }
 }
 
-const getApprovedStatusText = ({ approvalDateTime, approvedBy: name }) => {
-    if (approvalDateTime) {
-        const timeAgo = moment(approvalDateTime).fromNow()
-
-        return name
-            ? i18n.t('Approved by {{- name}} {{timeAgo}}', { name, timeAgo })
-            : i18n.t('Approved {{timeAgo}}', { timeAgo })
-    }
-
-    return name
-        ? i18n.t('Approved by {{- name}}', { name })
-        : i18n.t('Approved')
-}
-
 const getApprovalStatusText = ({
     approvalStatus,
     approvalDateTime,
@@ -72,15 +58,24 @@ const getApprovalStatusText = ({
     switch (approvalStatus) {
         case APPROVAL_STATUSES.UNAPPROVED_READY:
             return i18n.t('Ready for approval')
-        case APPROVAL_STATUSES.ACCEPTED_HERE:
-            return i18n.t('Ready for approval — Accepted')
         case APPROVAL_STATUSES.UNAPPROVED_WAITING:
             return i18n.t('Waiting for lower level approval')
         case APPROVAL_STATUSES.UNAPPROVED_ABOVE:
             return i18n.t('Waiting for higher level approval')
+        case APPROVAL_STATUSES.ACCEPTED_HERE:
+            return i18n.t('Approval by {{- name}} accepted {{timeAgo}}', {
+                name: approvedBy,
+                timeAgo: moment(approvalDateTime).fromNow(),
+            })
         case APPROVAL_STATUSES.APPROVED_HERE:
+            return i18n.t('Approved by {{- name}} {{timeAgo}}', {
+                name: approvedBy,
+                timeAgo: moment(approvalDateTime).fromNow(),
+            })
         case APPROVAL_STATUSES.APPROVED_ABOVE:
-            return getApprovedStatusText({ approvalDateTime, approvedBy })
+            return i18n.t('Approved at higher level {{timeAgo}}', {
+                timeAgo: moment(approvalDateTime).fromNow(),
+            })
         case APPROVAL_STATUSES.UNAPPROVABLE:
             return i18n.t('Cannot be approved')
         case APPROVAL_STATUSES.ERROR:

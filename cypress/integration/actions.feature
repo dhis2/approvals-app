@@ -25,10 +25,10 @@ Feature: Users can approve, accept, unapprove, and unaccept data
 
     # In "Approved" state the "Accept" action becomes available
     Scenario: User accepts data
-        Then the status tag shows the approval status "Approved"
+        Then the status tag shows the approval status "Approved by .+"
         When the user clicks the Accept button
         Then a circular loader is rendered
-        And the status tag shows the approval status "Ready for approval — Accepted"
+        And the status tag shows the approval status "Approval by .+ accepted .+"
         And the following buttons are available
             | label     | visible | disabled |
             | Approve   | yes     | yes      |
@@ -38,10 +38,10 @@ Feature: Users can approve, accept, unapprove, and unaccept data
 
     # In "Ready for approval — Accepted" state the "Unaccept" action becomes available
     Scenario: User unaccepts data
-        Then the status tag shows the approval status "Ready for approval — Accepted"
+        Then the status tag shows the approval status "Approval by .+ accepted .+"
         When the user clicks the Unaccept button
         Then a circular loader is rendered
-        And the status tag shows the approval status "Approved"
+        And the status tag shows the approval status "Approved by +."
         And the following buttons are available
             | label     | visible | disabled |
             | Approve   |         |          |
@@ -51,7 +51,7 @@ Feature: Users can approve, accept, unapprove, and unaccept data
 
     # After unaccepting the state jumps back to "Approved" and the "Unapprove" action becomes available
     Scenario: User unapproves data
-        Then the status tag shows the approval status "Approved"
+        Then the status tag shows the approval status "Approved by .+"
         When the user clicks the Unapprove button
         Then a circular loader is rendered
         And the status tag shows the approval status "Ready for approval"
