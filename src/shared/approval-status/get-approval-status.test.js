@@ -89,7 +89,7 @@ describe('getApprovalStatusDisplayData', () => {
                 approvalStatus: APPROVAL_STATUSES.UNAUTHORIZED,
             })
         ).toEqual({
-            displayName: 'Cannot be approved',
+            displayName: 'You do not have authority to approve data',
             icon: IconBlock16,
             type: 'negative',
         })
