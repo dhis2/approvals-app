@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-10-04T12:25:48.548Z\n"
-"PO-Revision-Date: 2021-10-04T12:25:48.548Z\n"
+"POT-Creation-Date: 2021-10-05T13:14:45.209Z\n"
+"PO-Revision-Date: 2021-10-05T13:14:45.209Z\n"
 
 msgid "Not authorized"
 msgstr "Not authorized"
@@ -99,19 +99,6 @@ msgstr "Retry loading data set"
 
 msgid "This data set doesn't have any data for {{- period}} in {{- orgUnit}}."
 msgstr "This data set doesn't have any data for {{- period}} in {{- orgUnit}}."
-
-msgid "This data set may not display properly"
-msgstr "This data set may not display properly"
-
-msgid "This data set uses a custom form, which isn't supported in this app."
-msgstr "This data set uses a custom form, which isn't supported in this app."
-
-msgid ""
-"The data is displayed in the default form below. To continue using custom "
-"forms, use the Data Approval legacy app."
-msgstr ""
-"The data is displayed in the default form below. To continue using custom "
-"forms, use the Data Approval legacy app."
 
 msgid "1 data set"
 msgstr "1 data set"

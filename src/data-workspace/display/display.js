@@ -28,7 +28,6 @@ const Display = ({ dataSetId }) => {
     const { orgUnit, workflow, period } = selection
     const { dataSets } = workflow
     const selectedDataSet = dataSets.find(({ id }) => id === dataSetId)
-    const usesNonDefaultFormType = selectedDataSet?.formType !== 'DEFAULT'
     const periodIds = selectedDataSet
         ? getFixedPeriodsForTypeAndDateRange(
               selectedDataSet.periodType,
@@ -126,24 +125,6 @@ const Display = ({ dataSetId }) => {
 
     return (
         <div className={styles.display}>
-            {usesNonDefaultFormType && (
-                <NoticeBox
-                    warning
-                    title={i18n.t('This data set may not display properly')}
-                    className={styles.nonDefaultFormWarning}
-                >
-                    <p>
-                        {i18n.t(
-                            "This data set uses a custom form, which isn't supported in this app."
-                        )}
-                        <br />
-                        {/* TODO: Add link to legacy app once available */}
-                        {i18n.t(
-                            'The data is displayed in the default form below. To continue using custom forms, use the Data Approval legacy app.'
-                        )}
-                    </p>
-                </NoticeBox>
-            )}
             {tables.map(table => (
                 <Table
                     key={table.title}
