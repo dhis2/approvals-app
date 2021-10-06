@@ -5,22 +5,6 @@
     font-weight: normal;
 }
 
-table.dataTable {
-    width: auto;
-}
-
-th.cell,
-td.cell {
-    height: auto;
-    min-height: 45px;
-    padding-top: 14px;
-    padding-bottom: 14px;
-}
-
-th.cell :global(.top) {
-    height: auto;
-}
-
 .labelCellContent,
 .labelCellContent {
     display: block;

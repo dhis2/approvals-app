@@ -27,7 +27,7 @@ DataTableToolbar.propTypes = {
 
 const Table = ({ title, columns, rows }) => (
     <>
-        <DataTable className={styles.dataTable}>
+        <DataTable className={styles.dataTable} width="auto">
             <TableHead>
                 <DataTableToolbar columns={columns.length}>
                     {title}
