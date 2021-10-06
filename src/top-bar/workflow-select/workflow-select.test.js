@@ -1,4 +1,4 @@
-import { Popover, Layer } from '@dhis2/ui'
+import { Popover } from '@dhis2/ui'
 import { shallow } from 'enzyme'
 import React from 'react'
 import { useAppContext } from '../../app-context/index.js'
@@ -173,7 +173,6 @@ describe('<WorkflowSelect>', () => {
             .dive()
             .find(Popover)
             .dive()
-            .find(Layer)
             .simulate('click')
 
         expect(setOpenedSelect).toHaveBeenCalledTimes(1)
