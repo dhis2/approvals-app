@@ -74,11 +74,9 @@ describe('getApprovalStatusDisplayData', () => {
         expect(
             getApprovalStatusDisplayData({
                 approvalStatus: APPROVAL_STATUSES.APPROVED_ABOVE,
-                // The actual value for this field is irrelevant due to the moment mock
-                approvalDateTime: 'Not empty',
             })
         ).toEqual({
-            displayName: 'Approved at higher level 2 years ago',
+            displayName: 'Approved at higher level',
             icon: Approved,
             type: 'positive',
         })
