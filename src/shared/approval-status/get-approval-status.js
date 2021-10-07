@@ -75,9 +75,7 @@ const getApprovalStatusText = ({
                 timeAgo: moment(approvalDateTime).fromNow(),
             })
         case APPROVAL_STATUSES.APPROVED_ABOVE:
-            return i18n.t('Approved at higher level {{timeAgo}}', {
-                timeAgo: moment(approvalDateTime).fromNow(),
-            })
+            return i18n.t('Approved at higher level')
         case APPROVAL_STATUSES.UNAUTHORIZED:
             return i18n.t('You do not have authority to approve data')
         case APPROVAL_STATUSES.UNAPPROVABLE:

@@ -38,7 +38,7 @@ const statuses = [
     'Waiting for higher level approval',
     'Approval by .+ accepted .+',
     'Approved by .+',
-    'Approved at higher level .+',
+    'Approved at higher level',
     'Cannot be approved',
 ]
 defineParameterType({
