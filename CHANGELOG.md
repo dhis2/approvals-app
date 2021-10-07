@@ -1,3 +1,11 @@
+## [1.16.7](https://github.com/dhis2/approval-app/compare/v1.16.6...v1.16.7) (2021-10-07)
+
+
+### Bug Fixes
+
+* **approval-status-tag:** don't show time-ago for approved-above ([#114](https://github.com/dhis2/approval-app/issues/114)) ([e8e4d67](https://github.com/dhis2/approval-app/commit/e8e4d67f6a54b3ed63b02772e56343fab3f2b9e9))
+* **data-workspace:** remove warning when showing non-default forms ([#113](https://github.com/dhis2/approval-app/issues/113)) ([bcceb4b](https://github.com/dhis2/approval-app/commit/bcceb4b132b2e09c10d2aac6939ea1520c090735))
+
 ## [1.16.6](https://github.com/dhis2/approval-app/compare/v1.16.5...v1.16.6) (2021-10-04)
 
 
