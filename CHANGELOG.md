@@ -1,3 +1,10 @@
+## [1.16.8](https://github.com/dhis2/approval-app/compare/v1.16.7...v1.16.8) (2021-10-12)
+
+
+### Bug Fixes
+
+* **data-workspace:** reduce header height ([#108](https://github.com/dhis2/approval-app/issues/108)) ([eb62886](https://github.com/dhis2/approval-app/commit/eb62886ad6558e5266212ea688a3685d9c932390))
+
 ## [1.16.7](https://github.com/dhis2/approval-app/compare/v1.16.6...v1.16.7) (2021-10-07)
 
 
