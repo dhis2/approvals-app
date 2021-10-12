@@ -1,5 +1,5 @@
 import { useConfig } from '@dhis2/app-runtime'
-import { Popover, Layer, MenuItem, Tooltip } from '@dhis2/ui'
+import { Popover, MenuItem, Tooltip } from '@dhis2/ui'
 import { shallow } from 'enzyme'
 import React from 'react'
 import { useAppContext } from '../../app-context/index.js'
@@ -234,7 +234,6 @@ describe('<PeriodSelect>', () => {
             .dive()
             .find(Popover)
             .dive()
-            .find(Layer)
             .simulate('click')
 
         expect(setOpenedSelect).toHaveBeenCalledTimes(1)
