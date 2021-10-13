@@ -1,17 +1,29 @@
 import i18n from '@dhis2/d2-i18n'
 import React from 'react'
-import { ApprovalStatusIcon } from '../../shared/approval-status/index.js'
+import {
+    ApprovalStatusIcon,
+    APPROVAL_STATUSES,
+} from '../../shared/approval-status/index.js'
 import classes from './approval-status-icons-legend.module.css'
 
 // Not all approval statuses are defined here as some share the same icons
 const approvalStatuses = [
     {
-        status: 'UNAPPROVED_WAITING',
+        status: APPROVAL_STATUSES.UNAPPROVED_WAITING,
         displayName: i18n.t('Waiting for approval'),
     },
-    { status: 'UNAPPROVED_READY', displayName: i18n.t('Ready for approval') },
-    { status: 'APPROVED_HERE', displayName: i18n.t('Approved') },
-    { status: 'UNAPPROVABLE', displayName: i18n.t('Cannot be approved') },
+    {
+        status: APPROVAL_STATUSES.UNAPPROVED_READY,
+        displayName: i18n.t('Ready for approval'),
+    },
+    {
+        status: APPROVAL_STATUSES.APPROVED_HERE,
+        displayName: i18n.t('Approved'),
+    },
+    {
+        status: APPROVAL_STATUSES.UNAPPROVABLE,
+        displayName: i18n.t('Cannot be approved'),
+    },
 ]
 
 const ApprovalStatusIconsLegend = () => (

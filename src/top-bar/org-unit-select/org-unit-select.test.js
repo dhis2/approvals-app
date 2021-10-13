@@ -1,5 +1,5 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
-import { Popover, Layer, OrganisationUnitTree, Tooltip } from '@dhis2/ui'
+import { Popover, OrganisationUnitTree, Tooltip } from '@dhis2/ui'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { shallow } from 'enzyme'
@@ -272,7 +272,6 @@ describe('<OrgUnitSelect>', () => {
             .dive()
             .find(Popover)
             .dive()
-            .find(Layer)
             .simulate('click')
 
         expect(setOpenedSelect).toHaveBeenCalledTimes(1)

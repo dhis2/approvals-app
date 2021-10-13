@@ -1,10 +1,4 @@
-import {
-    IconChevronDown24,
-    IconChevronUp24,
-    Popover,
-    Tooltip,
-    Layer,
-} from '@dhis2/ui'
+import { IconChevronDown24, IconChevronUp24, Popover, Tooltip } from '@dhis2/ui'
 import { shallow } from 'enzyme'
 import React from 'react'
 import { ContextSelect } from './context-select.js'
@@ -80,7 +74,7 @@ describe('<ContextSelect>', () => {
         })
 
         it('calls onClose when the backdrop layer is clicked', () => {
-            wrapper.find(Popover).dive().find(Layer).simulate('click')
+            wrapper.find(Popover).dive().simulate('click')
 
             expect(onClose).toHaveBeenCalledTimes(1)
         })

@@ -42,13 +42,6 @@
     color: var(--colors-grey700);
 }
 
-.retryButton {
-    border: 0;
-    padding: 0;
-    background: transparent;
-    cursor: pointer;
-    text-decoration: underline;
-}
 .nonDefaultFormWarning {
     margin-bottom: var(--spacers-dp12);
 }

@@ -19,13 +19,13 @@ When('the user clicks the {buttonLabel} button', buttonLabel => {
 })
 
 Then('the following buttons are available', dataTable => {
-    dataTable.hashes().forEach(({ label, available }) => {
-        if (available) {
+    dataTable.hashes().forEach(({ label, visible, disabled }) => {
+        if (visible) {
             cy.get('[data-test="bottom-bar"]')
                 .find('button')
                 .contains(label)
                 .should('be.visible')
-                .and('not.be.disabled')
+                .and(disabled ? 'be.disabled' : 'not.be.disabled')
         } else {
             cy.get('[data-test="bottom-bar"]')
                 .find('button')

@@ -5,9 +5,9 @@ import { ErrorMessage } from '../shared/index.js'
 import { useIsAuthorized } from './use-is-authorized.js'
 
 const AuthWall = ({ children }) => {
-    const isAuthorized = useIsAuthorized()
+    const { hasAppAccess } = useIsAuthorized()
 
-    if (!isAuthorized) {
+    if (!hasAppAccess) {
         return (
             <ErrorMessage title={i18n.t('Not authorized')}>
                 {i18n.t(

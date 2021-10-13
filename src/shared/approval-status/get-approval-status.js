@@ -3,32 +3,46 @@ import { IconBlock16, IconError16 } from '@dhis2/ui'
 import moment from 'moment'
 import { Approved, Ready, Waiting } from './icons.js'
 
+const APPROVAL_STATUSES = {
+    UNAPPROVED_READY: 'UNAPPROVED_READY',
+    ACCEPTED_HERE: 'ACCEPTED_HERE',
+    UNAPPROVED_WAITING: 'UNAPPROVED_WAITING',
+    UNAPPROVED_ABOVE: 'UNAPPROVED_ABOVE',
+    APPROVED_HERE: 'APPROVED_HERE',
+    APPROVED_ABOVE: 'APPROVED_ABOVE',
+    UNAPPROVABLE: 'UNAPPROVABLE',
+    UNAUTHORIZED: 'UNAUTHORIZED',
+    LOADING: 'LOADING',
+    ERROR: 'ERROR',
+}
+
 const getApprovalStatusIcon = approvalStatus => {
     switch (approvalStatus) {
-        case 'UNAPPROVED_READY':
-        case 'ACCEPTED_HERE':
+        case APPROVAL_STATUSES.UNAPPROVED_READY:
             return {
                 icon: Ready,
                 type: 'neutral',
             }
-        case 'UNAPPROVED_WAITING':
-        case 'UNAPPROVED_ABOVE':
+        case APPROVAL_STATUSES.UNAPPROVED_WAITING:
+        case APPROVAL_STATUSES.UNAPPROVED_ABOVE:
             return {
                 icon: Waiting,
                 type: 'default',
             }
-        case 'APPROVED_HERE':
-        case 'APPROVED_ABOVE':
+        case APPROVAL_STATUSES.ACCEPTED_HERE:
+        case APPROVAL_STATUSES.APPROVED_HERE:
+        case APPROVAL_STATUSES.APPROVED_ABOVE:
             return {
                 icon: Approved,
                 type: 'positive',
             }
-        case 'UNAPPROVABLE':
+        case APPROVAL_STATUSES.UNAPPROVABLE:
+        case APPROVAL_STATUSES.UNAUTHORIZED:
             return {
                 icon: IconBlock16,
                 type: 'negative',
             }
-        case 'ERROR':
+        case APPROVAL_STATUSES.ERROR:
             return {
                 icon: IconError16,
                 type: 'negative',
@@ -38,40 +52,35 @@ const getApprovalStatusIcon = approvalStatus => {
     }
 }
 
-const getApprovedStatusText = ({ approvalDateTime, approvedBy: name }) => {
-    if (approvalDateTime) {
-        const timeAgo = moment(approvalDateTime).fromNow()
-
-        return name
-            ? i18n.t('Approved by {{- name}} {{timeAgo}}', { name, timeAgo })
-            : i18n.t('Approved {{timeAgo}}', { timeAgo })
-    }
-
-    return name
-        ? i18n.t('Approved by {{- name}}', { name })
-        : i18n.t('Approved')
-}
-
 const getApprovalStatusText = ({
     approvalStatus,
     approvalDateTime,
     approvedBy,
 }) => {
     switch (approvalStatus) {
-        case 'UNAPPROVED_READY':
+        case APPROVAL_STATUSES.UNAPPROVED_READY:
             return i18n.t('Ready for approval')
-        case 'ACCEPTED_HERE':
-            return i18n.t('Ready for approval — Accepted')
-        case 'UNAPPROVED_WAITING':
+        case APPROVAL_STATUSES.UNAPPROVED_WAITING:
             return i18n.t('Waiting for lower level approval')
-        case 'UNAPPROVED_ABOVE':
+        case APPROVAL_STATUSES.UNAPPROVED_ABOVE:
             return i18n.t('Waiting for higher level approval')
-        case 'APPROVED_HERE':
-        case 'APPROVED_ABOVE':
-            return getApprovedStatusText({ approvalDateTime, approvedBy })
-        case 'UNAPPROVABLE':
+        case APPROVAL_STATUSES.ACCEPTED_HERE:
+            return i18n.t('Approval by {{- name}} accepted {{timeAgo}}', {
+                name: approvedBy,
+                timeAgo: moment(approvalDateTime).fromNow(),
+            })
+        case APPROVAL_STATUSES.APPROVED_HERE:
+            return i18n.t('Approved by {{- name}} {{timeAgo}}', {
+                name: approvedBy,
+                timeAgo: moment(approvalDateTime).fromNow(),
+            })
+        case APPROVAL_STATUSES.APPROVED_ABOVE:
+            return i18n.t('Approved at higher level')
+        case APPROVAL_STATUSES.UNAUTHORIZED:
+            return i18n.t('You do not have authority to approve data')
+        case APPROVAL_STATUSES.UNAPPROVABLE:
             return i18n.t('Cannot be approved')
-        case 'ERROR':
+        case APPROVAL_STATUSES.ERROR:
             return i18n.t('Could not retrieve approval status')
         default:
             throw new Error(`Unknown approval status: '${approvalStatus}'`)
@@ -79,7 +88,8 @@ const getApprovalStatusText = ({
 }
 
 const isApproved = approvalStatus =>
-    approvalStatus === 'APPROVED_HERE' || approvalStatus === 'APPROVED_ABOVE'
+    approvalStatus === APPROVAL_STATUSES.APPROVED_HERE ||
+    approvalStatus === APPROVAL_STATUSES.APPROVED_ABOVE
 
 const getApprovalStatusDisplayData = ({
     approvalStatus,
@@ -96,4 +106,4 @@ const getApprovalStatusDisplayData = ({
     return { displayName, icon, type }
 }
 
-export { getApprovalStatusDisplayData, isApproved }
+export { APPROVAL_STATUSES, getApprovalStatusDisplayData, isApproved }

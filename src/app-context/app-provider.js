@@ -1,6 +1,6 @@
 import { useDataQuery } from '@dhis2/app-runtime'
-import { PropTypes } from '@dhis2/prop-types'
 import { Layer } from '@dhis2/ui'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { Loader } from '../shared/index.js'
 import { AppContext } from './app-context.js'
@@ -23,16 +23,16 @@ const query = {
                 'displayName',
                 'dataApprovalLevels',
                 'periodType',
-                'dataSets[id,displayName,periodType,formType]',
+                'dataSets[id,displayName,periodType]',
             ],
         },
     },
 }
 
 const AppProvider = ({ children }) => {
-    const { data, loading, error } = useDataQuery(query)
+    const { data, fetching, error } = useDataQuery(query)
 
-    if (loading) {
+    if (fetching) {
         return (
             <Layer>
                 <Loader />

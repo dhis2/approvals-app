@@ -4,7 +4,10 @@ import { NoticeBox, CircularLoader } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 import { useSelectionContext } from '../../selection-context/index.js'
-import { getFixedPeriodsForTypeAndDateRange } from '../../shared/index.js'
+import {
+    getFixedPeriodsForTypeAndDateRange,
+    RetryButton,
+} from '../../shared/index.js'
 import styles from './display.module.css'
 import { Table } from './table.js'
 
@@ -25,7 +28,6 @@ const Display = ({ dataSetId }) => {
     const { orgUnit, workflow, period } = selection
     const { dataSets } = workflow
     const selectedDataSet = dataSets.find(({ id }) => id === dataSetId)
-    const usesNonDefaultFormType = selectedDataSet?.formType !== 'DEFAULT'
     const periodIds = selectedDataSet
         ? getFixedPeriodsForTypeAndDateRange(
               selectedDataSet.periodType,
@@ -34,7 +36,7 @@ const Display = ({ dataSetId }) => {
           ).map(({ id }) => id)
         : []
 
-    const { called, loading, data, error, refetch } = useDataQuery(query, {
+    const { called, fetching, data, error, refetch } = useDataQuery(query, {
         lazy: true,
     })
     const tables = data?.dataSetReport
@@ -72,7 +74,7 @@ const Display = ({ dataSetId }) => {
         )
     }
 
-    if ((!called && periodIds.length) || loading) {
+    if ((!called && periodIds.length) || fetching) {
         return (
             <div className={styles.display}>
                 <div className={styles.loadingWrapper}>
@@ -97,12 +99,9 @@ const Display = ({ dataSetId }) => {
                             `This data set couldn't be loaded or displayed. Try again, or contact your system administrator.`
                         )}
                     </p>
-                    <button
-                        className={styles.retryButton}
-                        onClick={fetchDataSet}
-                    >
+                    <RetryButton onClick={fetchDataSet}>
                         {i18n.t('Retry loading data set')}
-                    </button>
+                    </RetryButton>
                 </NoticeBox>
             </div>
         )
@@ -126,24 +125,6 @@ const Display = ({ dataSetId }) => {
 
     return (
         <div className={styles.display}>
-            {usesNonDefaultFormType && (
-                <NoticeBox
-                    warning
-                    title={i18n.t('This data set may not display properly')}
-                    className={styles.nonDefaultFormWarning}
-                >
-                    <p>
-                        {i18n.t(
-                            "This data set uses a custom form, which isn't supported in this app."
-                        )}
-                        <br />
-                        {/* TODO: Add link to legacy app once available */}
-                        {i18n.t(
-                            'The data is displayed in the default form below. To continue using custom forms, use the Data Approval legacy app.'
-                        )}
-                    </p>
-                </NoticeBox>
-            )}
             {tables.map(table => (
                 <Table
                     key={table.title}

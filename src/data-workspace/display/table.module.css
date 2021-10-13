@@ -5,10 +5,8 @@
     font-weight: normal;
 }
 
-table.dataTable {
-    width: auto;
-}
-
-td.labelCell {
+.labelCellContent,
+.labelCellContent {
+    display: block;
     max-width: 480px;
 }

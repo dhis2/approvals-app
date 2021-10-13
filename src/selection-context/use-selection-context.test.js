@@ -18,6 +18,23 @@ jest.mock('../app-context/index.js', () => ({
     useAppContext: jest.fn(),
 }))
 
+// expect.any(Object) works with `null`, exect.any(String) does not
+expect.extend({
+    string(received) {
+        const message = () =>
+            `expected null or string, but received ${this.utils.printReceived(
+                received
+            )}`
+
+        if (received === null) {
+            return { pass: true, message }
+        }
+
+        const pass = typeof received == 'string' || received instanceof String
+        return { pass, message }
+    },
+})
+
 beforeEach(() => {
     readQueryParams.mockImplementation(() => ({}))
 })
@@ -53,19 +70,19 @@ describe('useSelectionContext', () => {
     it('returns the expected properties', () => {
         const { result } = renderHook(() => useSelectionContext(), { wrapper })
 
-        expect(result.current).toEqual(
-            expect.objectContaining({
-                workflow: expect.any(Object),
-                period: expect.any(Object),
-                orgUnit: expect.any(Object),
-                openedSelect: expect.any(String),
-                clearAll: expect.any(Function),
-                setOpenedSelect: expect.any(Function),
-                selectWorkflow: expect.any(Function),
-                selectPeriod: expect.any(Function),
-                selectOrgUnit: expect.any(Function),
-            })
-        )
+        expect(result.current).toEqual({
+            workflow: expect.any(Object),
+            period: expect.any(Object),
+            orgUnit: expect.any(Object),
+            dataSet: expect.string(),
+            openedSelect: expect.any(String),
+            clearAll: expect.any(Function),
+            setOpenedSelect: expect.any(Function),
+            selectWorkflow: expect.any(Function),
+            selectPeriod: expect.any(Function),
+            selectOrgUnit: expect.any(Function),
+            selectDataSet: expect.any(Function),
+        })
     })
 
     it('populates properties from query params', () => {
@@ -73,10 +90,12 @@ describe('useSelectionContext', () => {
             wf: 'rIUL3hYOjJc',
             pe: '20110203',
             ou: '/abc',
+            dataSet: 'foobar',
             ouDisplayName: 'test',
         }))
 
         const { result } = renderHook(() => useSelectionContext(), { wrapper })
+        expect(result.current.dataSet).toEqual('foobar')
         expect(result.current.workflow).toEqual(mockWorkflows[1])
         expect(result.current.period).toEqual(
             expect.objectContaining({
@@ -122,14 +141,23 @@ describe('useSelectionContext', () => {
             const { result } = renderHook(() => useSelectionContext(), {
                 wrapper,
             })
-            // Reset count to 0 because the function is also called on initial render
+
+            act(() => {
+                result.current.selectDataSet('foobar')
+            })
+            expect(result.current.dataSet).toBe('foobar')
             mock.mockClear()
 
             const expectedWorkflow = { id: '123' }
             act(() => {
                 result.current.selectWorkflow(expectedWorkflow)
             })
-            expect(result.current.workflow).toEqual(expectedWorkflow)
+            expect(result.current).toEqual(
+                expect.objectContaining({
+                    workflow: expectedWorkflow,
+                    dataSet: null,
+                })
+            )
             expect(mock).toHaveBeenCalledTimes(1)
         })
 
@@ -140,14 +168,23 @@ describe('useSelectionContext', () => {
             const { result } = renderHook(() => useSelectionContext(), {
                 wrapper,
             })
-            // Reset count to 0 because the function is also called on initial render
+
+            act(() => {
+                result.current.selectDataSet('foobar')
+            })
+            expect(result.current.dataSet).toBe('foobar')
             mock.mockClear()
 
             const expectedPeriod = { id: '20210202' }
             act(() => {
                 result.current.selectPeriod(expectedPeriod)
             })
-            expect(result.current.period).toEqual(expectedPeriod)
+            expect(result.current).toEqual(
+                expect.objectContaining({
+                    period: expectedPeriod,
+                    dataSet: null,
+                })
+            )
             expect(mock).toHaveBeenCalledTimes(1)
         })
 
@@ -158,14 +195,42 @@ describe('useSelectionContext', () => {
             const { result } = renderHook(() => useSelectionContext(), {
                 wrapper,
             })
-            // Reset count to 0 because the function is also called on initial render
+
+            act(() => {
+                result.current.selectDataSet('foobar')
+            })
+            expect(result.current.dataSet).toBe('foobar')
             mock.mockClear()
 
             const expectedOrgUnit = { path: '123' }
             act(() => {
                 result.current.selectOrgUnit(expectedOrgUnit)
             })
-            expect(result.current.orgUnit).toEqual(expectedOrgUnit)
+            expect(result.current).toEqual(
+                expect.objectContaining({
+                    orgUnit: expectedOrgUnit,
+                    dataSet: null,
+                })
+            )
+            expect(mock).toHaveBeenCalledTimes(1)
+        })
+
+        it('selectDataSet', () => {
+            const mock = jest.fn()
+            pushStateToHistory.mockImplementation(mock)
+
+            const { result } = renderHook(() => useSelectionContext(), {
+                wrapper,
+            })
+
+            // Reset count to 0 because the function is also called on initial render
+            mock.mockClear()
+
+            act(() => {
+                result.current.selectDataSet('foobar')
+            })
+
+            expect(result.current.dataSet).toEqual('foobar')
             expect(mock).toHaveBeenCalledTimes(1)
         })
 

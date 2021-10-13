@@ -1,4 +1,5 @@
-import { Popover, Layer, MenuItem, Tooltip } from '@dhis2/ui'
+import { useConfig } from '@dhis2/app-runtime'
+import { Popover, MenuItem, Tooltip } from '@dhis2/ui'
 import { shallow } from 'enzyme'
 import React from 'react'
 import { useAppContext } from '../../app-context/index.js'
@@ -8,6 +9,10 @@ import { ContextSelect } from '../context-select/context-select.js'
 import { PeriodMenu } from './period-menu.js'
 import { PERIOD, PeriodSelect } from './period-select.js'
 import { YearNavigator } from './year-navigator.js'
+
+jest.mock('@dhis2/app-runtime', () => ({
+    useConfig: jest.fn(),
+}))
 
 jest.mock('../../navigation/read-query-params.js', () => ({
     readQueryParams: jest.fn(),
@@ -35,6 +40,9 @@ const mockWorkflows = [
 ]
 
 beforeEach(() => {
+    useConfig.mockImplementation(() => ({
+        systemInfo: {},
+    }))
     useAppContext.mockImplementation(() => ({
         dataApprovalWorkflows: mockWorkflows,
     }))
@@ -203,11 +211,11 @@ describe('<PeriodSelect>', () => {
 
         expect(selectPeriod).toHaveBeenCalledTimes(1)
         expect(selectPeriod).toHaveBeenCalledWith({
-            displayName: 'January 2012',
-            endDate: '2012-01-31',
-            id: '201201',
-            iso: '201201',
-            startDate: '2012-01-01',
+            displayName: 'December 2012',
+            endDate: '2012-12-31',
+            id: '201212',
+            iso: '201212',
+            startDate: '2012-12-01',
         })
     })
 
@@ -226,7 +234,6 @@ describe('<PeriodSelect>', () => {
             .dive()
             .find(Popover)
             .dive()
-            .find(Layer)
             .simulate('click')
 
         expect(setOpenedSelect).toHaveBeenCalledTimes(1)

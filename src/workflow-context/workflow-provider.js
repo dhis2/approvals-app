@@ -1,9 +1,9 @@
 import { useDataQuery } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import { PropTypes } from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 import { useSelectionContext } from '../selection-context/index.js'
-import { ErrorMessage, Loader } from '../shared/index.js'
+import { ErrorMessage, Loader, RetryButton } from '../shared/index.js'
 import { WorkflowContext } from './workflow-context.js'
 
 const query = {
@@ -19,13 +19,14 @@ const query = {
 
 const WorkflowProvider = ({ children }) => {
     const { workflow, period, orgUnit } = useSelectionContext()
-    const { loading, error, data, called, refetch } = useDataQuery(query, {
+    const { fetching, error, data, called, refetch } = useDataQuery(query, {
         lazy: true,
     })
+    const fetchApprovalStatus = () => refetch({ workflow, period, orgUnit })
 
     useEffect(() => {
         if (workflow && period && orgUnit) {
-            refetch({ workflow, period, orgUnit })
+            fetchApprovalStatus()
         }
     }, [workflow, period, orgUnit])
 
@@ -33,14 +34,17 @@ const WorkflowProvider = ({ children }) => {
         return null
     }
 
-    if (loading || !called) {
+    if (fetching || !called) {
         return <Loader />
     }
 
     if (error) {
         return (
             <ErrorMessage title={i18n.t('Could not load approval data')}>
-                {error.message}
+                <p>{error.message}</p>
+                <RetryButton onClick={fetchApprovalStatus}>
+                    {i18n.t('Retry loading approval data')}
+                </RetryButton>
             </ErrorMessage>
         )
     }

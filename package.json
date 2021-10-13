@@ -1,6 +1,6 @@
 {
     "name": "approval-app",
-    "version": "1.14.0",
+    "version": "1.16.8",
     "description": "",
     "license": "BSD-3-Clause",
     "private": true,
@@ -13,12 +13,14 @@
         "start": "d2-app-scripts start",
         "start:nobrowser": "BROWSER=none d2-app-scripts start",
         "test": "TZ=Etc/UTC d2-app-scripts test",
-        "cypress:capture": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress run --env dhis2ApiVersion=37,networkMode=capture'",
-        "cypress:stub": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress run --env dhis2ApiVersion=37,networkMode=stub'",
-        "cypress:live": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress open --env networkMode=live'"
+        "cypress:capture-v37": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress run --env dhis2ApiVersion=37,dhis2BaseUrl=http://localhost:8081,networkMode=capture'",
+        "cypress:stub-v37": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress run --env dhis2ApiVersion=37,dhis2BaseUrl=http://localhost:8081,networkMode=stub'",
+        "cypress:live": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress open --env networkMode=live'",
+        "cypress:capture": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress run --env dhis2ApiVersion=38,networkMode=capture'",
+        "cypress:stub": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress run --env dhis2ApiVersion=38,networkMode=stub'"
     },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^7.3.0",
+        "@dhis2/cli-app-scripts": "^8.1.0",
         "@dhis2/cli-style": "^9.2.0",
         "@dhis2/cypress-commands": "^8.0.2",
         "@dhis2/cypress-plugins": "^8.0.2",
@@ -26,7 +28,7 @@
         "@testing-library/react": "^12.0.0",
         "@testing-library/react-hooks": "^7.0.1",
         "@testing-library/user-event": "^13.2.1",
-        "cypress": "^7.4.0",
+        "cypress": "^8.5.0",
         "cypress-cucumber-preprocessor": "^4.2.0",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.6",
@@ -34,8 +36,9 @@
         "start-server-and-test": "^1.13.1"
     },
     "dependencies": {
-        "@dhis2/app-runtime": "^2.8.0",
-        "@dhis2/ui": "^6.22.0",
+        "@dhis2/app-runtime": "^3.2.1",
+        "@dhis2/prop-types": "^1.6.4",
+        "@dhis2/ui": "^7.2.7",
         "history": "^5.0.1",
         "prop-types": "^15.7.2",
         "query-string": "^7.0.1",
