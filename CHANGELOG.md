@@ -1,3 +1,16 @@
+# [100.0.0](https://github.com/dhis2/approval-app/compare/v99.9.9...v100.0.0) (2021-10-29)
+
+
+### chore
+
+* **release:** migrate to new app version scheme ([b9a7e08](https://github.com/dhis2/approval-app/commit/b9a7e08cf881669b67b0804f9975d296623139db)), closes [dhis2/notes#293](https://github.com/dhis2/notes/issues/293)
+
+
+### BREAKING CHANGES
+
+* **release:** App version becomes decoupled from DHIS2 versions, see
+the d2.config.js or App Hub for DHIS2 version compatibility.
+
 ## [1.16.8](https://github.com/dhis2/approval-app/compare/v1.16.7...v1.16.8) (2021-10-12)
 
 
