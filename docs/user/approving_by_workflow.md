@@ -1,6 +1,6 @@
-# Approving by workflow { #approving_by_workflow }
+# Data approval { #data_approval_app }
 
-## Selecting data
+## Selecting parameters
 
 ### Select a workflow
 
@@ -10,7 +10,7 @@ Start by selecting a workflow in the top left of the screen. If you only have ac
 
 ### Select a period
 
-Then proceed to select a period you would like to approve data for.
+Proceed to select a period you would like to approve data for.
 
 ![Select a period](resources/images/select_period.png)
 
@@ -22,7 +22,7 @@ Finally, select an organisation unit you would like to approve data for. Each vi
 
 ### Clear selection
 
-Once a workflow, period, and organisation unit have been selected, a "clear selections" button will appear. This button can be used to quickly clear all three fields and start a fresh selection.
+Once a workflow, period, and organisation unit have been selected, a "Clear selections" button will appear. This button can be used to quickly clear all three fields and start a fresh selection.
 
 ## Approving data
 
@@ -45,7 +45,7 @@ Once you have reviewed the data in the datasets, you can proceed to take an appr
 
 Which of these actions are available for a given workflow at a given moment in time depends on the type of actions which have been taken already at the current and other levels of the organisational hierarchy.
 
-In the example above the "approve" action is available. When you choose the "approve" action, you are presented with a confirmation dialog as displayed below which summarises the datasets you are approving. The workflow is not approved until you click "approve" to confirm there. Other actions take effect immediately and do not have a confirmation step.
+In the example above the "approve" action is available. When you choose the "Approve" action, you are presented with a confirmation dialog as displayed below which summarises the datasets you are approving. The workflow is not approved until you click "Approve" to confirm there. Other actions take effect immediately and do not have a confirmation step.
 
 ![Take an approval action](resources/images/approval_confirmation.png)
 
@@ -65,4 +65,4 @@ These status tags may not always display the same information, because the have 
 1. The status tag above the dataset represents the approval status of the workflow for the selected period and selected organisation unit
 2. The status tag in the bottom bar does the same, but also takes your user profile.
 
-Perhaps a workflow is ready to be approved at a given organisation unit level, but you do not have the appropriate authority to do so.
+A workflow may be ready to be approved at a given organisation unit level, but you do not have the appropriate authority to do so.
