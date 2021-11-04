@@ -1,3 +1,10 @@
+## [100.0.1](https://github.com/dhis2/approval-app/compare/v100.0.0...v100.0.1) (2021-11-04)
+
+
+### Bug Fixes
+
+* **docs:** remove titles from images ([#126](https://github.com/dhis2/approval-app/issues/126)) ([caa1ac8](https://github.com/dhis2/approval-app/commit/caa1ac8356e0fc30c1a405d285b2611e4c86c787))
+
 # [100.0.0](https://github.com/dhis2/approval-app/compare/v99.9.9...v100.0.0) (2021-10-29)
 
 
