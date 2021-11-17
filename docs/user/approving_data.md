@@ -1,5 +1,7 @@
 # Data approval { #data_approval_app }
 
+The **Data Approval** app provides an intuitive interface to support the approval process in line with the configured approval workflows.
+
 ## Selecting parameters
 
 ### Select a workflow
