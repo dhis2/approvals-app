@@ -1,3 +1,10 @@
+## [100.0.2](https://github.com/dhis2/approval-app/compare/v100.0.1...v100.0.2) (2021-11-24)
+
+
+### Bug Fixes
+
+* correctly specify approval short name for app override ([b68211f](https://github.com/dhis2/approval-app/commit/b68211f75b5c46304f5793bb34c97364b67e2840))
+
 ## [100.0.1](https://github.com/dhis2/approval-app/compare/v100.0.0...v100.0.1) (2021-11-04)
 
 
