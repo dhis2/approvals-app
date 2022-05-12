@@ -21,7 +21,7 @@ const PeriodMenu = ({ periodType, year }) => {
     const periods = getFixedPeriodsByTypeAndYear({
         periodType,
         year,
-        formatYyyyMmDd: date => {
+        formatYyyyMmDd: (date) => {
             if (periodType === 'Daily') {
                 // moment format tokens are case sensitive
                 // see https://momentjs.com/docs/#/parsing/string-format/
@@ -36,7 +36,7 @@ const PeriodMenu = ({ periodType, year }) => {
 
     return (
         <Menu dense className={classes.menu}>
-            {periods.map(period => (
+            {periods.map((period) => (
                 <MenuItem
                     active={period.id === selectedPeriod?.id}
                     key={period.id}

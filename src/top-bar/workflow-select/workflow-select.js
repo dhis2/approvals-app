@@ -38,7 +38,7 @@ const WorkflowSelect = () => {
                 </div>
             ) : (
                 <Menu>
-                    {dataApprovalWorkflows.map(workflow => (
+                    {dataApprovalWorkflows.map((workflow) => (
                         <WorkflowSelectOption
                             key={workflow.id}
                             id={workflow.id}

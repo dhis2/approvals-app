@@ -52,7 +52,7 @@ describe('<PeriodMenu>', () => {
         }))
         const wrapper = shallow(<PeriodMenu periodType="Monthly" year={2018} />)
         const activeMenuItem = wrapper.findWhere(
-            n => n.type() === MenuItem && n.prop('active') === true
+            (n) => n.type() === MenuItem && n.prop('active') === true
         )
 
         expect(activeMenuItem).toHaveLength(1)

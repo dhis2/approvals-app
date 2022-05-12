@@ -11,14 +11,16 @@ LayoutSection.propTypes = {
     className: PropTypes.string,
 }
 
-const Container = props => (
+const Container = (props) => (
     <LayoutSection {...props} className={classes.container} />
 )
-const Top = props => <LayoutSection {...props} className={classes.top} />
-const Content = props => (
+const Top = (props) => <LayoutSection {...props} className={classes.top} />
+const Content = (props) => (
     <LayoutSection {...props} className={classes.content} />
 )
-const Bottom = props => <LayoutSection {...props} className={classes.bottom} />
+const Bottom = (props) => (
+    <LayoutSection {...props} className={classes.bottom} />
+)
 
 export const Layout = {
     Container,

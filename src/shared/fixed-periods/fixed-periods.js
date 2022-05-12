@@ -52,9 +52,9 @@ const PERIOD_TYPES = new Set([
     FINANCIAL_NOV,
 ])
 
-export const isValidPeriodType = periodType => PERIOD_TYPES.has(periodType)
+export const isValidPeriodType = (periodType) => PERIOD_TYPES.has(periodType)
 
-const getMonthName = key => {
+const getMonthName = (key) => {
     const monthNames = [
         i18n.t('January'),
         i18n.t('February'),
@@ -80,13 +80,13 @@ const getMonthName = key => {
  */
 const getCurrentDate = () => new Date(Date.now())
 
-export const getYearWithOffset = offset => {
+export const getYearWithOffset = (offset) => {
     const offsetInt = parseInt(offset, 10) || 0
     return getCurrentDate().getFullYear() + offsetInt
 }
 
 const getDailyPeriodType = (formatYyyyMmDd, fnFilter) => {
-    return config => {
+    return (config) => {
         let periods = []
         const isFilter = config.filterFuturePeriods
         const isReverse = config.reversePeriods
@@ -129,7 +129,7 @@ const getWeeklyPeriodType = (formatYyyyMmDd, weekObj, fnFilter) => {
         return startDate
     }
 
-    return config => {
+    return (config) => {
         let periods = []
         const isFilter = config.filterFuturePeriods
         const isReverse = config.reversePeriods
@@ -169,7 +169,7 @@ const getWeeklyPeriodType = (formatYyyyMmDd, weekObj, fnFilter) => {
 }
 
 const getBiWeeklyPeriodType = (formatYyyyMmDd, fnFilter) => {
-    return config => {
+    return (config) => {
         let periods = []
         const isFilter = config.filterFuturePeriods
         const isReverse = config.reversePeriods
@@ -218,7 +218,7 @@ const getBiWeeklyPeriodType = (formatYyyyMmDd, fnFilter) => {
 }
 
 const getMonthlyPeriodType = (formatYyyyMmDd, fnFilter) => {
-    const formatIso = date => {
+    const formatIso = (date) => {
         const y = date.getFullYear()
         let m = String(date.getMonth() + 1)
 
@@ -227,7 +227,7 @@ const getMonthlyPeriodType = (formatYyyyMmDd, fnFilter) => {
         return y + m
     }
 
-    return config => {
+    return (config) => {
         let periods = []
 
         const isFilter = config.filterFuturePeriods
@@ -259,7 +259,7 @@ const getMonthlyPeriodType = (formatYyyyMmDd, fnFilter) => {
 }
 
 const getBiMonthlyPeriodType = (formatYyyyMmDd, fnFilter) => {
-    return config => {
+    return (config) => {
         let periods = []
         const isFilter = config.filterFuturePeriods
         const isReverse = config.reversePeriods
@@ -295,7 +295,7 @@ const getBiMonthlyPeriodType = (formatYyyyMmDd, fnFilter) => {
 }
 
 const getQuarterlyPeriodType = (formatYyyyMmDd, fnFilter) => {
-    return config => {
+    return (config) => {
         let periods = []
         const isFilter = config.filterFuturePeriods
         const isReverse = config.reversePeriods
@@ -329,8 +329,8 @@ const getQuarterlyPeriodType = (formatYyyyMmDd, fnFilter) => {
     }
 }
 
-const getSixMonthlyPeriodType = fnFilter => {
-    return config => {
+const getSixMonthlyPeriodType = (fnFilter) => {
+    return (config) => {
         let periods = []
         const isFilter = config.filterFuturePeriods
         const isReverse = config.reversePeriods
@@ -359,8 +359,8 @@ const getSixMonthlyPeriodType = fnFilter => {
     }
 }
 
-const getSixMonthlyAprilPeriodType = fnFilter => {
-    return config => {
+const getSixMonthlyAprilPeriodType = (fnFilter) => {
+    return (config) => {
         let periods = []
         const isFilter = config.filterFuturePeriods
         const isReverse = config.reversePeriods
@@ -392,7 +392,7 @@ const getSixMonthlyAprilPeriodType = fnFilter => {
 }
 
 const getYearlyPeriodType = (formatYyyyMmDd, fnFilter) => {
-    return config => {
+    return (config) => {
         let periods = []
         const isFilter = config.filterFuturePeriods
         const isReverse = config.reversePeriods
@@ -421,7 +421,7 @@ const getYearlyPeriodType = (formatYyyyMmDd, fnFilter) => {
 }
 
 const getFinancialOctoberPeriodType = (formatYyyyMmDd, fnFilter) => {
-    return config => {
+    return (config) => {
         let periods = []
         const isFilter = config.filterFuturePeriods
         const isReverse = config.reversePeriods
@@ -453,7 +453,7 @@ const getFinancialOctoberPeriodType = (formatYyyyMmDd, fnFilter) => {
 }
 
 const getFinancialNovemberPeriodType = (formatYyyyMmDd, fnFilter) => {
-    return config => {
+    return (config) => {
         let periods = []
         const isFilter = config.filterFuturePeriods
         const isReverse = config.reversePeriods
@@ -485,7 +485,7 @@ const getFinancialNovemberPeriodType = (formatYyyyMmDd, fnFilter) => {
 }
 
 const getFinancialJulyPeriodType = (formatYyyyMmDd, fnFilter) => {
-    return config => {
+    return (config) => {
         let periods = []
         const isFilter = config.filterFuturePeriods
         const isReverse = config.reversePeriods
@@ -517,7 +517,7 @@ const getFinancialJulyPeriodType = (formatYyyyMmDd, fnFilter) => {
 }
 
 const getFinancialAprilPeriodType = (formatYyyyMmDd, fnFilter) => {
-    return config => {
+    return (config) => {
         let periods = []
         const isFilter = config.filterFuturePeriods
         const isReverse = config.reversePeriods
@@ -548,7 +548,7 @@ const getFinancialAprilPeriodType = (formatYyyyMmDd, fnFilter) => {
     }
 }
 
-const defaultFormatYyyyMmDd = date => {
+const defaultFormatYyyyMmDd = (date) => {
     const y = date.getFullYear()
     let m = String(date.getMonth() + 1)
     let d = String(date.getDate())
@@ -559,7 +559,7 @@ const defaultFormatYyyyMmDd = date => {
     return `${y}-${m}-${d}`
 }
 
-const defaultFilterFuturePeriods = periods => {
+const defaultFilterFuturePeriods = (periods) => {
     const array = []
     const now = getCurrentDate()
 
@@ -739,7 +739,7 @@ export const getFixedPeriodType = ({
     return periodTypeObj
 }
 
-export const getYearOffsetFromNow = year => {
+export const getYearOffsetFromNow = (year) => {
     const yearInt = parseInt(year, 10)
     if (!Number.isInteger(yearInt)) {
         throw new Error(
@@ -772,7 +772,7 @@ export const getFixedPeriodsByTypeAndYear = ({
 export const parsePeriodId = (id, allowedTypes) => {
     const periodTypes = allowedTypes
         ? getFixedPeriodTypes().filter(({ type }) =>
-              allowedTypes.some(allowedType => allowedType === type)
+              allowedTypes.some((allowedType) => allowedType === type)
           )
         : getFixedPeriodTypes()
     let i = 0
@@ -792,7 +792,7 @@ export const parsePeriodId = (id, allowedTypes) => {
     const year = parseInt(match[1], 10)
     const offset = getYearOffsetFromNow(year)
     const periods = periodType.getPeriods({ offset })
-    const period = periods.find(period => period.id === id)
+    const period = periods.find((period) => period.id === id)
 
     return {
         ...period,
@@ -805,7 +805,7 @@ export const parsePeriodId = (id, allowedTypes) => {
     }
 }
 
-const isValidDate = date => !isNaN(date.getTime())
+const isValidDate = (date) => !isNaN(date.getTime())
 
 export const getFixedPeriodsForTypeAndDateRange = (
     periodType,
@@ -834,7 +834,7 @@ export const getFixedPeriodsForTypeAndDateRange = (
     while (!startDateReached) {
         getFixedPeriodsByTypeAndYear({ periodType, year })
             .reverse()
-            .forEach(period => {
+            .forEach((period) => {
                 const periodEnd = new Date(period.endDate)
                 // exclude periods that end before start date
                 const endsAfterPeriodStart = periodEnd >= startDate
@@ -856,7 +856,7 @@ export const getFixedPeriodsForTypeAndDateRange = (
     return convertedPeriods.reverse()
 }
 
-export const getMostRecentCompletedYear = periodType => {
+export const getMostRecentCompletedYear = (periodType) => {
     if (!isValidPeriodType(periodType)) {
         throw new Error(
             `Invalid periodType "${periodType}" supplied to "getMostRecentCompletedYear"`

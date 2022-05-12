@@ -8,7 +8,7 @@ import { YearNavigator } from './year-navigator.js'
 
 export const PERIOD = 'PERIOD'
 
-const computeMaxYear = periodType =>
+const computeMaxYear = (periodType) =>
     periodType ? getMostRecentCompletedYear(periodType) : null
 
 const PeriodSelect = () => {
@@ -55,7 +55,7 @@ const PeriodSelect = () => {
                     <YearNavigator
                         maxYear={maxYear}
                         year={year}
-                        onYearChange={year => {
+                        onYearChange={(year) => {
                             selectPeriod(null)
                             setYear(year)
                         }}

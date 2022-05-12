@@ -96,20 +96,20 @@ const SelectionProvider = ({ children }) => {
                     workflow: initialWorkflowValue(dataApprovalWorkflows),
                 },
             }),
-        setOpenedSelect: fieldName =>
+        setOpenedSelect: (fieldName) =>
             dispatch({
                 type: ACTIONS.SET_OPENED_SELECT,
                 payload: {
                     openedSelect: fieldName,
                 },
             }),
-        selectWorkflow: workflow =>
+        selectWorkflow: (workflow) =>
             dispatch({ type: ACTIONS.SELECT_WORKFLOW, payload: { workflow } }),
-        selectPeriod: period =>
+        selectPeriod: (period) =>
             dispatch({ type: ACTIONS.SELECT_PERIOD, payload: { period } }),
-        selectOrgUnit: orgUnit =>
+        selectOrgUnit: (orgUnit) =>
             dispatch({ type: ACTIONS.SELECT_ORG_UNIT, payload: { orgUnit } }),
-        selectDataSet: dataSet =>
+        selectDataSet: (dataSet) =>
             dispatch({ type: ACTIONS.SELECT_DATA_SET, payload: { dataSet } }),
     }
 

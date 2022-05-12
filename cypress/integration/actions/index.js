@@ -11,14 +11,14 @@ defineParameterType({
     regexp: new RegExp(buttonLabels.join('|')),
 })
 
-When('the user clicks the {buttonLabel} button', buttonLabel => {
+When('the user clicks the {buttonLabel} button', (buttonLabel) => {
     cy.get('[data-test="bottom-bar"]')
         .find('button')
         .contains(buttonLabel)
         .click()
 })
 
-Then('the following buttons are available', dataTable => {
+Then('the following buttons are available', (dataTable) => {
     dataTable.hashes().forEach(({ label, visible, disabled }) => {
         if (visible) {
             cy.get('[data-test="bottom-bar"]')

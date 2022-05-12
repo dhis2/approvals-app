@@ -39,7 +39,7 @@ const Table = ({ title, columns, rows }) => (
                         </span>
                     </DataTableColumnHeader>
 
-                    {columns.slice(1).map(column => {
+                    {columns.slice(1).map((column) => {
                         return (
                             <DataTableColumnHeader
                                 key={column}

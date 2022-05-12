@@ -5,7 +5,7 @@ import React from 'react'
 const DataSetNavigation = ({ dataSets, selected, onChange }) =>
     dataSets && dataSets?.length > 0 ? (
         <TabBar scrollable>
-            {dataSets.map(dataSet => (
+            {dataSets.map((dataSet) => (
                 <Tab
                     key={dataSet.id}
                     onClick={() => onChange(dataSet.id)}

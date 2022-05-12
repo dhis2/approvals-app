@@ -46,10 +46,10 @@ defineParameterType({
     regexp: new RegExp(statuses.join('|')),
 })
 
-Then('the status tag shows the approval status "{status}"', status => {
+Then('the status tag shows the approval status "{status}"', (status) => {
     cy.get(
         '[data-test="bottom-bar"] [data-test="dhis2-uicore-tag-text"]'
-    ).should($tag => {
+    ).should(($tag) => {
         const statusRegex = new RegExp(status)
         expect(statusRegex.test($tag.text())).to.be.true
     })

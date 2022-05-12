@@ -1,7 +1,7 @@
 import { readQueryParams } from '../navigation/index.js'
 import { parsePeriodId } from '../shared/index.js'
 
-export const initialValues = workflows => {
+export const initialValues = (workflows) => {
     const queryParams = readQueryParams()
     const { wf, pe, ou, ouDisplayName, dataSet: dataSetParam } = queryParams
 
@@ -25,7 +25,7 @@ export const initialWorkflowValue = (workflows, workflowId) => {
          * default to empty object if `find` returns undefined in case the
          * workflow with the id from the url is not available to the user
          */
-        return workflows.find(workflow => workflow.id === workflowId) || null
+        return workflows.find((workflow) => workflow.id === workflowId) || null
     }
 
     return null
@@ -49,7 +49,7 @@ export const initialOrgUnitValue = (path, displayName) => {
     return { id, path, displayName }
 }
 
-export const initialDataSetValue = dataSetParam => {
+export const initialDataSetValue = (dataSetParam) => {
     if (!dataSetParam) {
         return null
     }
