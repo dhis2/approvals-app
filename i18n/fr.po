@@ -1,17 +1,16 @@
 # 
 # Translators:
 # phil_dhis2, 2021
-# Viktor Varland <viktor@dhis2.org>, 2021
 # Bram Piot <bram.piot@gmail.com>, 2021
-# Yao Selom Saka <ysaka@hispwca.org>, 2021
 # Yayra Gomado <ygomado@hispwca.org>, 2021
+# Yao Selom Saka <ysaka@hispwca.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
 "PO-Revision-Date: 2021-11-04 13:40+0000\n"
-"Last-Translator: Yayra Gomado <ygomado@hispwca.org>, 2021\n"
+"Last-Translator: Yao Selom Saka <ysaka@hispwca.org>, 2022\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Not authorized"
-msgstr "Pas autorisé"
+msgstr "Non autorisé"
 
 msgid ""
 "You don't have access to the Data Approval App. Contact a system "
@@ -226,13 +225,13 @@ msgid "Financial year (Start November)"
 msgstr "Fiscale (Novembre)"
 
 msgid "Financial year (Start October)"
-msgstr "Financière Octobre"
+msgstr "Année fiscale (Débutant par octobre)"
 
 msgid "Financial year (Start July)"
-msgstr "Financière Juillet"
+msgstr "Année fiscale (Débutant par juillet)"
 
 msgid "Financial year (Start April)"
-msgstr "Financière Avril"
+msgstr "Année fiscale (Débutant par avril)"
 
 msgid "Clear selections"
 msgstr "Effacer les sélections"
