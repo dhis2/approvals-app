@@ -33,7 +33,7 @@ msgid "Approval saved"
 msgstr ""
 
 msgid "Approve"
-msgstr ""
+msgstr "Aprobare"
 
 msgid "Approving {{count}} data sets"
 msgid_plural "Approving {{count}} data sets"
@@ -65,13 +65,13 @@ msgid "Unacceptance failed: {{error}}"
 msgstr ""
 
 msgid "Unaccept"
-msgstr ""
+msgstr "Neacceptare"
 
 msgid "Unapproval failed: {{error}}"
 msgstr ""
 
 msgid "Unapprove"
-msgstr ""
+msgstr "Dezaprobare"
 
 msgid "This workflow does not contain any data sets."
 msgstr ""
@@ -111,7 +111,7 @@ msgid "Approved {{- dateTimeStr}}"
 msgstr ""
 
 msgid "Ready for approval"
-msgstr ""
+msgstr "Gata pentru aprobare"
 
 msgid "Waiting for lower level approval"
 msgstr ""
@@ -201,13 +201,13 @@ msgid "Bi-weekly"
 msgstr ""
 
 msgid "Monthly"
-msgstr ""
+msgstr "Lunar"
 
 msgid "Bi-monthly"
 msgstr ""
 
 msgid "Quarterly"
-msgstr ""
+msgstr "Trimestrial"
 
 msgid "Six-monthly"
 msgstr ""
@@ -216,7 +216,7 @@ msgid "Six-monthly April"
 msgstr ""
 
 msgid "Yearly"
-msgstr ""
+msgstr "Anual"
 
 msgid "Financial year (Start November)"
 msgstr ""
@@ -237,7 +237,7 @@ msgid "Waiting for approval"
 msgstr ""
 
 msgid "Approved"
-msgstr ""
+msgstr "Aprobat"
 
 msgid "Failed to load approval state"
 msgstr ""
