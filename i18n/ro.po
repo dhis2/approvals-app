@@ -59,7 +59,7 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Anulare"
 
 msgid "Unacceptance failed: {{error}}"
 msgstr ""
@@ -249,7 +249,7 @@ msgid "Choose a workflow and period first"
 msgstr ""
 
 msgid "Organisation Unit"
-msgstr ""
+msgstr "Unitate Organizațională"
 
 msgid "Choose an organisation unit"
 msgstr ""
