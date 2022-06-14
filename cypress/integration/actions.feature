@@ -3,7 +3,7 @@ Feature: Users can approve, accept, unapprove, and unaccept data
     Background:
         Given the admin user visits the app
         Then the user has workflow "Mortality < 5 years" preselected
-        When the user selects period "Februari 2021"
+        When the user selects period "March" of current year
         When the user selects organisation unit "Badjia"
 
     # These scenarios need to be executed in sequence, because the current

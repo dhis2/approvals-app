@@ -15,10 +15,10 @@ Then('the user has workflow "Mortality < 5 years" preselected', () => {
         .should('have.text', 'Mortality < 5 years')
 })
 
-When('the user selects period "Februari 2021"', () => {
+When('the user selects period "March" of current year', () => {
     cy.get('[data-test="period-context-select-button"]').click()
     cy.get('[data-test="period-context-select-popover"]')
-        .contains('March 2021')
+        .contains('March')
         .click()
 })
 

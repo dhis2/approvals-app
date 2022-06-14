@@ -3,7 +3,7 @@ Feature: Users can view data set reports for data sets connected to a workflow
     Background:
         Given the admin user visits the app
         Then the user has workflow "Mortality < 5 years" preselected
-        When the user selects period "Februari 2021"
+        When the user selects period "March" of current year
 
     Scenario: User views approvable data
         When the user selects organisation unit "Badjia"
