@@ -149,7 +149,7 @@ jobs:
                   CYPRESS_dhis2ApiVersion: 38
                   CYPRESS_networkMode: stub
 
-      e2e-v39:
+    e2e-v39:
         runs-on: ubuntu-latest
         if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
 
