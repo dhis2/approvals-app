@@ -11,7 +11,7 @@ import {
 import { useServerDateTimeAsLocal } from './use-server-date-time-as-local.js'
 
 const ApprovalStatusTag = ({ approvalStatus, approvedAt, approvedBy }) => {
-    const approvalDateTime = approvedAt && useServerDateTimeAsLocal(approvedAt)
+    const approvalDateTime = useServerDateTimeAsLocal(approvedAt)
     const {
         icon: Icon,
         displayName,
