@@ -8,7 +8,7 @@
         "method": "GET",
         "requestBody": "",
         "requestHeaders": {
-            "host": "localhost:8081",
+            "host": "localhost:8080",
             "proxy-connection": "keep-alive",
             "accept": "application/json",
             "origin": "http://localhost:3000",
@@ -17,16 +17,16 @@
         },
         "statusCode": 200,
         "responseBody": [
-            "{\"contextPath\":\"http://localhost:8081\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2022-06-14T11:50:26.223\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2022-06-14T11:33:08.023\",\"intervalSinceLastAnalyticsTableSuccess\":\"17 m, 18 s\",\"lastAnalyticsTableRuntime\":\"00:12:53.608\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.38.0\",\"revision\":\"fatal: not a git repository (or any of the parent directories): .git\",\"buildTime\":\"2022-05-05T14:06:23.000\",\"jasperReportsVersion\":\"6.18.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":false,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
-            "{\"contextPath\":\"http://localhost:8081\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2022-06-14T11:50:32.242\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2022-06-14T11:33:08.023\",\"intervalSinceLastAnalyticsTableSuccess\":\"17 m, 24 s\",\"lastAnalyticsTableRuntime\":\"00:12:53.608\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.38.0\",\"revision\":\"fatal: not a git repository (or any of the parent directories): .git\",\"buildTime\":\"2022-05-05T14:06:23.000\",\"jasperReportsVersion\":\"6.18.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":false,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
-            "{\"contextPath\":\"http://localhost:8081\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2022-06-14T11:50:35.904\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2022-06-14T11:33:08.023\",\"intervalSinceLastAnalyticsTableSuccess\":\"17 m, 27 s\",\"lastAnalyticsTableRuntime\":\"00:12:53.608\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.38.0\",\"revision\":\"fatal: not a git repository (or any of the parent directories): .git\",\"buildTime\":\"2022-05-05T14:06:23.000\",\"jasperReportsVersion\":\"6.18.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":false,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
-            "{\"contextPath\":\"http://localhost:8081\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2022-06-14T11:50:38.904\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2022-06-14T11:33:08.023\",\"intervalSinceLastAnalyticsTableSuccess\":\"17 m, 30 s\",\"lastAnalyticsTableRuntime\":\"00:12:53.608\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.38.0\",\"revision\":\"fatal: not a git repository (or any of the parent directories): .git\",\"buildTime\":\"2022-05-05T14:06:23.000\",\"jasperReportsVersion\":\"6.18.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":false,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
-            "{\"contextPath\":\"http://localhost:8081\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2022-06-14T11:50:46.603\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2022-06-14T11:33:08.023\",\"intervalSinceLastAnalyticsTableSuccess\":\"17 m, 38 s\",\"lastAnalyticsTableRuntime\":\"00:12:53.608\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.38.0\",\"revision\":\"fatal: not a git repository (or any of the parent directories): .git\",\"buildTime\":\"2022-05-05T14:06:23.000\",\"jasperReportsVersion\":\"6.18.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":false,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
-            "{\"contextPath\":\"http://localhost:8081\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2022-06-14T11:50:49.951\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2022-06-14T11:33:08.023\",\"intervalSinceLastAnalyticsTableSuccess\":\"17 m, 41 s\",\"lastAnalyticsTableRuntime\":\"00:12:53.608\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.38.0\",\"revision\":\"fatal: not a git repository (or any of the parent directories): .git\",\"buildTime\":\"2022-05-05T14:06:23.000\",\"jasperReportsVersion\":\"6.18.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":false,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
-            "{\"contextPath\":\"http://localhost:8081\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2022-06-14T11:50:51.772\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2022-06-14T11:33:08.023\",\"intervalSinceLastAnalyticsTableSuccess\":\"17 m, 43 s\",\"lastAnalyticsTableRuntime\":\"00:12:53.608\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.38.0\",\"revision\":\"fatal: not a git repository (or any of the parent directories): .git\",\"buildTime\":\"2022-05-05T14:06:23.000\",\"jasperReportsVersion\":\"6.18.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":false,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
-            "{\"contextPath\":\"http://localhost:8081\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2022-06-14T11:50:53.865\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2022-06-14T11:33:08.023\",\"intervalSinceLastAnalyticsTableSuccess\":\"17 m, 45 s\",\"lastAnalyticsTableRuntime\":\"00:12:53.608\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.38.0\",\"revision\":\"fatal: not a git repository (or any of the parent directories): .git\",\"buildTime\":\"2022-05-05T14:06:23.000\",\"jasperReportsVersion\":\"6.18.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":false,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}"
+            "{\"contextPath\":\"http://localhost:8080\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2022-06-14T11:56:36.427\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2022-06-13T08:44:51.363\",\"intervalSinceLastAnalyticsTableSuccess\":\"27 h, 11 m, 45 s\",\"lastAnalyticsTableRuntime\":\"00:07:23.648\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.39-SNAPSHOT\",\"revision\":\"fatal: not a git repository (or any of the parent directories): .git\",\"buildTime\":\"2022-06-13T08:12:17.000\",\"jasperReportsVersion\":\"6.19.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":true,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
+            "{\"contextPath\":\"http://localhost:8080\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2022-06-14T11:56:47.093\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2022-06-13T08:44:51.363\",\"intervalSinceLastAnalyticsTableSuccess\":\"27 h, 11 m, 55 s\",\"lastAnalyticsTableRuntime\":\"00:07:23.648\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.39-SNAPSHOT\",\"revision\":\"fatal: not a git repository (or any of the parent directories): .git\",\"buildTime\":\"2022-06-13T08:12:17.000\",\"jasperReportsVersion\":\"6.19.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":true,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
+            "{\"contextPath\":\"http://localhost:8080\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2022-06-14T11:56:52.732\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2022-06-13T08:44:51.363\",\"intervalSinceLastAnalyticsTableSuccess\":\"27 h, 12 m, 1 s\",\"lastAnalyticsTableRuntime\":\"00:07:23.648\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.39-SNAPSHOT\",\"revision\":\"fatal: not a git repository (or any of the parent directories): .git\",\"buildTime\":\"2022-06-13T08:12:17.000\",\"jasperReportsVersion\":\"6.19.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":true,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
+            "{\"contextPath\":\"http://localhost:8080\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2022-06-14T11:56:55.842\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2022-06-13T08:44:51.363\",\"intervalSinceLastAnalyticsTableSuccess\":\"27 h, 12 m, 4 s\",\"lastAnalyticsTableRuntime\":\"00:07:23.648\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.39-SNAPSHOT\",\"revision\":\"fatal: not a git repository (or any of the parent directories): .git\",\"buildTime\":\"2022-06-13T08:12:17.000\",\"jasperReportsVersion\":\"6.19.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":true,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
+            "{\"contextPath\":\"http://localhost:8080\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2022-06-14T11:57:05.381\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2022-06-13T08:44:51.363\",\"intervalSinceLastAnalyticsTableSuccess\":\"27 h, 12 m, 14 s\",\"lastAnalyticsTableRuntime\":\"00:07:23.648\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.39-SNAPSHOT\",\"revision\":\"fatal: not a git repository (or any of the parent directories): .git\",\"buildTime\":\"2022-06-13T08:12:17.000\",\"jasperReportsVersion\":\"6.19.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":true,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
+            "{\"contextPath\":\"http://localhost:8080\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2022-06-14T11:57:09.294\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2022-06-13T08:44:51.363\",\"intervalSinceLastAnalyticsTableSuccess\":\"27 h, 12 m, 17 s\",\"lastAnalyticsTableRuntime\":\"00:07:23.648\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.39-SNAPSHOT\",\"revision\":\"fatal: not a git repository (or any of the parent directories): .git\",\"buildTime\":\"2022-06-13T08:12:17.000\",\"jasperReportsVersion\":\"6.19.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":true,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
+            "{\"contextPath\":\"http://localhost:8080\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2022-06-14T11:57:12.327\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2022-06-13T08:44:51.363\",\"intervalSinceLastAnalyticsTableSuccess\":\"27 h, 12 m, 20 s\",\"lastAnalyticsTableRuntime\":\"00:07:23.648\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.39-SNAPSHOT\",\"revision\":\"fatal: not a git repository (or any of the parent directories): .git\",\"buildTime\":\"2022-06-13T08:12:17.000\",\"jasperReportsVersion\":\"6.19.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":true,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}",
+            "{\"contextPath\":\"http://localhost:8080\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.5.0 Chrome/91.0.4472.164 Electron/13.2.0 Safari/537.36\",\"calendar\":\"iso8601\",\"dateFormat\":\"yyyy-mm-dd\",\"serverDate\":\"2022-06-14T11:57:14.735\",\"serverTimeZoneId\":\"Etc/UTC\",\"serverTimeZoneDisplayName\":\"Coordinated Universal Time\",\"lastAnalyticsTableSuccess\":\"2022-06-13T08:44:51.363\",\"intervalSinceLastAnalyticsTableSuccess\":\"27 h, 12 m, 23 s\",\"lastAnalyticsTableRuntime\":\"00:07:23.648\",\"lastSystemMonitoringSuccess\":\"2019-03-26T17:07:15.418\",\"version\":\"2.39-SNAPSHOT\",\"revision\":\"fatal: not a git repository (or any of the parent directories): .git\",\"buildTime\":\"2022-06-13T08:12:17.000\",\"jasperReportsVersion\":\"6.19.1\",\"environmentVariable\":\"DHIS2_HOME\",\"databaseInfo\":{\"spatialSupport\":true},\"encryption\":false,\"emailConfigured\":true,\"redisEnabled\":false,\"systemId\":\"eed3d451-4ff5-4193-b951-ffcc68954299\",\"systemName\":\"DHIS 2 Demo - Sierra Leone\",\"clusterHostname\":\"\",\"isMetadataVersionEnabled\":true,\"metadataSyncEnabled\":false}"
         ],
-        "responseSize": 1066,
+        "responseSize": 1078,
         "responseHeaders": {
             "server": "nginx/1.21.6",
             "content-type": "application/json;charset=UTF-8",
@@ -53,7 +53,7 @@
         ]
     },
     {
-        "path": "/api/38/userSettings",
+        "path": "/api/39/userSettings",
         "featureName": null,
         "static": true,
         "count": 8,
@@ -61,7 +61,7 @@
         "method": "GET",
         "requestBody": "",
         "requestHeaders": {
-            "host": "localhost:8081",
+            "host": "localhost:8080",
             "proxy-connection": "keep-alive",
             "accept": "application/json",
             "origin": "http://localhost:3000",
@@ -87,7 +87,7 @@
         }
     },
     {
-        "path": "/api/38/me?fields=id",
+        "path": "/api/39/me?fields=id",
         "featureName": null,
         "static": true,
         "count": 8,
@@ -95,7 +95,7 @@
         "method": "GET",
         "requestBody": "",
         "requestHeaders": {
-            "host": "localhost:8081",
+            "host": "localhost:8080",
             "proxy-connection": "keep-alive",
             "accept": "application/json",
             "origin": "http://localhost:3000",
@@ -120,7 +120,7 @@
         }
     },
     {
-        "path": "/api/38/me/dashboard",
+        "path": "/api/39/me/dashboard",
         "featureName": null,
         "static": true,
         "count": 8,
@@ -128,7 +128,7 @@
         "method": "GET",
         "requestBody": "",
         "requestHeaders": {
-            "host": "localhost:8081",
+            "host": "localhost:8080",
             "proxy-connection": "keep-alive",
             "accept": "application/json",
             "origin": "http://localhost:3000",
@@ -136,7 +136,7 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": "{\"unreadInterpretations\":41,\"unreadMessageConversations\":170}",
+        "responseBody": "{\"unreadInterpretations\":41,\"unreadMessageConversations\":171}",
         "responseSize": 61,
         "responseHeaders": {
             "server": "nginx/1.21.6",
@@ -154,7 +154,7 @@
         }
     },
     {
-        "path": "/api/38/me?fields=authorities,avatar,email,name,settings",
+        "path": "/api/39/me?fields=authorities,avatar,email,name,settings",
         "featureName": null,
         "static": true,
         "count": 8,
@@ -162,7 +162,7 @@
         "method": "GET",
         "requestBody": "",
         "requestHeaders": {
-            "host": "localhost:8081",
+            "host": "localhost:8080",
             "proxy-connection": "keep-alive",
             "accept": "application/json",
             "origin": "http://localhost:3000",
@@ -187,7 +187,7 @@
         }
     },
     {
-        "path": "/api/38/systemSettings/applicationTitle",
+        "path": "/api/39/systemSettings/applicationTitle",
         "featureName": null,
         "static": true,
         "count": 8,
@@ -195,7 +195,7 @@
         "method": "GET",
         "requestBody": "",
         "requestHeaders": {
-            "host": "localhost:8081",
+            "host": "localhost:8080",
             "proxy-connection": "keep-alive",
             "accept": "application/json",
             "origin": "http://localhost:3000",
@@ -221,7 +221,7 @@
         }
     },
     {
-        "path": "/api/38/me?fields=authorities,organisationUnits%5Bid%2Cpath%5D",
+        "path": "/api/39/me?fields=authorities,organisationUnits%5Bid%2Cpath%5D",
         "featureName": null,
         "static": true,
         "count": 8,
@@ -229,7 +229,7 @@
         "method": "GET",
         "requestBody": "",
         "requestHeaders": {
-            "host": "localhost:8081",
+            "host": "localhost:8080",
             "proxy-connection": "keep-alive",
             "accept": "application/json",
             "origin": "http://localhost:3000",
@@ -262,7 +262,7 @@
         "method": "GET",
         "requestBody": "",
         "requestHeaders": {
-            "host": "localhost:8081",
+            "host": "localhost:8080",
             "proxy-connection": "keep-alive",
             "accept": "application/json",
             "origin": "http://localhost:3000",
@@ -288,7 +288,7 @@
         }
     },
     {
-        "path": "/api/38/staticContent/logo_banner",
+        "path": "/api/39/staticContent/logo_banner",
         "featureName": null,
         "static": true,
         "count": 8,
@@ -296,7 +296,7 @@
         "method": "GET",
         "requestBody": "",
         "requestHeaders": {
-            "host": "localhost:8081",
+            "host": "localhost:8080",
             "proxy-connection": "keep-alive",
             "accept": "application/json",
             "origin": "http://localhost:3000",
