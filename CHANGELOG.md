@@ -1,3 +1,10 @@
+## [100.0.7](https://github.com/dhis2/approval-app/compare/v100.0.6...v100.0.7) (2022-06-14)
+
+
+### Bug Fixes
+
+* handle falsy date string and fix offset logic ([#187](https://github.com/dhis2/approval-app/issues/187)) ([f440244](https://github.com/dhis2/approval-app/commit/f440244fcbb6edb6828db785845e2173dec53c9a))
+
 ## [100.0.6](https://github.com/dhis2/approval-app/compare/v100.0.5...v100.0.6) (2021-12-23)
 
 
