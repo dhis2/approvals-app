@@ -841,7 +841,7 @@ describe('Fixed period utilities', () => {
         describe('getFixedPeriodTypes', () => {
             it('should return a list of available period ranges', () => {
                 const periodIds = getFixedPeriodTypes().map(
-                    option => option.type
+                    (option) => option.type
                 )
 
                 expect(periodIds).toEqual([

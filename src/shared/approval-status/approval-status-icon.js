@@ -7,7 +7,7 @@ import {
     APPROVAL_STATUSES,
 } from './get-approval-status.js'
 
-const getIconColorForType = type => {
+const getIconColorForType = (type) => {
     switch (type) {
         case 'default':
             return colors.grey500

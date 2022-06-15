@@ -9,7 +9,7 @@ if (!isStubMode()) {
 }
 enableNetworkShim()
 
-Cypress.Commands.add('openOrgUnitNodeByName', orgUnitName => {
+Cypress.Commands.add('openOrgUnitNodeByName', (orgUnitName) => {
     cy.get('[data-test="org-unit-context-select-popover"]')
         .contains(orgUnitName)
         .closest('.node')

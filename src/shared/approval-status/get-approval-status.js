@@ -16,7 +16,7 @@ const APPROVAL_STATUSES = {
     ERROR: 'ERROR',
 }
 
-const getApprovalStatusIcon = approvalStatus => {
+const getApprovalStatusIcon = (approvalStatus) => {
     switch (approvalStatus) {
         case APPROVAL_STATUSES.UNAPPROVED_READY:
             return {
@@ -87,7 +87,7 @@ const getApprovalStatusText = ({
     }
 }
 
-const isApproved = approvalStatus =>
+const isApproved = (approvalStatus) =>
     approvalStatus === APPROVAL_STATUSES.APPROVED_HERE ||
     approvalStatus === APPROVAL_STATUSES.APPROVED_ABOVE
 

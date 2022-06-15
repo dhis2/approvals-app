@@ -1,6 +1,6 @@
 import { useConfig } from '@dhis2/app-runtime'
 
-export const useServerDateTimeAsLocal = dateTime => {
+export const useServerDateTimeAsLocal = (dateTime) => {
     const { systemInfo } = useConfig()
 
     if (!dateTime) {

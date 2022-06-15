@@ -31,7 +31,7 @@ const ApproveButton = ({ disabled }) => {
             hideApprovalDialog()
             refresh()
         },
-        onError: e => setUnexpectedError(e),
+        onError: (e) => setUnexpectedError(e),
     })
 
     // derived state

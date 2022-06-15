@@ -125,11 +125,11 @@ const Display = ({ dataSetId }) => {
 
     return (
         <div className={styles.display}>
-            {tables.map(table => (
+            {tables.map((table) => (
                 <Table
                     key={table.title}
                     title={table.title}
-                    columns={table.headers.map(h => h.name)}
+                    columns={table.headers.map((h) => h.name)}
                     rows={table.rows}
                 />
             ))}

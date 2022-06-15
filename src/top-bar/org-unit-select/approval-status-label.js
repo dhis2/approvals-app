@@ -7,7 +7,7 @@ import { ApprovalStatusIcon, APPROVAL_STATUSES } from '../../shared/index.js'
 import classes from './approval-status-label.module.css'
 import { useApprovalStatus } from './approval-statuses.js'
 
-const renderIcon = approvalStatus => {
+const renderIcon = (approvalStatus) => {
     if (approvalStatus === APPROVAL_STATUSES.LOADING) {
         return <span className={classes.loadingIcon}></span>
     } else if (approvalStatus === APPROVAL_STATUSES.ERROR) {

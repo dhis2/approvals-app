@@ -35,7 +35,7 @@ const useFetchApprovalStatus = ({ updateApprovalStatuses }) => {
     const requestQueue = useRef([])
     const fetchApprovalStatuses = useDebouncedCallback(() => {
         const batchedQueries = []
-        requestQueue.current.forEach(query => {
+        requestQueue.current.forEach((query) => {
             const existingBatchedQuery = batchedQueries.find(
                 ({ workflowId, periodId }) => {
                     return (
@@ -85,7 +85,7 @@ const useFetchApprovalStatus = ({ updateApprovalStatuses }) => {
                     updateObject[ou] = state || APPROVAL_STATUSES.UNAPPROVABLE
                 })
             } catch (error) {
-                orgUnitIds.forEach(orgUnitId => {
+                orgUnitIds.forEach((orgUnitId) => {
                     updateObject[orgUnitId] = APPROVAL_STATUSES.ERROR
                 })
             }
@@ -116,7 +116,7 @@ export const ApprovalStatusesProvider = ({ children }) => {
         periodId,
         approvalStatusUpdates,
     }) => {
-        setApprovalStatuses(approvalStatuses => {
+        setApprovalStatuses((approvalStatuses) => {
             const newApprovalStatuses = approvalStatuses.clone()
             for (const [orgUnitId, status] of Object.entries(
                 approvalStatusUpdates
