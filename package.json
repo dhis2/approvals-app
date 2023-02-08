@@ -45,5 +45,10 @@
         "prop-types": "^15.7.2",
         "query-string": "^7.0.1",
         "use-debounce": "^7.0.0"
+    },
+    "jest": {
+        "transformIgnorePatterns": [
+            "/!node_modules\\/multi-calendar-dates/"
+        ]
     }
 }
