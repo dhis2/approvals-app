@@ -6,8 +6,10 @@ import {
 } from './get-approval-status.js'
 import { Approved, Ready, Waiting } from './icons.js'
 
+const BASELINE_DATE_STR = '2020-01-01T00:00:00.000Z'
+
 jest.mock('moment', () => {
-    return () => jest.requireActual('moment')('2020-01-01T00:00:00.000Z')
+    return () => jest.requireActual('moment')(BASELINE_DATE_STR)
 })
 
 describe('getApprovalStatusDisplayData', () => {
@@ -23,13 +25,16 @@ describe('getApprovalStatusDisplayData', () => {
         })
     })
     it('returns the correct display data for approval status "ACCEPTED_HERE"', () => {
+        const yearDiff =
+            new Date().getFullYear() - new Date(BASELINE_DATE_STR).getFullYear()
+
         expect(
             getApprovalStatusDisplayData({
                 approvalStatus: APPROVAL_STATUSES.ACCEPTED_HERE,
                 approvedBy: 'Hendrik',
             })
         ).toEqual({
-            displayName: 'Approval by Hendrik accepted 2 years ago',
+            displayName: `Approval by Hendrik accepted ${yearDiff} years ago`,
             icon: Approved,
             type: 'positive',
         })
@@ -65,7 +70,7 @@ describe('getApprovalStatusDisplayData', () => {
                 approvalDateTime: 'Not empty',
             })
         ).toEqual({
-            displayName: 'Approved by Hendrik 2 years ago',
+            displayName: 'Approved by Hendrik 3 years ago',
             icon: Approved,
             type: 'positive',
         })
