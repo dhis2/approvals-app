@@ -2,14 +2,15 @@
 # Translators:
 # Cherise Beek <cherise.beek@gmail.com>, 2021
 # Rica Zamora Duchateau, 2022
+# Charel van den Elsen, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
 "PO-Revision-Date: 2021-11-04 13:40+0000\n"
-"Last-Translator: Rica Zamora Duchateau, 2022\n"
-"Language-Team: Dutch (https://www.transifex.com/hisp-uio/teams/100509/nl/)\n"
+"Last-Translator: Charel van den Elsen, 2023\n"
+"Language-Team: Dutch (https://app.transifex.com/hisp-uio/teams/100509/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,12 +18,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Not authorized"
-msgstr ""
+msgstr "Niet geautoriseerd"
 
 msgid ""
 "You don't have access to the Data Approval App. Contact a system "
 "administrator to request access."
 msgstr ""
+"U heeft geen toegang tot de Data Approval App. Neem contact op met een "
+"systeembeheerder om toegang aan te vragen."
 
 msgid "Acceptance failed: {{error}}"
 msgstr ""
@@ -137,40 +140,40 @@ msgid "Could not retrieve approval status"
 msgstr ""
 
 msgid "January"
-msgstr ""
+msgstr "Januari"
 
 msgid "February"
-msgstr ""
+msgstr "Februari"
 
 msgid "March"
-msgstr ""
+msgstr "Maart"
 
 msgid "April"
-msgstr ""
+msgstr "april"
 
 msgid "May"
-msgstr ""
+msgstr "Mei"
 
 msgid "June"
-msgstr ""
+msgstr "Juni"
 
 msgid "July"
-msgstr ""
+msgstr "Juli"
 
 msgid "August"
-msgstr ""
+msgstr "Augustus"
 
 msgid "September"
-msgstr ""
+msgstr "September"
 
 msgid "October"
-msgstr ""
+msgstr "Oktober"
 
 msgid "November"
-msgstr ""
+msgstr "November"
 
 msgid "December"
-msgstr ""
+msgstr "December"
 
 msgid "Week {{weekNumber}}"
 msgstr ""
@@ -257,7 +260,7 @@ msgid "Period"
 msgstr "Periode"
 
 msgid "Choose a period"
-msgstr ""
+msgstr "Kies een periode"
 
 msgid "Choose a workflow first"
 msgstr ""
