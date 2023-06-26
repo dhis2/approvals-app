@@ -7,7 +7,10 @@ import {
 import { Approved, Ready, Waiting } from './icons.js'
 
 jest.mock('moment', () => {
-    return () => jest.requireActual('moment')('2020-01-01T00:00:00.000Z')
+    const now = new Date()
+    const yearTwoYearsAgo = now.getFullYear() - 2
+    return () =>
+        jest.requireActual('moment')(`${yearTwoYearsAgo}-01-01T00:00:00.000Z`)
 })
 
 describe('getApprovalStatusDisplayData', () => {
