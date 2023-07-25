@@ -1,59 +1,49 @@
 # 
 # Translators:
-# phil_dhis2, 2021
-# Viktor Varland <viktor@dhis2.org>, 2021
-# Alison Andrade <aandrade@ippfwhr.org>, 2021
-# Prabhjot Singh, 2021
-# Janeth Cruz, 2023
-# Pablo Del Médico, 2023
-# Enzo Nicolas Rossi <enzo@dhis2.org>, 2023
+# Malinda Wijeratne, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
 "PO-Revision-Date: 2021-11-04 13:40+0000\n"
-"Last-Translator: Enzo Nicolas Rossi <enzo@dhis2.org>, 2023\n"
-"Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
+"Last-Translator: Malinda Wijeratne, 2023\n"
+"Language-Team: Sinhala (https://app.transifex.com/hisp-uio/teams/100509/si/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Language: si\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Not authorized"
-msgstr "No autorizado"
+msgstr ""
 
 msgid ""
 "You don't have access to the Data Approval App. Contact a system "
 "administrator to request access."
 msgstr ""
-"No tienes acceso a la aplicación de aprobación de datos. Póngase en contacto"
-" con el administrador del sistema para solicitar acceso."
 
 msgid "Acceptance failed: {{error}}"
 msgstr ""
 
 msgid "Accept"
-msgstr "Aceptar"
+msgstr "පිළිගන්න"
 
 msgid "Approval saved"
-msgstr ""
+msgstr "අනුමැතිය සුරැකින"
 
 msgid "Approve"
-msgstr "Aprobar"
+msgstr "අනුමත කරන්න"
 
 msgid "Approving {{count}} data sets"
 msgid_plural "Approving {{count}} data sets"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
 
 msgid "Approving {{count}} data set"
 msgid_plural "Approving {{count}} data set"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
 
 msgid "Are you sure you want to approve this data?"
 msgstr ""
@@ -67,7 +57,7 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr ""
 
 msgid "Unacceptance failed: {{error}}"
 msgstr ""
@@ -140,112 +130,112 @@ msgid "You do not have authority to approve data"
 msgstr ""
 
 msgid "Cannot be approved"
-msgstr ""
+msgstr "අනුමත කළ නොහැක"
 
 msgid "Could not retrieve approval status"
 msgstr ""
 
 msgid "January"
-msgstr "Enero"
+msgstr "ජනවාරි"
 
 msgid "February"
-msgstr "Febrero"
+msgstr "පෙබරවාරි"
 
 msgid "March"
-msgstr "Marzo"
+msgstr "මාර්තු"
 
 msgid "April"
-msgstr "Abril"
+msgstr "අප්‍රේල්"
 
 msgid "May"
-msgstr "Mayo"
+msgstr "මැයි"
 
 msgid "June"
-msgstr "Junio"
+msgstr "ජූනි"
 
 msgid "July"
-msgstr "Julio"
+msgstr "ජූලි"
 
 msgid "August"
-msgstr "Agosto"
+msgstr "අගෝස්තු"
 
 msgid "September"
-msgstr "Septiembre"
+msgstr "සැප්තැම්බර්"
 
 msgid "October"
-msgstr "Octubre"
+msgstr "ඔක්තෝබර්"
 
 msgid "November"
-msgstr "Noviembre"
+msgstr "නොවැම්බර්"
 
 msgid "December"
-msgstr "Diciembre"
+msgstr "දෙසැම්බර්"
 
 msgid "Week {{weekNumber}}"
-msgstr "Semana {{weekNumber}}"
+msgstr "සති {{weekNumber}}"
 
 msgid "Bi-Week {{biWeekNumber}}"
-msgstr "Quincenal {{biWeekNumber}}"
+msgstr "දෙසතියකට වරක් {{biWeekNumber}}"
 
 msgid "Daily"
-msgstr "Diario"
+msgstr "දිනපතා"
 
 msgid "Weekly"
-msgstr "Semanal"
+msgstr "සතිපතා"
 
 msgid "Weekly (Start Wednesday)"
-msgstr "Semanal (Inicio miércoles)"
+msgstr "සතියකට වරක් (Start Wednesday)"
 
 msgid "Weekly (Start Thursday)"
-msgstr "Semanal (Inicio jueves)"
+msgstr "සතියකට වරක් (Start Thursday)"
 
 msgid "Weekly (Start Saturday)"
-msgstr "Semanal (Inicio sábado)"
+msgstr "සතියකට වරක් (Start Saturday)"
 
 msgid "Weekly (Start Sunday)"
-msgstr "Semanal (Inicio domingo)"
+msgstr "සතියකට වරක් (Start Sunday)"
 
 msgid "Bi-weekly"
-msgstr "Quincenal"
+msgstr "දෙසතියකට වරක්"
 
 msgid "Monthly"
-msgstr "Mensual"
+msgstr "මාස්පතා"
 
 msgid "Bi-monthly"
-msgstr "Bimestral"
+msgstr "දෙමසකට වරක්"
 
 msgid "Quarterly"
-msgstr "Trimestral"
+msgstr "කාර්තුවකට වරක්"
 
 msgid "Six-monthly"
-msgstr "Semestral"
+msgstr "6 මසකට වරක්"
 
 msgid "Six-monthly April"
-msgstr "Semestral Abril"
+msgstr "6 මසකට වරක් අප්‍රේල්"
 
 msgid "Yearly"
-msgstr "Anual"
+msgstr "අවුරුදු පතා"
 
 msgid "Financial year (Start November)"
-msgstr "Año fiscal (Inicio noviembre)"
+msgstr ""
 
 msgid "Financial year (Start October)"
-msgstr "Año fiscal - Octubre"
+msgstr ""
 
 msgid "Financial year (Start July)"
-msgstr "Año fiscal - Julio"
+msgstr ""
 
 msgid "Financial year (Start April)"
-msgstr "Año fiscal - Abril"
+msgstr ""
 
 msgid "Clear selections"
-msgstr "Borrar selecciones"
+msgstr ""
 
 msgid "Waiting for approval"
 msgstr ""
 
 msgid "Approved"
-msgstr "Aprobado"
+msgstr "අනුමතයි"
 
 msgid "Failed to load approval state"
 msgstr ""
@@ -257,16 +247,16 @@ msgid "Choose a workflow and period first"
 msgstr ""
 
 msgid "Organisation Unit"
-msgstr "Unidad Organizativa"
+msgstr ""
 
 msgid "Choose an organisation unit"
 msgstr ""
 
 msgid "Period"
-msgstr "Periodo"
+msgstr ""
 
 msgid "Choose a period"
-msgstr "Seleccione un periodo"
+msgstr ""
 
 msgid "Choose a workflow first"
 msgstr ""
