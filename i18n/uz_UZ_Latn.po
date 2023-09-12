@@ -1,276 +1,275 @@
 # 
 # Translators:
-# 晓东 林 <13981924470@126.com>, 2021
-# easylin <lin_xd@126.com>, 2023
+# Yury Rogachev <yury@dhis2.org>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
 "PO-Revision-Date: 2021-11-04 13:40+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2023\n"
-"Language-Team: Chinese (China) (https://app.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
+"Language-Team: Uzbek (Latin) (https://app.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
+"Language: uz@Latn\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Not authorized"
-msgstr "未经授权"
+msgstr ""
 
 msgid ""
 "You don't have access to the Data Approval App. Contact a system "
 "administrator to request access."
-msgstr "您无权访问数据审批应用程序。联系系统管理员请求访问。"
+msgstr ""
 
 msgid "Acceptance failed: {{error}}"
-msgstr "接受失败：{{error}}"
+msgstr ""
 
 msgid "Accept"
-msgstr "接受<br>"
+msgstr "Qabul qiling"
 
 msgid "Approval saved"
-msgstr "批准已保存"
+msgstr ""
 
 msgid "Approve"
-msgstr "批准"
+msgstr ""
 
 msgid "Approving {{count}} data sets"
 msgid_plural "Approving {{count}} data sets"
-msgstr[0] "批准 {{count}} 个数据集"
+msgstr[0] ""
 
 msgid "Approving {{count}} data set"
 msgid_plural "Approving {{count}} data set"
-msgstr[0] "批准 {{count}} 个数据集"
+msgstr[0] ""
 
 msgid "Are you sure you want to approve this data?"
-msgstr "您确定要批准此数据吗？"
+msgstr ""
 
 msgid "There was a problem saving this approval"
-msgstr "保存此批准时出现问题"
+msgstr ""
 
 msgid ""
 "This data couldn’t be approved. Try again, or contact your system "
 "administrator."
-msgstr "无法批准此数据。请重试，或联系您的系统管理员。"
+msgstr ""
 
 msgid "Cancel"
-msgstr "取消"
+msgstr "Бекор қилиш"
 
 msgid "Unacceptance failed: {{error}}"
-msgstr "取消接受失败：{{error}}"
+msgstr ""
 
 msgid "Unaccept"
-msgstr "不接受"
+msgstr ""
 
 msgid "Unapproval failed: {{error}}"
-msgstr "取消批准失败：{{error}}"
+msgstr ""
 
 msgid "Unapprove"
-msgstr "不批准"
+msgstr ""
 
 msgid "This workflow does not contain any data sets."
-msgstr "此工作流不包含任何数据集。"
+msgstr ""
 
 msgid "Choose a data set to review"
-msgstr "选择要查看的数据集"
+msgstr ""
 
 msgid ""
 "{{- workflowName}} has multiple data sets. Choose a data set from the tabs "
 "above."
-msgstr "{{- workflowName}} 有多个数据集。从上面的选项卡中选择一个数据集。"
+msgstr ""
 
 msgid "Loading data set"
-msgstr "加载数据集"
+msgstr ""
 
 msgid "There was a problem displaying this data set"
-msgstr "显示此数据集时出现问题"
+msgstr ""
 
 msgid ""
 "This data set couldn't be loaded or displayed. Try again, or contact your "
 "system administrator."
-msgstr "无法加载或显示此数据集。请重试，或联系您的系统管理员。"
+msgstr ""
 
 msgid "Retry loading data set"
-msgstr "重试加载数据集"
+msgstr ""
 
 msgid "This data set doesn't have any data for {{- period}} in {{- orgUnit}}."
-msgstr "此数据集在 {{- orgUnit}} 中没有 {{- period}} 的任何数据。"
+msgstr ""
 
 msgid "1 data set"
-msgstr "1个数据集"
+msgstr ""
 
 msgid "{{dataSetsCount}} data sets"
-msgstr "{{dataSetsCount}} 个数据集"
+msgstr ""
 
 msgid "Approved {{- dateTimeStr}}"
-msgstr "已批准 {{- dateTimeStr}}"
+msgstr ""
 
 msgid "Ready for approval"
-msgstr "准备审批"
+msgstr ""
 
 msgid "Waiting for lower level approval"
-msgstr "等待下级批准"
+msgstr ""
 
 msgid "Waiting for higher level approval"
-msgstr "等待上级批准"
+msgstr ""
 
 msgid "Approval by {{- name}} accepted {{timeAgo}}"
-msgstr "{{- name}} 的批准已接受 {{timeAgo}}"
+msgstr ""
 
 msgid "Approved by {{- name}} {{timeAgo}}"
-msgstr "由 {{- name}} {{timeAgo}} 批准"
+msgstr ""
 
 msgid "Approved at higher level"
-msgstr "上级批准"
+msgstr ""
 
 msgid "You do not have authority to approve data"
-msgstr "您无权批准数据"
+msgstr ""
 
 msgid "Cannot be approved"
-msgstr "无法批准"
+msgstr ""
 
 msgid "Could not retrieve approval status"
-msgstr "无法检索审批状态"
+msgstr ""
 
 msgid "January"
-msgstr "01"
+msgstr "Yanvar"
 
 msgid "February"
-msgstr "02"
+msgstr "Fevral"
 
 msgid "March"
-msgstr "03"
+msgstr "Mart"
 
 msgid "April"
-msgstr "04"
+msgstr "Аprel"
 
 msgid "May"
-msgstr "05"
+msgstr "May"
 
 msgid "June"
-msgstr "06"
+msgstr "Iyun"
 
 msgid "July"
-msgstr "07"
+msgstr "Iyul"
 
 msgid "August"
-msgstr "08"
+msgstr "Аvgust"
 
 msgid "September"
-msgstr "09"
+msgstr "Sentyabr"
 
 msgid "October"
-msgstr "10"
+msgstr "Oktyabr"
 
 msgid "November"
-msgstr "11"
+msgstr "Noyabr"
 
 msgid "December"
-msgstr "12"
+msgstr "Dekabr"
 
 msgid "Week {{weekNumber}}"
-msgstr "第 {{weekNumber}} 周"
+msgstr "Hafta {{weekNumber}}"
 
 msgid "Bi-Week {{biWeekNumber}}"
-msgstr "双周 {{biWeekNumber}}"
+msgstr "Juft hafta {{biWeekNumber}}"
 
 msgid "Daily"
-msgstr "每日"
+msgstr "Кунлик"
 
 msgid "Weekly"
-msgstr "每周"
+msgstr "Ҳафталик"
 
 msgid "Weekly (Start Wednesday)"
-msgstr "每周（始于周二）"
+msgstr "Ҳафталик (Бошланиши Чоршанба)"
 
 msgid "Weekly (Start Thursday)"
-msgstr "每周（始于周四）"
+msgstr "Ҳафталик (Бошланиши Пайшанба)"
 
 msgid "Weekly (Start Saturday)"
-msgstr "每周（始于周六）"
+msgstr "Ҳафталик (Бошланиши Шанба)"
 
 msgid "Weekly (Start Sunday)"
-msgstr "每周（始于周日）"
+msgstr "Ҳафталик (Бошланиши Якшанба)"
 
 msgid "Bi-weekly"
-msgstr "双周"
+msgstr "Juft hafta"
 
 msgid "Monthly"
-msgstr "每月"
+msgstr "Ойлик"
 
 msgid "Bi-monthly"
-msgstr "每两月"
+msgstr "Жуфт ойлик"
 
 msgid "Quarterly"
-msgstr "季度"
+msgstr "Ҳар квартал"
 
 msgid "Six-monthly"
-msgstr "六个月"
+msgstr "Yarim yillik"
 
 msgid "Six-monthly April"
-msgstr "半年的四月"
+msgstr "Yarim yillik Аprel"
 
 msgid "Yearly"
-msgstr "每年"
+msgstr "Йиллик"
 
 msgid "Financial year (Start November)"
-msgstr "财政年度（11 月开始）"
+msgstr "Moliyaviy yil (Boshlanishi Noyabr)"
 
 msgid "Financial year (Start October)"
-msgstr "财务十月"
+msgstr "Молиявий йил (бошланиши Октябр)"
 
 msgid "Financial year (Start July)"
-msgstr "财务七月"
+msgstr "Молиявий йил (бошланиши Июл)"
 
 msgid "Financial year (Start April)"
-msgstr "财务四月"
+msgstr "Молиявий йил (бошланиши Апрел)"
 
 msgid "Clear selections"
-msgstr "清除选择"
+msgstr "Tanlovlarni tozalash"
 
 msgid "Waiting for approval"
-msgstr "等待批准"
+msgstr ""
 
 msgid "Approved"
-msgstr "得到正式认可的"
+msgstr ""
 
 msgid "Failed to load approval state"
-msgstr "无法加载批准状态"
+msgstr ""
 
 msgid "Choose a period first"
-msgstr "先选择一个时期"
+msgstr ""
 
 msgid "Choose a workflow and period first"
-msgstr "先选择工作流程和周期"
+msgstr ""
 
 msgid "Organisation Unit"
-msgstr "组织机构"
+msgstr "Tashkiliy birlik"
 
 msgid "Choose an organisation unit"
-msgstr "选择组织单位"
+msgstr ""
 
 msgid "Period"
-msgstr "周期"
+msgstr "davr"
 
 msgid "Choose a period"
-msgstr "选择一个时期"
+msgstr ""
 
 msgid "Choose a workflow first"
-msgstr "首先选择工作流程"
+msgstr ""
 
 msgid "Workflow"
-msgstr "工作流程"
+msgstr ""
 
 msgid "Choose a workflow"
-msgstr "选择工作流程"
+msgstr ""
 
 msgid "No workflows found. None may exist, or you may not have access to any."
-msgstr "未找到工作流程。可能不存在，或者您可能无权访问任何内容。"
+msgstr ""
 
 msgid "Could not load approval data"
-msgstr "无法加载审批数据"
+msgstr ""
 
 msgid "Retry loading approval data"
-msgstr "重试加载批准数据"
+msgstr ""
