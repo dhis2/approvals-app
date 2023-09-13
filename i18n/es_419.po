@@ -1,19 +1,19 @@
 # 
 # Translators:
-# Ibatov <ibatovk@who.int>, 2021
+# Jaime Bosque <jaime.bosque@dhis2.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
 "PO-Revision-Date: 2021-11-04 13:40+0000\n"
-"Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
-"Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
+"Last-Translator: Jaime Bosque <jaime.bosque@dhis2.org>, 2022\n"
+"Language-Team: Spanish (Latin America) (https://app.transifex.com/hisp-uio/teams/100509/es_419/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uz@Cyrl\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: es_419\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Not authorized"
 msgstr ""
@@ -27,21 +27,25 @@ msgid "Acceptance failed: {{error}}"
 msgstr ""
 
 msgid "Accept"
-msgstr "Қабул қилинг"
+msgstr "Aceptar"
 
 msgid "Approval saved"
 msgstr ""
 
 msgid "Approve"
-msgstr "Тасдиқлаш"
+msgstr ""
 
 msgid "Approving {{count}} data sets"
 msgid_plural "Approving {{count}} data sets"
 msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "Approving {{count}} data set"
 msgid_plural "Approving {{count}} data set"
 msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "Are you sure you want to approve this data?"
 msgstr ""
@@ -55,19 +59,19 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr "Бекор қилиш"
+msgstr "Cancelar"
 
 msgid "Unacceptance failed: {{error}}"
 msgstr ""
 
 msgid "Unaccept"
-msgstr "Қабул қилинмасин"
+msgstr ""
 
 msgid "Unapproval failed: {{error}}"
 msgstr ""
 
 msgid "Unapprove"
-msgstr "Тасдиқланмасин/Рад этилсин"
+msgstr ""
 
 msgid "This workflow does not contain any data sets."
 msgstr ""
@@ -107,7 +111,7 @@ msgid "Approved {{- dateTimeStr}}"
 msgstr ""
 
 msgid "Ready for approval"
-msgstr "Тасдиқ учун тайёр"
+msgstr ""
 
 msgid "Waiting for lower level approval"
 msgstr ""
@@ -134,106 +138,106 @@ msgid "Could not retrieve approval status"
 msgstr ""
 
 msgid "January"
-msgstr "Январь"
+msgstr ""
 
 msgid "February"
-msgstr "Февраль"
+msgstr ""
 
 msgid "March"
-msgstr "Март"
+msgstr ""
 
 msgid "April"
-msgstr "Апрель"
+msgstr ""
 
 msgid "May"
-msgstr "Май"
+msgstr ""
 
 msgid "June"
-msgstr "Июнь"
+msgstr ""
 
 msgid "July"
-msgstr "Июль"
+msgstr ""
 
 msgid "August"
-msgstr "Август"
+msgstr ""
 
 msgid "September"
-msgstr "Сентябрь"
+msgstr ""
 
 msgid "October"
-msgstr "Октябрь"
+msgstr ""
 
 msgid "November"
-msgstr "Ноябрь"
+msgstr ""
 
 msgid "December"
-msgstr "Декабрь"
+msgstr ""
 
 msgid "Week {{weekNumber}}"
-msgstr "Ҳафта {{ҳафтаРақам}}"
+msgstr ""
 
 msgid "Bi-Week {{biWeekNumber}}"
-msgstr "Жуфт ҳафта {{жуфтҲафтаРақам}}"
+msgstr ""
 
 msgid "Daily"
-msgstr "Кунлик"
+msgstr "Diario"
 
 msgid "Weekly"
-msgstr "Ҳафталик"
+msgstr "Semanal"
 
 msgid "Weekly (Start Wednesday)"
-msgstr "Ҳафталик (Бошланиши Чоршанба)"
+msgstr ""
 
 msgid "Weekly (Start Thursday)"
-msgstr "Ҳафталик (Бошланиши Пайшанба)"
+msgstr ""
 
 msgid "Weekly (Start Saturday)"
-msgstr "Ҳафталик (Бошланиши Шанба)"
+msgstr ""
 
 msgid "Weekly (Start Sunday)"
-msgstr "Ҳафталик (Бошланиши Якшанба)"
+msgstr ""
 
 msgid "Bi-weekly"
-msgstr "Жуфт ҳафталик"
+msgstr ""
 
 msgid "Monthly"
-msgstr "Ойлик"
+msgstr "Mensual"
 
 msgid "Bi-monthly"
-msgstr "Жуфт ойлик"
+msgstr ""
 
 msgid "Quarterly"
-msgstr "Ҳар квартал"
+msgstr ""
 
 msgid "Six-monthly"
-msgstr "Ярим йиллик"
+msgstr ""
 
 msgid "Six-monthly April"
-msgstr "Ярим йиллик Апрель"
+msgstr ""
 
 msgid "Yearly"
-msgstr "Йиллик"
+msgstr "Anual"
 
 msgid "Financial year (Start November)"
-msgstr "Молиявий йил (Бошланиши Ноябрь)"
+msgstr ""
 
 msgid "Financial year (Start October)"
-msgstr "Молиявий йил (бошланиши Октябрь)"
+msgstr ""
 
 msgid "Financial year (Start July)"
-msgstr "Молиявий йил (бошланиши Июль)"
+msgstr ""
 
 msgid "Financial year (Start April)"
-msgstr "Молиявий йил (бошланиши Апрель)"
+msgstr ""
 
 msgid "Clear selections"
-msgstr "Танловларни тозалаш"
+msgstr ""
 
 msgid "Waiting for approval"
 msgstr ""
 
 msgid "Approved"
-msgstr "Тасдиқланган"
+msgstr ""
 
 msgid "Failed to load approval state"
 msgstr ""
@@ -245,13 +249,13 @@ msgid "Choose a workflow and period first"
 msgstr ""
 
 msgid "Organisation Unit"
-msgstr "Ташкилий Бўлим"
+msgstr ""
 
 msgid "Choose an organisation unit"
 msgstr ""
 
 msgid "Period"
-msgstr "Давр"
+msgstr "Periodo"
 
 msgid "Choose a period"
 msgstr ""
