@@ -1,3 +1,28 @@
+## [100.0.8](https://github.com/dhis2/approval-app/compare/v100.0.7...v100.0.8) (2023-09-13)
+
+
+### Bug Fixes
+
+* add scroll on workflow selector [DHIS2-15415] ([2a8c140](https://github.com/dhis2/approval-app/commit/2a8c1403488395cd386735ede2052fe7ba4f0f75))
+* prevent failing jest test ([30b66ae](https://github.com/dhis2/approval-app/commit/30b66ae578e02d80ca75e939aec641a9141e6045))
+* remove v37 e2e ([5f387e4](https://github.com/dhis2/approval-app/commit/5f387e470407e2671c413d0c780dadf4b6f3227d))
+* update jest mock [DHIS2-15415] ([be1a01a](https://github.com/dhis2/approval-app/commit/be1a01a6b22a812725ef564443797e86b19a2ab6))
+* update v38 fixtures ([52d1538](https://github.com/dhis2/approval-app/commit/52d1538da46e60ca303d7519e31a33b722eaf4e0))
+* update v39 fixtures ([a978552](https://github.com/dhis2/approval-app/commit/a97855200e46fda7e9f378e9c069054d2fa16cec))
+* **translations:** sync translations from transifex (master) ([43a0105](https://github.com/dhis2/approval-app/commit/43a0105e9fff3b12f9e0172dfd41edd72115fbbe))
+* **translations:** sync translations from transifex (master) ([b3a4609](https://github.com/dhis2/approval-app/commit/b3a46095a8a8928432e851c747ae5933d5b73383))
+* **translations:** sync translations from transifex (master) ([0c0f6b2](https://github.com/dhis2/approval-app/commit/0c0f6b20c546e55f61879654b035c8cd1d97314a))
+* **translations:** sync translations from transifex (master) ([0efe83b](https://github.com/dhis2/approval-app/commit/0efe83b4474a98b121d29c3e7cb2101597c0870b))
+* **translations:** sync translations from transifex (master) ([840eb4f](https://github.com/dhis2/approval-app/commit/840eb4fa3c6bd2f6013c0cbffda108c8f60722f3))
+* **translations:** sync translations from transifex (master) ([6c7882f](https://github.com/dhis2/approval-app/commit/6c7882f47e927ea89a0134141ef20d4666165a26))
+* **translations:** sync translations from transifex (master) ([668b440](https://github.com/dhis2/approval-app/commit/668b4408135abda999ecd29eb230c3119a60b4f6))
+* **translations:** sync translations from transifex (master) ([ae80f4a](https://github.com/dhis2/approval-app/commit/ae80f4a197bd8b3eec9a96a796a163d2bcabc145))
+* **translations:** sync translations from transifex (master) ([0708a09](https://github.com/dhis2/approval-app/commit/0708a09a8e8148d2918f7758d836e45f8b4bf468))
+* **translations:** sync translations from transifex (master) ([1839610](https://github.com/dhis2/approval-app/commit/1839610b023b2ac18d65dd4818a47714e283773f))
+* **translations:** sync translations from transifex (master) ([d65c9c1](https://github.com/dhis2/approval-app/commit/d65c9c106fde8aaf2d67a01cb9079b61cc70b611))
+* **translations:** sync translations from transifex (master) ([6655b23](https://github.com/dhis2/approval-app/commit/6655b238e4bf46c32b945c9e0f355a9bb6490915))
+* **translations:** sync translations from transifex (master) ([0fad2b8](https://github.com/dhis2/approval-app/commit/0fad2b8ecef4d2394598e57f19a28b9cec7aeb0a))
+
 ## [100.0.7](https://github.com/dhis2/approval-app/compare/v100.0.6...v100.0.7) (2022-06-14)
 
 
