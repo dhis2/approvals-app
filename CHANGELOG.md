@@ -1,3 +1,10 @@
+## [100.0.9](https://github.com/dhis2/approval-app/compare/v100.0.8...v100.0.9) (2023-09-14)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([15e6638](https://github.com/dhis2/approval-app/commit/15e6638469041c6197cbfb88ca404dae9e3ce489))
+
 ## [100.0.8](https://github.com/dhis2/approval-app/compare/v100.0.7...v100.0.8) (2023-09-13)
 
 
