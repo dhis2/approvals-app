@@ -27,114 +27,122 @@ msgstr ""
 "юборинг."
 
 msgid "Acceptance failed: {{error}}"
-msgstr ""
+msgstr "Қабул қилинмади: {{error}}"
 
 msgid "Accept"
 msgstr "Қабул қилинг"
 
 msgid "Approval saved"
-msgstr ""
+msgstr "Тасдиқлаш сақланди"
 
 msgid "Approve"
 msgstr "Тасдиқлаш"
 
 msgid "Approving {{count}} data sets"
 msgid_plural "Approving {{count}} data sets"
-msgstr[0] ""
+msgstr[0] " {{count}} та маълумотлар тўплами тасдиқланмоқда"
 
 msgid "Approving {{count}} data set"
 msgid_plural "Approving {{count}} data set"
-msgstr[0] ""
+msgstr[0] " {{count}} та маълумот тўплами тасдиқланмоқда"
 
 msgid "Are you sure you want to approve this data?"
-msgstr ""
+msgstr "Ҳақиқатдан ҳам ушбу маълумотни тасдиқламоқчимисиз?"
 
 msgid "There was a problem saving this approval"
-msgstr ""
+msgstr "Тасдиқлашни сақлашда муаммо юз берди."
 
 msgid ""
 "This data couldn’t be approved. Try again, or contact your system "
 "administrator."
 msgstr ""
+"Ушбу маълумот учун тасдиқлашни амалга ошириб бўлмади. Қайта уриниб кўринг "
+"ёки тизим администраторига мурожаат қилинг."
 
 msgid "Cancel"
 msgstr "Бекор қилиш"
 
 msgid "Unacceptance failed: {{error}}"
-msgstr ""
+msgstr "Қабул қилинмади: {{error}}"
 
 msgid "Unaccept"
 msgstr "Қабул қилинмасин"
 
 msgid "Unapproval failed: {{error}}"
-msgstr ""
+msgstr "Тасдиқланмаган: {{error}}"
 
 msgid "Unapprove"
 msgstr "Тасдиқланмасин/Рад этилсин"
 
 msgid "This workflow does not contain any data sets."
-msgstr ""
+msgstr "Ушбу ишчи жараёнда маълумот тўпламлари мавжуд эмас"
 
 msgid "Choose a data set to review"
-msgstr ""
+msgstr "Кўриб чиқиш учун маълумотлар тўпламини танланг"
 
 msgid ""
 "{{- workflowName}} has multiple data sets. Choose a data set from the tabs "
 "above."
 msgstr ""
+"{{- workflowName}} бир неча маълумотлар тўплами мавжуд. Юқоридаги "
+"ёрлиқлардан маълумотлар тўпламини танланг."
 
 msgid "Loading data set"
-msgstr ""
+msgstr "Маълумотлар тўплами юкланмоқда"
 
 msgid "There was a problem displaying this data set"
-msgstr ""
+msgstr "Ушбу маълумотлар тўпламини экранда кўрсатишда муаммо мавжуд"
 
 msgid ""
 "This data set couldn't be loaded or displayed. Try again, or contact your "
 "system administrator."
 msgstr ""
+"Ушбу маълумот тўпламини юклаб бўлмади ёки экранда кўрсатиб бўлмади. Қайта "
+"уриниб кўринг ёки тизим администраторига мурожаат қилинг."
 
 msgid "Retry loading data set"
-msgstr ""
+msgstr "Маълумотлар тўпламини юклашда уриниб кўринг"
 
 msgid "This data set doesn't have any data for {{- period}} in {{- orgUnit}}."
 msgstr ""
+"Бу маълумотлар тўпламида {{- period}} ичида {{- orgUnit}} учун ҳеч қандай "
+"маълумот йўқ."
 
 msgid "1 data set"
-msgstr ""
+msgstr "1 та Маълумот тўплами"
 
 msgid "{{dataSetsCount}} data sets"
-msgstr ""
+msgstr "{{dataSetsCount}} маълумот тўпламлари"
 
 msgid "Approved {{- dateTimeStr}}"
-msgstr ""
+msgstr "Тасдиқланган {{- dateTimeStr}}"
 
 msgid "Ready for approval"
 msgstr "Тасдиқ учун тайёр"
 
 msgid "Waiting for lower level approval"
-msgstr ""
+msgstr "Қуйи поғонада тасдиқланиш кутилмоқда"
 
 msgid "Waiting for higher level approval"
-msgstr ""
+msgstr "Юқори поғонада тасдиқланиш кутилмоқда"
 
 msgid "Approval by {{- name}} accepted {{timeAgo}}"
-msgstr ""
+msgstr "Тасдиқламоқ {{- name}} томонидан {{timeAgo}} қабул қилинди"
 
 msgid "Approved by {{- name}} {{timeAgo}}"
-msgstr ""
+msgstr "Тасдиқланиш {{- name}} томонидан {{timeAgo}}"
 
 msgid "Approved at higher level"
-msgstr ""
+msgstr "Юқори поғона томонидан тасдиқланган"
 
 msgid "You do not have authority to approve data"
-msgstr ""
+msgstr "Сизда маълумотларни тасдиқлаш ҳуқуқи мавжуд эмас"
 
 msgid "Cannot be approved"
-msgstr ""
+msgstr "Тасдиқлаш мумкин эмас"
 
 msgid "Could not retrieve approval status"
-msgstr ""
+msgstr "Тасдиқланиш ҳолатини аниқлаб бўлмади"
 
 msgid "January"
 msgstr "Январь"
@@ -233,25 +241,25 @@ msgid "Clear selections"
 msgstr "Танловларни тозалаш"
 
 msgid "Waiting for approval"
-msgstr ""
+msgstr "Тасдиқлаш кутилмоқда"
 
 msgid "Approved"
 msgstr "Тасдиқланган"
 
 msgid "Failed to load approval state"
-msgstr ""
+msgstr "Тасдиқ ҳолатини юклаб бўлмади"
 
 msgid "Choose a period first"
-msgstr ""
+msgstr "Дастлаь даврни танланг"
 
 msgid "Choose a workflow and period first"
-msgstr ""
+msgstr "Дастлаб иш жараёни ва даврни танланг"
 
 msgid "Organisation Unit"
 msgstr "Ташкилий Бўлим"
 
 msgid "Choose an organisation unit"
-msgstr ""
+msgstr "Ташкилий бирликни танланг"
 
 msgid "Period"
 msgstr "Давр"
@@ -260,19 +268,21 @@ msgid "Choose a period"
 msgstr "Даврни танланг"
 
 msgid "Choose a workflow first"
-msgstr ""
+msgstr "Дастлаб иш жараёнини танланг"
 
 msgid "Workflow"
-msgstr ""
+msgstr "Иш жараёни"
 
 msgid "Choose a workflow"
-msgstr ""
+msgstr "Иш жараёнини танланг"
 
 msgid "No workflows found. None may exist, or you may not have access to any."
 msgstr ""
+"Ҳеч қандай иш жараёни топилмади. Ҳеч бири мавжуд бўлмаслиги мумкин ёки сиз "
+"ҳеч бирига кира олмайсиз."
 
 msgid "Could not load approval data"
-msgstr ""
+msgstr "Тасдиқлаш маълумоти юкланмади"
 
 msgid "Retry loading approval data"
-msgstr ""
+msgstr "Тасдиқлаш маълумотини қайта юклаб кўринг"
