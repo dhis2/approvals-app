@@ -1,16 +1,17 @@
 # 
 # Translators:
-# Philip Larsen Donnelly, 2021
 # Bram Piot <bram.piot@gmail.com>, 2021
 # Yayra Gomado <ygomado@hispwca.org>, 2021
 # Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2022
+# Karoline Tufte Lien <karoline@dhis2.org>, 2024
+# Philip Larsen Donnelly, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
 "PO-Revision-Date: 2021-11-04 13:40+0000\n"
-"Last-Translator: Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2022\n"
+"Last-Translator: Philip Larsen Donnelly, 2024\n"
 "Language-Team: French (https://app.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,7 +30,7 @@ msgstr ""
 "données\"). Contactez un administrateur système pour demander un accès."
 
 msgid "Acceptance failed: {{error}}"
-msgstr "Échec de l'acceptation : {{erreur}}"
+msgstr "Échec de l'acceptation: {{error}}"
 
 msgid "Accept"
 msgstr "Accepter"
@@ -42,15 +43,15 @@ msgstr "Approuver"
 
 msgid "Approving {{count}} data sets"
 msgid_plural "Approving {{count}} data sets"
-msgstr[0] "Approbation de {{nombre}} ensembles de données"
-msgstr[1] "Approbation de {{nombre}} ensembles de données"
-msgstr[2] "Approbation de {{nombre}} ensembles de données"
+msgstr[0] "Approbation de {{count}} ensembles de données"
+msgstr[1] "Approbation de {{count}} ensembles de données"
+msgstr[2] "Approbation de {{count}} ensembles de données"
 
 msgid "Approving {{count}} data set"
 msgid_plural "Approving {{count}} data set"
-msgstr[0] "Approbation de {{nombre}} ensemble de données"
-msgstr[1] "Approbation de {{nombre}} ensemble de données"
-msgstr[2] "Approbation de {{nombre}} ensemble de données"
+msgstr[0] "Approbation de {{count}} ensemble de données"
+msgstr[1] "Approbation de {{count}} ensemble de données"
+msgstr[2] "Approbation de {{count}} ensemble de données"
 
 msgid "Are you sure you want to approve this data?"
 msgstr "Etes-vous sûr de vouloir approuver ces données ?"
@@ -69,13 +70,13 @@ msgid "Cancel"
 msgstr "Annuler"
 
 msgid "Unacceptance failed: {{error}}"
-msgstr "Échec de la non-acceptation : {{erreur}}"
+msgstr "Échec de la non-acceptation : {{error}}"
 
 msgid "Unaccept"
 msgstr "Refuser"
 
 msgid "Unapproval failed: {{error}}"
-msgstr "Échec de la désapprobation : {{erreur}}"
+msgstr "Échec de la désapprobation : {{error}}"
 
 msgid "Unapprove"
 msgstr "Désapprouver"
@@ -90,8 +91,8 @@ msgid ""
 "{{- workflowName}} has multiple data sets. Choose a data set from the tabs "
 "above."
 msgstr ""
-"{{- Nom du flux de travail}} possède plusieurs ensembles de données. "
-"Choisissez un ensemble de données dans les onglets ci-dessus."
+"{{- workflowName}} possède plusieurs ensembles de données. Choisissez un "
+"ensemble de données dans les onglets ci-dessus."
 
 msgid "Loading data set"
 msgstr "Chargement de l'ensemble de données"
@@ -112,17 +113,17 @@ msgstr "Réessayer le chargement de l'ensemble de données"
 
 msgid "This data set doesn't have any data for {{- period}} in {{- orgUnit}}."
 msgstr ""
-"Cet ensemble de données ne contient pas de données pour {{- période}} dans "
+"Cet ensemble de données ne contient pas de données pour {{- period}} dans "
 "{{- orgUnit}}."
 
 msgid "1 data set"
 msgstr "1 ensemble de données"
 
 msgid "{{dataSetsCount}} data sets"
-msgstr "{{nombre}} ensembles de données"
+msgstr "{{dataSetsCount}} ensembles de données"
 
 msgid "Approved {{- dateTimeStr}}"
-msgstr "Approuvé {{- dateHeureStr}}"
+msgstr "Approuvé {{- dateTimeStr}}"
 
 msgid "Ready for approval"
 msgstr "Prêt pour approbation"
@@ -134,10 +135,10 @@ msgid "Waiting for higher level approval"
 msgstr "En attente de l'approbation du niveau supérieur"
 
 msgid "Approval by {{- name}} accepted {{timeAgo}}"
-msgstr "Approbation par {{- nom}} accepté {{il y a (temps)}}"
+msgstr "Approbation par {{- name}} accepté {{timeAgo}}"
 
 msgid "Approved by {{- name}} {{timeAgo}}"
-msgstr "Approuvé par {{- nom}} {{il y a (temps)}}"
+msgstr "Approuvé par  {{- name}} {{timeAgo}}"
 
 msgid "Approved at higher level"
 msgstr "Approuvé au niveau supérieur"
@@ -189,7 +190,7 @@ msgid "December"
 msgstr "Décembre"
 
 msgid "Week {{weekNumber}}"
-msgstr "Semaine{{NuméroSemaine}}"
+msgstr "Semaine {{weekNumber}}"
 
 msgid "Bi-Week {{biWeekNumber}}"
 msgstr "bi-hebdomadaire {{biWeekNumber}}"
