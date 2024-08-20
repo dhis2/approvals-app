@@ -9,6 +9,7 @@ import {
     RetryButton,
 } from '../../shared/index.js'
 import styles from './display.module.css'
+import { TableCustomDataSet } from './table-custom-data-set.js'
 import { Table } from './table.js'
 
 const query = {
@@ -123,6 +124,20 @@ const Display = ({ dataSetId }) => {
         )
     }
 
+    if (selectedDataSet.formType === 'CUSTOM') {
+        return (
+            <div className={styles.display}>
+                {tables.map((table) => (
+                    <TableCustomDataSet
+                        key={table.title}
+                        title={table.title}
+                        columns={table.headers.map((h) => h.name)}
+                        rows={table.rows}
+                    />
+                ))}
+            </div>
+        )
+    }
     return (
         <div className={styles.display}>
             {tables.map((table) => (

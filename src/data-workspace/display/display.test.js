@@ -23,12 +23,6 @@ describe('<Display>', () => {
         periodType: 'Monthly',
     }
 
-    const dataSetThree = {
-        displayName: 'Another',
-        id: 'custom',
-        periodType: 'Monthly',
-    }
-
     it('asks the user to select a data set if none is selected', () => {
         render(
             <CustomDataProvider options={{ loadForever: true }}>
@@ -223,64 +217,163 @@ describe('<Display>', () => {
         ).toBeInTheDocument()
     })
 
-    it('renders one table per data set in the report', async () => {
-        const data = {
-            dataSetReport: [
-                {
-                    title: 'Data set 1',
-                    headers: [{ name: 'Header 1' }, { name: 'Header 2' }],
-                    rows: [],
-                },
-                {
-                    title: 'Data set 2',
-                    headers: [{ name: 'Header 1' }, { name: 'Header 2' }],
-                    rows: [],
-                },
-                {
-                    title: 'Data set 3',
-                    headers: [{ name: 'Header 1' }, { name: 'Header 2' }],
-                    rows: [],
-                },
-            ],
-        }
-        render(
-            <CustomDataProvider data={data}>
-                <SelectionContext.Provider
-                    value={{
-                        orgUnit: {
-                            id: 'ou-2',
-                            path: '/ou-2',
-                            displayName: 'Org unit 2',
-                        },
-                        period: {
-                            displayName: 'January 2021',
-                            startDate: '2021-01-01',
-                            endDate: '2021-01-31',
-                            year: 2021,
-                            iso: '202101',
-                            id: '202101',
-                        },
-                        workflow: {
-                            dataSets: [dataSetOne, dataSetTwo],
-                            dataApprovalLevels: [],
-                            displayName: 'Workflow 1',
-                            periodType: 'Monthly',
-                            id: 'foo',
-                        },
-                    }}
-                >
-                    <Display dataSetId="pBOMPrpg1QX" />
-                </SelectionContext.Provider>
-            </CustomDataProvider>
-        )
-
-        await waitForElementToBeRemoved(() => screen.getByRole('progressbar'))
-
-        expect(await screen.findAllByRole('table')).toHaveLength(3)
-        expect(
-            await screen.queryByText(
-                /This data set does not use a default form. The data is displayed as a simple grid below, but this might not be a suitable representation..*/
+    describe('display for custom datasets', () => {
+        it('renders a table for a custom dataset with safely sanitised HTML and CSS', async () => {
+            const data = {
+                dataSetReport: [
+                    {
+                        title: 'Custom Data set',
+                        headers: [
+                            {
+                                name: '<b><span style="color:#00b050">2024/25</span></b>',
+                                column: '<b><span style="color:#00b050">2024/25</span></b>',
+                                type: 'java.lang.String',
+                                hidden: false,
+                                meta: false,
+                            },
+                            {
+                                name: '<span style="color:black">NATIONAL DEPARTMENT OF HEALTH</span>',
+                                column: '<span style="color:black">NATIONAL DEPARTMENT OF HEALTH</span>',
+                                type: 'java.lang.String',
+                                hidden: false,
+                                meta: false,
+                            },
+                        ],
+                        rows: [
+                            [
+                                '<span style="color:black">Programme 6: Performance Indicator</span>',
+                            ],
+                        ],
+                    },
+                ],
+            }
+            render(
+                <CustomDataProvider data={data}>
+                    <SelectionContext.Provider
+                        value={{
+                            orgUnit: {
+                                id: 'ou-2',
+                                path: '/ou-2',
+                                displayName: 'Org unit 2',
+                            },
+                            period: {
+                                displayName: 'January 2021',
+                                startDate: '2021-01-01',
+                                endDate: '2021-01-31',
+                                year: 2021,
+                                iso: '202101',
+                                id: '202101',
+                            },
+                            workflow: {
+                                dataSets: [
+                                    {
+                                        displayName: 'Another',
+                                        id: 'custom',
+                                        periodType: 'Monthly',
+                                        formType: 'CUSTOM',
+                                    },
+                                ],
+                                dataApprovalLevels: [],
+                                displayName: 'Workflow 1',
+                                periodType: 'Monthly',
+                                id: 'foo',
+                            },
+                        }}
+                    >
+                        <Display dataSetId="custom" />
+                    </SelectionContext.Provider>
+                </CustomDataProvider>
             )
-        ).not.toBeInTheDocument()
+
+            await waitForElementToBeRemoved(() =>
+                screen.getByRole('progressbar')
+            )
+
+            expect(screen.getByText('2024/25')).toHaveStyle({
+                color: 'rgb(0, 176, 80)',
+            })
+            expect(screen.getByText('2024/25').parentElement.tagName).toBe('B')
+
+            expect(
+                screen.getByText('NATIONAL DEPARTMENT OF HEALTH')
+            ).toHaveStyle({
+                color: 'black',
+            })
+
+            expect(
+                screen.getByText('Programme 6: Performance Indicator')
+            ).toHaveStyle({
+                color: 'black',
+            })
+        })
+
+        it('renders HTML and CSS encoded for non-custom dataset', async () => {
+            const data = {
+                dataSetReport: [
+                    {
+                        title: 'Custom Data set',
+                        headers: [
+                            {
+                                name: '<span style="color:black">NATIONAL DEPARTMENT OF HEALTH</span>',
+                                column: '<span style="color:black">NATIONAL DEPARTMENT OF HEALTH</span>',
+                                type: 'java.lang.String',
+                                hidden: false,
+                                meta: false,
+                            },
+                        ],
+                        rows: [
+                            [
+                                '<span style="color:black">Programme 6: Performance Indicator</span>',
+                            ],
+                        ],
+                    },
+                ],
+            }
+            render(
+                <CustomDataProvider data={data}>
+                    <SelectionContext.Provider
+                        value={{
+                            orgUnit: {
+                                id: 'ou-2',
+                                path: '/ou-2',
+                                displayName: 'Org unit 2',
+                            },
+                            period: {
+                                displayName: 'January 2021',
+                                startDate: '2021-01-01',
+                                endDate: '2021-01-31',
+                                year: 2021,
+                                iso: '202101',
+                                id: '202101',
+                            },
+                            workflow: {
+                                dataSets: [
+                                    {
+                                        displayName: 'Another',
+                                        id: 'custom',
+                                        periodType: 'Monthly',
+                                        formType: 'Default',
+                                    },
+                                ],
+                                dataApprovalLevels: [],
+                                displayName: 'Workflow 1',
+                                periodType: 'Monthly',
+                                id: 'foo',
+                            },
+                        }}
+                    >
+                        <Display dataSetId="custom" />
+                    </SelectionContext.Provider>
+                </CustomDataProvider>
+            )
+
+            await waitForElementToBeRemoved(() =>
+                screen.getByRole('progressbar')
+            )
+
+            expect(screen.getByRole('table')).toContainHTML(
+                '&lt;span style="color:black"&gt;Programme 6: Performance Indicator&lt;/span&gt;'
+            )
+        })
     })
 })
