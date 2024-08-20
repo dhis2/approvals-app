@@ -29,12 +29,11 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
-        "path": "/api/38/dataApprovalWorkflows?paging=false&fields=id,displayName,dataApprovalLevels,periodType,dataSets%5Bid%2CdisplayName%2CperiodType%5D",
+        "path": "/api/38/dataApprovalWorkflows?paging=false&fields=id,displayName,dataApprovalLevels,periodType,dataSets%5Bid%2CdisplayName%2CperiodType%2CformType%5D",
         "featureName": "Users can view data set reports for data sets connected to a workflow",
         "static": false,
         "count": 4,
@@ -50,8 +49,8 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": "{\"dataApprovalWorkflows\":[{\"id\":\"rIUL3hYOjJc\",\"periodType\":\"Monthly\",\"displayName\":\"Mortality < 5 years\",\"dataApprovalLevels\":[{\"id\":\"VS3XyxNvrer\"},{\"id\":\"KaTJLhGmU95\"}],\"dataSets\":[{\"id\":\"pBOMPrpg1QX\",\"periodType\":\"Monthly\",\"displayName\":\"Mortality < 5 years\"}]}]}",
-        "responseSize": 265,
+        "responseBody": "{\"dataApprovalWorkflows\":[{\"id\":\"rIUL3hYOjJc\",\"periodType\":\"Monthly\",\"displayName\":\"Mortality < 5 years\",\"dataApprovalLevels\":[{\"id\":\"VS3XyxNvrer\"},{\"id\":\"KaTJLhGmU95\"}],\"dataSets\":[{\"id\":\"pBOMPrpg1QX\",\"formType\":\"DEFAULT\",\"periodType\":\"Monthly\",\"displayName\":\"Mortality < 5 years\"}]}]}",
+        "responseSize": 286,
         "responseHeaders": {
             "server": "nginx/1.23.0",
             "content-type": "application/json;charset=UTF-8",
@@ -63,8 +62,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -97,8 +95,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -131,12 +128,11 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
-        "path": "/api/38/dataApprovals/approvals?wf=rIUL3hYOjJc&pe=202303&ou=ImspTQPwCqd",
+        "path": "/api/38/dataApprovals/approvals?wf=rIUL3hYOjJc&pe=202403&ou=ImspTQPwCqd",
         "featureName": "Users can view data set reports for data sets connected to a workflow",
         "static": false,
         "count": 4,
@@ -152,7 +148,7 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": "[{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"ImspTQPwCqd\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVABLE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}}]",
+        "responseBody": "[{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"ImspTQPwCqd\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVABLE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}}]",
         "responseSize": 211,
         "responseHeaders": {
             "server": "nginx/1.23.0",
@@ -164,42 +160,7 @@
             "vary": "Origin",
             "access-control-expose-headers": "ETag, Location",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
-        "path": "/api/38/organisationUnits/PMa2VCrupOd?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
-        "featureName": "Users can view data set reports for data sets connected to a workflow",
-        "static": false,
-        "count": 3,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "debug.dhis2.org",
-            "connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "cross-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 200,
-        "responseBody": "{\"id\":\"PMa2VCrupOd\",\"path\":\"/ImspTQPwCqd/PMa2VCrupOd\",\"children\":[{\"id\":\"r06ohri9wA9\",\"path\":\"/ImspTQPwCqd/PMa2VCrupOd/r06ohri9wA9\",\"displayName\":\"Samu\"},{\"id\":\"qIRCo0MfuGb\",\"path\":\"/ImspTQPwCqd/PMa2VCrupOd/qIRCo0MfuGb\",\"displayName\":\"Gbinleh Dixion\"},{\"id\":\"xGMGhjA3y6J\",\"path\":\"/ImspTQPwCqd/PMa2VCrupOd/xGMGhjA3y6J\",\"displayName\":\"Mambolo\"},{\"id\":\"QywkxFudXrC\",\"path\":\"/ImspTQPwCqd/PMa2VCrupOd/QywkxFudXrC\",\"displayName\":\"Magbema\"},{\"id\":\"y5X4mP5XylL\",\"path\":\"/ImspTQPwCqd/PMa2VCrupOd/y5X4mP5XylL\",\"displayName\":\"Tonko Limba\"},{\"id\":\"kbPmt60yi0L\",\"path\":\"/ImspTQPwCqd/PMa2VCrupOd/kbPmt60yi0L\",\"displayName\":\"Bramaia\"},{\"id\":\"FlBemv1NfEC\",\"path\":\"/ImspTQPwCqd/PMa2VCrupOd/FlBemv1NfEC\",\"displayName\":\"Masungbala\"}]}",
-        "responseSize": 715,
-        "responseHeaders": {
-            "server": "nginx/1.23.0",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "access-control-allow-credentials": "true",
-            "access-control-allow-origin": "http://localhost:3000",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -232,12 +193,11 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
-        "path": "/api/38/organisationUnits/fdc6uOvgoji?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
+        "path": "/api/38/organisationUnits/PMa2VCrupOd?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
         "featureName": "Users can view data set reports for data sets connected to a workflow",
         "static": false,
         "count": 3,
@@ -253,8 +213,8 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": "{\"id\":\"fdc6uOvgoji\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji\",\"children\":[{\"id\":\"eV4cuxniZgP\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji/eV4cuxniZgP\",\"displayName\":\"Magbaimba Ndowahun\"},{\"id\":\"lY93YpCxJqf\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji/lY93YpCxJqf\",\"displayName\":\"Makari Gbanti\"},{\"id\":\"j43EZb15rjI\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji/j43EZb15rjI\",\"displayName\":\"Sella Limba\"},{\"id\":\"e1eIKM1GIF3\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji/e1eIKM1GIF3\",\"displayName\":\"Gbanti Kamaranka\"},{\"id\":\"Qhmi8IZyPyD\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji/Qhmi8IZyPyD\",\"displayName\":\"Tambaka\"},{\"id\":\"BXJdOLvUrZB\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji/BXJdOLvUrZB\",\"displayName\":\"Gbendembu Ngowahun\"},{\"id\":\"KKkLOTpMXGV\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji/KKkLOTpMXGV\",\"displayName\":\"Bombali Sebora\"},{\"id\":\"WXnNDWTiE9r\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji/WXnNDWTiE9r\",\"displayName\":\"Sanda Loko\"},{\"id\":\"fwH9ipvXde9\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji/fwH9ipvXde9\",\"displayName\":\"Biriwa\"},{\"id\":\"UhHipWG7J8b\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji/UhHipWG7J8b\",\"displayName\":\"Sanda Tendaren\"},{\"id\":\"XG8HGAbrbbL\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji/XG8HGAbrbbL\",\"displayName\":\"Safroko Limba\"},{\"id\":\"hRZOIgQ0O1m\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji/hRZOIgQ0O1m\",\"displayName\":\"Libeisaygahun\"},{\"id\":\"L8iA6eLwKNb\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji/L8iA6eLwKNb\",\"displayName\":\"Paki Masabong\"}]}",
-        "responseSize": 1325,
+        "responseBody": "{\"id\":\"PMa2VCrupOd\",\"path\":\"/ImspTQPwCqd/PMa2VCrupOd\",\"children\":[{\"id\":\"r06ohri9wA9\",\"path\":\"/ImspTQPwCqd/PMa2VCrupOd/r06ohri9wA9\",\"displayName\":\"Samu\"},{\"id\":\"qIRCo0MfuGb\",\"path\":\"/ImspTQPwCqd/PMa2VCrupOd/qIRCo0MfuGb\",\"displayName\":\"Gbinleh Dixion\"},{\"id\":\"xGMGhjA3y6J\",\"path\":\"/ImspTQPwCqd/PMa2VCrupOd/xGMGhjA3y6J\",\"displayName\":\"Mambolo\"},{\"id\":\"QywkxFudXrC\",\"path\":\"/ImspTQPwCqd/PMa2VCrupOd/QywkxFudXrC\",\"displayName\":\"Magbema\"},{\"id\":\"y5X4mP5XylL\",\"path\":\"/ImspTQPwCqd/PMa2VCrupOd/y5X4mP5XylL\",\"displayName\":\"Tonko Limba\"},{\"id\":\"kbPmt60yi0L\",\"path\":\"/ImspTQPwCqd/PMa2VCrupOd/kbPmt60yi0L\",\"displayName\":\"Bramaia\"},{\"id\":\"FlBemv1NfEC\",\"path\":\"/ImspTQPwCqd/PMa2VCrupOd/FlBemv1NfEC\",\"displayName\":\"Masungbala\"}]}",
+        "responseSize": 715,
         "responseHeaders": {
             "server": "nginx/1.23.0",
             "content-type": "application/json;charset=UTF-8",
@@ -266,42 +226,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
-        "path": "/api/38/organisationUnits/lc3eMKXaEfw?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
-        "featureName": "Users can view data set reports for data sets connected to a workflow",
-        "static": false,
-        "count": 3,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "debug.dhis2.org",
-            "connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "cross-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 200,
-        "responseBody": "{\"id\":\"lc3eMKXaEfw\",\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw\",\"children\":[{\"id\":\"XEyIRFd9pct\",\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/XEyIRFd9pct\",\"displayName\":\"Imperi\"},{\"id\":\"iUauWFeH8Qp\",\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/iUauWFeH8Qp\",\"displayName\":\"Bum\"},{\"id\":\"cgOy0hRMGu9\",\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/cgOy0hRMGu9\",\"displayName\":\"Sogbini\"},{\"id\":\"ENHOJz3UH5L\",\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/ENHOJz3UH5L\",\"displayName\":\"BMC\"},{\"id\":\"HV8RTzgcFH3\",\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/HV8RTzgcFH3\",\"displayName\":\"Kwamabai Krim\"},{\"id\":\"DNRAeXT9IwS\",\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/DNRAeXT9IwS\",\"displayName\":\"Dema\"},{\"id\":\"aWQTfvgPA5v\",\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/aWQTfvgPA5v\",\"displayName\":\"Kpanda Kemoh\"},{\"id\":\"g8DdBm7EmUt\",\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/g8DdBm7EmUt\",\"displayName\":\"Sittia\"},{\"id\":\"VP397wRvePm\",\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/VP397wRvePm\",\"displayName\":\"Nongoba Bullum\"},{\"id\":\"CG4QD1HC3h4\",\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/CG4QD1HC3h4\",\"displayName\":\"Yawbeko\"},{\"id\":\"EB1zRKdYjdY\",\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/EB1zRKdYjdY\",\"displayName\":\"Bendu Cha\"},{\"id\":\"VCtF1DbspR5\",\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/VCtF1DbspR5\",\"displayName\":\"Jong\"}]}",
-        "responseSize": 1163,
-        "responseHeaders": {
-            "server": "nginx/1.23.0",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "access-control-allow-credentials": "true",
-            "access-control-allow-origin": "http://localhost:3000",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -334,8 +259,73 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
+        }
+    },
+    {
+        "path": "/api/38/organisationUnits/lc3eMKXaEfw?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
+        "featureName": "Users can view data set reports for data sets connected to a workflow",
+        "static": false,
+        "count": 3,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "debug.dhis2.org",
+            "connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "{\"id\":\"lc3eMKXaEfw\",\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw\",\"children\":[{\"id\":\"XEyIRFd9pct\",\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/XEyIRFd9pct\",\"displayName\":\"Imperi\"},{\"id\":\"iUauWFeH8Qp\",\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/iUauWFeH8Qp\",\"displayName\":\"Bum\"},{\"id\":\"cgOy0hRMGu9\",\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/cgOy0hRMGu9\",\"displayName\":\"Sogbini\"},{\"id\":\"ENHOJz3UH5L\",\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/ENHOJz3UH5L\",\"displayName\":\"BMC\"},{\"id\":\"HV8RTzgcFH3\",\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/HV8RTzgcFH3\",\"displayName\":\"Kwamabai Krim\"},{\"id\":\"DNRAeXT9IwS\",\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/DNRAeXT9IwS\",\"displayName\":\"Dema\"},{\"id\":\"aWQTfvgPA5v\",\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/aWQTfvgPA5v\",\"displayName\":\"Kpanda Kemoh\"},{\"id\":\"g8DdBm7EmUt\",\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/g8DdBm7EmUt\",\"displayName\":\"Sittia\"},{\"id\":\"VP397wRvePm\",\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/VP397wRvePm\",\"displayName\":\"Nongoba Bullum\"},{\"id\":\"CG4QD1HC3h4\",\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/CG4QD1HC3h4\",\"displayName\":\"Yawbeko\"},{\"id\":\"EB1zRKdYjdY\",\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/EB1zRKdYjdY\",\"displayName\":\"Bendu Cha\"},{\"id\":\"VCtF1DbspR5\",\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/VCtF1DbspR5\",\"displayName\":\"Jong\"}]}",
+        "responseSize": 1163,
+        "responseHeaders": {
+            "server": "nginx/1.23.0",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block"
+        }
+    },
+    {
+        "path": "/api/38/organisationUnits/fdc6uOvgoji?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
+        "featureName": "Users can view data set reports for data sets connected to a workflow",
+        "static": false,
+        "count": 3,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "debug.dhis2.org",
+            "connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "{\"id\":\"fdc6uOvgoji\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji\",\"children\":[{\"id\":\"eV4cuxniZgP\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji/eV4cuxniZgP\",\"displayName\":\"Magbaimba Ndowahun\"},{\"id\":\"lY93YpCxJqf\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji/lY93YpCxJqf\",\"displayName\":\"Makari Gbanti\"},{\"id\":\"j43EZb15rjI\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji/j43EZb15rjI\",\"displayName\":\"Sella Limba\"},{\"id\":\"e1eIKM1GIF3\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji/e1eIKM1GIF3\",\"displayName\":\"Gbanti Kamaranka\"},{\"id\":\"Qhmi8IZyPyD\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji/Qhmi8IZyPyD\",\"displayName\":\"Tambaka\"},{\"id\":\"BXJdOLvUrZB\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji/BXJdOLvUrZB\",\"displayName\":\"Gbendembu Ngowahun\"},{\"id\":\"KKkLOTpMXGV\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji/KKkLOTpMXGV\",\"displayName\":\"Bombali Sebora\"},{\"id\":\"WXnNDWTiE9r\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji/WXnNDWTiE9r\",\"displayName\":\"Sanda Loko\"},{\"id\":\"fwH9ipvXde9\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji/fwH9ipvXde9\",\"displayName\":\"Biriwa\"},{\"id\":\"UhHipWG7J8b\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji/UhHipWG7J8b\",\"displayName\":\"Sanda Tendaren\"},{\"id\":\"XG8HGAbrbbL\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji/XG8HGAbrbbL\",\"displayName\":\"Safroko Limba\"},{\"id\":\"hRZOIgQ0O1m\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji/hRZOIgQ0O1m\",\"displayName\":\"Libeisaygahun\"},{\"id\":\"L8iA6eLwKNb\",\"path\":\"/ImspTQPwCqd/fdc6uOvgoji/L8iA6eLwKNb\",\"displayName\":\"Paki Masabong\"}]}",
+        "responseSize": 1325,
+        "responseHeaders": {
+            "server": "nginx/1.23.0",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -368,8 +358,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -402,76 +391,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
-        "path": "/api/38/organisationUnits/jmIPBj66vD6?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
-        "featureName": "Users can view data set reports for data sets connected to a workflow",
-        "static": false,
-        "count": 3,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "debug.dhis2.org",
-            "connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "cross-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 200,
-        "responseBody": "{\"id\":\"jmIPBj66vD6\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6\",\"children\":[{\"id\":\"nV3OkyzF4US\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/nV3OkyzF4US\",\"displayName\":\"Kori\"},{\"id\":\"xIKjidMrico\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/xIKjidMrico\",\"displayName\":\"Kowa\"},{\"id\":\"Z9QaI6sxTwW\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/Z9QaI6sxTwW\",\"displayName\":\"Kargboro\"},{\"id\":\"W5fN3G6y1VI\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/W5fN3G6y1VI\",\"displayName\":\"Lower Banta\"},{\"id\":\"USQdmvrHh1Q\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/USQdmvrHh1Q\",\"displayName\":\"Kaiyamba\"},{\"id\":\"RndxKqQGzUl\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/RndxKqQGzUl\",\"displayName\":\"Dasse\"},{\"id\":\"DBs6e2Oxaj1\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/DBs6e2Oxaj1\",\"displayName\":\"Upper Banta\"},{\"id\":\"jPidqyo7cpF\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/jPidqyo7cpF\",\"displayName\":\"Bagruwa\"},{\"id\":\"nOYt1LtFSyU\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/nOYt1LtFSyU\",\"displayName\":\"Bumpeh\"},{\"id\":\"vULnao2hV5v\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/vULnao2hV5v\",\"displayName\":\"Fakunya\"},{\"id\":\"LsYpCyYxSLY\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/LsYpCyYxSLY\",\"displayName\":\"Kamaje\"},{\"id\":\"Jiyc4ekaMMh\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/Jiyc4ekaMMh\",\"displayName\":\"Kongbora\"},{\"id\":\"gy8rmvYT4cj\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/gy8rmvYT4cj\",\"displayName\":\"Ribbi\"},{\"id\":\"AovmOHadayb\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/AovmOHadayb\",\"displayName\":\"Timidale\"}]}",
-        "responseSize": 1341,
-        "responseHeaders": {
-            "server": "nginx/1.23.0",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "access-control-allow-credentials": "true",
-            "access-control-allow-origin": "http://localhost:3000",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
-        "path": "/api/38/organisationUnits/bL4ooGhyHRQ?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
-        "featureName": "Users can view data set reports for data sets connected to a workflow",
-        "static": false,
-        "count": 3,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "debug.dhis2.org",
-            "connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "cross-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 200,
-        "responseBody": "{\"id\":\"bL4ooGhyHRQ\",\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ\",\"children\":[{\"id\":\"pk7bUK5c1Uf\",\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/pk7bUK5c1Uf\",\"displayName\":\"Ya Kpukumu Krim\"},{\"id\":\"NqWaKXcg01b\",\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/NqWaKXcg01b\",\"displayName\":\"Sowa\"},{\"id\":\"BD9gU0GKlr2\",\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/BD9gU0GKlr2\",\"displayName\":\"Makpele\"},{\"id\":\"RzKeCma9qb1\",\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/RzKeCma9qb1\",\"displayName\":\"Barri\"},{\"id\":\"YpVol7asWvd\",\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/YpVol7asWvd\",\"displayName\":\"Kpanga Krim\"},{\"id\":\"zSNUViKdkk3\",\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/zSNUViKdkk3\",\"displayName\":\"Kpaka\"},{\"id\":\"N233eZJZ1bh\",\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/N233eZJZ1bh\",\"displayName\":\"Pejeh\"},{\"id\":\"eNtRuQrrZeo\",\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/eNtRuQrrZeo\",\"displayName\":\"Galliness Perri\"},{\"id\":\"DfUfwjM9am5\",\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/DfUfwjM9am5\",\"displayName\":\"Malen\"},{\"id\":\"nlt6j60tCHF\",\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/nlt6j60tCHF\",\"displayName\":\"Mano Sakrim\"},{\"id\":\"QwMiPiME3bA\",\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/QwMiPiME3bA\",\"displayName\":\"Kpanga Kabonde\"},{\"id\":\"d9iMR1MpuIO\",\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/d9iMR1MpuIO\",\"displayName\":\"Soro-Gbeima\"}]}",
-        "responseSize": 1183,
-        "responseHeaders": {
-            "server": "nginx/1.23.0",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "access-control-allow-credentials": "true",
-            "access-control-allow-origin": "http://localhost:3000",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -504,8 +424,40 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
+        }
+    },
+    {
+        "path": "/api/38/organisationUnits/jmIPBj66vD6?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
+        "featureName": "Users can view data set reports for data sets connected to a workflow",
+        "static": false,
+        "count": 3,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "debug.dhis2.org",
+            "connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "{\"id\":\"jmIPBj66vD6\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6\",\"children\":[{\"id\":\"nV3OkyzF4US\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/nV3OkyzF4US\",\"displayName\":\"Kori\"},{\"id\":\"xIKjidMrico\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/xIKjidMrico\",\"displayName\":\"Kowa\"},{\"id\":\"Z9QaI6sxTwW\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/Z9QaI6sxTwW\",\"displayName\":\"Kargboro\"},{\"id\":\"W5fN3G6y1VI\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/W5fN3G6y1VI\",\"displayName\":\"Lower Banta\"},{\"id\":\"USQdmvrHh1Q\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/USQdmvrHh1Q\",\"displayName\":\"Kaiyamba\"},{\"id\":\"RndxKqQGzUl\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/RndxKqQGzUl\",\"displayName\":\"Dasse\"},{\"id\":\"DBs6e2Oxaj1\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/DBs6e2Oxaj1\",\"displayName\":\"Upper Banta\"},{\"id\":\"jPidqyo7cpF\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/jPidqyo7cpF\",\"displayName\":\"Bagruwa\"},{\"id\":\"nOYt1LtFSyU\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/nOYt1LtFSyU\",\"displayName\":\"Bumpeh\"},{\"id\":\"vULnao2hV5v\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/vULnao2hV5v\",\"displayName\":\"Fakunya\"},{\"id\":\"LsYpCyYxSLY\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/LsYpCyYxSLY\",\"displayName\":\"Kamaje\"},{\"id\":\"Jiyc4ekaMMh\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/Jiyc4ekaMMh\",\"displayName\":\"Kongbora\"},{\"id\":\"gy8rmvYT4cj\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/gy8rmvYT4cj\",\"displayName\":\"Ribbi\"},{\"id\":\"AovmOHadayb\",\"path\":\"/ImspTQPwCqd/jmIPBj66vD6/AovmOHadayb\",\"displayName\":\"Timidale\"}]}",
+        "responseSize": 1341,
+        "responseHeaders": {
+            "server": "nginx/1.23.0",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -538,42 +490,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
-        "path": "/api/38/organisationUnits/eIQbndfxQMb?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
-        "featureName": "Users can view data set reports for data sets connected to a workflow",
-        "static": false,
-        "count": 3,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "debug.dhis2.org",
-            "connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "cross-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 200,
-        "responseBody": "{\"id\":\"eIQbndfxQMb\",\"path\":\"/ImspTQPwCqd/eIQbndfxQMb\",\"children\":[{\"id\":\"BmYyh9bZ0sr\",\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/BmYyh9bZ0sr\",\"displayName\":\"Kafe Simira\"},{\"id\":\"xhyjU2SVewz\",\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/xhyjU2SVewz\",\"displayName\":\"Tane\"},{\"id\":\"l0ccv2yzfF3\",\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/l0ccv2yzfF3\",\"displayName\":\"Kunike\"},{\"id\":\"NNE0YMCDZkO\",\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/NNE0YMCDZkO\",\"displayName\":\"Yoni\"},{\"id\":\"fwxkctgmffZ\",\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/fwxkctgmffZ\",\"displayName\":\"Kholifa Mabang\"},{\"id\":\"PQZJPIpTepd\",\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/PQZJPIpTepd\",\"displayName\":\"Kholifa Rowalla\"},{\"id\":\"smoyi1iYNK6\",\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/smoyi1iYNK6\",\"displayName\":\"Kalansogoia\"},{\"id\":\"r1RUyfVBkLp\",\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/r1RUyfVBkLp\",\"displayName\":\"Sambaia Bendugu\"},{\"id\":\"EVkm2xYcf6Z\",\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/EVkm2xYcf6Z\",\"displayName\":\"Malal Mara\"},{\"id\":\"P69SId31eDp\",\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/P69SId31eDp\",\"displayName\":\"Gbonkonlenken\"},{\"id\":\"rXLor9Knq6l\",\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/rXLor9Knq6l\",\"displayName\":\"Kunike Barina\"}]}",
-        "responseSize": 1107,
-        "responseHeaders": {
-            "server": "nginx/1.23.0",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "access-control-allow-credentials": "true",
-            "access-control-allow-origin": "http://localhost:3000",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -606,42 +523,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
-        "path": "/api/38/organisationUnits/YuQRtpLP10I?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
-        "featureName": "Users can view data set reports for data sets connected to a workflow",
-        "static": false,
-        "count": 2,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "debug.dhis2.org",
-            "connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "cross-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 200,
-        "responseBody": "{\"id\":\"YuQRtpLP10I\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/YuQRtpLP10I\",\"children\":[{\"id\":\"g8upMTyEZGZ\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/YuQRtpLP10I/g8upMTyEZGZ\",\"displayName\":\"Njandama MCHP\"},{\"id\":\"DiszpKrYNg8\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/YuQRtpLP10I/DiszpKrYNg8\",\"displayName\":\"Ngelehun CHC\"}]}",
-        "responseSize": 296,
-        "responseHeaders": {
-            "server": "nginx/1.23.0",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "access-control-allow-credentials": "true",
-            "access-control-allow-origin": "http://localhost:3000",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -674,12 +556,11 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
-        "path": "/api/38/organisationUnits/dGheVylzol6?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
+        "path": "/api/38/organisationUnits/YuQRtpLP10I?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
         "featureName": "Users can view data set reports for data sets connected to a workflow",
         "static": false,
         "count": 2,
@@ -695,8 +576,8 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": "{\"id\":\"dGheVylzol6\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/dGheVylzol6\",\"children\":[{\"id\":\"YWXXO0XMkQe\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/dGheVylzol6/YWXXO0XMkQe\",\"displayName\":\"Mendewa MCHP\"},{\"id\":\"Wr8kmywwseZ\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/dGheVylzol6/Wr8kmywwseZ\",\"displayName\":\"Benduma MCHP\"},{\"id\":\"kRWIof0qPJj\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/dGheVylzol6/kRWIof0qPJj\",\"displayName\":\"Kondiama MCHP\"},{\"id\":\"y5hLlID8ihI\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/dGheVylzol6/y5hLlID8ihI\",\"displayName\":\"Barlie MCHP\"},{\"id\":\"CvBAqD6RzLZ\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/dGheVylzol6/CvBAqD6RzLZ\",\"displayName\":\"Ngalu CHC\"}]}",
-        "responseSize": 616,
+        "responseBody": "{\"id\":\"YuQRtpLP10I\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/YuQRtpLP10I\",\"children\":[{\"id\":\"g8upMTyEZGZ\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/YuQRtpLP10I/g8upMTyEZGZ\",\"displayName\":\"Njandama MCHP\"},{\"id\":\"DiszpKrYNg8\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/YuQRtpLP10I/DiszpKrYNg8\",\"displayName\":\"Ngelehun CHC\"}]}",
+        "responseSize": 296,
         "responseHeaders": {
             "server": "nginx/1.23.0",
             "content-type": "application/json;charset=UTF-8",
@@ -708,8 +589,105 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
+        }
+    },
+    {
+        "path": "/api/38/dataApprovals/approvals?wf=rIUL3hYOjJc&pe=202403&ou=O6uvpzGd5pu,fdc6uOvgoji,lc3eMKXaEfw,jUb8gELQApl,PMa2VCrupOd,kJq2mPyFEHo,qhqAxPSTUXp,Vth0fbpFcsO,jmIPBj66vD6,TEQlaapDQoK,bL4ooGhyHRQ,eIQbndfxQMb,at6UHUQatSo",
+        "featureName": "Users can view data set reports for data sets connected to a workflow",
+        "static": false,
+        "count": 3,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "debug.dhis2.org",
+            "connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "[{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"eIQbndfxQMb\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"PMa2VCrupOd\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"qhqAxPSTUXp\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"bL4ooGhyHRQ\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"O6uvpzGd5pu\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"at6UHUQatSo\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"TEQlaapDQoK\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"jUb8gELQApl\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"kJq2mPyFEHo\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"fdc6uOvgoji\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"Vth0fbpFcsO\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"jmIPBj66vD6\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"lc3eMKXaEfw\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}}]",
+        "responseSize": 2809,
+        "responseHeaders": {
+            "server": "nginx/1.23.0",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block"
+        }
+    },
+    {
+        "path": "/api/38/organisationUnits/eIQbndfxQMb?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
+        "featureName": "Users can view data set reports for data sets connected to a workflow",
+        "static": false,
+        "count": 3,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "debug.dhis2.org",
+            "connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "{\"id\":\"eIQbndfxQMb\",\"path\":\"/ImspTQPwCqd/eIQbndfxQMb\",\"children\":[{\"id\":\"BmYyh9bZ0sr\",\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/BmYyh9bZ0sr\",\"displayName\":\"Kafe Simira\"},{\"id\":\"xhyjU2SVewz\",\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/xhyjU2SVewz\",\"displayName\":\"Tane\"},{\"id\":\"l0ccv2yzfF3\",\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/l0ccv2yzfF3\",\"displayName\":\"Kunike\"},{\"id\":\"NNE0YMCDZkO\",\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/NNE0YMCDZkO\",\"displayName\":\"Yoni\"},{\"id\":\"fwxkctgmffZ\",\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/fwxkctgmffZ\",\"displayName\":\"Kholifa Mabang\"},{\"id\":\"PQZJPIpTepd\",\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/PQZJPIpTepd\",\"displayName\":\"Kholifa Rowalla\"},{\"id\":\"smoyi1iYNK6\",\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/smoyi1iYNK6\",\"displayName\":\"Kalansogoia\"},{\"id\":\"r1RUyfVBkLp\",\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/r1RUyfVBkLp\",\"displayName\":\"Sambaia Bendugu\"},{\"id\":\"EVkm2xYcf6Z\",\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/EVkm2xYcf6Z\",\"displayName\":\"Malal Mara\"},{\"id\":\"P69SId31eDp\",\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/P69SId31eDp\",\"displayName\":\"Gbonkonlenken\"},{\"id\":\"rXLor9Knq6l\",\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/rXLor9Knq6l\",\"displayName\":\"Kunike Barina\"}]}",
+        "responseSize": 1107,
+        "responseHeaders": {
+            "server": "nginx/1.23.0",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block"
+        }
+    },
+    {
+        "path": "/api/38/organisationUnits/bL4ooGhyHRQ?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
+        "featureName": "Users can view data set reports for data sets connected to a workflow",
+        "static": false,
+        "count": 3,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "debug.dhis2.org",
+            "connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "{\"id\":\"bL4ooGhyHRQ\",\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ\",\"children\":[{\"id\":\"pk7bUK5c1Uf\",\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/pk7bUK5c1Uf\",\"displayName\":\"Ya Kpukumu Krim\"},{\"id\":\"NqWaKXcg01b\",\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/NqWaKXcg01b\",\"displayName\":\"Sowa\"},{\"id\":\"BD9gU0GKlr2\",\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/BD9gU0GKlr2\",\"displayName\":\"Makpele\"},{\"id\":\"RzKeCma9qb1\",\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/RzKeCma9qb1\",\"displayName\":\"Barri\"},{\"id\":\"YpVol7asWvd\",\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/YpVol7asWvd\",\"displayName\":\"Kpanga Krim\"},{\"id\":\"zSNUViKdkk3\",\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/zSNUViKdkk3\",\"displayName\":\"Kpaka\"},{\"id\":\"N233eZJZ1bh\",\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/N233eZJZ1bh\",\"displayName\":\"Pejeh\"},{\"id\":\"eNtRuQrrZeo\",\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/eNtRuQrrZeo\",\"displayName\":\"Galliness Perri\"},{\"id\":\"DfUfwjM9am5\",\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/DfUfwjM9am5\",\"displayName\":\"Malen\"},{\"id\":\"nlt6j60tCHF\",\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/nlt6j60tCHF\",\"displayName\":\"Mano Sakrim\"},{\"id\":\"QwMiPiME3bA\",\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/QwMiPiME3bA\",\"displayName\":\"Kpanga Kabonde\"},{\"id\":\"d9iMR1MpuIO\",\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/d9iMR1MpuIO\",\"displayName\":\"Soro-Gbeima\"}]}",
+        "responseSize": 1183,
+        "responseHeaders": {
+            "server": "nginx/1.23.0",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -742,15 +720,14 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
-        "path": "/api/38/dataApprovals/approvals?wf=rIUL3hYOjJc&pe=202303&ou=O6uvpzGd5pu,fdc6uOvgoji,lc3eMKXaEfw,jUb8gELQApl,PMa2VCrupOd,kJq2mPyFEHo,qhqAxPSTUXp,Vth0fbpFcsO,jmIPBj66vD6,TEQlaapDQoK,bL4ooGhyHRQ,eIQbndfxQMb,at6UHUQatSo",
+        "path": "/api/38/organisationUnits/dGheVylzol6?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
         "featureName": "Users can view data set reports for data sets connected to a workflow",
         "static": false,
-        "count": 3,
+        "count": 2,
         "nonDeterministic": false,
         "method": "GET",
         "requestBody": "",
@@ -763,8 +740,8 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": "[{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"O6uvpzGd5pu\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"fdc6uOvgoji\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"lc3eMKXaEfw\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"Vth0fbpFcsO\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"jmIPBj66vD6\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"bL4ooGhyHRQ\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"TEQlaapDQoK\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"eIQbndfxQMb\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"at6UHUQatSo\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"PMa2VCrupOd\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"jUb8gELQApl\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"kJq2mPyFEHo\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"qhqAxPSTUXp\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}}]",
-        "responseSize": 2809,
+        "responseBody": "{\"id\":\"dGheVylzol6\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/dGheVylzol6\",\"children\":[{\"id\":\"YWXXO0XMkQe\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/dGheVylzol6/YWXXO0XMkQe\",\"displayName\":\"Mendewa MCHP\"},{\"id\":\"Wr8kmywwseZ\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/dGheVylzol6/Wr8kmywwseZ\",\"displayName\":\"Benduma MCHP\"},{\"id\":\"kRWIof0qPJj\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/dGheVylzol6/kRWIof0qPJj\",\"displayName\":\"Kondiama MCHP\"},{\"id\":\"y5hLlID8ihI\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/dGheVylzol6/y5hLlID8ihI\",\"displayName\":\"Barlie MCHP\"},{\"id\":\"CvBAqD6RzLZ\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/dGheVylzol6/CvBAqD6RzLZ\",\"displayName\":\"Ngalu CHC\"}]}",
+        "responseSize": 616,
         "responseHeaders": {
             "server": "nginx/1.23.0",
             "content-type": "application/json;charset=UTF-8",
@@ -774,9 +751,9 @@
             "access-control-allow-origin": "http://localhost:3000",
             "vary": "Origin",
             "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -809,42 +786,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
-        "path": "/api/38/organisationUnits/JdhagCUEMbj?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
-        "featureName": "Users can view data set reports for data sets connected to a workflow",
-        "static": false,
-        "count": 2,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "debug.dhis2.org",
-            "connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "cross-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 200,
-        "responseBody": "{\"id\":\"JdhagCUEMbj\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/JdhagCUEMbj\",\"children\":[{\"id\":\"QsAwd531Cpd\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/JdhagCUEMbj/QsAwd531Cpd\",\"displayName\":\"Njala CHC\"},{\"id\":\"WOk7efLlLSj\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/JdhagCUEMbj/WOk7efLlLSj\",\"displayName\":\"Niagorehun MCHP\"},{\"id\":\"kFur7xPhpH9\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/JdhagCUEMbj/kFur7xPhpH9\",\"displayName\":\"Teibor MCHP\"},{\"id\":\"JiEz2VDLwHY\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/JdhagCUEMbj/JiEz2VDLwHY\",\"displayName\":\"Komboya Gbauja MCHP\"}]}",
-        "responseSize": 517,
-        "responseHeaders": {
-            "server": "nginx/1.23.0",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "access-control-allow-credentials": "true",
-            "access-control-allow-origin": "http://localhost:3000",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -877,8 +819,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -911,12 +852,11 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
-        "path": "/api/38/organisationUnits/U6Kr7Gtpidn?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
+        "path": "/api/38/organisationUnits/JdhagCUEMbj?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
         "featureName": "Users can view data set reports for data sets connected to a workflow",
         "static": false,
         "count": 2,
@@ -932,8 +872,8 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": "{\"id\":\"U6Kr7Gtpidn\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn\",\"children\":[{\"id\":\"jfV49JGnYKF\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/jfV49JGnYKF\",\"displayName\":\"Fatibra CHP\"},{\"id\":\"tSBcgrTDdB8\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/tSBcgrTDdB8\",\"displayName\":\"Paramedical CHC\"},{\"id\":\"sK498nBOLfQ\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/sK498nBOLfQ\",\"displayName\":\"Elshadai MCHP\"},{\"id\":\"Ioxjc2KBjWd\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/Ioxjc2KBjWd\",\"displayName\":\"Fengehun MCHP\"},{\"id\":\"bqtZrXoryDF\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/bqtZrXoryDF\",\"displayName\":\"Mercy Ship Hospital\"},{\"id\":\"tGf942oWszb\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/tGf942oWszb\",\"displayName\":\"Gbongboma MCHP\"},{\"id\":\"rx9ubw0UCqj\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/rx9ubw0UCqj\",\"displayName\":\"Bandajuma MCHP\"},{\"id\":\"ltF8BmYAXpQ\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/ltF8BmYAXpQ\",\"displayName\":\"Maguama CHP\"},{\"id\":\"k6DIO9LIEk9\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/k6DIO9LIEk9\",\"displayName\":\"Lyn Maternity MCHP\"},{\"id\":\"ZsjXrmZS59z\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/ZsjXrmZS59z\",\"displayName\":\"Ndegbome MCHP\"},{\"id\":\"kMTHqMgenme\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/kMTHqMgenme\",\"displayName\":\"Morning Star Clinic\"},{\"id\":\"jCnyQOKQBFX\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/jCnyQOKQBFX\",\"displayName\":\"St Monica's Clinic\"},{\"id\":\"bM4Ky73uMao\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/bM4Ky73uMao\",\"displayName\":\"Kpolies Clinic\"},{\"id\":\"wtdBuXDwZYQ\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/wtdBuXDwZYQ\",\"displayName\":\"Praise Foundation CHC\"},{\"id\":\"Z9ny6QeqsgX\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/Z9ny6QeqsgX\",\"displayName\":\"Manjama UMC CHC\"},{\"id\":\"UOJlcpPnBat\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/UOJlcpPnBat\",\"displayName\":\"Needy CHC\"},{\"id\":\"VrDA0Hn4Xc6\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/VrDA0Hn4Xc6\",\"displayName\":\"Harvest Time MCHP\"},{\"id\":\"E9oBVjyEaCe\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/E9oBVjyEaCe\",\"displayName\":\"Gbanja Town MCHP\"},{\"id\":\"RhJbg8UD75Q\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/RhJbg8UD75Q\",\"displayName\":\"Yemoh Town CHC\"},{\"id\":\"Pae8DR7VmcL\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/Pae8DR7VmcL\",\"displayName\":\"MCH (Kakua) Static\"},{\"id\":\"GvFqTavdpGE\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/GvFqTavdpGE\",\"displayName\":\"Agape CHP\"},{\"id\":\"gfWvbbgdjoS\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/gfWvbbgdjoS\",\"displayName\":\"Tengbewabu MCHP\"},{\"id\":\"vRC0stJ5y9Q\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/vRC0stJ5y9Q\",\"displayName\":\"Bucksal Clinic\"},{\"id\":\"dx4NOnoGtE7\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/dx4NOnoGtE7\",\"displayName\":\"Yemoh MCHP\"},{\"id\":\"roQ2l7TX0eZ\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/roQ2l7TX0eZ\",\"displayName\":\"SLRCS (Bo) Clinic\"},{\"id\":\"eRg3KZyWUSJ\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/eRg3KZyWUSJ\",\"displayName\":\"Fullawahun MCHP\"},{\"id\":\"aBfyTU5Wgds\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/aBfyTU5Wgds\",\"displayName\":\"Nduvuibu MCHP\"},{\"id\":\"mzsOsz0NwNY\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/mzsOsz0NwNY\",\"displayName\":\"New Police Barracks CHC\"},{\"id\":\"lOv6IFgr6Fs\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/lOv6IFgr6Fs\",\"displayName\":\"Manjama Shellmingo CHC\"},{\"id\":\"kLNQT4KQ9hT\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/kLNQT4KQ9hT\",\"displayName\":\"Marie Stopes (Kakua) Clinic\"},{\"id\":\"H0OkaM4ReRK\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/H0OkaM4ReRK\",\"displayName\":\"Sam Lean's MCHP\"},{\"id\":\"i7qaYfmGVDr\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/i7qaYfmGVDr\",\"displayName\":\"Gbotima MCHP\"},{\"id\":\"K3k64jslIlL\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/K3k64jslIlL\",\"displayName\":\"EDC Unit CHP\"},{\"id\":\"jk1TtiBM5hz\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/jk1TtiBM5hz\",\"displayName\":\"Holy Mary Hospital\"},{\"id\":\"rZxk3S0qN63\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/rZxk3S0qN63\",\"displayName\":\"Bo Govt. Hosp.\"},{\"id\":\"uROAmk9ymNE\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/uROAmk9ymNE\",\"displayName\":\"Kindoyal Hospital\"},{\"id\":\"UugO8xDeLQD\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/UugO8xDeLQD\",\"displayName\":\"UNIMUS MCHP\"},{\"id\":\"hyLU8ivDJDi\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/hyLU8ivDJDi\",\"displayName\":\"Mid Land MCHP\"},{\"id\":\"ptc0SQi05E4\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/ptc0SQi05E4\",\"displayName\":\"Massah Memorial Maternity MCHP\"},{\"id\":\"KQFAul3T9xz\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/KQFAul3T9xz\",\"displayName\":\"Nafaya MCHP\"}]}",
-        "responseSize": 4539,
+        "responseBody": "{\"id\":\"JdhagCUEMbj\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/JdhagCUEMbj\",\"children\":[{\"id\":\"QsAwd531Cpd\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/JdhagCUEMbj/QsAwd531Cpd\",\"displayName\":\"Njala CHC\"},{\"id\":\"WOk7efLlLSj\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/JdhagCUEMbj/WOk7efLlLSj\",\"displayName\":\"Niagorehun MCHP\"},{\"id\":\"kFur7xPhpH9\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/JdhagCUEMbj/kFur7xPhpH9\",\"displayName\":\"Teibor MCHP\"},{\"id\":\"JiEz2VDLwHY\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/JdhagCUEMbj/JiEz2VDLwHY\",\"displayName\":\"Komboya Gbauja MCHP\"}]}",
+        "responseSize": 517,
         "responseHeaders": {
             "server": "nginx/1.23.0",
             "content-type": "application/json;charset=UTF-8",
@@ -945,8 +885,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -979,8 +918,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -1013,12 +951,11 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
-        "path": "/api/38/organisationUnits/ARZ4y5i4reU?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
+        "path": "/api/38/organisationUnits/U6Kr7Gtpidn?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
         "featureName": "Users can view data set reports for data sets connected to a workflow",
         "static": false,
         "count": 2,
@@ -1034,8 +971,8 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": "{\"id\":\"ARZ4y5i4reU\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/ARZ4y5i4reU\",\"children\":[{\"id\":\"GjWQK6UA4FO\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/ARZ4y5i4reU/GjWQK6UA4FO\",\"displayName\":\"Kambawama MCHP\"},{\"id\":\"UGVLYrO63mR\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/ARZ4y5i4reU/UGVLYrO63mR\",\"displayName\":\"Bathurst MCHP\"},{\"id\":\"Q23tMsKOoO6\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/ARZ4y5i4reU/Q23tMsKOoO6\",\"displayName\":\"Fanima (Wonde) MCHP\"},{\"id\":\"k1Y0oNqPlmy\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/ARZ4y5i4reU/k1Y0oNqPlmy\",\"displayName\":\"Gboyama CHC\"}]}",
-        "responseSize": 520,
+        "responseBody": "{\"id\":\"U6Kr7Gtpidn\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn\",\"children\":[{\"id\":\"jfV49JGnYKF\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/jfV49JGnYKF\",\"displayName\":\"Fatibra CHP\"},{\"id\":\"tSBcgrTDdB8\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/tSBcgrTDdB8\",\"displayName\":\"Paramedical CHC\"},{\"id\":\"sK498nBOLfQ\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/sK498nBOLfQ\",\"displayName\":\"Elshadai MCHP\"},{\"id\":\"Ioxjc2KBjWd\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/Ioxjc2KBjWd\",\"displayName\":\"Fengehun MCHP\"},{\"id\":\"bqtZrXoryDF\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/bqtZrXoryDF\",\"displayName\":\"Mercy Ship Hospital\"},{\"id\":\"tGf942oWszb\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/tGf942oWszb\",\"displayName\":\"Gbongboma MCHP\"},{\"id\":\"rx9ubw0UCqj\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/rx9ubw0UCqj\",\"displayName\":\"Bandajuma MCHP\"},{\"id\":\"ltF8BmYAXpQ\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/ltF8BmYAXpQ\",\"displayName\":\"Maguama CHP\"},{\"id\":\"k6DIO9LIEk9\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/k6DIO9LIEk9\",\"displayName\":\"Lyn Maternity MCHP\"},{\"id\":\"ZsjXrmZS59z\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/ZsjXrmZS59z\",\"displayName\":\"Ndegbome MCHP\"},{\"id\":\"kMTHqMgenme\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/kMTHqMgenme\",\"displayName\":\"Morning Star Clinic\"},{\"id\":\"jCnyQOKQBFX\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/jCnyQOKQBFX\",\"displayName\":\"St Monica's Clinic\"},{\"id\":\"bM4Ky73uMao\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/bM4Ky73uMao\",\"displayName\":\"Kpolies Clinic\"},{\"id\":\"wtdBuXDwZYQ\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/wtdBuXDwZYQ\",\"displayName\":\"Praise Foundation CHC\"},{\"id\":\"Z9ny6QeqsgX\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/Z9ny6QeqsgX\",\"displayName\":\"Manjama UMC CHC\"},{\"id\":\"UOJlcpPnBat\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/UOJlcpPnBat\",\"displayName\":\"Needy CHC\"},{\"id\":\"VrDA0Hn4Xc6\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/VrDA0Hn4Xc6\",\"displayName\":\"Harvest Time MCHP\"},{\"id\":\"E9oBVjyEaCe\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/E9oBVjyEaCe\",\"displayName\":\"Gbanja Town MCHP\"},{\"id\":\"RhJbg8UD75Q\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/RhJbg8UD75Q\",\"displayName\":\"Yemoh Town CHC\"},{\"id\":\"Pae8DR7VmcL\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/Pae8DR7VmcL\",\"displayName\":\"MCH (Kakua) Static\"},{\"id\":\"GvFqTavdpGE\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/GvFqTavdpGE\",\"displayName\":\"Agape CHP\"},{\"id\":\"gfWvbbgdjoS\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/gfWvbbgdjoS\",\"displayName\":\"Tengbewabu MCHP\"},{\"id\":\"vRC0stJ5y9Q\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/vRC0stJ5y9Q\",\"displayName\":\"Bucksal Clinic\"},{\"id\":\"dx4NOnoGtE7\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/dx4NOnoGtE7\",\"displayName\":\"Yemoh MCHP\"},{\"id\":\"roQ2l7TX0eZ\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/roQ2l7TX0eZ\",\"displayName\":\"SLRCS (Bo) Clinic\"},{\"id\":\"eRg3KZyWUSJ\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/eRg3KZyWUSJ\",\"displayName\":\"Fullawahun MCHP\"},{\"id\":\"aBfyTU5Wgds\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/aBfyTU5Wgds\",\"displayName\":\"Nduvuibu MCHP\"},{\"id\":\"mzsOsz0NwNY\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/mzsOsz0NwNY\",\"displayName\":\"New Police Barracks CHC\"},{\"id\":\"lOv6IFgr6Fs\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/lOv6IFgr6Fs\",\"displayName\":\"Manjama Shellmingo CHC\"},{\"id\":\"kLNQT4KQ9hT\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/kLNQT4KQ9hT\",\"displayName\":\"Marie Stopes (Kakua) Clinic\"},{\"id\":\"H0OkaM4ReRK\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/H0OkaM4ReRK\",\"displayName\":\"Sam Lean's MCHP\"},{\"id\":\"i7qaYfmGVDr\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/i7qaYfmGVDr\",\"displayName\":\"Gbotima MCHP\"},{\"id\":\"K3k64jslIlL\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/K3k64jslIlL\",\"displayName\":\"EDC Unit CHP\"},{\"id\":\"jk1TtiBM5hz\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/jk1TtiBM5hz\",\"displayName\":\"Holy Mary Hospital\"},{\"id\":\"rZxk3S0qN63\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/rZxk3S0qN63\",\"displayName\":\"Bo Govt. Hosp.\"},{\"id\":\"uROAmk9ymNE\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/uROAmk9ymNE\",\"displayName\":\"Kindoyal Hospital\"},{\"id\":\"UugO8xDeLQD\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/UugO8xDeLQD\",\"displayName\":\"UNIMUS MCHP\"},{\"id\":\"hyLU8ivDJDi\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/hyLU8ivDJDi\",\"displayName\":\"Mid Land MCHP\"},{\"id\":\"ptc0SQi05E4\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/ptc0SQi05E4\",\"displayName\":\"Massah Memorial Maternity MCHP\"},{\"id\":\"KQFAul3T9xz\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/KQFAul3T9xz\",\"displayName\":\"Nafaya MCHP\"}]}",
+        "responseSize": 4539,
         "responseHeaders": {
             "server": "nginx/1.23.0",
             "content-type": "application/json;charset=UTF-8",
@@ -1047,8 +984,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -1081,8 +1017,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -1115,8 +1050,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -1149,45 +1083,11 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
-        "path": "/api/38/dataApprovals/approvals?wf=rIUL3hYOjJc&pe=202303&ou=YuQRtpLP10I,vWbkYPRmKyS,dGheVylzol6,zFDYIgyGmXG,BGGmAwx33dj,YmmeuGbqOwR,daJPPxtIrQn,U6Kr7Gtpidn,JdhagCUEMbj,kU8vhUkAGaT,I4jWcnFmgEC,KctpIIucige,sxRd2XOzFbz,npWGUj37qDe,ARZ4y5i4reU",
-        "featureName": "Users can view data set reports for data sets connected to a workflow",
-        "static": false,
-        "count": 2,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "debug.dhis2.org",
-            "connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "cross-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 200,
-        "responseBody": "[{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"ARZ4y5i4reU\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"dGheVylzol6\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"daJPPxtIrQn\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"I4jWcnFmgEC\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"YmmeuGbqOwR\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"KctpIIucige\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"zFDYIgyGmXG\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"U6Kr7Gtpidn\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"kU8vhUkAGaT\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"YuQRtpLP10I\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"vWbkYPRmKyS\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"BGGmAwx33dj\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"JdhagCUEMbj\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"sxRd2XOzFbz\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"npWGUj37qDe\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}}]",
-        "responseSize": 3196,
-        "responseHeaders": {
-            "server": "nginx/1.23.0",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "access-control-allow-credentials": "true",
-            "access-control-allow-origin": "http://localhost:3000",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
-        "path": "/api/38/dataApprovals?wf=rIUL3hYOjJc&pe=202303&ou=YuQRtpLP10I",
+        "path": "/api/38/dataApprovals?wf=rIUL3hYOjJc&pe=202403&ou=YuQRtpLP10I",
         "featureName": "Users can view data set reports for data sets connected to a workflow",
         "static": false,
         "count": 1,
@@ -1215,12 +1115,76 @@
             "vary": "Origin",
             "access-control-expose-headers": "ETag, Location",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
-        "path": "/api/38/dataSetReport?pe=202303&ds=pBOMPrpg1QX&ou=YuQRtpLP10I",
+        "path": "/api/38/organisationUnits/ARZ4y5i4reU?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
+        "featureName": "Users can view data set reports for data sets connected to a workflow",
+        "static": false,
+        "count": 2,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "debug.dhis2.org",
+            "connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "{\"id\":\"ARZ4y5i4reU\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/ARZ4y5i4reU\",\"children\":[{\"id\":\"GjWQK6UA4FO\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/ARZ4y5i4reU/GjWQK6UA4FO\",\"displayName\":\"Kambawama MCHP\"},{\"id\":\"UGVLYrO63mR\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/ARZ4y5i4reU/UGVLYrO63mR\",\"displayName\":\"Bathurst MCHP\"},{\"id\":\"Q23tMsKOoO6\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/ARZ4y5i4reU/Q23tMsKOoO6\",\"displayName\":\"Fanima (Wonde) MCHP\"},{\"id\":\"k1Y0oNqPlmy\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/ARZ4y5i4reU/k1Y0oNqPlmy\",\"displayName\":\"Gboyama CHC\"}]}",
+        "responseSize": 520,
+        "responseHeaders": {
+            "server": "nginx/1.23.0",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block"
+        }
+    },
+    {
+        "path": "/api/38/dataApprovals/approvals?wf=rIUL3hYOjJc&pe=202403&ou=YuQRtpLP10I,vWbkYPRmKyS,dGheVylzol6,zFDYIgyGmXG,BGGmAwx33dj,YmmeuGbqOwR,daJPPxtIrQn,U6Kr7Gtpidn,JdhagCUEMbj,kU8vhUkAGaT,I4jWcnFmgEC,KctpIIucige,sxRd2XOzFbz,npWGUj37qDe,ARZ4y5i4reU",
+        "featureName": "Users can view data set reports for data sets connected to a workflow",
+        "static": false,
+        "count": 2,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "debug.dhis2.org",
+            "connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "[{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"KctpIIucige\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"vWbkYPRmKyS\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"BGGmAwx33dj\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"zFDYIgyGmXG\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"JdhagCUEMbj\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"sxRd2XOzFbz\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"npWGUj37qDe\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"daJPPxtIrQn\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"U6Kr7Gtpidn\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"ARZ4y5i4reU\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"YuQRtpLP10I\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"kU8vhUkAGaT\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"YmmeuGbqOwR\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"I4jWcnFmgEC\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"dGheVylzol6\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}}]",
+        "responseSize": 3196,
+        "responseHeaders": {
+            "server": "nginx/1.23.0",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block"
+        }
+    },
+    {
+        "path": "/api/38/dataSetReport?pe=202403&ds=pBOMPrpg1QX&ou=YuQRtpLP10I",
         "featureName": "Users can view data set reports for data sets connected to a workflow",
         "static": false,
         "count": 1,
@@ -1236,8 +1200,8 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": "[{\"title\":\"Mortality < 5 years default\",\"subtitle\":\"Badjia March 2023\",\"headers\":[{\"name\":\"Data element\",\"column\":\"Data element\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":true},{\"name\":\"Value\",\"column\":\"Value\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":false}],\"metaData\":{},\"width\":2,\"height\":14,\"rows\":[[\"Rabies (Deaths < 5 yrs)\",null],[\"Louse Borne Typhus - Relapsing fever (Deaths < 5 yrs)\",null],[\"Plague (Deaths < 5 yrs)\",null],[\"Measles (Deaths < 5 yrs)\",\"45\"],[\"Typhoid (Deaths < 5 yrs)\",null],[\"Meningitis (Deaths < 5 yrs)\",\"34\"],[\"Accute Flaccid Paralysis (Deaths < 5 yrs)\",\"1\"],[\"Cholera (Deaths < 5 yrs)\",\"45\"],[\"Animal Bites - Rabid (Deaths < 5 yrs)\",null],[\"Tetanus Neonatal (Deaths < 5 yrs)\",null],[\"Dysentery (Deaths < 5 yrs)\",null],[\"Malaria (Deaths < 5 yrs)\",null],[\"Tetanus Other (Deaths < 5 yrs)\",null],[\"Yellow Fever (Deaths < 5 yrs)\",\"34\"]],\"headerWidth\":2}]",
-        "responseSize": 891,
+        "responseBody": "[{\"title\":\"Mortality < 5 years default\",\"subtitle\":\"Badjia March 2024\",\"headers\":[{\"name\":\"Data element\",\"column\":\"Data element\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":true},{\"name\":\"Value\",\"column\":\"Value\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":false}],\"metaData\":{},\"rowContext\":{},\"rows\":[[\"Tetanus Other (Deaths < 5 yrs)\",null],[\"Plague (Deaths < 5 yrs)\",null],[\"Animal Bites - Rabid (Deaths < 5 yrs)\",null],[\"Measles (Deaths < 5 yrs)\",\"45\"],[\"Accute Flaccid Paralysis (Deaths < 5 yrs)\",\"1\"],[\"Rabies (Deaths < 5 yrs)\",null],[\"Typhoid (Deaths < 5 yrs)\",null],[\"Yellow Fever (Deaths < 5 yrs)\",\"34\"],[\"Meningitis (Deaths < 5 yrs)\",\"34\"],[\"Malaria (Deaths < 5 yrs)\",null],[\"Tetanus Neonatal (Deaths < 5 yrs)\",null],[\"Cholera (Deaths < 5 yrs)\",\"45\"],[\"Louse Borne Typhus - Relapsing fever (Deaths < 5 yrs)\",null],[\"Dysentery (Deaths < 5 yrs)\",null]],\"width\":2,\"height\":14,\"headerWidth\":2}]",
+        "responseSize": 907,
         "responseHeaders": {
             "server": "nginx/1.23.0",
             "content-type": "application/json;charset=UTF-8",
@@ -1249,12 +1213,11 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
-        "path": "/api/38/dataApprovals?wf=rIUL3hYOjJc&pe=202303&ou=ImspTQPwCqd",
+        "path": "/api/38/dataApprovals?wf=rIUL3hYOjJc&pe=202403&ou=ImspTQPwCqd",
         "featureName": "Users can view data set reports for data sets connected to a workflow",
         "static": false,
         "count": 1,
@@ -1282,12 +1245,11 @@
             "vary": "Origin",
             "access-control-expose-headers": "ETag, Location",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
-        "path": "/api/38/dataSetReport?pe=202303&ds=pBOMPrpg1QX&ou=ImspTQPwCqd",
+        "path": "/api/38/dataSetReport?pe=202403&ds=pBOMPrpg1QX&ou=ImspTQPwCqd",
         "featureName": "Users can view data set reports for data sets connected to a workflow",
         "static": false,
         "count": 1,
@@ -1303,8 +1265,8 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": "[{\"title\":\"Mortality < 5 years default\",\"subtitle\":\"Sierra Leone March 2023\",\"headers\":[{\"name\":\"Data element\",\"column\":\"Data element\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":true},{\"name\":\"Value\",\"column\":\"Value\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":false}],\"metaData\":{},\"width\":2,\"height\":14,\"rows\":[[\"Louse Borne Typhus - Relapsing fever (Deaths < 5 yrs)\",null],[\"Tetanus Neonatal (Deaths < 5 yrs)\",null],[\"Yellow Fever (Deaths < 5 yrs)\",\"34\"],[\"Typhoid (Deaths < 5 yrs)\",null],[\"Rabies (Deaths < 5 yrs)\",null],[\"Animal Bites - Rabid (Deaths < 5 yrs)\",null],[\"Dysentery (Deaths < 5 yrs)\",null],[\"Plague (Deaths < 5 yrs)\",null],[\"Meningitis (Deaths < 5 yrs)\",\"34\"],[\"Cholera (Deaths < 5 yrs)\",\"45\"],[\"Measles (Deaths < 5 yrs)\",\"45\"],[\"Tetanus Other (Deaths < 5 yrs)\",null],[\"Malaria (Deaths < 5 yrs)\",null],[\"Accute Flaccid Paralysis (Deaths < 5 yrs)\",\"1\"]],\"headerWidth\":2}]",
-        "responseSize": 897,
+        "responseBody": "[{\"title\":\"Mortality < 5 years default\",\"subtitle\":\"Sierra Leone March 2024\",\"headers\":[{\"name\":\"Data element\",\"column\":\"Data element\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":true},{\"name\":\"Value\",\"column\":\"Value\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":false}],\"metaData\":{},\"rowContext\":{},\"rows\":[[\"Malaria (Deaths < 5 yrs)\",null],[\"Meningitis (Deaths < 5 yrs)\",\"34\"],[\"Dysentery (Deaths < 5 yrs)\",null],[\"Accute Flaccid Paralysis (Deaths < 5 yrs)\",\"1\"],[\"Animal Bites - Rabid (Deaths < 5 yrs)\",null],[\"Louse Borne Typhus - Relapsing fever (Deaths < 5 yrs)\",null],[\"Tetanus Other (Deaths < 5 yrs)\",null],[\"Rabies (Deaths < 5 yrs)\",null],[\"Measles (Deaths < 5 yrs)\",\"45\"],[\"Tetanus Neonatal (Deaths < 5 yrs)\",null],[\"Cholera (Deaths < 5 yrs)\",\"45\"],[\"Plague (Deaths < 5 yrs)\",null],[\"Yellow Fever (Deaths < 5 yrs)\",\"34\"],[\"Typhoid (Deaths < 5 yrs)\",null]],\"width\":2,\"height\":14,\"headerWidth\":2}]",
+        "responseSize": 913,
         "responseHeaders": {
             "server": "nginx/1.23.0",
             "content-type": "application/json;charset=UTF-8",
@@ -1316,12 +1278,11 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
-        "path": "/api/38/dataApprovals?wf=rIUL3hYOjJc&pe=202303&ou=O6uvpzGd5pu",
+        "path": "/api/38/dataApprovals?wf=rIUL3hYOjJc&pe=202403&ou=O6uvpzGd5pu",
         "featureName": "Users can view data set reports for data sets connected to a workflow",
         "static": false,
         "count": 1,
@@ -1349,12 +1310,11 @@
             "vary": "Origin",
             "access-control-expose-headers": "ETag, Location",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
-        "path": "/api/38/dataSetReport?pe=202303&ds=pBOMPrpg1QX&ou=O6uvpzGd5pu",
+        "path": "/api/38/dataSetReport?pe=202403&ds=pBOMPrpg1QX&ou=O6uvpzGd5pu",
         "featureName": "Users can view data set reports for data sets connected to a workflow",
         "static": false,
         "count": 1,
@@ -1370,8 +1330,8 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": "[{\"title\":\"Mortality < 5 years default\",\"subtitle\":\"Bo March 2023\",\"headers\":[{\"name\":\"Data element\",\"column\":\"Data element\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":true},{\"name\":\"Value\",\"column\":\"Value\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":false}],\"metaData\":{},\"width\":2,\"height\":14,\"rows\":[[\"Typhoid (Deaths < 5 yrs)\",null],[\"Animal Bites - Rabid (Deaths < 5 yrs)\",null],[\"Plague (Deaths < 5 yrs)\",null],[\"Accute Flaccid Paralysis (Deaths < 5 yrs)\",\"1\"],[\"Yellow Fever (Deaths < 5 yrs)\",\"34\"],[\"Measles (Deaths < 5 yrs)\",\"45\"],[\"Cholera (Deaths < 5 yrs)\",\"45\"],[\"Malaria (Deaths < 5 yrs)\",null],[\"Rabies (Deaths < 5 yrs)\",null],[\"Louse Borne Typhus - Relapsing fever (Deaths < 5 yrs)\",null],[\"Dysentery (Deaths < 5 yrs)\",null],[\"Tetanus Neonatal (Deaths < 5 yrs)\",null],[\"Meningitis (Deaths < 5 yrs)\",\"34\"],[\"Tetanus Other (Deaths < 5 yrs)\",null]],\"headerWidth\":2}]",
-        "responseSize": 887,
+        "responseBody": "[{\"title\":\"Mortality < 5 years default\",\"subtitle\":\"Bo March 2024\",\"headers\":[{\"name\":\"Data element\",\"column\":\"Data element\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":true},{\"name\":\"Value\",\"column\":\"Value\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":false}],\"metaData\":{},\"rowContext\":{},\"rows\":[[\"Meningitis (Deaths < 5 yrs)\",\"34\"],[\"Animal Bites - Rabid (Deaths < 5 yrs)\",null],[\"Tetanus Neonatal (Deaths < 5 yrs)\",null],[\"Malaria (Deaths < 5 yrs)\",null],[\"Plague (Deaths < 5 yrs)\",null],[\"Rabies (Deaths < 5 yrs)\",null],[\"Typhoid (Deaths < 5 yrs)\",null],[\"Yellow Fever (Deaths < 5 yrs)\",\"34\"],[\"Measles (Deaths < 5 yrs)\",\"45\"],[\"Louse Borne Typhus - Relapsing fever (Deaths < 5 yrs)\",null],[\"Dysentery (Deaths < 5 yrs)\",null],[\"Tetanus Other (Deaths < 5 yrs)\",null],[\"Cholera (Deaths < 5 yrs)\",\"45\"],[\"Accute Flaccid Paralysis (Deaths < 5 yrs)\",\"1\"]],\"width\":2,\"height\":14,\"headerWidth\":2}]",
+        "responseSize": 903,
         "responseHeaders": {
             "server": "nginx/1.23.0",
             "content-type": "application/json;charset=UTF-8",
@@ -1383,8 +1343,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -1417,42 +1376,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
-        "path": "/api/38/organisationUnits/TSyzvBiovKh?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
-        "featureName": "Users can view data set reports for data sets connected to a workflow",
-        "static": false,
-        "count": 1,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "debug.dhis2.org",
-            "connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "cross-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 200,
-        "responseBody": "{\"id\":\"TSyzvBiovKh\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/vWbkYPRmKyS/TSyzvBiovKh\",\"children\":[]}",
-        "responseSize": 92,
-        "responseHeaders": {
-            "server": "nginx/1.23.0",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "access-control-allow-credentials": "true",
-            "access-control-allow-origin": "http://localhost:3000",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -1485,42 +1409,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
-        "path": "/api/38/organisationUnits/azRICFoILuh?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
-        "featureName": "Users can view data set reports for data sets connected to a workflow",
-        "static": false,
-        "count": 1,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "debug.dhis2.org",
-            "connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "cross-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 200,
-        "responseBody": "{\"id\":\"azRICFoILuh\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/vWbkYPRmKyS/azRICFoILuh\",\"children\":[]}",
-        "responseSize": 92,
-        "responseHeaders": {
-            "server": "nginx/1.23.0",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "access-control-allow-credentials": "true",
-            "access-control-allow-origin": "http://localhost:3000",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -1553,8 +1442,73 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
+        }
+    },
+    {
+        "path": "/api/38/organisationUnits/azRICFoILuh?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
+        "featureName": "Users can view data set reports for data sets connected to a workflow",
+        "static": false,
+        "count": 1,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "debug.dhis2.org",
+            "connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "{\"id\":\"azRICFoILuh\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/vWbkYPRmKyS/azRICFoILuh\",\"children\":[]}",
+        "responseSize": 92,
+        "responseHeaders": {
+            "server": "nginx/1.23.0",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block"
+        }
+    },
+    {
+        "path": "/api/38/organisationUnits/TSyzvBiovKh?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
+        "featureName": "Users can view data set reports for data sets connected to a workflow",
+        "static": false,
+        "count": 1,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "debug.dhis2.org",
+            "connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "{\"id\":\"TSyzvBiovKh\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/vWbkYPRmKyS/TSyzvBiovKh\",\"children\":[]}",
+        "responseSize": 92,
+        "responseHeaders": {
+            "server": "nginx/1.23.0",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -1587,8 +1541,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -1621,76 +1574,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
-        "path": "/api/38/organisationUnits/pMEnu7BjqMz?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
-        "featureName": "Users can view data set reports for data sets connected to a workflow",
-        "static": false,
-        "count": 1,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "debug.dhis2.org",
-            "connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "cross-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 200,
-        "responseBody": "{\"id\":\"pMEnu7BjqMz\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/vWbkYPRmKyS/pMEnu7BjqMz\",\"children\":[]}",
-        "responseSize": 92,
-        "responseHeaders": {
-            "server": "nginx/1.23.0",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "access-control-allow-credentials": "true",
-            "access-control-allow-origin": "http://localhost:3000",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
-        "path": "/api/38/organisationUnits/egv5Es0QlQP?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
-        "featureName": "Users can view data set reports for data sets connected to a workflow",
-        "static": false,
-        "count": 1,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "debug.dhis2.org",
-            "connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "cross-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 200,
-        "responseBody": "{\"id\":\"egv5Es0QlQP\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/vWbkYPRmKyS/egv5Es0QlQP\",\"children\":[]}",
-        "responseSize": 92,
-        "responseHeaders": {
-            "server": "nginx/1.23.0",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "access-control-allow-credentials": "true",
-            "access-control-allow-origin": "http://localhost:3000",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -1723,8 +1607,73 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
+        }
+    },
+    {
+        "path": "/api/38/organisationUnits/pMEnu7BjqMz?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
+        "featureName": "Users can view data set reports for data sets connected to a workflow",
+        "static": false,
+        "count": 1,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "debug.dhis2.org",
+            "connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "{\"id\":\"pMEnu7BjqMz\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/vWbkYPRmKyS/pMEnu7BjqMz\",\"children\":[]}",
+        "responseSize": 92,
+        "responseHeaders": {
+            "server": "nginx/1.23.0",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block"
+        }
+    },
+    {
+        "path": "/api/38/organisationUnits/egv5Es0QlQP?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
+        "featureName": "Users can view data set reports for data sets connected to a workflow",
+        "static": false,
+        "count": 1,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "debug.dhis2.org",
+            "connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "{\"id\":\"egv5Es0QlQP\",\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/vWbkYPRmKyS/egv5Es0QlQP\",\"children\":[]}",
+        "responseSize": 92,
+        "responseHeaders": {
+            "server": "nginx/1.23.0",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -1757,8 +1706,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -1791,8 +1739,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -1825,8 +1772,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -1859,12 +1805,11 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
-        "path": "/api/38/dataApprovals?wf=rIUL3hYOjJc&pe=202303&ou=jNb63DIHuwU",
+        "path": "/api/38/dataApprovals?wf=rIUL3hYOjJc&pe=202403&ou=jNb63DIHuwU",
         "featureName": "Users can view data set reports for data sets connected to a workflow",
         "static": false,
         "count": 1,
@@ -1892,12 +1837,11 @@
             "vary": "Origin",
             "access-control-expose-headers": "ETag, Location",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
-        "path": "/api/38/dataSetReport?pe=202303&ds=pBOMPrpg1QX&ou=jNb63DIHuwU",
+        "path": "/api/38/dataApprovals/approvals?wf=rIUL3hYOjJc&pe=202403&ou=jNb63DIHuwU,WAjjFMDJKcx,ZpE2POxvl9P,TSyzvBiovKh,azRICFoILuh,Umh4HKqqFp6,RzgSFJ9E46G,egv5Es0QlQP,pMEnu7BjqMz,EuoA3Crpqts,KfUCAQoOIae,bG0PlyD0iP3,AnXoUM1tfNT,nX05QLraDhO",
         "featureName": "Users can view data set reports for data sets connected to a workflow",
         "static": false,
         "count": 1,
@@ -1913,41 +1857,7 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": "[{\"title\":\"Mortality < 5 years default\",\"subtitle\":\"Baoma Station CHP March 2023\",\"headers\":[{\"name\":\"Data element\",\"column\":\"Data element\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":true},{\"name\":\"Value\",\"column\":\"Value\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":false}],\"metaData\":{},\"width\":2,\"height\":14,\"rows\":[[\"Typhoid (Deaths < 5 yrs)\",null],[\"Rabies (Deaths < 5 yrs)\",null],[\"Animal Bites - Rabid (Deaths < 5 yrs)\",null],[\"Dysentery (Deaths < 5 yrs)\",null],[\"Yellow Fever (Deaths < 5 yrs)\",null],[\"Tetanus Other (Deaths < 5 yrs)\",null],[\"Louse Borne Typhus - Relapsing fever (Deaths < 5 yrs)\",null],[\"Cholera (Deaths < 5 yrs)\",null],[\"Malaria (Deaths < 5 yrs)\",null],[\"Tetanus Neonatal (Deaths < 5 yrs)\",null],[\"Plague (Deaths < 5 yrs)\",null],[\"Measles (Deaths < 5 yrs)\",null],[\"Meningitis (Deaths < 5 yrs)\",null],[\"Accute Flaccid Paralysis (Deaths < 5 yrs)\",null]],\"headerWidth\":2}]",
-        "responseSize": 903,
-        "responseHeaders": {
-            "server": "nginx/1.23.0",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "access-control-allow-credentials": "true",
-            "access-control-allow-origin": "http://localhost:3000",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
-        "path": "/api/38/dataApprovals/approvals?wf=rIUL3hYOjJc&pe=202303&ou=jNb63DIHuwU,WAjjFMDJKcx,ZpE2POxvl9P,TSyzvBiovKh,azRICFoILuh,Umh4HKqqFp6,RzgSFJ9E46G,egv5Es0QlQP,pMEnu7BjqMz,EuoA3Crpqts,KfUCAQoOIae,bG0PlyD0iP3,AnXoUM1tfNT,nX05QLraDhO",
-        "featureName": "Users can view data set reports for data sets connected to a workflow",
-        "static": false,
-        "count": 1,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "debug.dhis2.org",
-            "connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "cross-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 200,
-        "responseBody": "[{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"Umh4HKqqFp6\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"AnXoUM1tfNT\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"azRICFoILuh\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"egv5Es0QlQP\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"nX05QLraDhO\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"KfUCAQoOIae\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"jNb63DIHuwU\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"ZpE2POxvl9P\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"pMEnu7BjqMz\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"bG0PlyD0iP3\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"EuoA3Crpqts\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"TSyzvBiovKh\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"WAjjFMDJKcx\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"RzgSFJ9E46G\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}}]",
+        "responseBody": "[{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"TSyzvBiovKh\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"jNb63DIHuwU\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"bG0PlyD0iP3\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"ZpE2POxvl9P\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"azRICFoILuh\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"EuoA3Crpqts\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"Umh4HKqqFp6\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"RzgSFJ9E46G\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"AnXoUM1tfNT\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"WAjjFMDJKcx\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"egv5Es0QlQP\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"KfUCAQoOIae\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"nX05QLraDhO\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"pMEnu7BjqMz\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_ABOVE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}}]",
         "responseSize": 2997,
         "responseHeaders": {
             "server": "nginx/1.23.0",
@@ -1959,8 +1869,40 @@
             "vary": "Origin",
             "access-control-expose-headers": "ETag, Location",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
+        }
+    },
+    {
+        "path": "/api/38/dataSetReport?pe=202403&ds=pBOMPrpg1QX&ou=jNb63DIHuwU",
+        "featureName": "Users can view data set reports for data sets connected to a workflow",
+        "static": false,
+        "count": 1,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "debug.dhis2.org",
+            "connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "[{\"title\":\"Mortality < 5 years default\",\"subtitle\":\"Baoma Station CHP March 2024\",\"headers\":[{\"name\":\"Data element\",\"column\":\"Data element\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":true},{\"name\":\"Value\",\"column\":\"Value\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":false}],\"metaData\":{},\"rowContext\":{},\"rows\":[[\"Rabies (Deaths < 5 yrs)\",null],[\"Dysentery (Deaths < 5 yrs)\",null],[\"Animal Bites - Rabid (Deaths < 5 yrs)\",null],[\"Tetanus Neonatal (Deaths < 5 yrs)\",null],[\"Louse Borne Typhus - Relapsing fever (Deaths < 5 yrs)\",null],[\"Cholera (Deaths < 5 yrs)\",null],[\"Yellow Fever (Deaths < 5 yrs)\",null],[\"Accute Flaccid Paralysis (Deaths < 5 yrs)\",null],[\"Malaria (Deaths < 5 yrs)\",null],[\"Measles (Deaths < 5 yrs)\",null],[\"Meningitis (Deaths < 5 yrs)\",null],[\"Plague (Deaths < 5 yrs)\",null],[\"Tetanus Other (Deaths < 5 yrs)\",null],[\"Typhoid (Deaths < 5 yrs)\",null]],\"width\":2,\"height\":14,\"headerWidth\":2}]",
+        "responseSize": 919,
+        "responseHeaders": {
+            "server": "nginx/1.23.0",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block"
         }
     }
 ]

@@ -34,7 +34,7 @@
         }
     },
     {
-        "path": "/api/37/dataApprovalWorkflows?paging=false&fields=id,displayName,dataApprovalLevels,periodType,dataSets%5Bid%2CdisplayName%2CperiodType%5D",
+        "path": "/api/37/dataApprovalWorkflows?paging=false&fields=id,displayName,dataApprovalLevels,periodType,dataSets%5Bid%2CdisplayName%2CperiodType%2CformType%5D",
         "featureName": "Users can approve, accept, unapprove, and unaccept data",
         "static": false,
         "count": 4,

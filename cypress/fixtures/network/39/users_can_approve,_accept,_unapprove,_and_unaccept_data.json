@@ -29,12 +29,11 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
-        "path": "/api/39/dataApprovalWorkflows?paging=false&fields=id,displayName,dataApprovalLevels,periodType,dataSets%5Bid%2CdisplayName%2CperiodType%5D",
+        "path": "/api/39/dataApprovalWorkflows?paging=false&fields=id,displayName,dataApprovalLevels,periodType,dataSets%5Bid%2CdisplayName%2CperiodType%2CformType%5D",
         "featureName": "Users can approve, accept, unapprove, and unaccept data",
         "static": false,
         "count": 4,
@@ -50,8 +49,8 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": "{\"dataApprovalWorkflows\":[{\"periodType\":\"Monthly\",\"dataSets\":[{\"periodType\":\"Monthly\",\"displayName\":\"Mortality < 5 years\",\"id\":\"pBOMPrpg1QX\"}],\"displayName\":\"Mortality < 5 years\",\"id\":\"rIUL3hYOjJc\",\"dataApprovalLevels\":[{\"id\":\"VS3XyxNvrer\"},{\"id\":\"KaTJLhGmU95\"}]}]}",
-        "responseSize": 265,
+        "responseBody": "{\"dataApprovalWorkflows\":[{\"periodType\":\"Monthly\",\"dataSets\":[{\"periodType\":\"Monthly\",\"formType\":\"DEFAULT\",\"displayName\":\"Mortality < 5 years\",\"id\":\"pBOMPrpg1QX\"}],\"displayName\":\"Mortality < 5 years\",\"id\":\"rIUL3hYOjJc\",\"dataApprovalLevels\":[{\"id\":\"VS3XyxNvrer\"},{\"id\":\"KaTJLhGmU95\"}]}]}",
+        "responseSize": 286,
         "responseHeaders": {
             "server": "nginx/1.23.0",
             "content-type": "application/json;charset=UTF-8",
@@ -63,8 +62,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -97,8 +95,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -131,8 +128,39 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
+        }
+    },
+    {
+        "path": "/api/39/dataApprovals/approvals?wf=rIUL3hYOjJc&pe=202403&ou=ImspTQPwCqd",
+        "featureName": "Users can approve, accept, unapprove, and unaccept data",
+        "static": false,
+        "count": 4,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "debug.dhis2.org",
+            "connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "[{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"ImspTQPwCqd\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVABLE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}}]",
+        "responseSize": 211,
+        "responseHeaders": {
+            "server": "nginx/1.23.0",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -165,8 +193,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -199,8 +226,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -208,7 +234,7 @@
         "featureName": "Users can approve, accept, unapprove, and unaccept data",
         "static": false,
         "count": 4,
-        "nonDeterministic": true,
+        "nonDeterministic": false,
         "method": "GET",
         "requestBody": "",
         "requestHeaders": {
@@ -220,10 +246,7 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": [
-            "{\"children\":[{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/g8DdBm7EmUt\",\"displayName\":\"Sittia\",\"id\":\"g8DdBm7EmUt\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/XEyIRFd9pct\",\"displayName\":\"Imperi\",\"id\":\"XEyIRFd9pct\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/VP397wRvePm\",\"displayName\":\"Nongoba Bullum\",\"id\":\"VP397wRvePm\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/CG4QD1HC3h4\",\"displayName\":\"Yawbeko\",\"id\":\"CG4QD1HC3h4\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/iUauWFeH8Qp\",\"displayName\":\"Bum\",\"id\":\"iUauWFeH8Qp\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/EB1zRKdYjdY\",\"displayName\":\"Bendu Cha\",\"id\":\"EB1zRKdYjdY\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/cgOy0hRMGu9\",\"displayName\":\"Sogbini\",\"id\":\"cgOy0hRMGu9\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/ENHOJz3UH5L\",\"displayName\":\"BMC\",\"id\":\"ENHOJz3UH5L\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/HV8RTzgcFH3\",\"displayName\":\"Kwamabai Krim\",\"id\":\"HV8RTzgcFH3\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/DNRAeXT9IwS\",\"displayName\":\"Dema\",\"id\":\"DNRAeXT9IwS\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/aWQTfvgPA5v\",\"displayName\":\"Kpanda Kemoh\",\"id\":\"aWQTfvgPA5v\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/VCtF1DbspR5\",\"displayName\":\"Jong\",\"id\":\"VCtF1DbspR5\"}],\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw\",\"id\":\"lc3eMKXaEfw\"}",
-            "{\"children\":[{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/XEyIRFd9pct\",\"displayName\":\"Imperi\",\"id\":\"XEyIRFd9pct\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/iUauWFeH8Qp\",\"displayName\":\"Bum\",\"id\":\"iUauWFeH8Qp\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/cgOy0hRMGu9\",\"displayName\":\"Sogbini\",\"id\":\"cgOy0hRMGu9\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/ENHOJz3UH5L\",\"displayName\":\"BMC\",\"id\":\"ENHOJz3UH5L\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/HV8RTzgcFH3\",\"displayName\":\"Kwamabai Krim\",\"id\":\"HV8RTzgcFH3\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/DNRAeXT9IwS\",\"displayName\":\"Dema\",\"id\":\"DNRAeXT9IwS\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/aWQTfvgPA5v\",\"displayName\":\"Kpanda Kemoh\",\"id\":\"aWQTfvgPA5v\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/g8DdBm7EmUt\",\"displayName\":\"Sittia\",\"id\":\"g8DdBm7EmUt\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/VP397wRvePm\",\"displayName\":\"Nongoba Bullum\",\"id\":\"VP397wRvePm\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/CG4QD1HC3h4\",\"displayName\":\"Yawbeko\",\"id\":\"CG4QD1HC3h4\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/EB1zRKdYjdY\",\"displayName\":\"Bendu Cha\",\"id\":\"EB1zRKdYjdY\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/VCtF1DbspR5\",\"displayName\":\"Jong\",\"id\":\"VCtF1DbspR5\"}],\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw\",\"id\":\"lc3eMKXaEfw\"}"
-        ],
+        "responseBody": "{\"children\":[{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/XEyIRFd9pct\",\"displayName\":\"Imperi\",\"id\":\"XEyIRFd9pct\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/iUauWFeH8Qp\",\"displayName\":\"Bum\",\"id\":\"iUauWFeH8Qp\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/cgOy0hRMGu9\",\"displayName\":\"Sogbini\",\"id\":\"cgOy0hRMGu9\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/ENHOJz3UH5L\",\"displayName\":\"BMC\",\"id\":\"ENHOJz3UH5L\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/HV8RTzgcFH3\",\"displayName\":\"Kwamabai Krim\",\"id\":\"HV8RTzgcFH3\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/DNRAeXT9IwS\",\"displayName\":\"Dema\",\"id\":\"DNRAeXT9IwS\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/aWQTfvgPA5v\",\"displayName\":\"Kpanda Kemoh\",\"id\":\"aWQTfvgPA5v\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/g8DdBm7EmUt\",\"displayName\":\"Sittia\",\"id\":\"g8DdBm7EmUt\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/VP397wRvePm\",\"displayName\":\"Nongoba Bullum\",\"id\":\"VP397wRvePm\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/CG4QD1HC3h4\",\"displayName\":\"Yawbeko\",\"id\":\"CG4QD1HC3h4\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/EB1zRKdYjdY\",\"displayName\":\"Bendu Cha\",\"id\":\"EB1zRKdYjdY\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw/VCtF1DbspR5\",\"displayName\":\"Jong\",\"id\":\"VCtF1DbspR5\"}],\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw\",\"id\":\"lc3eMKXaEfw\"}",
         "responseSize": 1163,
         "responseHeaders": {
             "server": "nginx/1.23.0",
@@ -236,15 +259,8 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        },
-        "responseLookup": [
-            0,
-            1,
-            1,
-            1
-        ]
+            "x-xss-protection": "1; mode=block"
+        }
     },
     {
         "path": "/api/39/organisationUnits/O6uvpzGd5pu?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
@@ -276,8 +292,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -310,8 +325,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -344,59 +358,15 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
-    },
-    {
-        "path": "/api/39/organisationUnits/qhqAxPSTUXp?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
-        "featureName": "Users can approve, accept, unapprove, and unaccept data",
-        "static": false,
-        "count": 4,
-        "nonDeterministic": true,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "debug.dhis2.org",
-            "connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "cross-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 200,
-        "responseBody": [
-            "{\"children\":[{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/VGAFxBXz16y\",\"displayName\":\"Sengbeh\",\"id\":\"VGAFxBXz16y\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/Mr4au3jR9bt\",\"displayName\":\"Dembelia Sinkunia\",\"id\":\"Mr4au3jR9bt\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/EZPwuUTeIIG\",\"displayName\":\"Wara Wara Yagala\",\"id\":\"EZPwuUTeIIG\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/OTFepb1k9Db\",\"displayName\":\"Mongo\",\"id\":\"OTFepb1k9Db\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/GFk45MOxzJJ\",\"displayName\":\"Neya\",\"id\":\"GFk45MOxzJJ\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/PaqugoqjRIj\",\"displayName\":\"Sulima (Koinadugu)\",\"id\":\"PaqugoqjRIj\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/XrF5AvaGcuw\",\"displayName\":\"Wara Wara Bafodia\",\"id\":\"XrF5AvaGcuw\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/J4GiUImJZoE\",\"displayName\":\"Nieni\",\"id\":\"J4GiUImJZoE\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/iEkBZnMDarP\",\"displayName\":\"Folosaba Dembelia\",\"id\":\"iEkBZnMDarP\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/Lt8U7GVWvSR\",\"displayName\":\"Diang\",\"id\":\"Lt8U7GVWvSR\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/vEvs2ckGNQj\",\"displayName\":\"Kasonko\",\"id\":\"vEvs2ckGNQj\"}],\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp\",\"id\":\"qhqAxPSTUXp\"}",
-            "{\"children\":[{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/VGAFxBXz16y\",\"displayName\":\"Sengbeh\",\"id\":\"VGAFxBXz16y\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/OTFepb1k9Db\",\"displayName\":\"Mongo\",\"id\":\"OTFepb1k9Db\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/GFk45MOxzJJ\",\"displayName\":\"Neya\",\"id\":\"GFk45MOxzJJ\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/J4GiUImJZoE\",\"displayName\":\"Nieni\",\"id\":\"J4GiUImJZoE\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/vEvs2ckGNQj\",\"displayName\":\"Kasonko\",\"id\":\"vEvs2ckGNQj\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/Mr4au3jR9bt\",\"displayName\":\"Dembelia Sinkunia\",\"id\":\"Mr4au3jR9bt\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/EZPwuUTeIIG\",\"displayName\":\"Wara Wara Yagala\",\"id\":\"EZPwuUTeIIG\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/PaqugoqjRIj\",\"displayName\":\"Sulima (Koinadugu)\",\"id\":\"PaqugoqjRIj\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/XrF5AvaGcuw\",\"displayName\":\"Wara Wara Bafodia\",\"id\":\"XrF5AvaGcuw\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/iEkBZnMDarP\",\"displayName\":\"Folosaba Dembelia\",\"id\":\"iEkBZnMDarP\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/Lt8U7GVWvSR\",\"displayName\":\"Diang\",\"id\":\"Lt8U7GVWvSR\"}],\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp\",\"id\":\"qhqAxPSTUXp\"}"
-        ],
-        "responseSize": 1109,
-        "responseHeaders": {
-            "server": "nginx/1.23.0",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "access-control-allow-credentials": "true",
-            "access-control-allow-origin": "http://localhost:3000",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        },
-        "responseLookup": [
-            0,
-            1,
-            1,
-            1
-        ]
     },
     {
         "path": "/api/39/organisationUnits/TEQlaapDQoK?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
         "featureName": "Users can approve, accept, unapprove, and unaccept data",
         "static": false,
         "count": 4,
-        "nonDeterministic": true,
+        "nonDeterministic": false,
         "method": "GET",
         "requestBody": "",
         "requestHeaders": {
@@ -408,10 +378,7 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": [
-            "{\"children\":[{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/JdqfYTIFZXN\",\"displayName\":\"Maforki\",\"id\":\"JdqfYTIFZXN\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/EfWCa0Cc8WW\",\"displayName\":\"Masimera\",\"id\":\"EfWCa0Cc8WW\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/fRLX08WHWpL\",\"displayName\":\"Lokomasama\",\"id\":\"fRLX08WHWpL\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/RWvG1aFrr0r\",\"displayName\":\"Marampa\",\"id\":\"RWvG1aFrr0r\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/ZiOVcrSjSYe\",\"displayName\":\"Dibia\",\"id\":\"ZiOVcrSjSYe\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/vn9KJsLyP5f\",\"displayName\":\"Kaffu Bullom\",\"id\":\"vn9KJsLyP5f\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/pRHGAROvuyI\",\"displayName\":\"Koya\",\"id\":\"pRHGAROvuyI\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/Pc3JTyqnsmL\",\"displayName\":\"Buya Romende\",\"id\":\"Pc3JTyqnsmL\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/TA7NvKjsn4A\",\"displayName\":\"Bureh Kasseh Maconteh\",\"id\":\"TA7NvKjsn4A\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/HWjrSuoNPte\",\"displayName\":\"Sanda Magbolonthor\",\"id\":\"HWjrSuoNPte\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/PrJQHI6q7w2\",\"displayName\":\"Tainkatopa Makama Safrokoh \",\"id\":\"PrJQHI6q7w2\"}],\"path\":\"/ImspTQPwCqd/TEQlaapDQoK\",\"id\":\"TEQlaapDQoK\"}",
-            "{\"children\":[{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/fRLX08WHWpL\",\"displayName\":\"Lokomasama\",\"id\":\"fRLX08WHWpL\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/pRHGAROvuyI\",\"displayName\":\"Koya\",\"id\":\"pRHGAROvuyI\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/TA7NvKjsn4A\",\"displayName\":\"Bureh Kasseh Maconteh\",\"id\":\"TA7NvKjsn4A\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/PrJQHI6q7w2\",\"displayName\":\"Tainkatopa Makama Safrokoh \",\"id\":\"PrJQHI6q7w2\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/JdqfYTIFZXN\",\"displayName\":\"Maforki\",\"id\":\"JdqfYTIFZXN\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/EfWCa0Cc8WW\",\"displayName\":\"Masimera\",\"id\":\"EfWCa0Cc8WW\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/RWvG1aFrr0r\",\"displayName\":\"Marampa\",\"id\":\"RWvG1aFrr0r\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/ZiOVcrSjSYe\",\"displayName\":\"Dibia\",\"id\":\"ZiOVcrSjSYe\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/vn9KJsLyP5f\",\"displayName\":\"Kaffu Bullom\",\"id\":\"vn9KJsLyP5f\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/Pc3JTyqnsmL\",\"displayName\":\"Buya Romende\",\"id\":\"Pc3JTyqnsmL\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/HWjrSuoNPte\",\"displayName\":\"Sanda Magbolonthor\",\"id\":\"HWjrSuoNPte\"}],\"path\":\"/ImspTQPwCqd/TEQlaapDQoK\",\"id\":\"TEQlaapDQoK\"}"
-        ],
+        "responseBody": "{\"children\":[{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/fRLX08WHWpL\",\"displayName\":\"Lokomasama\",\"id\":\"fRLX08WHWpL\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/pRHGAROvuyI\",\"displayName\":\"Koya\",\"id\":\"pRHGAROvuyI\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/TA7NvKjsn4A\",\"displayName\":\"Bureh Kasseh Maconteh\",\"id\":\"TA7NvKjsn4A\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/PrJQHI6q7w2\",\"displayName\":\"Tainkatopa Makama Safrokoh \",\"id\":\"PrJQHI6q7w2\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/JdqfYTIFZXN\",\"displayName\":\"Maforki\",\"id\":\"JdqfYTIFZXN\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/EfWCa0Cc8WW\",\"displayName\":\"Masimera\",\"id\":\"EfWCa0Cc8WW\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/RWvG1aFrr0r\",\"displayName\":\"Marampa\",\"id\":\"RWvG1aFrr0r\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/ZiOVcrSjSYe\",\"displayName\":\"Dibia\",\"id\":\"ZiOVcrSjSYe\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/vn9KJsLyP5f\",\"displayName\":\"Kaffu Bullom\",\"id\":\"vn9KJsLyP5f\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/Pc3JTyqnsmL\",\"displayName\":\"Buya Romende\",\"id\":\"Pc3JTyqnsmL\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK/HWjrSuoNPte\",\"displayName\":\"Sanda Magbolonthor\",\"id\":\"HWjrSuoNPte\"}],\"path\":\"/ImspTQPwCqd/TEQlaapDQoK\",\"id\":\"TEQlaapDQoK\"}",
         "responseSize": 1122,
         "responseHeaders": {
             "server": "nginx/1.23.0",
@@ -424,15 +391,8 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        },
-        "responseLookup": [
-            0,
-            1,
-            1,
-            1
-        ]
+            "x-xss-protection": "1; mode=block"
+        }
     },
     {
         "path": "/api/39/organisationUnits/Vth0fbpFcsO?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
@@ -464,8 +424,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -498,16 +457,15 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
-        "path": "/api/39/organisationUnits/bL4ooGhyHRQ?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
+        "path": "/api/39/organisationUnits/qhqAxPSTUXp?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
         "featureName": "Users can approve, accept, unapprove, and unaccept data",
         "static": false,
         "count": 4,
-        "nonDeterministic": true,
+        "nonDeterministic": false,
         "method": "GET",
         "requestBody": "",
         "requestHeaders": {
@@ -519,10 +477,40 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": [
-            "{\"children\":[{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/zSNUViKdkk3\",\"displayName\":\"Kpaka\",\"id\":\"zSNUViKdkk3\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/pk7bUK5c1Uf\",\"displayName\":\"Ya Kpukumu Krim\",\"id\":\"pk7bUK5c1Uf\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/N233eZJZ1bh\",\"displayName\":\"Pejeh\",\"id\":\"N233eZJZ1bh\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/NqWaKXcg01b\",\"displayName\":\"Sowa\",\"id\":\"NqWaKXcg01b\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/BD9gU0GKlr2\",\"displayName\":\"Makpele\",\"id\":\"BD9gU0GKlr2\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/RzKeCma9qb1\",\"displayName\":\"Barri\",\"id\":\"RzKeCma9qb1\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/YpVol7asWvd\",\"displayName\":\"Kpanga Krim\",\"id\":\"YpVol7asWvd\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/eNtRuQrrZeo\",\"displayName\":\"Galliness Perri\",\"id\":\"eNtRuQrrZeo\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/DfUfwjM9am5\",\"displayName\":\"Malen\",\"id\":\"DfUfwjM9am5\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/nlt6j60tCHF\",\"displayName\":\"Mano Sakrim\",\"id\":\"nlt6j60tCHF\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/QwMiPiME3bA\",\"displayName\":\"Kpanga Kabonde\",\"id\":\"QwMiPiME3bA\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/d9iMR1MpuIO\",\"displayName\":\"Soro-Gbeima\",\"id\":\"d9iMR1MpuIO\"}],\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ\",\"id\":\"bL4ooGhyHRQ\"}",
-            "{\"children\":[{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/pk7bUK5c1Uf\",\"displayName\":\"Ya Kpukumu Krim\",\"id\":\"pk7bUK5c1Uf\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/NqWaKXcg01b\",\"displayName\":\"Sowa\",\"id\":\"NqWaKXcg01b\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/BD9gU0GKlr2\",\"displayName\":\"Makpele\",\"id\":\"BD9gU0GKlr2\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/RzKeCma9qb1\",\"displayName\":\"Barri\",\"id\":\"RzKeCma9qb1\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/YpVol7asWvd\",\"displayName\":\"Kpanga Krim\",\"id\":\"YpVol7asWvd\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/zSNUViKdkk3\",\"displayName\":\"Kpaka\",\"id\":\"zSNUViKdkk3\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/N233eZJZ1bh\",\"displayName\":\"Pejeh\",\"id\":\"N233eZJZ1bh\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/eNtRuQrrZeo\",\"displayName\":\"Galliness Perri\",\"id\":\"eNtRuQrrZeo\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/DfUfwjM9am5\",\"displayName\":\"Malen\",\"id\":\"DfUfwjM9am5\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/nlt6j60tCHF\",\"displayName\":\"Mano Sakrim\",\"id\":\"nlt6j60tCHF\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/QwMiPiME3bA\",\"displayName\":\"Kpanga Kabonde\",\"id\":\"QwMiPiME3bA\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/d9iMR1MpuIO\",\"displayName\":\"Soro-Gbeima\",\"id\":\"d9iMR1MpuIO\"}],\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ\",\"id\":\"bL4ooGhyHRQ\"}"
-        ],
+        "responseBody": "{\"children\":[{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/VGAFxBXz16y\",\"displayName\":\"Sengbeh\",\"id\":\"VGAFxBXz16y\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/OTFepb1k9Db\",\"displayName\":\"Mongo\",\"id\":\"OTFepb1k9Db\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/GFk45MOxzJJ\",\"displayName\":\"Neya\",\"id\":\"GFk45MOxzJJ\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/J4GiUImJZoE\",\"displayName\":\"Nieni\",\"id\":\"J4GiUImJZoE\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/vEvs2ckGNQj\",\"displayName\":\"Kasonko\",\"id\":\"vEvs2ckGNQj\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/Mr4au3jR9bt\",\"displayName\":\"Dembelia Sinkunia\",\"id\":\"Mr4au3jR9bt\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/EZPwuUTeIIG\",\"displayName\":\"Wara Wara Yagala\",\"id\":\"EZPwuUTeIIG\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/PaqugoqjRIj\",\"displayName\":\"Sulima (Koinadugu)\",\"id\":\"PaqugoqjRIj\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/XrF5AvaGcuw\",\"displayName\":\"Wara Wara Bafodia\",\"id\":\"XrF5AvaGcuw\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/iEkBZnMDarP\",\"displayName\":\"Folosaba Dembelia\",\"id\":\"iEkBZnMDarP\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp/Lt8U7GVWvSR\",\"displayName\":\"Diang\",\"id\":\"Lt8U7GVWvSR\"}],\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp\",\"id\":\"qhqAxPSTUXp\"}",
+        "responseSize": 1109,
+        "responseHeaders": {
+            "server": "nginx/1.23.0",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block"
+        }
+    },
+    {
+        "path": "/api/39/organisationUnits/bL4ooGhyHRQ?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
+        "featureName": "Users can approve, accept, unapprove, and unaccept data",
+        "static": false,
+        "count": 4,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "debug.dhis2.org",
+            "connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "{\"children\":[{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/pk7bUK5c1Uf\",\"displayName\":\"Ya Kpukumu Krim\",\"id\":\"pk7bUK5c1Uf\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/NqWaKXcg01b\",\"displayName\":\"Sowa\",\"id\":\"NqWaKXcg01b\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/BD9gU0GKlr2\",\"displayName\":\"Makpele\",\"id\":\"BD9gU0GKlr2\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/RzKeCma9qb1\",\"displayName\":\"Barri\",\"id\":\"RzKeCma9qb1\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/YpVol7asWvd\",\"displayName\":\"Kpanga Krim\",\"id\":\"YpVol7asWvd\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/zSNUViKdkk3\",\"displayName\":\"Kpaka\",\"id\":\"zSNUViKdkk3\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/N233eZJZ1bh\",\"displayName\":\"Pejeh\",\"id\":\"N233eZJZ1bh\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/eNtRuQrrZeo\",\"displayName\":\"Galliness Perri\",\"id\":\"eNtRuQrrZeo\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/DfUfwjM9am5\",\"displayName\":\"Malen\",\"id\":\"DfUfwjM9am5\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/nlt6j60tCHF\",\"displayName\":\"Mano Sakrim\",\"id\":\"nlt6j60tCHF\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/QwMiPiME3bA\",\"displayName\":\"Kpanga Kabonde\",\"id\":\"QwMiPiME3bA\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ/d9iMR1MpuIO\",\"displayName\":\"Soro-Gbeima\",\"id\":\"d9iMR1MpuIO\"}],\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ\",\"id\":\"bL4ooGhyHRQ\"}",
         "responseSize": 1183,
         "responseHeaders": {
             "server": "nginx/1.23.0",
@@ -535,15 +523,8 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        },
-        "responseLookup": [
-            0,
-            1,
-            1,
-            1
-        ]
+            "x-xss-protection": "1; mode=block"
+        }
     },
     {
         "path": "/api/39/organisationUnits/at6UHUQatSo?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
@@ -575,8 +556,40 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
+        }
+    },
+    {
+        "path": "/api/39/organisationUnits/eIQbndfxQMb?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
+        "featureName": "Users can approve, accept, unapprove, and unaccept data",
+        "static": false,
+        "count": 4,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "debug.dhis2.org",
+            "connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "{\"children\":[{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/BmYyh9bZ0sr\",\"displayName\":\"Kafe Simira\",\"id\":\"BmYyh9bZ0sr\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/xhyjU2SVewz\",\"displayName\":\"Tane\",\"id\":\"xhyjU2SVewz\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/l0ccv2yzfF3\",\"displayName\":\"Kunike\",\"id\":\"l0ccv2yzfF3\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/NNE0YMCDZkO\",\"displayName\":\"Yoni\",\"id\":\"NNE0YMCDZkO\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/fwxkctgmffZ\",\"displayName\":\"Kholifa Mabang\",\"id\":\"fwxkctgmffZ\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/PQZJPIpTepd\",\"displayName\":\"Kholifa Rowalla\",\"id\":\"PQZJPIpTepd\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/smoyi1iYNK6\",\"displayName\":\"Kalansogoia\",\"id\":\"smoyi1iYNK6\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/r1RUyfVBkLp\",\"displayName\":\"Sambaia Bendugu\",\"id\":\"r1RUyfVBkLp\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/EVkm2xYcf6Z\",\"displayName\":\"Malal Mara\",\"id\":\"EVkm2xYcf6Z\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/P69SId31eDp\",\"displayName\":\"Gbonkonlenken\",\"id\":\"P69SId31eDp\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/rXLor9Knq6l\",\"displayName\":\"Kunike Barina\",\"id\":\"rXLor9Knq6l\"}],\"path\":\"/ImspTQPwCqd/eIQbndfxQMb\",\"id\":\"eIQbndfxQMb\"}",
+        "responseSize": 1107,
+        "responseHeaders": {
+            "server": "nginx/1.23.0",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -609,52 +622,8 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
-    },
-    {
-        "path": "/api/39/organisationUnits/eIQbndfxQMb?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
-        "featureName": "Users can approve, accept, unapprove, and unaccept data",
-        "static": false,
-        "count": 4,
-        "nonDeterministic": true,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "debug.dhis2.org",
-            "connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "cross-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 200,
-        "responseBody": [
-            "{\"children\":[{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/BmYyh9bZ0sr\",\"displayName\":\"Kafe Simira\",\"id\":\"BmYyh9bZ0sr\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/fwxkctgmffZ\",\"displayName\":\"Kholifa Mabang\",\"id\":\"fwxkctgmffZ\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/xhyjU2SVewz\",\"displayName\":\"Tane\",\"id\":\"xhyjU2SVewz\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/PQZJPIpTepd\",\"displayName\":\"Kholifa Rowalla\",\"id\":\"PQZJPIpTepd\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/smoyi1iYNK6\",\"displayName\":\"Kalansogoia\",\"id\":\"smoyi1iYNK6\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/r1RUyfVBkLp\",\"displayName\":\"Sambaia Bendugu\",\"id\":\"r1RUyfVBkLp\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/EVkm2xYcf6Z\",\"displayName\":\"Malal Mara\",\"id\":\"EVkm2xYcf6Z\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/P69SId31eDp\",\"displayName\":\"Gbonkonlenken\",\"id\":\"P69SId31eDp\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/l0ccv2yzfF3\",\"displayName\":\"Kunike\",\"id\":\"l0ccv2yzfF3\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/rXLor9Knq6l\",\"displayName\":\"Kunike Barina\",\"id\":\"rXLor9Knq6l\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/NNE0YMCDZkO\",\"displayName\":\"Yoni\",\"id\":\"NNE0YMCDZkO\"}],\"path\":\"/ImspTQPwCqd/eIQbndfxQMb\",\"id\":\"eIQbndfxQMb\"}",
-            "{\"children\":[{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/BmYyh9bZ0sr\",\"displayName\":\"Kafe Simira\",\"id\":\"BmYyh9bZ0sr\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/xhyjU2SVewz\",\"displayName\":\"Tane\",\"id\":\"xhyjU2SVewz\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/l0ccv2yzfF3\",\"displayName\":\"Kunike\",\"id\":\"l0ccv2yzfF3\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/NNE0YMCDZkO\",\"displayName\":\"Yoni\",\"id\":\"NNE0YMCDZkO\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/fwxkctgmffZ\",\"displayName\":\"Kholifa Mabang\",\"id\":\"fwxkctgmffZ\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/PQZJPIpTepd\",\"displayName\":\"Kholifa Rowalla\",\"id\":\"PQZJPIpTepd\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/smoyi1iYNK6\",\"displayName\":\"Kalansogoia\",\"id\":\"smoyi1iYNK6\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/r1RUyfVBkLp\",\"displayName\":\"Sambaia Bendugu\",\"id\":\"r1RUyfVBkLp\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/EVkm2xYcf6Z\",\"displayName\":\"Malal Mara\",\"id\":\"EVkm2xYcf6Z\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/P69SId31eDp\",\"displayName\":\"Gbonkonlenken\",\"id\":\"P69SId31eDp\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb/rXLor9Knq6l\",\"displayName\":\"Kunike Barina\",\"id\":\"rXLor9Knq6l\"}],\"path\":\"/ImspTQPwCqd/eIQbndfxQMb\",\"id\":\"eIQbndfxQMb\"}"
-        ],
-        "responseSize": 1107,
-        "responseHeaders": {
-            "server": "nginx/1.23.0",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "access-control-allow-credentials": "true",
-            "access-control-allow-origin": "http://localhost:3000",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        },
-        "responseLookup": [
-            0,
-            1,
-            1,
-            1
-        ]
     },
     {
         "path": "/api/39/organisationUnits/vWbkYPRmKyS?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
@@ -686,12 +655,11 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
-        "path": "/api/39/dataApprovals/approvals?wf=rIUL3hYOjJc&pe=202303&ou=ImspTQPwCqd",
+        "path": "/api/39/dataApprovals/approvals?wf=rIUL3hYOjJc&pe=202403&ou=O6uvpzGd5pu,fdc6uOvgoji,lc3eMKXaEfw,jUb8gELQApl,PMa2VCrupOd,kJq2mPyFEHo,qhqAxPSTUXp,Vth0fbpFcsO,jmIPBj66vD6,TEQlaapDQoK,bL4ooGhyHRQ,eIQbndfxQMb,at6UHUQatSo",
         "featureName": "Users can approve, accept, unapprove, and unaccept data",
         "static": false,
         "count": 4,
@@ -707,8 +675,8 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": "[{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"ImspTQPwCqd\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVABLE\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}}]",
-        "responseSize": 211,
+        "responseBody": "[{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"eIQbndfxQMb\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"PMa2VCrupOd\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"qhqAxPSTUXp\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"bL4ooGhyHRQ\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"O6uvpzGd5pu\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"at6UHUQatSo\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"TEQlaapDQoK\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"jUb8gELQApl\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"kJq2mPyFEHo\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"fdc6uOvgoji\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"Vth0fbpFcsO\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"jmIPBj66vD6\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"lc3eMKXaEfw\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}}]",
+        "responseSize": 2809,
         "responseHeaders": {
             "server": "nginx/1.23.0",
             "content-type": "application/json;charset=UTF-8",
@@ -719,42 +687,7 @@
             "vary": "Origin",
             "access-control-expose-headers": "ETag, Location",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
-        "path": "/api/39/organisationUnits/zFDYIgyGmXG?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
-        "featureName": "Users can approve, accept, unapprove, and unaccept data",
-        "static": false,
-        "count": 4,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "debug.dhis2.org",
-            "connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "cross-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 200,
-        "responseBody": "{\"children\":[{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/zFDYIgyGmXG/p9ZtyC3LQ9f\",\"displayName\":\"Niagorehun CHP\",\"id\":\"p9ZtyC3LQ9f\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/zFDYIgyGmXG/EJoI3HArJ2W\",\"displayName\":\"Bum Kaku MCHP\",\"id\":\"EJoI3HArJ2W\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/zFDYIgyGmXG/ctMepV9p92I\",\"displayName\":\"Gbangbalia MCHP\",\"id\":\"ctMepV9p92I\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/zFDYIgyGmXG/cJkZLwhL8RP\",\"displayName\":\"Kasse MCHP\",\"id\":\"cJkZLwhL8RP\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/zFDYIgyGmXG/fA43H8Ds0Ja\",\"displayName\":\"Momajo MCHP\",\"id\":\"fA43H8Ds0Ja\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/zFDYIgyGmXG/vELbGdEphPd\",\"displayName\":\"Jimmi CHC\",\"id\":\"vELbGdEphPd\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/zFDYIgyGmXG/KvE0PYQzXMM\",\"displayName\":\"Mano Yorgbo MCHP\",\"id\":\"KvE0PYQzXMM\"}],\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/zFDYIgyGmXG\",\"id\":\"zFDYIgyGmXG\"}",
-        "responseSize": 839,
-        "responseHeaders": {
-            "server": "nginx/1.23.0",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "access-control-allow-credentials": "true",
-            "access-control-allow-origin": "http://localhost:3000",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -787,84 +720,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
-        "path": "/api/39/organisationUnits/BGGmAwx33dj?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
-        "featureName": "Users can approve, accept, unapprove, and unaccept data",
-        "static": false,
-        "count": 4,
-        "nonDeterministic": true,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "debug.dhis2.org",
-            "connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "cross-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 200,
-        "responseBody": [
-            "{\"children\":[{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/wwM3YPvBKu2\",\"displayName\":\"Ngolahun CHC\",\"id\":\"wwM3YPvBKu2\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/Tht0fnjagHi\",\"displayName\":\"Serabu Hospital Mission\",\"id\":\"Tht0fnjagHi\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/RTixJpRqS4C\",\"displayName\":\"Kpetema CHP\",\"id\":\"RTixJpRqS4C\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/xt08cuqf1ys\",\"displayName\":\"Mokoba MCHP\",\"id\":\"xt08cuqf1ys\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/tZxqVn3xNrA\",\"displayName\":\"Wallehun MCHP\",\"id\":\"tZxqVn3xNrA\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/AXZq6q7Dr6E\",\"displayName\":\"Buma MCHP\",\"id\":\"AXZq6q7Dr6E\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/am6EFqHGKeU\",\"displayName\":\"Mokpende MCHP\",\"id\":\"am6EFqHGKeU\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/CTOMXJg41hz\",\"displayName\":\"Kaniya MCHP\",\"id\":\"CTOMXJg41hz\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/E497Rk80ivZ\",\"displayName\":\"Bumpe CHC\",\"id\":\"E497Rk80ivZ\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/EFTcruJcNmZ\",\"displayName\":\"Yengema CHP\",\"id\":\"EFTcruJcNmZ\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/kEkU53NrFmy\",\"displayName\":\"Taninahun (BN) CHP\",\"id\":\"kEkU53NrFmy\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/prNiMdHuaaU\",\"displayName\":\"Serabu (Bumpe Ngao) UFC\",\"id\":\"prNiMdHuaaU\"}],\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj\",\"id\":\"BGGmAwx33dj\"}",
-            "{\"children\":[{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/Tht0fnjagHi\",\"displayName\":\"Serabu Hospital Mission\",\"id\":\"Tht0fnjagHi\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/RTixJpRqS4C\",\"displayName\":\"Kpetema CHP\",\"id\":\"RTixJpRqS4C\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/xt08cuqf1ys\",\"displayName\":\"Mokoba MCHP\",\"id\":\"xt08cuqf1ys\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/AXZq6q7Dr6E\",\"displayName\":\"Buma MCHP\",\"id\":\"AXZq6q7Dr6E\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/E497Rk80ivZ\",\"displayName\":\"Bumpe CHC\",\"id\":\"E497Rk80ivZ\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/EFTcruJcNmZ\",\"displayName\":\"Yengema CHP\",\"id\":\"EFTcruJcNmZ\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/kEkU53NrFmy\",\"displayName\":\"Taninahun (BN) CHP\",\"id\":\"kEkU53NrFmy\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/wwM3YPvBKu2\",\"displayName\":\"Ngolahun CHC\",\"id\":\"wwM3YPvBKu2\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/tZxqVn3xNrA\",\"displayName\":\"Wallehun MCHP\",\"id\":\"tZxqVn3xNrA\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/am6EFqHGKeU\",\"displayName\":\"Mokpende MCHP\",\"id\":\"am6EFqHGKeU\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/CTOMXJg41hz\",\"displayName\":\"Kaniya MCHP\",\"id\":\"CTOMXJg41hz\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/prNiMdHuaaU\",\"displayName\":\"Serabu (Bumpe Ngao) UFC\",\"id\":\"prNiMdHuaaU\"}],\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj\",\"id\":\"BGGmAwx33dj\"}"
-        ],
-        "responseSize": 1395,
-        "responseHeaders": {
-            "server": "nginx/1.23.0",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "access-control-allow-credentials": "true",
-            "access-control-allow-origin": "http://localhost:3000",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        },
-        "responseLookup": [
-            0,
-            1,
-            1,
-            1
-        ]
-    },
-    {
-        "path": "/api/39/dataApprovals/approvals?wf=rIUL3hYOjJc&pe=202303&ou=O6uvpzGd5pu,fdc6uOvgoji,lc3eMKXaEfw,jUb8gELQApl,PMa2VCrupOd,kJq2mPyFEHo,qhqAxPSTUXp,Vth0fbpFcsO,jmIPBj66vD6,TEQlaapDQoK,bL4ooGhyHRQ,eIQbndfxQMb,at6UHUQatSo",
-        "featureName": "Users can approve, accept, unapprove, and unaccept data",
-        "static": false,
-        "count": 4,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "debug.dhis2.org",
-            "connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "cross-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 200,
-        "responseBody": "[{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"O6uvpzGd5pu\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"fdc6uOvgoji\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"lc3eMKXaEfw\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"Vth0fbpFcsO\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"jmIPBj66vD6\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"bL4ooGhyHRQ\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"TEQlaapDQoK\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"eIQbndfxQMb\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"at6UHUQatSo\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"PMa2VCrupOd\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"jUb8gELQApl\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"kJq2mPyFEHo\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"qhqAxPSTUXp\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_WAITING\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}}]",
-        "responseSize": 2809,
-        "responseHeaders": {
-            "server": "nginx/1.23.0",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "access-control-allow-credentials": "true",
-            "access-control-allow-origin": "http://localhost:3000",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -897,8 +753,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -931,12 +786,11 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
-        "path": "/api/39/organisationUnits/kU8vhUkAGaT?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
+        "path": "/api/39/organisationUnits/zFDYIgyGmXG?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
         "featureName": "Users can approve, accept, unapprove, and unaccept data",
         "static": false,
         "count": 4,
@@ -952,8 +806,8 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": "{\"children\":[{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/kU8vhUkAGaT/Ykx8Ovui7g0\",\"displayName\":\"Upper Saama MCHP\",\"id\":\"Ykx8Ovui7g0\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/kU8vhUkAGaT/l2kZRcJjomr\",\"displayName\":\"Hima MCHP\",\"id\":\"l2kZRcJjomr\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/kU8vhUkAGaT/AlG0apJE5cm\",\"displayName\":\"Karleh MCHP\",\"id\":\"AlG0apJE5cm\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/kU8vhUkAGaT/VfZnZ6UKyn8\",\"displayName\":\"Bontiwo MCHP\",\"id\":\"VfZnZ6UKyn8\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/kU8vhUkAGaT/W2KnxOMvmgE\",\"displayName\":\"Sumbuya CHC\",\"id\":\"W2KnxOMvmgE\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/kU8vhUkAGaT/al4GkB6X2X3\",\"displayName\":\"Ngieyehun MCHP\",\"id\":\"al4GkB6X2X3\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/kU8vhUkAGaT/QDoO5r6Sae7\",\"displayName\":\"Yambama MCHP\",\"id\":\"QDoO5r6Sae7\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/kU8vhUkAGaT/r4W2vzlmPhm\",\"displayName\":\"Feiba CHP\",\"id\":\"r4W2vzlmPhm\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/kU8vhUkAGaT/mGmu0GJ5neg\",\"displayName\":\"Kpetewoma CHP\",\"id\":\"mGmu0GJ5neg\"}],\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/kU8vhUkAGaT\",\"id\":\"kU8vhUkAGaT\"}",
-        "responseSize": 1050,
+        "responseBody": "{\"children\":[{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/zFDYIgyGmXG/p9ZtyC3LQ9f\",\"displayName\":\"Niagorehun CHP\",\"id\":\"p9ZtyC3LQ9f\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/zFDYIgyGmXG/EJoI3HArJ2W\",\"displayName\":\"Bum Kaku MCHP\",\"id\":\"EJoI3HArJ2W\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/zFDYIgyGmXG/ctMepV9p92I\",\"displayName\":\"Gbangbalia MCHP\",\"id\":\"ctMepV9p92I\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/zFDYIgyGmXG/cJkZLwhL8RP\",\"displayName\":\"Kasse MCHP\",\"id\":\"cJkZLwhL8RP\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/zFDYIgyGmXG/fA43H8Ds0Ja\",\"displayName\":\"Momajo MCHP\",\"id\":\"fA43H8Ds0Ja\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/zFDYIgyGmXG/vELbGdEphPd\",\"displayName\":\"Jimmi CHC\",\"id\":\"vELbGdEphPd\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/zFDYIgyGmXG/KvE0PYQzXMM\",\"displayName\":\"Mano Yorgbo MCHP\",\"id\":\"KvE0PYQzXMM\"}],\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/zFDYIgyGmXG\",\"id\":\"zFDYIgyGmXG\"}",
+        "responseSize": 839,
         "responseHeaders": {
             "server": "nginx/1.23.0",
             "content-type": "application/json;charset=UTF-8",
@@ -965,16 +819,15 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
-        "path": "/api/39/organisationUnits/JdhagCUEMbj?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
+        "path": "/api/39/organisationUnits/BGGmAwx33dj?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
         "featureName": "Users can approve, accept, unapprove, and unaccept data",
         "static": false,
         "count": 4,
-        "nonDeterministic": true,
+        "nonDeterministic": false,
         "method": "GET",
         "requestBody": "",
         "requestHeaders": {
@@ -986,11 +839,8 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": [
-            "{\"children\":[{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/JdhagCUEMbj/WOk7efLlLSj\",\"displayName\":\"Niagorehun MCHP\",\"id\":\"WOk7efLlLSj\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/JdhagCUEMbj/kFur7xPhpH9\",\"displayName\":\"Teibor MCHP\",\"id\":\"kFur7xPhpH9\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/JdhagCUEMbj/JiEz2VDLwHY\",\"displayName\":\"Komboya Gbauja MCHP\",\"id\":\"JiEz2VDLwHY\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/JdhagCUEMbj/QsAwd531Cpd\",\"displayName\":\"Njala CHC\",\"id\":\"QsAwd531Cpd\"}],\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/JdhagCUEMbj\",\"id\":\"JdhagCUEMbj\"}",
-            "{\"children\":[{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/JdhagCUEMbj/QsAwd531Cpd\",\"displayName\":\"Njala CHC\",\"id\":\"QsAwd531Cpd\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/JdhagCUEMbj/WOk7efLlLSj\",\"displayName\":\"Niagorehun MCHP\",\"id\":\"WOk7efLlLSj\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/JdhagCUEMbj/kFur7xPhpH9\",\"displayName\":\"Teibor MCHP\",\"id\":\"kFur7xPhpH9\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/JdhagCUEMbj/JiEz2VDLwHY\",\"displayName\":\"Komboya Gbauja MCHP\",\"id\":\"JiEz2VDLwHY\"}],\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/JdhagCUEMbj\",\"id\":\"JdhagCUEMbj\"}"
-        ],
-        "responseSize": 517,
+        "responseBody": "{\"children\":[{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/Tht0fnjagHi\",\"displayName\":\"Serabu Hospital Mission\",\"id\":\"Tht0fnjagHi\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/RTixJpRqS4C\",\"displayName\":\"Kpetema CHP\",\"id\":\"RTixJpRqS4C\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/xt08cuqf1ys\",\"displayName\":\"Mokoba MCHP\",\"id\":\"xt08cuqf1ys\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/AXZq6q7Dr6E\",\"displayName\":\"Buma MCHP\",\"id\":\"AXZq6q7Dr6E\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/E497Rk80ivZ\",\"displayName\":\"Bumpe CHC\",\"id\":\"E497Rk80ivZ\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/EFTcruJcNmZ\",\"displayName\":\"Yengema CHP\",\"id\":\"EFTcruJcNmZ\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/kEkU53NrFmy\",\"displayName\":\"Taninahun (BN) CHP\",\"id\":\"kEkU53NrFmy\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/wwM3YPvBKu2\",\"displayName\":\"Ngolahun CHC\",\"id\":\"wwM3YPvBKu2\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/tZxqVn3xNrA\",\"displayName\":\"Wallehun MCHP\",\"id\":\"tZxqVn3xNrA\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/am6EFqHGKeU\",\"displayName\":\"Mokpende MCHP\",\"id\":\"am6EFqHGKeU\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/CTOMXJg41hz\",\"displayName\":\"Kaniya MCHP\",\"id\":\"CTOMXJg41hz\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj/prNiMdHuaaU\",\"displayName\":\"Serabu (Bumpe Ngao) UFC\",\"id\":\"prNiMdHuaaU\"}],\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/BGGmAwx33dj\",\"id\":\"BGGmAwx33dj\"}",
+        "responseSize": 1395,
         "responseHeaders": {
             "server": "nginx/1.23.0",
             "content-type": "application/json;charset=UTF-8",
@@ -1002,22 +852,15 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        },
-        "responseLookup": [
-            0,
-            1,
-            1,
-            1
-        ]
+            "x-xss-protection": "1; mode=block"
+        }
     },
     {
         "path": "/api/39/organisationUnits/U6Kr7Gtpidn?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
         "featureName": "Users can approve, accept, unapprove, and unaccept data",
         "static": false,
         "count": 4,
-        "nonDeterministic": true,
+        "nonDeterministic": false,
         "method": "GET",
         "requestBody": "",
         "requestHeaders": {
@@ -1029,10 +872,7 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": [
-            "{\"children\":[{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/GvFqTavdpGE\",\"displayName\":\"Agape CHP\",\"id\":\"GvFqTavdpGE\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/gfWvbbgdjoS\",\"displayName\":\"Tengbewabu MCHP\",\"id\":\"gfWvbbgdjoS\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/jfV49JGnYKF\",\"displayName\":\"Fatibra CHP\",\"id\":\"jfV49JGnYKF\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/vRC0stJ5y9Q\",\"displayName\":\"Bucksal Clinic\",\"id\":\"vRC0stJ5y9Q\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/dx4NOnoGtE7\",\"displayName\":\"Yemoh MCHP\",\"id\":\"dx4NOnoGtE7\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/roQ2l7TX0eZ\",\"displayName\":\"SLRCS (Bo) Clinic\",\"id\":\"roQ2l7TX0eZ\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/tSBcgrTDdB8\",\"displayName\":\"Paramedical CHC\",\"id\":\"tSBcgrTDdB8\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/sK498nBOLfQ\",\"displayName\":\"Elshadai MCHP\",\"id\":\"sK498nBOLfQ\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/eRg3KZyWUSJ\",\"displayName\":\"Fullawahun MCHP\",\"id\":\"eRg3KZyWUSJ\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/aBfyTU5Wgds\",\"displayName\":\"Nduvuibu MCHP\",\"id\":\"aBfyTU5Wgds\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/mzsOsz0NwNY\",\"displayName\":\"New Police Barracks CHC\",\"id\":\"mzsOsz0NwNY\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/lOv6IFgr6Fs\",\"displayName\":\"Manjama Shellmingo CHC\",\"id\":\"lOv6IFgr6Fs\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/kLNQT4KQ9hT\",\"displayName\":\"Marie Stopes (Kakua) Clinic\",\"id\":\"kLNQT4KQ9hT\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/Ioxjc2KBjWd\",\"displayName\":\"Fengehun MCHP\",\"id\":\"Ioxjc2KBjWd\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/bqtZrXoryDF\",\"displayName\":\"Mercy Ship Hospital\",\"id\":\"bqtZrXoryDF\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/H0OkaM4ReRK\",\"displayName\":\"Sam Lean's MCHP\",\"id\":\"H0OkaM4ReRK\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/tGf942oWszb\",\"displayName\":\"Gbongboma MCHP\",\"id\":\"tGf942oWszb\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/rx9ubw0UCqj\",\"displayName\":\"Bandajuma MCHP\",\"id\":\"rx9ubw0UCqj\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/i7qaYfmGVDr\",\"displayName\":\"Gbotima MCHP\",\"id\":\"i7qaYfmGVDr\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/ltF8BmYAXpQ\",\"displayName\":\"Maguama CHP\",\"id\":\"ltF8BmYAXpQ\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/k6DIO9LIEk9\",\"displayName\":\"Lyn Maternity MCHP\",\"id\":\"k6DIO9LIEk9\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/ZsjXrmZS59z\",\"displayName\":\"Ndegbome MCHP\",\"id\":\"ZsjXrmZS59z\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/K3k64jslIlL\",\"displayName\":\"EDC Unit CHP\",\"id\":\"K3k64jslIlL\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/kMTHqMgenme\",\"displayName\":\"Morning Star Clinic\",\"id\":\"kMTHqMgenme\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/jCnyQOKQBFX\",\"displayName\":\"St Monica's Clinic\",\"id\":\"jCnyQOKQBFX\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/jk1TtiBM5hz\",\"displayName\":\"Holy Mary Hospital\",\"id\":\"jk1TtiBM5hz\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/bM4Ky73uMao\",\"displayName\":\"Kpolies Clinic\",\"id\":\"bM4Ky73uMao\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/wtdBuXDwZYQ\",\"displayName\":\"Praise Foundation CHC\",\"id\":\"wtdBuXDwZYQ\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/rZxk3S0qN63\",\"displayName\":\"Bo Govt. Hosp.\",\"id\":\"rZxk3S0qN63\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/uROAmk9ymNE\",\"displayName\":\"Kindoyal Hospital\",\"id\":\"uROAmk9ymNE\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/Z9ny6QeqsgX\",\"displayName\":\"Manjama UMC CHC\",\"id\":\"Z9ny6QeqsgX\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/UugO8xDeLQD\",\"displayName\":\"UNIMUS MCHP\",\"id\":\"UugO8xDeLQD\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/hyLU8ivDJDi\",\"displayName\":\"Mid Land MCHP\",\"id\":\"hyLU8ivDJDi\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/ptc0SQi05E4\",\"displayName\":\"Massah Memorial Maternity MCHP\",\"id\":\"ptc0SQi05E4\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/UOJlcpPnBat\",\"displayName\":\"Needy CHC\",\"id\":\"UOJlcpPnBat\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/VrDA0Hn4Xc6\",\"displayName\":\"Harvest Time MCHP\",\"id\":\"VrDA0Hn4Xc6\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/KQFAul3T9xz\",\"displayName\":\"Nafaya MCHP\",\"id\":\"KQFAul3T9xz\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/E9oBVjyEaCe\",\"displayName\":\"Gbanja Town MCHP\",\"id\":\"E9oBVjyEaCe\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/RhJbg8UD75Q\",\"displayName\":\"Yemoh Town CHC\",\"id\":\"RhJbg8UD75Q\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/Pae8DR7VmcL\",\"displayName\":\"MCH (Kakua) Static\",\"id\":\"Pae8DR7VmcL\"}],\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn\",\"id\":\"U6Kr7Gtpidn\"}",
-            "{\"children\":[{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/jfV49JGnYKF\",\"displayName\":\"Fatibra CHP\",\"id\":\"jfV49JGnYKF\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/tSBcgrTDdB8\",\"displayName\":\"Paramedical CHC\",\"id\":\"tSBcgrTDdB8\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/sK498nBOLfQ\",\"displayName\":\"Elshadai MCHP\",\"id\":\"sK498nBOLfQ\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/Ioxjc2KBjWd\",\"displayName\":\"Fengehun MCHP\",\"id\":\"Ioxjc2KBjWd\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/bqtZrXoryDF\",\"displayName\":\"Mercy Ship Hospital\",\"id\":\"bqtZrXoryDF\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/tGf942oWszb\",\"displayName\":\"Gbongboma MCHP\",\"id\":\"tGf942oWszb\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/rx9ubw0UCqj\",\"displayName\":\"Bandajuma MCHP\",\"id\":\"rx9ubw0UCqj\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/ltF8BmYAXpQ\",\"displayName\":\"Maguama CHP\",\"id\":\"ltF8BmYAXpQ\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/k6DIO9LIEk9\",\"displayName\":\"Lyn Maternity MCHP\",\"id\":\"k6DIO9LIEk9\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/ZsjXrmZS59z\",\"displayName\":\"Ndegbome MCHP\",\"id\":\"ZsjXrmZS59z\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/kMTHqMgenme\",\"displayName\":\"Morning Star Clinic\",\"id\":\"kMTHqMgenme\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/jCnyQOKQBFX\",\"displayName\":\"St Monica's Clinic\",\"id\":\"jCnyQOKQBFX\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/bM4Ky73uMao\",\"displayName\":\"Kpolies Clinic\",\"id\":\"bM4Ky73uMao\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/wtdBuXDwZYQ\",\"displayName\":\"Praise Foundation CHC\",\"id\":\"wtdBuXDwZYQ\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/Z9ny6QeqsgX\",\"displayName\":\"Manjama UMC CHC\",\"id\":\"Z9ny6QeqsgX\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/UOJlcpPnBat\",\"displayName\":\"Needy CHC\",\"id\":\"UOJlcpPnBat\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/VrDA0Hn4Xc6\",\"displayName\":\"Harvest Time MCHP\",\"id\":\"VrDA0Hn4Xc6\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/E9oBVjyEaCe\",\"displayName\":\"Gbanja Town MCHP\",\"id\":\"E9oBVjyEaCe\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/RhJbg8UD75Q\",\"displayName\":\"Yemoh Town CHC\",\"id\":\"RhJbg8UD75Q\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/Pae8DR7VmcL\",\"displayName\":\"MCH (Kakua) Static\",\"id\":\"Pae8DR7VmcL\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/GvFqTavdpGE\",\"displayName\":\"Agape CHP\",\"id\":\"GvFqTavdpGE\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/gfWvbbgdjoS\",\"displayName\":\"Tengbewabu MCHP\",\"id\":\"gfWvbbgdjoS\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/vRC0stJ5y9Q\",\"displayName\":\"Bucksal Clinic\",\"id\":\"vRC0stJ5y9Q\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/dx4NOnoGtE7\",\"displayName\":\"Yemoh MCHP\",\"id\":\"dx4NOnoGtE7\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/roQ2l7TX0eZ\",\"displayName\":\"SLRCS (Bo) Clinic\",\"id\":\"roQ2l7TX0eZ\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/eRg3KZyWUSJ\",\"displayName\":\"Fullawahun MCHP\",\"id\":\"eRg3KZyWUSJ\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/aBfyTU5Wgds\",\"displayName\":\"Nduvuibu MCHP\",\"id\":\"aBfyTU5Wgds\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/mzsOsz0NwNY\",\"displayName\":\"New Police Barracks CHC\",\"id\":\"mzsOsz0NwNY\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/lOv6IFgr6Fs\",\"displayName\":\"Manjama Shellmingo CHC\",\"id\":\"lOv6IFgr6Fs\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/kLNQT4KQ9hT\",\"displayName\":\"Marie Stopes (Kakua) Clinic\",\"id\":\"kLNQT4KQ9hT\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/H0OkaM4ReRK\",\"displayName\":\"Sam Lean's MCHP\",\"id\":\"H0OkaM4ReRK\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/i7qaYfmGVDr\",\"displayName\":\"Gbotima MCHP\",\"id\":\"i7qaYfmGVDr\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/K3k64jslIlL\",\"displayName\":\"EDC Unit CHP\",\"id\":\"K3k64jslIlL\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/jk1TtiBM5hz\",\"displayName\":\"Holy Mary Hospital\",\"id\":\"jk1TtiBM5hz\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/rZxk3S0qN63\",\"displayName\":\"Bo Govt. Hosp.\",\"id\":\"rZxk3S0qN63\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/uROAmk9ymNE\",\"displayName\":\"Kindoyal Hospital\",\"id\":\"uROAmk9ymNE\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/UugO8xDeLQD\",\"displayName\":\"UNIMUS MCHP\",\"id\":\"UugO8xDeLQD\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/hyLU8ivDJDi\",\"displayName\":\"Mid Land MCHP\",\"id\":\"hyLU8ivDJDi\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/ptc0SQi05E4\",\"displayName\":\"Massah Memorial Maternity MCHP\",\"id\":\"ptc0SQi05E4\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/KQFAul3T9xz\",\"displayName\":\"Nafaya MCHP\",\"id\":\"KQFAul3T9xz\"}],\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn\",\"id\":\"U6Kr7Gtpidn\"}"
-        ],
+        "responseBody": "{\"children\":[{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/jfV49JGnYKF\",\"displayName\":\"Fatibra CHP\",\"id\":\"jfV49JGnYKF\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/tSBcgrTDdB8\",\"displayName\":\"Paramedical CHC\",\"id\":\"tSBcgrTDdB8\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/sK498nBOLfQ\",\"displayName\":\"Elshadai MCHP\",\"id\":\"sK498nBOLfQ\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/Ioxjc2KBjWd\",\"displayName\":\"Fengehun MCHP\",\"id\":\"Ioxjc2KBjWd\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/bqtZrXoryDF\",\"displayName\":\"Mercy Ship Hospital\",\"id\":\"bqtZrXoryDF\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/tGf942oWszb\",\"displayName\":\"Gbongboma MCHP\",\"id\":\"tGf942oWszb\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/rx9ubw0UCqj\",\"displayName\":\"Bandajuma MCHP\",\"id\":\"rx9ubw0UCqj\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/ltF8BmYAXpQ\",\"displayName\":\"Maguama CHP\",\"id\":\"ltF8BmYAXpQ\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/k6DIO9LIEk9\",\"displayName\":\"Lyn Maternity MCHP\",\"id\":\"k6DIO9LIEk9\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/ZsjXrmZS59z\",\"displayName\":\"Ndegbome MCHP\",\"id\":\"ZsjXrmZS59z\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/kMTHqMgenme\",\"displayName\":\"Morning Star Clinic\",\"id\":\"kMTHqMgenme\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/jCnyQOKQBFX\",\"displayName\":\"St Monica's Clinic\",\"id\":\"jCnyQOKQBFX\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/bM4Ky73uMao\",\"displayName\":\"Kpolies Clinic\",\"id\":\"bM4Ky73uMao\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/wtdBuXDwZYQ\",\"displayName\":\"Praise Foundation CHC\",\"id\":\"wtdBuXDwZYQ\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/Z9ny6QeqsgX\",\"displayName\":\"Manjama UMC CHC\",\"id\":\"Z9ny6QeqsgX\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/UOJlcpPnBat\",\"displayName\":\"Needy CHC\",\"id\":\"UOJlcpPnBat\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/VrDA0Hn4Xc6\",\"displayName\":\"Harvest Time MCHP\",\"id\":\"VrDA0Hn4Xc6\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/E9oBVjyEaCe\",\"displayName\":\"Gbanja Town MCHP\",\"id\":\"E9oBVjyEaCe\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/RhJbg8UD75Q\",\"displayName\":\"Yemoh Town CHC\",\"id\":\"RhJbg8UD75Q\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/Pae8DR7VmcL\",\"displayName\":\"MCH (Kakua) Static\",\"id\":\"Pae8DR7VmcL\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/GvFqTavdpGE\",\"displayName\":\"Agape CHP\",\"id\":\"GvFqTavdpGE\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/gfWvbbgdjoS\",\"displayName\":\"Tengbewabu MCHP\",\"id\":\"gfWvbbgdjoS\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/vRC0stJ5y9Q\",\"displayName\":\"Bucksal Clinic\",\"id\":\"vRC0stJ5y9Q\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/dx4NOnoGtE7\",\"displayName\":\"Yemoh MCHP\",\"id\":\"dx4NOnoGtE7\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/roQ2l7TX0eZ\",\"displayName\":\"SLRCS (Bo) Clinic\",\"id\":\"roQ2l7TX0eZ\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/eRg3KZyWUSJ\",\"displayName\":\"Fullawahun MCHP\",\"id\":\"eRg3KZyWUSJ\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/aBfyTU5Wgds\",\"displayName\":\"Nduvuibu MCHP\",\"id\":\"aBfyTU5Wgds\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/mzsOsz0NwNY\",\"displayName\":\"New Police Barracks CHC\",\"id\":\"mzsOsz0NwNY\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/lOv6IFgr6Fs\",\"displayName\":\"Manjama Shellmingo CHC\",\"id\":\"lOv6IFgr6Fs\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/kLNQT4KQ9hT\",\"displayName\":\"Marie Stopes (Kakua) Clinic\",\"id\":\"kLNQT4KQ9hT\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/H0OkaM4ReRK\",\"displayName\":\"Sam Lean's MCHP\",\"id\":\"H0OkaM4ReRK\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/i7qaYfmGVDr\",\"displayName\":\"Gbotima MCHP\",\"id\":\"i7qaYfmGVDr\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/K3k64jslIlL\",\"displayName\":\"EDC Unit CHP\",\"id\":\"K3k64jslIlL\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/jk1TtiBM5hz\",\"displayName\":\"Holy Mary Hospital\",\"id\":\"jk1TtiBM5hz\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/rZxk3S0qN63\",\"displayName\":\"Bo Govt. Hosp.\",\"id\":\"rZxk3S0qN63\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/uROAmk9ymNE\",\"displayName\":\"Kindoyal Hospital\",\"id\":\"uROAmk9ymNE\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/UugO8xDeLQD\",\"displayName\":\"UNIMUS MCHP\",\"id\":\"UugO8xDeLQD\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/hyLU8ivDJDi\",\"displayName\":\"Mid Land MCHP\",\"id\":\"hyLU8ivDJDi\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/ptc0SQi05E4\",\"displayName\":\"Massah Memorial Maternity MCHP\",\"id\":\"ptc0SQi05E4\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn/KQFAul3T9xz\",\"displayName\":\"Nafaya MCHP\",\"id\":\"KQFAul3T9xz\"}],\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/U6Kr7Gtpidn\",\"id\":\"U6Kr7Gtpidn\"}",
         "responseSize": 4539,
         "responseHeaders": {
             "server": "nginx/1.23.0",
@@ -1045,18 +885,11 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        },
-        "responseLookup": [
-            0,
-            1,
-            1,
-            1
-        ]
+            "x-xss-protection": "1; mode=block"
+        }
     },
     {
-        "path": "/api/39/organisationUnits/I4jWcnFmgEC?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
+        "path": "/api/39/organisationUnits/JdhagCUEMbj?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
         "featureName": "Users can approve, accept, unapprove, and unaccept data",
         "static": false,
         "count": 4,
@@ -1072,8 +905,8 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": "{\"children\":[{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/I4jWcnFmgEC/m73lWmo5BDG\",\"displayName\":\"Korbu MCHP\",\"id\":\"m73lWmo5BDG\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/I4jWcnFmgEC/hoJ0Do9loZl\",\"displayName\":\"Ngogbebu MCHP\",\"id\":\"hoJ0Do9loZl\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/I4jWcnFmgEC/PuZOFApTSeo\",\"displayName\":\"Sahn CHC\",\"id\":\"PuZOFApTSeo\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/I4jWcnFmgEC/rm60vuHyQXj\",\"displayName\":\"Nengbema CHC\",\"id\":\"rm60vuHyQXj\"}],\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/I4jWcnFmgEC\",\"id\":\"I4jWcnFmgEC\"}",
-        "responseSize": 506,
+        "responseBody": "{\"children\":[{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/JdhagCUEMbj/QsAwd531Cpd\",\"displayName\":\"Njala CHC\",\"id\":\"QsAwd531Cpd\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/JdhagCUEMbj/WOk7efLlLSj\",\"displayName\":\"Niagorehun MCHP\",\"id\":\"WOk7efLlLSj\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/JdhagCUEMbj/kFur7xPhpH9\",\"displayName\":\"Teibor MCHP\",\"id\":\"kFur7xPhpH9\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/JdhagCUEMbj/JiEz2VDLwHY\",\"displayName\":\"Komboya Gbauja MCHP\",\"id\":\"JiEz2VDLwHY\"}],\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/JdhagCUEMbj\",\"id\":\"JdhagCUEMbj\"}",
+        "responseSize": 517,
         "responseHeaders": {
             "server": "nginx/1.23.0",
             "content-type": "application/json;charset=UTF-8",
@@ -1085,8 +918,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -1119,8 +951,73 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
+        }
+    },
+    {
+        "path": "/api/39/organisationUnits/kU8vhUkAGaT?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
+        "featureName": "Users can approve, accept, unapprove, and unaccept data",
+        "static": false,
+        "count": 4,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "debug.dhis2.org",
+            "connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "{\"children\":[{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/kU8vhUkAGaT/Ykx8Ovui7g0\",\"displayName\":\"Upper Saama MCHP\",\"id\":\"Ykx8Ovui7g0\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/kU8vhUkAGaT/l2kZRcJjomr\",\"displayName\":\"Hima MCHP\",\"id\":\"l2kZRcJjomr\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/kU8vhUkAGaT/AlG0apJE5cm\",\"displayName\":\"Karleh MCHP\",\"id\":\"AlG0apJE5cm\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/kU8vhUkAGaT/VfZnZ6UKyn8\",\"displayName\":\"Bontiwo MCHP\",\"id\":\"VfZnZ6UKyn8\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/kU8vhUkAGaT/W2KnxOMvmgE\",\"displayName\":\"Sumbuya CHC\",\"id\":\"W2KnxOMvmgE\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/kU8vhUkAGaT/al4GkB6X2X3\",\"displayName\":\"Ngieyehun MCHP\",\"id\":\"al4GkB6X2X3\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/kU8vhUkAGaT/QDoO5r6Sae7\",\"displayName\":\"Yambama MCHP\",\"id\":\"QDoO5r6Sae7\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/kU8vhUkAGaT/r4W2vzlmPhm\",\"displayName\":\"Feiba CHP\",\"id\":\"r4W2vzlmPhm\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/kU8vhUkAGaT/mGmu0GJ5neg\",\"displayName\":\"Kpetewoma CHP\",\"id\":\"mGmu0GJ5neg\"}],\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/kU8vhUkAGaT\",\"id\":\"kU8vhUkAGaT\"}",
+        "responseSize": 1050,
+        "responseHeaders": {
+            "server": "nginx/1.23.0",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block"
+        }
+    },
+    {
+        "path": "/api/39/organisationUnits/I4jWcnFmgEC?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
+        "featureName": "Users can approve, accept, unapprove, and unaccept data",
+        "static": false,
+        "count": 4,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "debug.dhis2.org",
+            "connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "{\"children\":[{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/I4jWcnFmgEC/m73lWmo5BDG\",\"displayName\":\"Korbu MCHP\",\"id\":\"m73lWmo5BDG\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/I4jWcnFmgEC/hoJ0Do9loZl\",\"displayName\":\"Ngogbebu MCHP\",\"id\":\"hoJ0Do9loZl\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/I4jWcnFmgEC/PuZOFApTSeo\",\"displayName\":\"Sahn CHC\",\"id\":\"PuZOFApTSeo\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/I4jWcnFmgEC/rm60vuHyQXj\",\"displayName\":\"Nengbema CHC\",\"id\":\"rm60vuHyQXj\"}],\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu/I4jWcnFmgEC\",\"id\":\"I4jWcnFmgEC\"}",
+        "responseSize": 506,
+        "responseHeaders": {
+            "server": "nginx/1.23.0",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -1153,8 +1050,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -1187,8 +1083,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
@@ -1221,12 +1116,11 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
-        "path": "/api/39/dataApprovals?wf=rIUL3hYOjJc&pe=202303&ou=YuQRtpLP10I",
+        "path": "/api/39/dataApprovals?wf=rIUL3hYOjJc&pe=202403&ou=YuQRtpLP10I",
         "featureName": "Users can approve, accept, unapprove, and unaccept data",
         "static": false,
         "count": 8,
@@ -1244,9 +1138,9 @@
         "statusCode": 200,
         "responseBody": [
             "{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true,\"state\":\"UNAPPROVED_READY\"}",
-            "{\"mayApprove\":false,\"mayUnapprove\":true,\"mayAccept\":true,\"mayUnaccept\":false,\"mayReadData\":true,\"state\":\"APPROVED_HERE\",\"approvedBy\":\"John Traore\",\"approvedAt\":\"2023-06-26T14:40:24.056\",\"acceptedAt\":\"2023-06-26T14:40:24.095\"}",
-            "{\"mayApprove\":true,\"mayUnapprove\":true,\"mayAccept\":false,\"mayUnaccept\":true,\"mayReadData\":true,\"state\":\"ACCEPTED_HERE\",\"approvedBy\":\"John Traore\",\"approvedAt\":\"2023-06-26T14:40:24.056\",\"acceptedBy\":\"John Traore\",\"acceptedAt\":\"2023-06-26T14:40:27.960\"}",
-            "{\"mayApprove\":false,\"mayUnapprove\":true,\"mayAccept\":true,\"mayUnaccept\":false,\"mayReadData\":true,\"state\":\"APPROVED_HERE\",\"approvedBy\":\"John Traore\",\"approvedAt\":\"2023-06-26T14:40:24.056\",\"acceptedAt\":\"2023-06-26T14:40:30.207\"}"
+            "{\"mayApprove\":false,\"mayUnapprove\":true,\"mayAccept\":true,\"mayUnaccept\":false,\"mayReadData\":true,\"state\":\"APPROVED_HERE\",\"approvedBy\":\"John Traore\",\"approvedAt\":\"2024-08-20T11:25:21.473\",\"acceptedAt\":\"2024-08-20T11:25:21.487\"}",
+            "{\"mayApprove\":true,\"mayUnapprove\":true,\"mayAccept\":false,\"mayUnaccept\":true,\"mayReadData\":true,\"state\":\"ACCEPTED_HERE\",\"approvedBy\":\"John Traore\",\"approvedAt\":\"2024-08-20T11:25:21.473\",\"acceptedBy\":\"John Traore\",\"acceptedAt\":\"2024-08-20T11:25:24.668\"}",
+            "{\"mayApprove\":false,\"mayUnapprove\":true,\"mayAccept\":true,\"mayUnaccept\":false,\"mayReadData\":true,\"state\":\"APPROVED_HERE\",\"approvedBy\":\"John Traore\",\"approvedAt\":\"2024-08-20T11:25:21.473\",\"acceptedAt\":\"2024-08-20T11:25:27.384\"}"
         ],
         "responseSize": 124,
         "responseHeaders": {
@@ -1259,8 +1153,7 @@
             "vary": "Origin",
             "access-control-expose-headers": "ETag, Location",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         },
         "responseLookup": [
             0,
@@ -1274,7 +1167,7 @@
         ]
     },
     {
-        "path": "/api/39/dataApprovals/approvals?wf=rIUL3hYOjJc&pe=202303&ou=YuQRtpLP10I,vWbkYPRmKyS,dGheVylzol6,zFDYIgyGmXG,BGGmAwx33dj,YmmeuGbqOwR,daJPPxtIrQn,U6Kr7Gtpidn,JdhagCUEMbj,kU8vhUkAGaT,I4jWcnFmgEC,KctpIIucige,sxRd2XOzFbz,npWGUj37qDe,ARZ4y5i4reU",
+        "path": "/api/39/dataApprovals/approvals?wf=rIUL3hYOjJc&pe=202403&ou=YuQRtpLP10I,vWbkYPRmKyS,dGheVylzol6,zFDYIgyGmXG,BGGmAwx33dj,YmmeuGbqOwR,daJPPxtIrQn,U6Kr7Gtpidn,JdhagCUEMbj,kU8vhUkAGaT,I4jWcnFmgEC,KctpIIucige,sxRd2XOzFbz,npWGUj37qDe,ARZ4y5i4reU",
         "featureName": "Users can approve, accept, unapprove, and unaccept data",
         "static": false,
         "count": 4,
@@ -1291,9 +1184,9 @@
         },
         "statusCode": 200,
         "responseBody": [
-            "[{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"ARZ4y5i4reU\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"dGheVylzol6\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"daJPPxtIrQn\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"I4jWcnFmgEC\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"YmmeuGbqOwR\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"KctpIIucige\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"zFDYIgyGmXG\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"U6Kr7Gtpidn\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"kU8vhUkAGaT\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"YuQRtpLP10I\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"vWbkYPRmKyS\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"BGGmAwx33dj\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"JdhagCUEMbj\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"sxRd2XOzFbz\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"npWGUj37qDe\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}}]",
-            "[{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"ARZ4y5i4reU\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"dGheVylzol6\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"daJPPxtIrQn\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"I4jWcnFmgEC\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"YmmeuGbqOwR\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"KctpIIucige\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"zFDYIgyGmXG\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"U6Kr7Gtpidn\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"kU8vhUkAGaT\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"YuQRtpLP10I\",\"aoc\":\"HllvX50cXC0\",\"state\":\"APPROVED_HERE\",\"level\":\"KaTJLhGmU95\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":true,\"mayAccept\":true,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"vWbkYPRmKyS\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"BGGmAwx33dj\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"JdhagCUEMbj\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"sxRd2XOzFbz\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"npWGUj37qDe\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}}]",
-            "[{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"ARZ4y5i4reU\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"dGheVylzol6\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"daJPPxtIrQn\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"I4jWcnFmgEC\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"YmmeuGbqOwR\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"KctpIIucige\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"zFDYIgyGmXG\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"U6Kr7Gtpidn\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"kU8vhUkAGaT\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"YuQRtpLP10I\",\"aoc\":\"HllvX50cXC0\",\"state\":\"ACCEPTED_HERE\",\"level\":\"KaTJLhGmU95\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":true,\"mayAccept\":false,\"mayUnaccept\":true,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"vWbkYPRmKyS\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"BGGmAwx33dj\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"JdhagCUEMbj\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"sxRd2XOzFbz\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202303\",\"ou\":\"npWGUj37qDe\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}}]"
+            "[{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"KctpIIucige\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"vWbkYPRmKyS\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"BGGmAwx33dj\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"zFDYIgyGmXG\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"JdhagCUEMbj\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"sxRd2XOzFbz\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"npWGUj37qDe\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"daJPPxtIrQn\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"U6Kr7Gtpidn\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"ARZ4y5i4reU\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"YuQRtpLP10I\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"kU8vhUkAGaT\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"YmmeuGbqOwR\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"I4jWcnFmgEC\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"dGheVylzol6\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}}]",
+            "[{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"KctpIIucige\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"vWbkYPRmKyS\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"BGGmAwx33dj\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"zFDYIgyGmXG\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"JdhagCUEMbj\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"sxRd2XOzFbz\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"npWGUj37qDe\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"daJPPxtIrQn\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"U6Kr7Gtpidn\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"ARZ4y5i4reU\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"YuQRtpLP10I\",\"aoc\":\"HllvX50cXC0\",\"state\":\"APPROVED_HERE\",\"level\":\"KaTJLhGmU95\",\"permissions\":{\"mayApprove\":false,\"mayUnapprove\":true,\"mayAccept\":true,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"kU8vhUkAGaT\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"YmmeuGbqOwR\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"I4jWcnFmgEC\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"dGheVylzol6\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}}]",
+            "[{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"KctpIIucige\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"vWbkYPRmKyS\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"BGGmAwx33dj\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"zFDYIgyGmXG\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"JdhagCUEMbj\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"sxRd2XOzFbz\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"npWGUj37qDe\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"daJPPxtIrQn\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"U6Kr7Gtpidn\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"ARZ4y5i4reU\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"YuQRtpLP10I\",\"aoc\":\"HllvX50cXC0\",\"state\":\"ACCEPTED_HERE\",\"level\":\"KaTJLhGmU95\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":true,\"mayAccept\":false,\"mayUnaccept\":true,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"kU8vhUkAGaT\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"YmmeuGbqOwR\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"I4jWcnFmgEC\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}},{\"wf\":\"rIUL3hYOjJc\",\"pe\":\"202403\",\"ou\":\"dGheVylzol6\",\"aoc\":\"HllvX50cXC0\",\"state\":\"UNAPPROVED_READY\",\"permissions\":{\"mayApprove\":true,\"mayUnapprove\":false,\"mayAccept\":false,\"mayUnaccept\":false,\"mayReadData\":true}}]"
         ],
         "responseSize": 3196,
         "responseHeaders": {
@@ -1306,8 +1199,7 @@
             "vary": "Origin",
             "access-control-expose-headers": "ETag, Location",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         },
         "responseLookup": [
             0,
@@ -1317,42 +1209,10 @@
         ]
     },
     {
-        "path": "/api/39/dataApprovals?wf=rIUL3hYOjJc&pe=202303&ou=YuQRtpLP10I",
+        "path": "/api/39/dataSetReport?pe=202403&ds=pBOMPrpg1QX&ou=YuQRtpLP10I",
         "featureName": "Users can approve, accept, unapprove, and unaccept data",
         "static": false,
-        "count": 1,
-        "nonDeterministic": false,
-        "method": "POST",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "debug.dhis2.org",
-            "connection": "keep-alive",
-            "content-length": "0",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "cross-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 204,
-        "responseBody": "\"\"",
-        "responseSize": 2,
-        "responseHeaders": {
-            "server": "nginx/1.23.0",
-            "connection": "keep-alive",
-            "access-control-allow-credentials": "true",
-            "access-control-allow-origin": "http://localhost:3000",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
-        "path": "/api/39/dataSetReport?pe=202303&ds=pBOMPrpg1QX&ou=YuQRtpLP10I",
-        "featureName": "Users can approve, accept, unapprove, and unaccept data",
-        "static": false,
-        "count": 6,
+        "count": 8,
         "nonDeterministic": true,
         "method": "GET",
         "requestBody": "",
@@ -1366,14 +1226,16 @@
         },
         "statusCode": 200,
         "responseBody": [
-            "[{\"title\":\"Mortality < 5 years default\",\"subtitle\":\"Badjia March 2023\",\"headers\":[{\"name\":\"Data element\",\"column\":\"Data element\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":true},{\"name\":\"Value\",\"column\":\"Value\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":false}],\"metaData\":{},\"rows\":[[\"Meningitis (Deaths < 5 yrs)\",\"34\"],[\"Accute Flaccid Paralysis (Deaths < 5 yrs)\",\"1\"],[\"Animal Bites - Rabid (Deaths < 5 yrs)\",null],[\"Plague (Deaths < 5 yrs)\",null],[\"Rabies (Deaths < 5 yrs)\",null],[\"Typhoid (Deaths < 5 yrs)\",null],[\"Tetanus Other (Deaths < 5 yrs)\",null],[\"Louse Borne Typhus - Relapsing fever (Deaths < 5 yrs)\",null],[\"Yellow Fever (Deaths < 5 yrs)\",\"34\"],[\"Cholera (Deaths < 5 yrs)\",\"45\"],[\"Dysentery (Deaths < 5 yrs)\",null],[\"Measles (Deaths < 5 yrs)\",\"45\"],[\"Tetanus Neonatal (Deaths < 5 yrs)\",null],[\"Malaria (Deaths < 5 yrs)\",null]],\"height\":14,\"headerWidth\":2,\"width\":2}]",
-            "[{\"title\":\"Mortality < 5 years default\",\"subtitle\":\"Badjia March 2023\",\"headers\":[{\"name\":\"Data element\",\"column\":\"Data element\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":true},{\"name\":\"Value\",\"column\":\"Value\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":false}],\"metaData\":{},\"rows\":[[\"Accute Flaccid Paralysis (Deaths < 5 yrs)\",\"1\"],[\"Meningitis (Deaths < 5 yrs)\",\"34\"],[\"Dysentery (Deaths < 5 yrs)\",null],[\"Typhoid (Deaths < 5 yrs)\",null],[\"Tetanus Other (Deaths < 5 yrs)\",null],[\"Rabies (Deaths < 5 yrs)\",null],[\"Plague (Deaths < 5 yrs)\",null],[\"Animal Bites - Rabid (Deaths < 5 yrs)\",null],[\"Measles (Deaths < 5 yrs)\",\"45\"],[\"Cholera (Deaths < 5 yrs)\",\"45\"],[\"Yellow Fever (Deaths < 5 yrs)\",\"34\"],[\"Malaria (Deaths < 5 yrs)\",null],[\"Louse Borne Typhus - Relapsing fever (Deaths < 5 yrs)\",null],[\"Tetanus Neonatal (Deaths < 5 yrs)\",null]],\"height\":14,\"headerWidth\":2,\"width\":2}]",
-            "[{\"title\":\"Mortality < 5 years default\",\"subtitle\":\"Badjia March 2023\",\"headers\":[{\"name\":\"Data element\",\"column\":\"Data element\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":true},{\"name\":\"Value\",\"column\":\"Value\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":false}],\"metaData\":{},\"rows\":[[\"Malaria (Deaths < 5 yrs)\",null],[\"Louse Borne Typhus - Relapsing fever (Deaths < 5 yrs)\",null],[\"Tetanus Neonatal (Deaths < 5 yrs)\",null],[\"Animal Bites - Rabid (Deaths < 5 yrs)\",null],[\"Tetanus Other (Deaths < 5 yrs)\",null],[\"Dysentery (Deaths < 5 yrs)\",null],[\"Accute Flaccid Paralysis (Deaths < 5 yrs)\",\"1\"],[\"Typhoid (Deaths < 5 yrs)\",null],[\"Meningitis (Deaths < 5 yrs)\",\"34\"],[\"Measles (Deaths < 5 yrs)\",\"45\"],[\"Plague (Deaths < 5 yrs)\",null],[\"Cholera (Deaths < 5 yrs)\",\"45\"],[\"Rabies (Deaths < 5 yrs)\",null],[\"Yellow Fever (Deaths < 5 yrs)\",\"34\"]],\"height\":14,\"headerWidth\":2,\"width\":2}]",
-            "[{\"title\":\"Mortality < 5 years default\",\"subtitle\":\"Badjia March 2023\",\"headers\":[{\"name\":\"Data element\",\"column\":\"Data element\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":true},{\"name\":\"Value\",\"column\":\"Value\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":false}],\"metaData\":{},\"rows\":[[\"Cholera (Deaths < 5 yrs)\",\"45\"],[\"Plague (Deaths < 5 yrs)\",null],[\"Measles (Deaths < 5 yrs)\",\"45\"],[\"Dysentery (Deaths < 5 yrs)\",null],[\"Yellow Fever (Deaths < 5 yrs)\",\"34\"],[\"Malaria (Deaths < 5 yrs)\",null],[\"Animal Bites - Rabid (Deaths < 5 yrs)\",null],[\"Accute Flaccid Paralysis (Deaths < 5 yrs)\",\"1\"],[\"Tetanus Other (Deaths < 5 yrs)\",null],[\"Rabies (Deaths < 5 yrs)\",null],[\"Meningitis (Deaths < 5 yrs)\",\"34\"],[\"Tetanus Neonatal (Deaths < 5 yrs)\",null],[\"Typhoid (Deaths < 5 yrs)\",null],[\"Louse Borne Typhus - Relapsing fever (Deaths < 5 yrs)\",null]],\"height\":14,\"headerWidth\":2,\"width\":2}]",
-            "[{\"title\":\"Mortality < 5 years default\",\"subtitle\":\"Badjia March 2023\",\"headers\":[{\"name\":\"Data element\",\"column\":\"Data element\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":true},{\"name\":\"Value\",\"column\":\"Value\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":false}],\"metaData\":{},\"rows\":[[\"Dysentery (Deaths < 5 yrs)\",null],[\"Cholera (Deaths < 5 yrs)\",\"45\"],[\"Accute Flaccid Paralysis (Deaths < 5 yrs)\",\"1\"],[\"Tetanus Other (Deaths < 5 yrs)\",null],[\"Animal Bites - Rabid (Deaths < 5 yrs)\",null],[\"Meningitis (Deaths < 5 yrs)\",\"34\"],[\"Measles (Deaths < 5 yrs)\",\"45\"],[\"Yellow Fever (Deaths < 5 yrs)\",\"34\"],[\"Typhoid (Deaths < 5 yrs)\",null],[\"Malaria (Deaths < 5 yrs)\",null],[\"Louse Borne Typhus - Relapsing fever (Deaths < 5 yrs)\",null],[\"Plague (Deaths < 5 yrs)\",null],[\"Tetanus Neonatal (Deaths < 5 yrs)\",null],[\"Rabies (Deaths < 5 yrs)\",null]],\"height\":14,\"headerWidth\":2,\"width\":2}]",
-            "[{\"title\":\"Mortality < 5 years default\",\"subtitle\":\"Badjia March 2023\",\"headers\":[{\"name\":\"Data element\",\"column\":\"Data element\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":true},{\"name\":\"Value\",\"column\":\"Value\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":false}],\"metaData\":{},\"rows\":[[\"Plague (Deaths < 5 yrs)\",null],[\"Rabies (Deaths < 5 yrs)\",null],[\"Cholera (Deaths < 5 yrs)\",\"45\"],[\"Tetanus Other (Deaths < 5 yrs)\",null],[\"Yellow Fever (Deaths < 5 yrs)\",\"34\"],[\"Tetanus Neonatal (Deaths < 5 yrs)\",null],[\"Measles (Deaths < 5 yrs)\",\"45\"],[\"Dysentery (Deaths < 5 yrs)\",null],[\"Malaria (Deaths < 5 yrs)\",null],[\"Meningitis (Deaths < 5 yrs)\",\"34\"],[\"Typhoid (Deaths < 5 yrs)\",null],[\"Animal Bites - Rabid (Deaths < 5 yrs)\",null],[\"Accute Flaccid Paralysis (Deaths < 5 yrs)\",\"1\"],[\"Louse Borne Typhus - Relapsing fever (Deaths < 5 yrs)\",null]],\"height\":14,\"headerWidth\":2,\"width\":2}]"
+            "[{\"title\":\"Mortality < 5 years default\",\"subtitle\":\"Badjia March 2024\",\"headers\":[{\"name\":\"Data element\",\"column\":\"Data element\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":true},{\"name\":\"Value\",\"column\":\"Value\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":false}],\"metaData\":{},\"rowContext\":{},\"rows\":[[\"Malaria (Deaths < 5 yrs)\",null],[\"Rabies (Deaths < 5 yrs)\",null],[\"Tetanus Neonatal (Deaths < 5 yrs)\",null],[\"Typhoid (Deaths < 5 yrs)\",null],[\"Plague (Deaths < 5 yrs)\",null],[\"Accute Flaccid Paralysis (Deaths < 5 yrs)\",\"1\"],[\"Tetanus Other (Deaths < 5 yrs)\",null],[\"Yellow Fever (Deaths < 5 yrs)\",\"34\"],[\"Louse Borne Typhus - Relapsing fever (Deaths < 5 yrs)\",null],[\"Animal Bites - Rabid (Deaths < 5 yrs)\",null],[\"Meningitis (Deaths < 5 yrs)\",\"34\"],[\"Cholera (Deaths < 5 yrs)\",\"45\"],[\"Measles (Deaths < 5 yrs)\",\"45\"],[\"Dysentery (Deaths < 5 yrs)\",null]],\"headerWidth\":2,\"width\":2,\"height\":14}]",
+            "[{\"title\":\"Mortality < 5 years default\",\"subtitle\":\"Badjia March 2024\",\"headers\":[{\"name\":\"Data element\",\"column\":\"Data element\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":true},{\"name\":\"Value\",\"column\":\"Value\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":false}],\"metaData\":{},\"rowContext\":{},\"rows\":[[\"Plague (Deaths < 5 yrs)\",null],[\"Louse Borne Typhus - Relapsing fever (Deaths < 5 yrs)\",null],[\"Yellow Fever (Deaths < 5 yrs)\",\"34\"],[\"Tetanus Neonatal (Deaths < 5 yrs)\",null],[\"Dysentery (Deaths < 5 yrs)\",null],[\"Cholera (Deaths < 5 yrs)\",\"45\"],[\"Rabies (Deaths < 5 yrs)\",null],[\"Malaria (Deaths < 5 yrs)\",null],[\"Meningitis (Deaths < 5 yrs)\",\"34\"],[\"Typhoid (Deaths < 5 yrs)\",null],[\"Animal Bites - Rabid (Deaths < 5 yrs)\",null],[\"Accute Flaccid Paralysis (Deaths < 5 yrs)\",\"1\"],[\"Tetanus Other (Deaths < 5 yrs)\",null],[\"Measles (Deaths < 5 yrs)\",\"45\"]],\"headerWidth\":2,\"width\":2,\"height\":14}]",
+            "[{\"title\":\"Mortality < 5 years default\",\"subtitle\":\"Badjia March 2024\",\"headers\":[{\"name\":\"Data element\",\"column\":\"Data element\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":true},{\"name\":\"Value\",\"column\":\"Value\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":false}],\"metaData\":{},\"rowContext\":{},\"rows\":[[\"Cholera (Deaths < 5 yrs)\",\"45\"],[\"Meningitis (Deaths < 5 yrs)\",\"34\"],[\"Accute Flaccid Paralysis (Deaths < 5 yrs)\",\"1\"],[\"Tetanus Other (Deaths < 5 yrs)\",null],[\"Malaria (Deaths < 5 yrs)\",null],[\"Typhoid (Deaths < 5 yrs)\",null],[\"Rabies (Deaths < 5 yrs)\",null],[\"Louse Borne Typhus - Relapsing fever (Deaths < 5 yrs)\",null],[\"Tetanus Neonatal (Deaths < 5 yrs)\",null],[\"Dysentery (Deaths < 5 yrs)\",null],[\"Yellow Fever (Deaths < 5 yrs)\",\"34\"],[\"Plague (Deaths < 5 yrs)\",null],[\"Animal Bites - Rabid (Deaths < 5 yrs)\",null],[\"Measles (Deaths < 5 yrs)\",\"45\"]],\"headerWidth\":2,\"width\":2,\"height\":14}]",
+            "[{\"title\":\"Mortality < 5 years default\",\"subtitle\":\"Badjia March 2024\",\"headers\":[{\"name\":\"Data element\",\"column\":\"Data element\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":true},{\"name\":\"Value\",\"column\":\"Value\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":false}],\"metaData\":{},\"rowContext\":{},\"rows\":[[\"Accute Flaccid Paralysis (Deaths < 5 yrs)\",\"1\"],[\"Tetanus Neonatal (Deaths < 5 yrs)\",null],[\"Typhoid (Deaths < 5 yrs)\",null],[\"Tetanus Other (Deaths < 5 yrs)\",null],[\"Meningitis (Deaths < 5 yrs)\",\"34\"],[\"Plague (Deaths < 5 yrs)\",null],[\"Measles (Deaths < 5 yrs)\",\"45\"],[\"Dysentery (Deaths < 5 yrs)\",null],[\"Rabies (Deaths < 5 yrs)\",null],[\"Malaria (Deaths < 5 yrs)\",null],[\"Louse Borne Typhus - Relapsing fever (Deaths < 5 yrs)\",null],[\"Animal Bites - Rabid (Deaths < 5 yrs)\",null],[\"Yellow Fever (Deaths < 5 yrs)\",\"34\"],[\"Cholera (Deaths < 5 yrs)\",\"45\"]],\"headerWidth\":2,\"width\":2,\"height\":14}]",
+            "[{\"title\":\"Mortality < 5 years default\",\"subtitle\":\"Badjia March 2024\",\"headers\":[{\"name\":\"Data element\",\"column\":\"Data element\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":true},{\"name\":\"Value\",\"column\":\"Value\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":false}],\"metaData\":{},\"rowContext\":{},\"rows\":[[\"Plague (Deaths < 5 yrs)\",null],[\"Animal Bites - Rabid (Deaths < 5 yrs)\",null],[\"Cholera (Deaths < 5 yrs)\",\"45\"],[\"Typhoid (Deaths < 5 yrs)\",null],[\"Tetanus Other (Deaths < 5 yrs)\",null],[\"Louse Borne Typhus - Relapsing fever (Deaths < 5 yrs)\",null],[\"Accute Flaccid Paralysis (Deaths < 5 yrs)\",\"1\"],[\"Measles (Deaths < 5 yrs)\",\"45\"],[\"Malaria (Deaths < 5 yrs)\",null],[\"Meningitis (Deaths < 5 yrs)\",\"34\"],[\"Rabies (Deaths < 5 yrs)\",null],[\"Yellow Fever (Deaths < 5 yrs)\",\"34\"],[\"Tetanus Neonatal (Deaths < 5 yrs)\",null],[\"Dysentery (Deaths < 5 yrs)\",null]],\"headerWidth\":2,\"width\":2,\"height\":14}]",
+            "[{\"title\":\"Mortality < 5 years default\",\"subtitle\":\"Badjia March 2024\",\"headers\":[{\"name\":\"Data element\",\"column\":\"Data element\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":true},{\"name\":\"Value\",\"column\":\"Value\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":false}],\"metaData\":{},\"rowContext\":{},\"rows\":[[\"Tetanus Neonatal (Deaths < 5 yrs)\",null],[\"Accute Flaccid Paralysis (Deaths < 5 yrs)\",\"1\"],[\"Dysentery (Deaths < 5 yrs)\",null],[\"Animal Bites - Rabid (Deaths < 5 yrs)\",null],[\"Tetanus Other (Deaths < 5 yrs)\",null],[\"Cholera (Deaths < 5 yrs)\",\"45\"],[\"Louse Borne Typhus - Relapsing fever (Deaths < 5 yrs)\",null],[\"Yellow Fever (Deaths < 5 yrs)\",\"34\"],[\"Malaria (Deaths < 5 yrs)\",null],[\"Plague (Deaths < 5 yrs)\",null],[\"Measles (Deaths < 5 yrs)\",\"45\"],[\"Rabies (Deaths < 5 yrs)\",null],[\"Typhoid (Deaths < 5 yrs)\",null],[\"Meningitis (Deaths < 5 yrs)\",\"34\"]],\"headerWidth\":2,\"width\":2,\"height\":14}]",
+            "[{\"title\":\"Mortality < 5 years default\",\"subtitle\":\"Badjia March 2024\",\"headers\":[{\"name\":\"Data element\",\"column\":\"Data element\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":true},{\"name\":\"Value\",\"column\":\"Value\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":false}],\"metaData\":{},\"rowContext\":{},\"rows\":[[\"Tetanus Other (Deaths < 5 yrs)\",null],[\"Measles (Deaths < 5 yrs)\",\"45\"],[\"Yellow Fever (Deaths < 5 yrs)\",\"34\"],[\"Accute Flaccid Paralysis (Deaths < 5 yrs)\",\"1\"],[\"Malaria (Deaths < 5 yrs)\",null],[\"Typhoid (Deaths < 5 yrs)\",null],[\"Rabies (Deaths < 5 yrs)\",null],[\"Plague (Deaths < 5 yrs)\",null],[\"Meningitis (Deaths < 5 yrs)\",\"34\"],[\"Dysentery (Deaths < 5 yrs)\",null],[\"Louse Borne Typhus - Relapsing fever (Deaths < 5 yrs)\",null],[\"Tetanus Neonatal (Deaths < 5 yrs)\",null],[\"Animal Bites - Rabid (Deaths < 5 yrs)\",null],[\"Cholera (Deaths < 5 yrs)\",\"45\"]],\"headerWidth\":2,\"width\":2,\"height\":14}]",
+            "[{\"title\":\"Mortality < 5 years default\",\"subtitle\":\"Badjia March 2024\",\"headers\":[{\"name\":\"Data element\",\"column\":\"Data element\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":true},{\"name\":\"Value\",\"column\":\"Value\",\"type\":\"java.lang.String\",\"hidden\":false,\"meta\":false}],\"metaData\":{},\"rowContext\":{},\"rows\":[[\"Dysentery (Deaths < 5 yrs)\",null],[\"Tetanus Neonatal (Deaths < 5 yrs)\",null],[\"Meningitis (Deaths < 5 yrs)\",\"34\"],[\"Accute Flaccid Paralysis (Deaths < 5 yrs)\",\"1\"],[\"Rabies (Deaths < 5 yrs)\",null],[\"Louse Borne Typhus - Relapsing fever (Deaths < 5 yrs)\",null],[\"Typhoid (Deaths < 5 yrs)\",null],[\"Tetanus Other (Deaths < 5 yrs)\",null],[\"Yellow Fever (Deaths < 5 yrs)\",\"34\"],[\"Cholera (Deaths < 5 yrs)\",\"45\"],[\"Animal Bites - Rabid (Deaths < 5 yrs)\",null],[\"Measles (Deaths < 5 yrs)\",\"45\"],[\"Malaria (Deaths < 5 yrs)\",null],[\"Plague (Deaths < 5 yrs)\",null]],\"headerWidth\":2,\"width\":2,\"height\":14}]"
         ],
-        "responseSize": 891,
+        "responseSize": 907,
         "responseHeaders": {
             "server": "nginx/1.23.0",
             "content-type": "application/json;charset=UTF-8",
@@ -1385,8 +1247,7 @@
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         },
         "responseLookup": [
             0,
@@ -1394,11 +1255,13 @@
             2,
             3,
             4,
-            5
+            5,
+            6,
+            7
         ]
     },
     {
-        "path": "/api/39/dataAcceptances?wf=rIUL3hYOjJc&pe=202303&ou=YuQRtpLP10I",
+        "path": "/api/39/dataApprovals?wf=rIUL3hYOjJc&pe=202403&ou=YuQRtpLP10I",
         "featureName": "Users can approve, accept, unapprove, and unaccept data",
         "static": false,
         "count": 1,
@@ -1425,12 +1288,42 @@
             "vary": "Origin",
             "access-control-expose-headers": "ETag, Location",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
-        "path": "/api/39/dataAcceptances?wf=rIUL3hYOjJc&pe=202303&ou=YuQRtpLP10I",
+        "path": "/api/39/dataAcceptances?wf=rIUL3hYOjJc&pe=202403&ou=YuQRtpLP10I",
+        "featureName": "Users can approve, accept, unapprove, and unaccept data",
+        "static": false,
+        "count": 1,
+        "nonDeterministic": false,
+        "method": "POST",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "debug.dhis2.org",
+            "connection": "keep-alive",
+            "content-length": "0",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 204,
+        "responseBody": "\"\"",
+        "responseSize": 2,
+        "responseHeaders": {
+            "server": "nginx/1.23.0",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block"
+        }
+    },
+    {
+        "path": "/api/39/dataAcceptances?wf=rIUL3hYOjJc&pe=202403&ou=YuQRtpLP10I",
         "featureName": "Users can approve, accept, unapprove, and unaccept data",
         "static": false,
         "count": 1,
@@ -1456,12 +1349,11 @@
             "vary": "Origin",
             "access-control-expose-headers": "ETag, Location",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     },
     {
-        "path": "/api/39/dataApprovals?wf=rIUL3hYOjJc&pe=202303&ou=YuQRtpLP10I",
+        "path": "/api/39/dataApprovals?wf=rIUL3hYOjJc&pe=202403&ou=YuQRtpLP10I",
         "featureName": "Users can approve, accept, unapprove, and unaccept data",
         "static": false,
         "count": 1,
@@ -1487,8 +1379,7 @@
             "vary": "Origin",
             "access-control-expose-headers": "ETag, Location",
             "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
+            "x-xss-protection": "1; mode=block"
         }
     }
 ]
