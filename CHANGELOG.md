@@ -1,3 +1,10 @@
+## [100.0.12](https://github.com/dhis2/approval-app/compare/v100.0.11...v100.0.12) (2024-08-21)
+
+
+### Bug Fixes
+
+* **DHIS2-17668:** sanitise HTML in table instead of showing it as text ([cb754aa](https://github.com/dhis2/approval-app/commit/cb754aafe2057ca11ba9c46a6ac2a4f41f794ec9))
+
 ## [100.0.11](https://github.com/dhis2/approval-app/compare/v100.0.10...v100.0.11) (2023-12-03)
 
 
