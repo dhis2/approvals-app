@@ -1,17 +1,18 @@
 # 
 # Translators:
-# phil_dhis2, 2021
+# Philip Larsen Donnelly, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # Ge Joao <gsimango@saudigitus.org>, 2021
+# Shelsea Chumaio, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
 "PO-Revision-Date: 2021-11-04 13:40+0000\n"
-"Last-Translator: Ge Joao <gsimango@saudigitus.org>, 2021\n"
-"Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
+"Last-Translator: Shelsea Chumaio, 2024\n"
+"Language-Team: Portuguese (https://app.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -177,10 +178,10 @@ msgid "December"
 msgstr "Dezembro"
 
 msgid "Week {{weekNumber}}"
-msgstr ""
+msgstr "Semana {{weekNumber}}"
 
 msgid "Bi-Week {{biWeekNumber}}"
-msgstr ""
+msgstr "Bi-Semana {{biWeekNumber}}"
 
 msgid "Daily"
 msgstr "Diário"
@@ -189,16 +190,16 @@ msgid "Weekly"
 msgstr "Semanal"
 
 msgid "Weekly (Start Wednesday)"
-msgstr ""
+msgstr "Semanalmente (início na quarta-feira)"
 
 msgid "Weekly (Start Thursday)"
-msgstr ""
+msgstr " Semanal (início na quinta-feira)"
 
 msgid "Weekly (Start Saturday)"
-msgstr ""
+msgstr " Semanal (início no sábado)"
 
 msgid "Weekly (Start Sunday)"
-msgstr ""
+msgstr " Semanal (início no Domingo)"
 
 msgid "Bi-weekly"
 msgstr "Quinzenal"
@@ -222,7 +223,7 @@ msgid "Yearly"
 msgstr "Anualmente"
 
 msgid "Financial year (Start November)"
-msgstr ""
+msgstr " Exercício financeiro (início em Novembro)"
 
 msgid "Financial year (Start October)"
 msgstr "Ano Financeiro - Outubro"
