@@ -5,13 +5,14 @@
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # Ge Joao <gsimango@saudigitus.org>, 2021
 # Shelsea Chumaio, 2024
+# Laurência Luís, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
 "PO-Revision-Date: 2021-11-04 13:40+0000\n"
-"Last-Translator: Shelsea Chumaio, 2024\n"
+"Last-Translator: Laurência Luís, 2024\n"
 "Language-Team: Portuguese (https://app.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -235,7 +236,7 @@ msgid "Financial year (Start April)"
 msgstr "Ano Financeiro - Abril"
 
 msgid "Clear selections"
-msgstr ""
+msgstr "Limpar selecções"
 
 msgid "Waiting for approval"
 msgstr ""
@@ -256,7 +257,7 @@ msgid "Organisation Unit"
 msgstr "Unidade organizacional"
 
 msgid "Choose an organisation unit"
-msgstr ""
+msgstr "Escolha uma unidade organizacional"
 
 msgid "Period"
 msgstr "Período"
