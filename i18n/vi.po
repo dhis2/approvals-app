@@ -251,7 +251,7 @@ msgid "Organisation Unit"
 msgstr "Đơn vị"
 
 msgid "Choose an organisation unit"
-msgstr ""
+msgstr "Chọn một đơn vị"
 
 msgid "Period"
 msgstr "Thời điểm"
