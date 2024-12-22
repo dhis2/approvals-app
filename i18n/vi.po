@@ -19,12 +19,14 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Not authorized"
-msgstr ""
+msgstr "Không được phép"
 
 msgid ""
 "You don't have access to the Data Approval App. Contact a system "
 "administrator to request access."
 msgstr ""
+"Bạn không có quyền truy cập vào Ứng dụng phê duyệt dữ liệu. Hãy liên hệ với "
+"quản trị viên hệ thống để yêu cầu quyền truy cập."
 
 msgid "Acceptance failed: {{error}}"
 msgstr ""
@@ -257,7 +259,7 @@ msgid "Period"
 msgstr "Thời điểm"
 
 msgid "Choose a period"
-msgstr ""
+msgstr "Chọn một thời điểm"
 
 msgid "Choose a workflow first"
 msgstr ""

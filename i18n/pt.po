@@ -3,17 +3,17 @@
 # Philip Larsen Donnelly, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
-# Ge Joao <gsimango@saudigitus.org>, 2021
 # Shelsea Chumaio, 2024
 # Laurência Luís, 2024
 # Helton Dias, 2024
+# Ge Joao <gsimango@saudigitus.org>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
 "PO-Revision-Date: 2021-11-04 13:40+0000\n"
-"Last-Translator: Helton Dias, 2024\n"
+"Last-Translator: Ge Joao <gsimango@saudigitus.org>, 2024\n"
 "Language-Team: Portuguese (https://app.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,7 +32,7 @@ msgstr ""
 "do sistema para solicitar o acesso."
 
 msgid "Acceptance failed: {{error}}"
-msgstr "A aceitação falhou: {{error}}"
+msgstr "Falha na  aceitação: {{error}}"
 
 msgid "Accept"
 msgstr "Aceitar"
@@ -47,19 +47,19 @@ msgid "Approving {{count}} data sets"
 msgid_plural "Approving {{count}} data sets"
 msgstr[0] "Aprovação de conjuntos de dados {{count}} "
 msgstr[1] "Aprovação de conjuntos de dados {{count}} "
-msgstr[2] "Aprovação de conjuntos de dados {{count}} "
+msgstr[2] "Aprovandoo  conjuntos de dados {{count}} "
 
 msgid "Approving {{count}} data set"
 msgid_plural "Approving {{count}} data set"
 msgstr[0] "Aprovação do conjunto de dados {{count}} "
 msgstr[1] "Aprovação do conjunto de dados {{count}} "
-msgstr[2] "Aprovação do conjunto de dados {{count}} "
+msgstr[2] "Aprovando o  conjunto de dados {{count}} "
 
 msgid "Are you sure you want to approve this data?"
 msgstr "Tem a certeza de que pretende aprovar estes dados?"
 
 msgid "There was a problem saving this approval"
-msgstr "Houve um problema ao guardar esta aprovação"
+msgstr "Houve um problema ao salvar esta aprovação"
 
 msgid ""
 "This data couldn’t be approved. Try again, or contact your system "
@@ -114,8 +114,8 @@ msgstr "Repetir o carregamento do conjunto de dados"
 
 msgid "This data set doesn't have any data for {{- period}} in {{- orgUnit}}."
 msgstr ""
-"Este conjunto de dados não contém quaisquer dados relativos a {{- period}} "
-"em {{- orgUnit}}."
+"Este conjunto de dados não tem quaisquer dados para a  {{- period}} em {{- "
+"orgUnit}}."
 
 msgid "1 data set"
 msgstr "1 conjunto de dados"
@@ -238,13 +238,13 @@ msgid "Financial year (Start November)"
 msgstr " Exercício financeiro (início em Novembro)"
 
 msgid "Financial year (Start October)"
-msgstr "Ano Financeiro - Outubro"
+msgstr "Exercício financeiro (início em outubro)"
 
 msgid "Financial year (Start July)"
-msgstr "Ano Financeiro - Julho"
+msgstr "Exercício financeiro (início em julho)"
 
 msgid "Financial year (Start April)"
-msgstr "Ano Financeiro - Abril"
+msgstr "Exercício financeiro (início em abril)"
 
 msgid "Clear selections"
 msgstr "Limpar selecções"
