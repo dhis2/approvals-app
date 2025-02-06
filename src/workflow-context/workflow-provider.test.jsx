@@ -1,5 +1,5 @@
 import { useDataQuery } from '@dhis2/app-runtime'
-import { renderHook } from '@testing-library/react-hooks'
+import { renderHook } from '@testing-library/react'
 import { shallow } from 'enzyme'
 import React from 'react'
 import { useSelectionContext } from '../selection-context/index.js'
