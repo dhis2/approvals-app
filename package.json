@@ -26,8 +26,8 @@
         "cypress:stub": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress run --env dhis2ApiVersion=41,networkMode=stub'"
     },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^8.1.0",
-        "@dhis2/cli-style": "^10.4.1",
+        "@dhis2/cli-app-scripts": "^12.3.0",
+        "@dhis2/cli-style": "^10.7.6",
         "@dhis2/cypress-commands": "^9.0.2",
         "@dhis2/cypress-plugins": "^9.0.2",
         "@testing-library/jest-dom": "^5.14.1",
@@ -42,9 +42,9 @@
         "start-server-and-test": "^1.13.1"
     },
     "dependencies": {
-        "@dhis2/app-runtime": "^3.2.1",
+        "@dhis2/app-runtime": "^3.13.1",
         "@dhis2/prop-types": "^1.6.4",
-        "@dhis2/ui": "^7.2.7",
+        "@dhis2/ui": "^10.1.11",
         "dompurify": "^3.1.6",
         "history": "^5.0.1",
         "prop-types": "^15.7.2",
