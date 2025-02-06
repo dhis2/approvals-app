@@ -8,7 +8,7 @@ import {
 import userEvent from '@testing-library/user-event'
 import React from 'react'
 import { SelectionContext } from '../../selection-context/index.js'
-import { Display } from './display.js'
+import { Display } from './display.jsx'
 
 describe('<Display>', () => {
     const dataSetOne = {

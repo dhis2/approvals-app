@@ -7,9 +7,9 @@ import React from 'react'
 import { useAppContext } from '../../app-context/index.js'
 import { readQueryParams } from '../../navigation/read-query-params.js'
 import { useSelectionContext } from '../../selection-context/index.js'
-import { ContextSelect } from '../context-select/context-select.js'
-import { ApprovalStatusesProvider } from './approval-statuses.js'
-import { ORG_UNIT, OrgUnitSelect } from './org-unit-select.js'
+import { ContextSelect } from '../context-select/context-select.jsx'
+import { ApprovalStatusesProvider } from './approval-statuses.jsx'
+import { ORG_UNIT, OrgUnitSelect } from './org-unit-select.jsx'
 
 jest.mock('../../navigation/read-query-params.js', () => ({
     readQueryParams: jest.fn(),

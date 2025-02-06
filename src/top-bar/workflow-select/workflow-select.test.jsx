@@ -4,9 +4,9 @@ import React from 'react'
 import { useAppContext } from '../../app-context/index.js'
 import { readQueryParams } from '../../navigation/read-query-params.js'
 import { useSelectionContext } from '../../selection-context/index.js'
-import { ContextSelect } from '../context-select/context-select.js'
-import { WorkflowSelectOption } from './workflow-select-option.js'
-import { WORKFLOW, WorkflowSelect } from './workflow-select.js'
+import { ContextSelect } from '../context-select/context-select.jsx'
+import { WorkflowSelectOption } from './workflow-select-option.jsx'
+import { WORKFLOW, WorkflowSelect } from './workflow-select.jsx'
 
 jest.mock('../../navigation/read-query-params.js', () => ({
     readQueryParams: jest.fn(),

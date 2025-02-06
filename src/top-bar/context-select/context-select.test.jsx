@@ -1,7 +1,7 @@
 import { IconChevronDown24, IconChevronUp24, Popover, Tooltip } from '@dhis2/ui'
 import { shallow } from 'enzyme'
 import React from 'react'
-import { ContextSelect } from './context-select.js'
+import { ContextSelect } from './context-select.jsx'
 
 describe('<ContextSelect>', () => {
     const baseProps = {
