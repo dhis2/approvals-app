@@ -1,4 +1,3 @@
-import { NoticeBox } from '@dhis2/ui'
 import { shallow } from 'enzyme'
 import React from 'react'
 import { ErrorMessage } from '../shared/index.js'

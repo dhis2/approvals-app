@@ -1,4 +1,4 @@
-import { act, renderHook } from '@testing-library/react-hooks'
+import { act, renderHook } from '@testing-library/react'
 import React from 'react'
 import { useAppContext } from '../app-context/index.js'
 import { pushStateToHistory } from '../navigation/push-state-to-history.js'
